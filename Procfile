@@ -1,1 +1,1 @@
-web: gunicorn azbuka_kamnya.wsgi --log-file -
+web: gunicorn --log-level debug azbuka_kamnya.wsgi

@@ -25,7 +25,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MANAGERS = ADMINS
 
 # Use a Sqlite database by default
-DATABASES = {'default': dj_database_url.config(default='postgres://qceqlmbanhwjzn:rDuBhU59DEJ5ix-4Fh2M8XxcqJ@ec2-50-19-208-138.compute-1.amazonaws.com:5432/ddr474l3higfer')}
+DATABASES = {'default': dj_database_url.config(default='postgres://sjlmfsnfprziga:RgFSVRQ2oNpi-8_ykl5mjGpBaj@ec2-54-235-134-128.compute-1.amazonaws.com:5432/dbku2v5ve351np')}
+
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 CACHES = {
@@ -144,7 +145,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
+    #'django.middleware.transaction.TransactionMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     # Allow languages to be selected
     'django.middleware.locale.LocaleMiddleware',
@@ -153,10 +154,10 @@ MIDDLEWARE_CLASSES = (
     'oscar.apps.basket.middleware.BasketMiddleware',
     # Enable the ProfileMiddleware, then add ?cprofile to any
     # URL path to print out profile details
-    #'oscar.profiling.middleware.ProfileMiddleware',
+    'oscar.profiling.middleware.ProfileMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'azbuka_kamnya.urls'
 
 # Add another path to Oscar's templates.  This allows templates to be
 # customised easily.
@@ -173,7 +174,7 @@ TEMPLATE_DIRS = (
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(message)s',
@@ -299,7 +300,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django_extensions',
     # Debug toolbar + extensions
-    #'debug_toolbar',
+    'debug_toolbar',
     'template_timings_panel',
     #'south',
     'rosetta',          # For i18n testing

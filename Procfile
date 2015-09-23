@@ -1,1 +1,1 @@
-web: gunicorn --log-level debug azbuka_kamnya.wsgi
+web: gunicorn --log-level debug homeoptik.wsgi

@@ -1,52 +1,88 @@
 {% extends "layout.html" %}
 {% load promotion_tags %}
 
+{% comment %}
+Keep the same header and footer as the standard layout template but override the
+main content area to split it into a sidebar and a content block
+{% endcomment %}
 {% block content_wrapper %}
-    <div class="container-fluid page">
-        <div class="page_inner">
-            {% block breadcrumbs %}{% endblock %}
+    {% block header %}
+        <section class="intro-block intro-page boxed-section page-bg overlay-dark-m">
 
+            <!-- Container -->
+            <div class="container">
+                <!-- Section Title -->
+                <div class="section-title invert-colors no-margin-b">
+                    <h2>{% block headertext %}{% endblock %}</h2>
+                    <p class="hidden-xs">{% block subheader %}{% endblock subheader %}</p>
+                </div>
+                <!-- /Section Title -->
+            </div>
+            <!-- /Container -->
+
+        </section>
+    {% endblock %}
+
+    <section class="page-info-block boxed-section">
+        <!-- Container -->
+        <div class="container cont-pad-x-15">
+            {% block breadcrumbs %}{% endblock %}
+        </div>
+        <!-- /Container -->
+    </section>
+
+
+    <section class="content-block default-bg">
+
+        <!-- Container -->
+        <div class="container cont-pad-t-sm">
+
+            <!-- Row -->
             <div class="row">
 
-                <aside class="col-sm-3">
+                <!-- Side Col -->
+                <div class="side-col side-col-padded col-sm-3 col-md-3">
+                    {# Render promotions at the top of the left-hand sidebar #}
                     <div id="promotions_left">
                         {% for promotion in promotions_left %}
-                        {% render_promotion promotion %}
+                            {% render_promotion promotion %}
                         {% endfor %}
                     </div>
-                    {% block column_left %} 
-                    {% endblock %}
-                </aside>
+                    {% block column_left %}{% endblock %}
+                </div>
+                <!-- /Side Col -->
 
-                <div class="col-sm-6">
-                    {% block header %}
-                    <div class="page-header action">
-                        <h1>{% block headertext %}{% endblock %}</h1>
-                    </div>
-                    {% endblock %}
+                <!-- Main Col -->
+                <div class="main-col col-sm-6 col-md-6 mgb-30-xs">
                     {% include "partials/alert_messages.html" %}
 
                     <div id="promotions">
                         {% for promotion in promotions_page %}
-                        {% render_promotion promotion %}
+                            {% render_promotion promotion %}
                         {% endfor %}
                     </div>
 
                     {% block content %}{% endblock %}
                 </div>
+                <!-- /Main Col -->
 
-                <aside class="col-sm-3">
+                <!-- Side Col -->
+                <div class="side-col side-col-padded col-sm-3 col-md-3">
+                    {# Render promotions at the top of the left-hand sidebar #}
                     <div id="promotions_right">
                         {% for promotion in promotions_right %}
-                        {% render_promotion promotion %}
+                            {% render_promotion promotion %}
                         {% endfor %}
                     </div>
-                    {% block column_right %} 
-                    {% endblock %}
-                </aside>
+                    {% block column_right %}{% endblock %}
+                </div>
+                <!-- /Side Col -->
 
-            </div><!-- /row -->
+            </div>
+            <!-- /Row -->
 
-        </div><!-- /page_inner -->
-    </div><!-- /container-fluid -->
+        </div>
+        <!-- /Container -->
+
+    </section>
 {% endblock %}

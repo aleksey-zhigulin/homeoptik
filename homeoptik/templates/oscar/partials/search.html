@@ -4,7 +4,7 @@
     <div class="vcenter">
         <div class="vcenter-this">
             <span class="header-text case-u mgb-10 hidden-xs hidden-sm"><i class="icon-left fa fa-fax bcolor-l"></i>помощь : <span class="pcolor">+7 (499) 391-19-41</span></span>
-            <form class="header-search">
+            <form method="get" action="{% url 'search:search' %}" class="header-search">
                 <div class="form-group">
                     {{ search_form.q }}
                     <button class="btn btn-empty"><i class="fa fa-search"></i></button>

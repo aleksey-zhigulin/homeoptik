@@ -1,0 +1,175 @@
+/* VLINKS
+------------------------------------ */
+$vlinks-sizes:(
+  default:(
+    active:false,
+    font-size: 13px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 35px,
+    icon-mg: 12px,
+    iconed-li-mg: 10px,
+  ),
+  
+  md:(
+    active:true,
+    font-size: 14px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 50px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+  
+  lg:(
+    active:true,
+    font-size: 15px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 60px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+);
+
+.vlinks{
+  @extend .no-list;
+  > li {
+    font-size: 13px;
+    
+    &:last-child {
+      margin:0;
+    }
+  }
+}
+
+.vlinks-ruled, .vlinks-ruled-dots {
+  > li {
+    border-bottom: 1px solid rgba(getvar(colors bcolor), 0.1);
+    line-height: 3em;
+    
+    &:last-child {
+      border: none;
+    }
+  }
+  
+}
+
+.vlinks-ruled-dots {
+  > li {
+    border-bottom: 1px dotted rgba(getvar(colors bcolor), 0.1);
+  }
+}
+
+.vlinks-tabled {
+  > li {
+    .val {
+      float: right;
+    }
+  }
+}
+
+.vlinks-iconed {
+  $vars: map-get($vlinks-sizes, default);
+  
+  > li {
+    display:block;
+    position:relative;
+    font-size: map-get($vars, font-size);
+    padding:0 0 map-get($vars, iconed-li-mg) (map-get($vars, icon-w) + map-get($vars, icon-mg));
+    line-height: map-get($vars, iconed-line-h);
+    min-height: map-get($vars, icon-w);
+    margin:0 0 map-get($vars, iconed-li-mg) 0;
+    @extend .sizing-cbox;
+
+    &.centered {
+      line-height: map-get($vars, icon-w);
+    }
+    
+    .title {
+      display: block;
+      color:getvar(colors bcolor);
+    }
+    
+    .meta {
+      display: block;
+      opacity: 0.5;
+      font-size:0.8em;
+      
+      .icon-left {
+        margin-right:map-get($vars, icon-mg);
+        opacity: 0.5;
+      }
+    }
+    
+    .icon, .img {
+      display:block;
+      position:absolute;
+      left:0;
+      top: 0;
+      width: map-get($vars, icon-w);    
+    }
+    
+    .icon {
+      background: getvar(colors bcolor-m);
+      color: #fff;
+      line-height: map-get($vars, icon-w);
+      height: map-get($vars, icon-w);
+      text-align: center;
+      font-size: floor(0.45 * map-get($vars, icon-w));
+    }
+
+  }
+}
+
+.vlinks-iconed.vlinks-alt {
+  .icon{
+    background: getvar(colors bcolor-xl);
+    color: getvar(colors pcolor);
+  }
+  
+  .title {
+    color: getvar(colors bcolor-m);
+  }
+  
+}
+
+.vlinks-iconed.vlinks-round .icon{
+  border-radius: 50%;
+}
+
+/* Sizes */
+.vlinks{
+  @each $size, $vars in $vlinks-sizes {
+    @if (map-get($vars, active)) {
+      &.vlinks-#{$size} {
+        > li {
+          font-size: map-get($vars, font-size);
+        }
+      }
+      
+      &.vlinks-#{$size}.vlinks-iconed {
+        > li {
+          font-size: map-get($vars, font-size);
+          padding:0 0 map-get($vars, iconed-li-mg) (map-get($vars, icon-w) + map-get($vars, icon-mg));
+          line-height: map-get($vars, iconed-line-h);
+          min-height: map-get($vars, icon-w);
+          margin:0 0 map-get($vars, iconed-li-mg) 0;
+        }
+        
+        .icon, .img {
+          width: map-get($vars, icon-w);    
+        }
+        
+        .icon {
+          line-height: map-get($vars, icon-w);
+          height: map-get($vars, icon-w);
+          font-size: floor(0.45 * map-get($vars, icon-w));
+        }
+        
+      }
+      
+    }
+  }
+}
+

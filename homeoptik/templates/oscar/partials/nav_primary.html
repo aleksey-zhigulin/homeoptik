@@ -1,0 +1,70 @@
+{% load staticfiles %}
+{% load currency_filters %}
+{% load category_tags %}
+{% load i18n %}
+
+
+<nav class="nav-bottom hnav hnav-borderless pcolor-bg invert-colors boxed-section">
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Header-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle no-border" data-toggle="collapse" data-target="#nav-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-navicon"></i>
+            </button>
+            <a class="navbar-brand visible-xs" href="#"><img src="{% static "images/logo-white-xs.png" %}" alt="{{ shop_name }}"></a>
+        </div>
+        <!-- /Header-->
+
+        <!-- Collapse -->
+        <div id="nav-collapse" class="collapse navbar-collapse navbar-absolute">
+            {% block nav_dropdown %}
+                <ul id="browse" class="nav navbar-nav navbar-center fill-default case-u">
+                    <li class="dropdown active {% if expand_dropdown %}open{% endif %}">
+                        <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
+                            {% trans "Browse store" %}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" data-navigation="dropdown-menu">
+                            {% category_tree depth=2 as tree_categories %}
+                            <li><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All products" %}</a></li>
+                            {% if tree_categories %}
+                                {% for tree_category, info in tree_categories %}
+                                    {% if info.has_children %}
+                                        <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                                        <ul class="dropdown-menu">
+                                    {% else %}
+                                        <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
+                                    {% endif %}
+
+                                {% for close in info.num_to_close %}
+                                    </ul></li>
+                                {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                            {% block nav_dropdown_extra_items %}
+                                <li><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
+                            {% endblock %}
+                        </ul>
+                    </li>
+                    {% block nav_extra %}
+                    {% endblock %}
+                </ul>
+            {% endblock %}
+
+        </div>
+        <!-- /Collapse -->
+
+        {% include "partials/nav_accounts.html" %}
+
+
+    </div>
+    <!-- /Container -->
+
+</nav>
+
+

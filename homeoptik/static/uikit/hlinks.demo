@@ -1,0 +1,175 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Horizontal Links</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">Hlinks Class</h3>
+  <p>Use the <code>.hlinks</code> class to display multipurpose horizontal links. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-12">
+    <h5 class="dont-copy">Default<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- hlinks -->
+    <ul class="hlinks">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">With Icons<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks">
+      <li><a href="#"><i class="icon-left fa fa-user"></i>About</a></li>
+      <li><a href="#"><i class="icon-left fa fa-lock"></i>Login</a></li>
+      <li><a href="#"><i class="icon-left fa fa-form"></i>Sign Up</a></li>
+      <li><a href="#"><i class="icon-left fa fa-comments"></i>Support</a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">With Borders<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-borders">
+      <li><a href="#"><i class="icon-left fa fa-user"></i>About</a></li>
+      <li><a href="#"><i class="icon-left fa fa-lock"></i>Login</a></li>
+      <li><a href="#"><i class="icon-left fa fa-form"></i>Sign Up</a></li>
+      <li><a href="#"><i class="icon-left fa fa-comments"></i>Support</a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">With Dotted Borders<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-borders-dotted">
+      <li><a href="#"><i class="icon-left fa fa-user"></i>About</a></li>
+      <li><a href="#"><i class="icon-left fa fa-lock"></i>Login</a></li>
+      <li><a href="#"><i class="icon-left fa fa-form"></i>Sign Up</a></li>
+      <li><a href="#"><i class="icon-left fa fa-comments"></i>Support</a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Boxed<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-boxed">
+      <li><a href="#"><i class="icon-left fa fa-user"></i>About</a></li>
+      <li><a href="#"><i class="icon-left fa fa-lock"></i>Login</a></li>
+      <li><a href="#"><i class="icon-left fa fa-form"></i>Sign Up</a></li>
+      <li><a href="#"><i class="icon-left fa fa-comments"></i>Support</a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Fixed Dimension Icons<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-icons">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Fixed Icons + Borders<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-icons hlinks-icons-borders">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+    <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Star Ratings<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hlinks -->
+    <ul class="hlinks hlinks-rating">
+      <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+      <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+      <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+    </ul>
+    <!-- /hlinks -->
+  </div>
+  <!-- /Col -->
+  
+
+
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  </div>
+<!-- /Block Demo -->
+

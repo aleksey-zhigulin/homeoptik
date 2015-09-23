@@ -1,0 +1,111 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Footer
+=================================================== -->
+<footer class="footer-block white-bg">
+    {% block footer %}
+    <!-- Container -->
+    <div class="container cont-top clearfix">
+
+        <!-- Row -->
+        <div class="row">
+
+            <!-- Brand -->
+            <div class="col-md-3 brand-col brand-center">
+                <div class="vcenter">
+                    <a class="vcenter-this" href="{{ homepage_url }}">
+                        <img src="{% static "images/logo-footer.png" %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- /Brand -->
+
+            <!-- Links -->
+            <div class="col-md-9 links-col">
+
+                <!-- Row -->
+                <div class="row-fluid">
+
+                    <!-- Col -->
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <h5>О нас</h5>
+                            <p>alksdmaldm</p>
+                        <!-- hlinks -->
+                        <ul class="hlinks hlinks-icons color-icons-borders color-icons-bg color-icons-hovered">
+                            <li><a href="https://vk.com/homeoptik/"><i class="icon fa fa-vk"></i></a></li>
+                            <li><a href="https://instagram.com/homeoptik/"><i class="icon fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCUB-CdLxuCyfqxJKYFQ11CQ"><i class="icon fa fa-youtube"></i></a></li>
+                        </ul>
+                        <!-- /hlinks -->
+                    </div>
+                    <!-- /Col -->
+
+                    <!-- Col -->
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <h5>аккаунт</h5>
+                        <ul class="vlinks">
+                            <li><a href="{% url 'customer:summary' %}">Личный кабинет</a></li>
+                            <li><a href="{% url 'customer:order-list' %}">История заказов</a></li>
+                            <li><a href="{% url 'customer:wishlists-list' %}">Список желаний</a></li>
+                            <li><a href="{% url 'basket:summary' %}">Посмотреть корзину</a></li>
+
+                        </ul>
+                    </div>
+                    <!-- /Col -->
+
+                    <!-- Col -->
+                    <div class="col-xs-6 col-sm-3 col-md-3 newsletter">
+                        <h5>способы оплаты</h5>
+                        <ul class="grid-list cols-3 cell-pad-5">
+                            <li><img src="{% static "images/cards/amazon.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/paypal.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/visa.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/mastercard.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/maestro.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/obopay.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/discover.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/cirrus.png" %}" alt=""></li>
+                            <li><img src="{% static "images/cards/google.png" %}" alt=""></li>
+                        </ul>
+                    </div>
+                    <!-- /Col -->
+
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Links -->
+
+        </div>
+        <!-- /Row -->
+
+    </div>
+    <!-- /Container -->
+
+    <!-- Bottom -->
+    <div class="footer-bottom bcolor-bg invert-colors">
+
+        <!-- Container -->
+        <div class="container">
+
+            <span class="copy-text">© 2015 Хоум Оптика.</span>
+            <!-- hlinks -->
+            {#            <ul class="hlinks pull-right">#}
+            {#                <li><a href="#">About</a></li>#}
+            {#                <li><a href="#">Login</a></li>#}
+            {#                <li><a href="#">Sign Up</a></li>#}
+            {#                <li><a href="#">Support</a></li>#}
+            {#            </ul>#}
+            <!-- /hlinks -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Bottom -->
+    {% endblock %}
+</footer>
+<!-- /Footer
+=================================================== -->
+

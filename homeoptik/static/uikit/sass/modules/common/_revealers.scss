@@ -1,0 +1,65 @@
+/* FADER
+------------------------------------ */
+.fader {
+  position: relative;
+  
+  .fader-hidden {
+    position: absolute;
+    left:0;
+    top:0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.6s;
+  }
+  
+  &:hover .fader-hidden, &:active .fader-hidden {
+    opacity: 1;
+  }
+  
+  &.fader-inverse{
+  
+    .fader-hidden {
+      opacity: 1;
+    }
+    
+    &:hover .fader-hidden, &:active .fader-hidden {
+      opacity: 0;
+    }
+  }
+  
+  
+}
+
+/* FLIPPER
+------------------------------------ */
+.flipper {
+
+  .flipper-sides {
+    position:relative;
+    @include vendorize(transition, 0.7s);
+    @include vendorize(transform-style, preserve-3d); 
+
+    .front, .back {
+      @include vendorize(backface-visibility, hidden);
+    }
+    
+    .front {
+      position: relative;
+    }
+    
+    .back {
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      transform: rotateY(180deg);
+    }
+  }
+  
+  &:hover .flipper-sides,  &:active .flipper-sides{
+    @include vendorize(transform, 'rotateY(180deg)'); 
+  }
+}

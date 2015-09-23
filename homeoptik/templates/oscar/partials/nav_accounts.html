@@ -1,0 +1,102 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Dont Collapse -->
+<div class="navbar-dont-collapse">
+
+    <!-- Navbar btn-group -->
+    <div class="navbar-btn-group btn-group navbar-right no-margin-r-xs">
+
+        {% if user.is_authenticated %}
+            <!-- Btn Wrapper -->
+            <div class="btn-wrapper dropdown">
+
+                <a class="btn btn-outline" data-toggle="dropdown">
+                    {% if num_unread_notifications > 0 %}
+                        <b class="count count-round">{{ num_unread_notifications }}</b>
+                    {% endif %}
+                    <i class="ti ti-user"></i>
+                </a>
+
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{% url 'customer:summary' %}">Личный кабинет</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'customer:order-list' %}">{% trans "Order history" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
+                    </li>
+                    {% if num_unread_notifications > 0 %}
+                        <li>
+                            <a href="{% url 'customer:notifications-inbox' %}">
+                                {% trans "Unread notifications" %}({{ num_unread_notifications }})
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <a id="logout_link" href="{% url 'customer:logout' %}">{% trans "Logout" %}</a>
+                    </li>
+                </ul>
+                <!-- /Dropdown Menu -->
+
+            </div>
+            <!-- /Btn Wrapper -->
+            {% if user.is_staff or perms.partner.dashboard_access %}
+                <!-- Btn Wrapper -->
+                <div class="btn-wrapper dropdown">
+                    <a class="btn btn-outline"href="{% url 'dashboard:index' %}"><i class="ti ti-panel"></i></a>
+                </div>
+                <!-- /Btn Wrapper -->
+            {% endif %}
+
+        {% else %}
+            <!-- Btn Wrapper -->
+            <div class="btn-wrapper dropdown">
+
+                <a class="btn btn-outline" id="login_link" href="{% url 'customer:login' %}"><i class="fa fa-lock"></i></a>
+
+            </div>
+            <!-- /Btn Wrapper -->
+        {% endif %}
+
+    </div>
+    <!-- /Navbar btn-group -->
+
+    <!-- Navbar Left -->
+    {% if LANGUAGES|length > 1 %}
+        <ul class="nav navbar-nav navbar-left navbar-right-xs">
+            <li class="dropdown has-panel">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-left" alt="" src="{% static "images/flags/"|add:LANGUAGE_CODE|add:".gif" %}"><span>{{ LANGUAGE_CODE }}</span><i class="fa fa-angle-down toggler"></i></a>
+                <!-- Dropdown Panel -->
+                <div class="dropdown-menu dropdown-panel" data-keep-open="true">
+                    <fieldset>
+                        <form id="language_selector" action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ language_neutral_url_path }}" />
+                            <div class="form-group">
+                                <label>Язык</label>
+                                <select name="language" class="form-control">
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE%} selected="selected"{% endif %}>
+                                            {{ language.name_local }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-block" type="submit" data-loading-text="{% trans 'Submitting...' %}">{% trans "Change" %}</button>
+                        </form>
+                    </fieldset>
+                </div>
+                <!-- /Dropdown Panel -->
+
+            </li>
+        </ul>
+        <!-- /Navbar Left -->
+    {% endif %}
+
+</div>
+<!-- /Dont Collapse -->

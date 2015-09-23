@@ -1,0 +1,199 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>BxSlider - Custom Version</h1>
+    <p>The popular open source responsive slider plugin <a href="http://bxslider.com/"><i>BxSlider</i></a> has been <span class="orange">modified</span> to accept an unlimitted number of break points. Support for animated layers has also been added.</p>
+    <ul class="ul-icon">
+       <li><i class="icon fa fa-check yellow"></i>Added data attributes support</li>
+       <li><i class="icon fa fa-check yellow"></i>Added break points support</li>
+       <li><i class="icon fa fa-check yellow"></i>Added animatable layers</li>
+       <li><i class="icon fa fa-check yellow"></i>Added automatic slide width calculation</li> 
+       <li><i class="icon fa fa-check yellow"></i>Added self calling capability</li>
+    </ul>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Copying and Pasting made easy !</h4>
+    <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open any page in an HTML editor to view the markup!</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h4 class="demo-title">Applying styles</h4>
+  <p>The best way to apply  your own styles to <mark>BxSlider</mark> is to wrap a div around your slider and give it a class name</p>
+<pre>
+  <code class="html">
+  <span class="hljs-comment">&lt;!-- Slider Wrapper--&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"my-slider"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- BxSlider --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"bxslider"</span> <span class="hljs-attribute">data-call</span>=<span class="hljs-value">"bxslider"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic1.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic2.jpg"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic3.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic4.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- /BxSlider --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- /Slider Wrapper --&gt;</span>
+  </code>
+</pre>
+  <h4 class="demo-title">Premade Control Styles</h4>
+  <p>A few premade controls styles have been made. All require a <mark>a parent div that wraps</mark> the actual slider.</p>
+  <!-- Row -->
+  <div class="row" style="padding:65px 20px 0 20px; margin:0; background: #eee">
+    <!-- Col -->
+    <div class="col-md-7">
+      <!-- Slider -->
+      <div id="bx-demo" class="">
+        <ul class="bxslider" data-call="bxslider">
+          <li> <img src="images/sliders/pic1.jpg" /> </li>
+          <li> <img src="images/sliders/pic2.jpg" /> </li>
+          <li> <img src="images/sliders/pic3.jpg" /> </li>
+          <li> <img src="images/sliders/pic4.jpg" /> </li>
+        </ul>
+      </div>
+      <!-- /Slider -->
+    </div>
+    <!-- /Col -->
+    
+    <!-- Col -->
+    <div class="col-md-5  bx-demo-inputs">
+      <!-- Row -->
+      <div class="row">
+        <!-- Col -->
+        <div class="col-md-6">
+        <div class="form-group">
+          <label>Control Style</label>
+          <select class="form-control bx-switcher" data-remove="">
+            <option value="">Default</option>
+            <option value="bx-controls-box">boxed</option>
+            <option value="bx-controls-round">rounded</option>
+          </select>
+        </div>
+        
+        
+        <div class="form-group">
+          <label>Control position</label>
+          <select class="form-control bx-switcher" data-remove="">
+            <option value="">Default</option>
+            <option value="bx-controls-top">Top</option>
+            <option value="bx-controls-top-left">Top Left</option>
+            <option value="bx-controls-top-right">Top Right</option>
+            <option value="bx-controls-bottom">Bottom</option>
+            <option value="bx-controls-bottom-right">Bottom Right</option>
+            <option value="bx-controls-bottom-left">Bottom Left</option>
+            <option value="bx-controls-above">Above</option>
+            <option value="bx-controls-above-left">Above Left</option>
+            <option value="bx-controls-above-right">Above Right</option>
+            <option value="bx-controls-below">Below</option>
+            <option value="bx-controls-below-right">Below Right</option>
+            <option value="bx-controls-below-left">Below Left</option>
+          </select>
+        </div>
+        </div>
+        <!-- Col -->
+        
+        <!-- Col -->
+        <div class="col-md-6">
+        
+          <div class="form-group">
+            <label>Pager Color</option>
+            <select class="form-control bx-switcher" data-remove="">
+              <option value="">Light (Default)</option>
+              <option value="bx-pager-dark">Dark</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Pager Style</label>
+            <select class="form-control bx-switcher" data-remove="">
+              <option value="">Default</option>
+              <option value="bx-pager-round">Round</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Pager Position</label>
+            <select class="form-control bx-switcher" data-remove="">
+              <option value="">Default</option>
+              <option value="bx-pager-top-left">Top Left</option>
+              <option value="bx-pager-top-right">Top Right</option>
+              <option value="bx-pager-bottom-right">Bottom Right</option>
+              <option value="bx-pager-bottom-left">Bottom Left</option>
+              <option value="bx-pager-above-left">Above Left</option>
+              <option value="bx-pager-above-right">Above Right</option>
+              <option value="bx-pager-below-right">Below Right</option>
+              <option value="bx-pager-below-left">Below Left</option>
+            </select>
+          </div>
+          
+        </div>
+        <!-- Col -->
+      </div>
+      <!-- /Row -->
+
+      
+
+      
+
+
+    </div>
+    <!-- /Col -->
+    
+    <div class="col-md-12">
+<pre style="background: #fff; margin-top: 65px;">
+  <code class="html">
+  <span class="hljs-comment">&lt;!-- Slider Wrapper--&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span id="bx-demo-class" class="hljs-value">""</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- BxSlider --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"bxslider"</span> <span class="hljs-attribute">data-call</span>=<span class="hljs-value">"bxslider"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic1.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic2.jpg"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic3.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"images/sliders/pic4.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- /BxSlider --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- /Slider Wrapper --&gt;</span>
+  </code>
+</pre>
+    </div>
+
+  </div>
+  <!-- /Row -->
+  
+
+
+</div>
+<!-- /Block Demo -->
+  <script>
+    $(document).ready(function(){
+    
+      $('.bx-switcher').each(function (e) {
+        var classCol = "";
+        
+        $(this).find("option").each(function (e) {
+          var val = $(this).attr("value");
+          if(val) {
+            classCol += val + " ";
+          }
+        });
+      
+        $(this).attr("data-remove", classCol);
+      });
+        
+      $('.bx-switcher').change(function (e) {
+
+        var val = $(this).val();
+        var rmv = $(this).attr("data-remove");
+        $("#bx-demo-class").html("my-slider " + val);
+        $("#bx-demo").removeClass(rmv).addClass(val);
+        var cval = "\"" + $("#bx-demo").attr("class") + "\"";
+        $("#bx-demo-class").html(cval);
+
+      });
+
+    });
+  </script>

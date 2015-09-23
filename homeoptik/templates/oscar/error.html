@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load compress %}
+{% load staticfiles %}
+
+{% block mainstyles %}
+    {% block styles %}
+        {% compress css %}
+            <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+            <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
+        {% endcompress %}
+    {% endblock %}
+{% endblock %}
+
+{% block body_class %}bcolor-xxl-bg{% endblock %}
+
+{% block layout %}
+    {#{% include "partials/nav_accounts.html" %}#}
+    {##}
+    {#<div class="container-fluid">#}
+    {#    <div class="jumbotron">#}
+    {#        <h1>{% block error_heading %}{% trans 'Sorry!' %}{% endblock %}</h1>#}
+    {#        {% block error_message %}{% endblock %}#}
+    {#        <p>#}
+    {#            <a class="btn btn-primary btn-lg" onclick="javascript:history.go(-1);">{% trans 'Return to previous page' %}</a>#}
+    {#            <a class="btn btn-primary btn-lg" href="{{ homepage_url }}">{% trans "Go to homepage" %}</a>#}
+    {#        </p>#}
+    {#    </div>#}
+    {#</div>#}
+    <div class="empty-block abs-filler">
+        <!-- Vcenter -->
+        <div class="vcenter">
+            <div class="vcenter-this">
+                <!-- Container -->
+                <div class="container">
+                    <!-- Error Block -->
+                    <div class="error-block wider">
+                        <!-- Left -->
+                        <div class="left">
+                            <div class="vcenter">
+                                <div class="vcenter-this">
+                                    {% block error_icon %}<i class="error-icon fa fa-cogs"></i>{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Left -->
+
+                        <!-- Right -->
+                        <div class="right">
+                            <h4>{% block error_heading %}{% trans 'Sorry!' %}{% endblock %}</h4>
+                            <p>{% block error_message %}{% endblock %}</p>
+                            <a class="btn btn-base btn-lg" onclick="javascript:history.go(-1);">{% trans 'Return to previous page' as text %}{{ text|upper }}</a>
+                            <a class="btn btn-primary btn-lg" href="{{ homepage_url }}">{% trans "Go to homepage" as text %}{{ text|upper }}</a>
+                        </div>
+                        <!-- /Right -->
+                    </div>
+                    <!-- /Error Block -->
+                </div>
+                <!-- /Container -->
+            </div>
+            <!-- /Vcenter this -->
+        </div>
+        <!-- /Vcenter -->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "uikit/js/uikit.js" %}"></script>
+    <script src="{% static "uikit/js/jquery-latest.min.js" %}"></script>
+{% endblock %}

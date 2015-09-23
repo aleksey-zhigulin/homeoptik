@@ -1,0 +1,114 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Vertical Plans</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">vplan Class</h3>
+  <p>Use the <code>.vplan</code> class to display multipurpose vertical price plans. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Plan with text<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vplan -->
+    <div class="vplan">
+      <i class="icon ti ti-desktop"></i>
+      <h4 class="title">web design</h4>
+      <span class="price" ><i>from</i>$2500</span>
+      <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+    <!-- /vplan -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Plan with list<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vplan -->
+    <div class="vplan">
+      <i class="icon ti ti-desktop"></i>
+      <h4 class="title">web design</h4>
+      <span class="price" ><i>from</i>$2500</span>
+      <ul class="vlist items">
+        <li>PSD to HTML Conversion</li>
+        <li>Theming Services</li>
+        <li>PSD to Email Conversion</li>
+        <li>Responsive Design</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+    <!-- /vplan -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Featured Plan<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vplan -->
+    <div class="vplan vplan-featured">
+      <i class="icon ti ti-desktop"></i>
+      <h4 class="title">web design</h4>
+      <span class="price" ><i>from</i>$2500</span>
+      <ul class="vlist items">
+        <li>PSD to HTML Conversion</li>
+        <li>Theming Services</li>
+        <li>PSD to Email Conversion</li>
+        <li>Responsive Design</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+    <!-- /vplan -->
+  </div>
+  <!-- /Col -->
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p class="no-margin-b">No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  </div>
+<!-- /Block Demo -->
+

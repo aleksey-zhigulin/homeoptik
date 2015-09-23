@@ -1,0 +1,146 @@
+/* HLINKS
+------------------------------------ */
+$hlinks-sizes:(
+  default:(
+    active:false,
+    font-size: 13px,
+    line-h: 2.5em,
+    pad-x: 15px,
+    margin-x: 3px,
+    icon-size: 30px, 
+  ),
+  
+  md:(
+    active:true,
+    font-size: 14px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 50px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+  
+  lg:(
+    active:true,
+    font-size: 15px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 60px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+);
+
+$hlinks-vars: map-get($hlinks-sizes, default);
+
+.hlinks {
+  @extend .hlist;
+  line-height: 1;
+  > li {
+    font-size: map-get($hlinks-vars, font-size);
+    > a {
+      display: block;
+      padding:0 map-get($hlinks-vars, pad-x);
+      line-height: map-get($hlinks-vars, line-h);
+      color: getvar(colors text);
+      
+      .icon-left {
+        margin-right: 10px;
+        opacity: 0.4;
+      }
+    }
+    
+    &:hover > a, &.active > a {
+      color: getvar(colors pcolor);
+    }
+  }
+  
+  &.invert-colors {
+    > li > a {
+      color: #fff;
+    }
+  }
+}
+
+.hlinks.hlinks-borders, .hlinks.hlinks-borders-dotted {
+  > li {
+    > a  {
+      border-right: 1px solid rgba(#000, 0.1);
+    }
+    
+    &:last-child > a {
+      border: none;
+    }
+  }
+}
+.hlinks.hlinks-borders-dotted > li > a {
+  border-right: 1px dotted rgba(#000, 0.1);
+}
+.hlinks.hlinks-boxed {
+  margin:0 -5px;
+  > li {
+    margin:0 5px;
+    > a  {
+      border: 1px solid rgba(#000, 0.1);
+    }
+  }
+}
+
+.hlinks-icons, .hlinks-images {
+  margin:0 - map-get($hlinks-vars, margin-x);
+  > li {
+    margin:0 map-get($hlinks-vars, margin-x);
+    > a {
+      line-height:1;
+      padding:0;
+      
+      .icon{
+        @include fixed-icon(square, map-get($hlinks-vars, icon-size));
+      }
+    }
+    
+    img {
+      width: map-get($hlinks-vars, icon-size);
+      height: auto;
+    }
+  }
+}
+
+.hlinks-icons-round .icon {
+  border-radius: 50%;
+}
+
+.hlinks-rating {
+  line-height: 1;
+  > li {
+    font-size: map-get($hlinks-vars, font-size);
+    margin:0 2px;
+    line-height: 1em;
+    > a {
+      line-height: inherit;
+      padding:0;
+      color: rgba(#000, 0.1);
+      
+      .icon {
+        line-height: inherit;
+      }
+    }
+    
+  } 
+  
+  &.hlinks-rating-yellow > li{
+    &:hover > a, &.active > a {
+      color: #FEBB08;
+    }
+  }
+}
+
+.hlinks.hlinks-icons-borders > li > a {
+  border: 1px solid rgba(#000, 0.1);
+}
+
+.hlinks.hlinks-icons-borders.invert-colors > li > a {
+  border: 1px solid #fff;
+}
+
+

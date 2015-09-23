@@ -1,0 +1,229 @@
+/* TYPOGRAPHY
+-------------------------------------------------- */
+@mixin type-scale($bsize, $rate, $lh) {
+
+  $lhpx : $bsize * $lh;
+  $mg: floor($lhpx);
+  
+  body {
+    font: getvar(type font-size) getvar(body-font name), Arial, sans-serif;
+    line-height: #{$lh}em;
+    color: getvar(colors text);
+  }
+  
+  .font-size-sm {
+    font-size: 0.85em;
+  }
+  p, ul, ol, dt, blockquote, figure, pre,table,fieldset {
+    margin: 0 0 $mg 0;
+  }
+
+  hr {
+    margin: $mg 0;
+    border:none;
+    border-top:1px solid #ddd;
+
+    &.y-200pc {
+      margin: ($mg * 2) 0;
+    }
+    &.y-300pc {
+      margin: ($mg * 3) 0;
+    }
+    
+    &.y-30 {
+      margin:30px 0;
+    }
+  }
+  
+  /* hs */
+  @for $n from 6 through 1 {
+  
+    $fsize: floor($bsize * (pow($rate, ($n))));
+    //$fsize: floor($bsize * $n);
+    /* #{$n} */
+    h#{7 - $n} {
+      font-size: $fsize;
+      line-height: #{$lhpx / $fsize}em;
+      margin: $mg 0 $mg 0;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: getvar(main-font normal);
+    font-family: getvar(main-font name);
+    color: getvar(colors title);
+  }
+  
+  pre {
+    padding: $mg;
+    overflow: auto;
+    
+    &.no-wrap, &.no-wrap code {
+      white-space: pre;
+    }
+  }
+  
+  blockquote {
+    border-left: 5px solid getvar(colors pcolor);
+    padding: $mg $mg $mg ($mg * 1.5);
+    font-size: floor($bsize * $rate);
+    
+    small {
+      margin-top: $mg;
+      color: getvar(colors pcolor);
+    }
+  }
+  
+  img {
+    max-width:100%;
+    height:auto;
+  }
+
+  a {
+    color: getvar(colors link);
+  } 
+  a:hover{ 
+    text-decoration:none;
+    color: getvar(colors link);
+  }
+
+  a, a:focus, a:active {
+    outline:0; 
+    text-decoration:none;
+  }
+  
+  
+  .dcap {
+    $h: floor($bsize * $lh * 2);
+    
+    &::first-letter,  {
+      font-size: $h;
+      display:block;
+      float: left;
+      margin:0 10px 0 0;  
+      text-align:center;
+    }
+    
+    &.dcap-pcolor::first-letter {
+      color: getvar(colors pcolor);
+    }
+    
+    &.dcap-square::first-letter, &.dcap-round::first-letter {
+      background: getvar(colors pcolor);
+      color: #fff;
+      font-size: floor(0.5 * $h);
+      padding:12px;
+    }
+    
+    &.dcap-round::first-letter {
+      border-radius:50%;
+    }
+  }
+
+   
+  mark {
+    color: getvar(colors pcolor);
+    background: getvar(colors bcolor-xl);
+  }
+   
+  ul.ul-square {
+    list-style: square;
+  }
+  
+  ul.ul-circle {
+    list-style: circle;
+  }
+  
+  ul.ul-disc {
+    list-style: disc;
+  }
+  
+  ul.ul-icon, ul.ul-toggle {
+    list-style: none;
+
+    .icon {
+      margin-right: 10px;
+    }
+    
+    &.ul-icon-round  {
+      .icon {
+        background: getvar(colors pcolor);
+        color: #fff;
+        @include fixed-icon(round, 20px);
+        vertical-align: middle;
+      }
+      
+      li {
+        padding:3px 0;
+      }
+    }
+  }
+  
+  ul.ul-toggle {
+    padding:0;
+    
+    > li {
+      line-height:40px;
+      border-bottom: 1px solid rgba(#000, 0.1);
+      cursor: pointer;
+      color:getvar(colors text); 
+      
+      &:hover {
+        color:getvar(colors bcolor);        
+      }
+      
+      a {
+        color: inherit;
+      }
+      
+      .toggler {
+        float: right;
+        line-height: inherit;
+        transition: all 0.5s;
+      }
+      
+      > ul {
+        display: none;
+        list-style: none;
+        padding:0;
+        
+        > li {
+          margin:0 0 2px 0;
+          padding:0 10px;
+          background: getvar(colors bcolor-xxl);
+          color:getvar(colors text);
+            
+          > a {
+            color: inherit;
+          }
+          
+          &:hover {
+            background: getvar(colors bcolor-xl);
+            color:getvar(colors bcolor);
+          }
+        }
+      }
+      &:last-child {
+        border:none;
+      }
+      
+      &.active {
+        border: none;
+        .toggler {
+        transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  
+  input[type="radio"], 
+  input[type="checkbox"] {
+    line-height: 1;
+    margin: cmg($lhpx, 13px) 0 0;
+  }
+}
+
+@include type-scale(getvar(type font-size), getvar(type scale), getvar(type line-h));
+
+
+

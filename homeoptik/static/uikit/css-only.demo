@@ -1,0 +1,29 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Working with CSS</h1>
+    <p class="no-margin-b">The kit was built using sass but, the css files are still usable.</p>
+  </header>
+  <!-- /Header -->
+
+  <h3 class="demo-title">You can still edit the CSS!</h3>
+  <p>If you are not into CSS pre processors like sass, you can always open up <code>uikit.css</code> and edit it manually.</p>
+
+  <h3 class="demo-title">All components use CSS anyway</h3>
+  <p>The kit is <mark>still be usable without sass</mark>. So <mark>have no fear</mark> if the Sass parts freak you out. Using a pre processor like sass just makes editing maintenace easier.</p>
+
+  <h3 class="demo-title">Feel free to skip the SASS sections !</h3>
+  <p>If your not going to use Sass, then there is no need to read the Sass sections. You will do <mark>just fine editing the HTML and CSS</mark> files.</p>
+  
+  <h3 class="demo-title">learning some SASS is still recomemnded</h3>
+  <p>Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly</p>
+  <p>Building and organizing all the kit's modules would not have been possible without using Sass.</p>
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Learn more about SASS !</h4>
+    <p>For an in depth explanation of SASS and information on usage please visit <a href="http://sass-lang.com/">http://sass-lang.com/</a></p>
+  </div>
+  <!-- /Callout -->
+</div>
+<!-- /Block Demo -->

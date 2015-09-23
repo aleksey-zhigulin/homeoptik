@@ -1,0 +1,113 @@
+/* FORMS 
+-------------------------------------------*/
+label {
+  font-weight: normal;
+}
+
+.input-group {
+  .input-group-addon {
+    background: getvar(colors bcolor-xl);
+    i {
+      color: rgba(#000, 0.2);
+      width: 1em;
+    }
+  }
+}
+
+.form-inline{
+  font-size:0;
+}
+
+
+.form-control:focus {
+  border-color: getvar(colors pcolor);
+  outline: 0;
+  box-shadow:none;
+}
+
+/* SLIDER GROUP
+-------------------------------------------*/
+.slider-group {
+  position: relative;
+  $w: 100px;
+  $h: 34px;
+  z-index: 2;
+
+  .text-control {
+    padding-right: $w;
+  }
+  .slider-ctrl {
+    width: $w - 10;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:10px;
+    margin:auto 0;
+    z-index: 10;
+  }
+  
+  .input-group {
+    z-index: 1;
+  }
+
+}
+
+/* FORM PANEL
+-------------------------------------------*/
+.form-panel {
+  border: 1px solid rgba(#000, 0.2);
+  background: #fff;
+  margin-bottom:30px;
+  box-shadow:0 0 5px 0px rgba(#000, 0.1);
+  header {
+    font-weight: getvar(title-font light);
+    font-size: 20px;
+    line-height: 20px;
+    padding: 25px 30px;
+    background: getvar(colors bcolor-xl);
+    border-bottom: 1px solid rgba(#000, 0.1);
+    color: getvar(colors bcolor-m);
+    
+    .icon {
+      line-height:inherit;
+      margin-right: 10px;
+      opacity: 0.5;
+    }
+  }
+  
+  footer {
+    padding: 25px 30px;
+    background: getvar(colors bcolor-xl);
+    border-top: 1px solid rgba(#000, 0.1);
+  }
+  
+  .form-group {
+    label {
+      font-weight: normal;
+    }
+  }
+
+  fieldset {
+    padding:30px;
+    border: none;
+    border-bottom: 1px solid rgba(#000, 0.1);
+    margin:0 0 -1px 0;
+  }
+  
+  &.panel-borderless {
+    box-shadow:none;
+    border:none;
+    
+    header {
+      padding:20px 0;
+      border:none;
+      background:none;
+    }
+    
+    fieldset {
+      padding:20px 0;
+      margin:0;
+      border:none;
+    }
+  }
+}

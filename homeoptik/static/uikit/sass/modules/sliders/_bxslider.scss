@@ -1,0 +1,330 @@
+/* BXSLIDER CUSTOM 
+------------------------------------------- */
+$bx-pager-sizes:(
+  default:(
+    active: false,
+    size:12px,
+    offset: 20px,
+  ),
+  // your own sizes here
+);
+
+$bx-control-sizes:(
+  default:(
+    active: false,
+    size:35px,
+    offset: 20px,
+  ),
+  // your own sizes here
+);
+
+$bx-control-default: map-get($bx-control-sizes, default);
+$bx-pager-default: map-get($bx-pager-sizes, default);
+
+.bxslider {
+  @extend .no-list;
+}
+
+.bx-wrapper {
+  position: relative;
+  z-index: getvar(z-layers content);
+  *zoom: 1;
+  
+  img {
+    max-width: 100%;
+    display: block;
+    line-height: 1;
+  }
+  
+  .bx-loading {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: getvar(z-layers controls) + 10;
+  }
+}
+
+/* LAYERS 
+--------------------------------------------*/
+.bx-wrapper {
+  .bx-layer {
+    visibility: hidden;
+  }
+
+  .active .bx-layer {
+    visibility: visible;
+  }
+}
+
+/* CONTROLS
+-------------------------------------------- */
+.bx-wrapper {
+  $vars: map-get($bx-control-sizes, default);
+  
+  .bx-controls {
+    width:100%;
+  }
+
+  .bx-controls-direction { 
+    
+    a {
+      font-family: 'themify';
+      font-size: floor(0.7 *  map-get($vars, size));
+      text-align: center;
+      width: map-get($vars, size);
+      height: map-get($vars, size);
+      line-height: map-get($vars, size);
+      color: #fff;
+      display: block;
+      position: absolute;
+      top:0;
+      bottom:0;
+      margin:auto 0;
+      z-index: getvar(z-layers controls);
+
+      &.bx-next { 
+        left: map-get($vars, offset);
+        &:after {
+          font-family: "themify";
+          content: '\e64a';
+        }
+      }
+      
+      &.bx-prev { 
+        right: map-get($vars, offset);
+        &:after {
+          font-family: "themify";
+          content: '\e649';
+        }
+      }
+
+    }
+	}
+}
+
+
+
+.bx-controls-box .bx-wrapper .bx-controls-direction a,
+.bx-controls-round .bx-wrapper .bx-controls-direction a {
+  $vars: map-get($bx-control-sizes, default);
+  font-size: floor(0.5 *  map-get($vars, size));
+  background: rgba(getvar(colors bcolor), 0.9);
+
+} 
+
+.bx-controls-invert-colors.bx-controls-box .bx-wrapper .bx-controls-direction a,
+.bx-controls-invert-colors.bx-controls-round .bx-wrapper .bx-controls-direction a {
+  &.bx-prev {
+    background: rgba(#fff, 0.9);
+    color: rgba(getvar(colors bcolor), 0.9);
+  }
+}
+
+.bx-controls-bcolor .bx-controls-direction a.bx-next{
+  background: rgba(getvar(colors bcolor), 0.9);
+}
+
+.bx-controls-gray .bx-controls-direction{
+  a.bx-next {
+    background: getvar(colors bcolor-xxl);
+    color: getvar(colors bcolor);
+    margin-left:1px;
+  }
+
+}
+
+.bx-controls-round .bx-wrapper .bx-controls-direction a {
+  border-radius: 50%;
+} 
+
+.bx-controls-above .bx-wrapper .bx-controls-direction {
+
+}
+
+.bx-controls-above .bx-wrapper .bx-controls-direction,
+.bx-controls-above-left .bx-wrapper .bx-controls-direction,
+.bx-controls-above-right .bx-wrapper .bx-controls-direction,
+.bx-controls-below-right .bx-wrapper .bx-controls-direction,
+.bx-controls-below-left .bx-wrapper .bx-controls-direction,
+.bx-controls-below .bx-wrapper .bx-controls-direction,
+.bx-controls-top .bx-wrapper .bx-controls-direction,
+.bx-controls-top-left .bx-wrapper .bx-controls-direction,
+.bx-controls-top-right .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-right .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-left .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-center .bx-wrapper .bx-controls-direction {
+  position: absolute;
+  width: map-get($bx-control-default, size) * 2;
+  height: map-get($bx-control-default, size);
+  margin:0 auto;
+  right:0;
+  left:0;
+  bottom: map-get($bx-control-default, margin-x);
+  z-index: getvar(z-layers controls);
+  
+  a {
+    margin:0;
+    position: static;
+    float:right;
+  }
+}
+
+
+.bx-controls-below,
+.bx-controls-below-left,
+.bx-controls-below-right{
+  padding-bottom: map-get($bx-control-default, size) + map-get($bx-control-default, offset);
+}
+
+.bx-controls-below .bx-wrapper .bx-controls-direction,
+.bx-controls-below-left .bx-wrapper .bx-controls-direction,
+.bx-controls-below-right .bx-wrapper .bx-controls-direction {
+  bottom: - (map-get($bx-control-default, size) + map-get($bx-control-default, offset));
+  top: auto;
+}
+
+.bx-controls-above .bx-wrapper .bx-controls-direction,
+.bx-controls-above-left .bx-wrapper .bx-controls-direction,
+.bx-controls-above-right .bx-wrapper .bx-controls-direction {
+  top: - (map-get($bx-control-default, size) + map-get($bx-control-default, offset));
+  bottom: auto;
+}
+
+.bx-controls-bottom .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-left .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-right .bx-wrapper .bx-controls-direction {
+  bottom: map-get($bx-control-default, offset);
+  top: auto;
+}
+
+.bx-controls-top .bx-wrapper .bx-controls-direction,
+.bx-controls-top-left .bx-wrapper .bx-controls-direction,
+.bx-controls-top-right .bx-wrapper .bx-controls-direction {
+  top: map-get($bx-control-default, offset);
+  bottom: auto;
+}
+
+.bx-controls-below-left .bx-wrapper .bx-controls-direction,
+.bx-controls-above-left .bx-wrapper .bx-controls-direction,
+.bx-controls-top-left .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-left .bx-wrapper .bx-controls-direction {
+  left: map-get($bx-control-default, offset);
+  right: auto;
+}
+
+.bx-controls-below-right .bx-wrapper .bx-controls-direction,
+.bx-controls-above-right .bx-wrapper .bx-controls-direction,
+.bx-controls-top-right .bx-wrapper .bx-controls-direction,
+.bx-controls-bottom-right .bx-wrapper .bx-controls-direction {
+  right: map-get($bx-control-default, offset);
+  left: auto;
+}
+
+.bx-controls-below-right .bx-wrapper .bx-controls-direction,
+.bx-controls-above-right .bx-wrapper .bx-controls-direction {
+  right: 0;
+}
+
+.bx-controls-below-left .bx-wrapper .bx-controls-direction,
+.bx-controls-above-left .bx-wrapper .bx-controls-direction {
+  left: 0;
+}
+
+/* PAGER
+-------------------------------------------- */
+.bx-pager {
+  $vars: map-get($bx-pager-sizes, default);
+
+  width:100%;
+  position: absolute;
+  bottom: map-get($vars, offset);
+  font-size:0;
+  zoom: 1;
+  z-index: getvar(z-layers controls);
+  text-align:center;
+  height: map-get($vars, size);
+  
+  .bx-pager-item {
+    display: inline-block;
+    margin:0 2px;
+    
+    a {
+      display:block;
+      width: map-get($vars, size);
+      height: map-get($vars, size);
+      background: rgba(#fff, 0.5);
+      
+      &.active, &:hover{
+        background: #fff;
+      }
+    }
+  }
+}
+
+.bx-pager-above-right .bx-wrapper .bx-pager,
+.bx-pager-top-right .bx-wrapper .bx-pager,
+.bx-pager-below-right .bx-wrapper .bx-pager,
+.bx-pager-bottom-right .bx-wrapper .bx-pager {
+  text-align: right;
+  right: map-get($bx-pager-default, offset);
+}
+
+.bx-pager-above-left .bx-wrapper .bx-pager,
+.bx-pager-top-left .bx-wrapper .bx-pager,
+.bx-pager-below-left .bx-wrapper .bx-pager,
+.bx-pager-bottom-left .bx-wrapper .bx-pager {
+  text-align: left;
+  left: map-get($bx-pager-default, offset);
+}
+
+.bx-pager-top-left .bx-wrapper .bx-pager,
+.bx-pager-top-right .bx-wrapper .bx-pager {
+  top: map-get($bx-pager-default, offset);
+  bottom: auto;
+}
+
+.bx-pager-bottom-left .bx-wrapper .bx-pager,
+.bx-pager-bottom-right .bx-wrapper .bx-pager {
+  bottom: map-get($bx-pager-default, offset);
+  top: auto;
+}
+.bx-pager-above-left .bx-wrapper .bx-pager,
+.bx-pager-above-right .bx-wrapper .bx-pager,
+.bx-pager-below-left .bx-wrapper .bx-pager,
+.bx-pager-below-right .bx-wrapper .bx-pager {
+  left:0;
+  right:0;
+}
+.bx-pager-above-left .bx-wrapper .bx-pager,
+.bx-pager-above-right .bx-wrapper .bx-pager {
+  top: - (map-get($bx-pager-default, offset) + map-get($bx-pager-default, size));
+  bottom: auto;
+}
+
+.bx-pager-below-left .bx-wrapper .bx-pager,
+.bx-pager-below-right .bx-wrapper .bx-pager {
+  bottom: - (map-get($bx-pager-default, offset) + map-get($bx-pager-default, size));
+  top: auto;
+}
+
+.bx-pager-dark .bx-pager{
+  .bx-pager-item a{
+    background: rgba(#000, 0.1);
+    
+    &.active, &:hover {
+      background: getvar(colors pcolor);
+    }
+  }
+}
+
+.bx-pager-round {
+  .bx-pager .bx-pager-item a{
+    border-radius: 50%;
+  }
+}
+
+

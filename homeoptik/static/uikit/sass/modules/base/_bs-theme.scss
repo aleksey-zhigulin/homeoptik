@@ -1,0 +1,369 @@
+// ==========================================================
+// Flat Bootstrap Theme
+// ==========================================================
+.img-thumbnail,
+.btn,
+.btn-group .btn,
+.btn-group .dropdown-menu,
+.btn-group .btn,
+.btn-group .btn:first-child:not(:last-child),
+.btn-group .btn:last-child:not(:first-child),
+.table-bordered,
+.table-bordered tr:first-child th:first-child,
+.table-bordered tr:first-child th:last-child,
+.table-bordered tr:last-child td:first-child,
+.table-bordered tr:last-child td:last-child,
+.input-group .btn,
+.input-group .dropdown-menu,
+.input-group .form-control,
+.input-group .input-group-addon,
+.dropdown-menu,
+.dropdown-menu .dropdown-submenu .dropdown-menu,
+.form .form-control,
+.form .btn,
+.form-control,
+.label,
+.badge,
+.alert,
+.alert .btn,
+.progress,
+.breadcrumb,
+.tooltip .tooltip-inner,
+.popover,
+.nav-list-panel,
+.nav-tabs li > a,
+.tabs-below .nav-tabs li > a,
+.tabs-right .nav-tabs li > a,
+.tabs-left .nav-tabs li > a,
+.nav-tabs .dropdown-menu,
+.tabs-below .nav-tabs .dropdown-menu,
+.nav-pills li a,
+.nav-pills .dropdown-menu,
+.navbar,
+.navbar .dropdown-menu,
+.progress-bar, .progress
+.pagination li:first-child a, 
+.pagination li:first-child span,
+.pagination li:last-child a, 
+.pagination li:last-child span,
+.pager li a:hover,
+.pager li a:focus,
+.panel,
+.panel-heading,
+.panel-body,
+.breadcrumb-arrow li:first-child a,
+pre, code,.container .jumbotron,
+.input-lg, .form-group-lg .form-control ,
+.modal-header .modal-title,.modal-content,
+.panel-group .panel, .panel-group .panel-heading
+ {
+	@include vendorize(border-radius, 0);
+	@include vendorize(box-shadow, none);
+	@include vendorize(text-shadow, none);
+}
+
+/* CALLOUTS
+------------------------------------------ */
+.bs-callout {
+  border-left: 3px solid #EEEEEE;
+  margin: 20px 0;
+  padding: 20px;
+}
+.bs-callout h4 {margin:0 0 5px 0; font-size:14px}
+.bs-callout p {margin:0}
+
+.bs-callout-warning {
+  background-color: #FCF8F2!important;
+  border-color: #F0AD4E;
+}
+.bs-callout-warning h4 {color:#F0AD4E}
+.bs-callout-danger {
+  background-color: #FDF7F7;
+  border-color: #D9534F!important;
+}
+.bs-callout-danger h4 {
+  color: #D9534F;
+}
+.bs-callout-info {
+  background-color: #F4F8FA;
+  border-color: #5BC0DE!important;
+}
+.bs-callout-info h4 {
+  color: #5BC0DE;
+}
+
+.bs-callout-success {
+  background-color: #DFF0D8;
+  border-color: #D6E9C6!important;
+}
+
+/* GRID 
+-------------------------------------------- */
+.space-y {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.grid-0 {
+  &.row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-right:0;
+    padding-left: 0;
+  }
+  
+  .space-y {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.grid-10 {
+  &.row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-right:5px;
+    padding-left: 5px;
+  }
+  
+  .space-y {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.grid-20 {
+  &.row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-right:10px;
+    padding-left: 10px;
+  }
+  
+  .space-y {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* PRE
+-------------------------------------------- */
+pre {
+  background: getvar(colors bcolor-xxl);
+  border: 1px solid rgba(#000, 0.1);
+  
+  &.no-breaks, &.no-breaks > code {
+    word-break: keep-all;
+    word-wrap: normal;
+    white-space: pre;
+  }
+}
+
+/* MODALS
+-------------------------------------------------- */
+.modal {
+  z-index: getvar(z-layers modals);
+}
+.modal-content {
+	@include vendorize(box-shadow, "0 20px 0 -10px rgba(0, 0, 0, 0.1)");
+}
+.modal-header {
+  background: getvar(colors bcolor-xxl);
+}
+
+/* TABS
+---------------------------------------------------*/
+.tab-pane {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    background: #fff;
+}
+.tab-content.tab-no-borders .tab-pane {
+    padding: 20px 0;
+    border: 0;
+    background: none;
+}
+.nav-tabs > li > a {
+    color: #333;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    border-right-width: 0;
+    margin: 0;
+    background: #FAFAFA;
+    font-size: 13px;
+    padding: 15px 20px;
+	@include vendorize(border-radius, "0");
+}
+.nav-tabs > li:last-child > a, .nav-tabs > li:last-child.active > a { border-right-width: 1px!important }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-right-width: 0;
+    border-top: 2px solid getvar(colors pcolor);
+}
+.nav-tabs > li > a:hover {
+    background: #fff;
+    border-color: #ddd;
+}
+
+.nav-tabs-center {
+  text-align:center;
+  font-size:none;
+  > li {
+    float:none;
+    display: inline-block;
+  }
+}
+
+.nav-tabs.nav-tabs-line-bottom {
+
+  > li > a {
+  background:none;
+  border:none;
+  }
+  
+   > li.active > a,  > li.active > a:hover, > li.active > a:focus {
+      border:none;
+      border-bottom: 3px solid getvar(colors pcolor);
+  }
+  
+  &.line-bcolor {
+     > li.active > a,  > li.active > a:hover, > li.active > a:focus {
+        border-bottom: 3px solid getvar(colors bcolor);
+    }
+  }
+  
+}
+
+/* PROGRESS
+----------------------------------------- */
+.progress { 
+  $h: 35px;
+  height: $h;
+  background: #fff;
+  padding:0px;
+  box-sizing: content-box;
+  margin:0 0 20px 0;
+
+  .skill {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: $h;
+    padding: 0;
+    margin: 0 0 0 25px;
+    text-transform: capitalize;
+    
+    .val {
+      float: right;
+      font-style: normal;
+      margin: 0 25px 0 0;
+    }
+    
+    .icon {
+      margin-right: 10px;
+    }
+  }
+}
+.progress-bar { 
+  text-align: left;
+}
+
+/* ACCORDION
+-------------------------------------------------- */
+.panel {
+
+  > .panel-heading {
+    padding: 15px 30px;
+    
+    &.heading-iconed {
+      padding:15px;
+    }
+  }
+}
+
+.panel-bcolor .panel-heading {
+  background: getvar(colors bcolor-m);
+  color: #fff;
+  
+  .icon-left {
+    background:rgba(#fff, 0.1);
+  }
+}
+
+.panel-body {
+  padding:30px;
+}
+
+.panel.panel-borderless {
+  border:none;
+  
+  .panel-body {
+    padding:30px 0;
+  }
+}
+
+.panel-heading .icon-left {
+
+  @include fixed-icon(square, 35px);
+  color: #fff;
+  background: getvar(colors bcolor);
+  font-style:normal;
+
+}
+
+/* PAGINATION
+-------------------------------------------------- */
+.pagination {
+
+	li {
+
+		a {
+			border: none;
+			background: none;
+      border: 1px solid #ddd;
+			padding: 0 14px;
+			line-height:35px;
+			display:block;
+			margin-right: 5px;
+			color: getvar(colors bcolor);
+      @include vendorize(border-radius, 0!important);
+      
+			&:hover { background: shade(#fff, 10%); }
+			
+			@media (max-width: 767px) {
+				padding: 0 14px;
+				line-height:35px;
+			}
+		}
+
+		&:first-child a{
+			color: #fff;
+			background: tint(getvar(colors bcolor), 20%);
+			font-size:15px;
+      border-color: transparent;
+			
+			&:hover { background: getvar(colors bcolor); }
+		}
+		&:last-child a{
+			color: #fff;
+			background: getvar(colors pcolor);
+      border-color: transparent;
+			font-size:15px;
+			
+			&:hover { background: shade(getvar(colors pcolor), 20%); }
+		}
+	}
+	
+	&.align-center {
+		width: 100%;
+		li { 
+			display:inline-block;
+			a { margin-right: 1px}
+		}
+	}
+
+}

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+{% load promotion_tags %}
+
+{% block mainstyles %}
+    {% block styles %}
+        {% compress css %}
+            {% if use_less %}
+                {#                <link rel="stylesheet" type="text/less" href="{% static "oscar/less/styles.less" %}" />#}
+            {% else %}
+                {#                <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />#}
+                <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+                <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
+            {% endif %}
+        {% endcompress %}
+    {% endblock %}
+{% endblock %}
+
+{% block layout %}
+    <!-- Preloader
+    ============================================ -->
+    <div class="page-preloader">
+        <div class="vcenter">
+            <div class="vcenter-this"><img class="anim" src="{% static "images/loader.gif" %}" alt="загрузка..." />
+            </div>
+        </div>
+    </div>
+    <!-- /Preloader
+    ============================================ -->
+
+    <div class="page-wrapper shadow boxed-wrapper">
+        {# Top-horizontal bar with account, notifictions, dashboard links #}
+
+        {# Site logo/title, mini-basket, browse dropdown and searchbox #}
+        <header class="header-block line-top">
+            <div class="main-header container">
+                <div class="header-cols">
+                    {% include "partials/brand.html" %}
+                    {# Mini-basket wrapped in a block so some templates can now display it #}
+                    {% block mini_basket %}{% include "partials/mini_basket.html" %}{% endblock %}
+                    {% include "partials/search.html" %}
+                </div>
+            </div>
+            {% block navigation %}
+                {% include "partials/nav_primary.html" %}
+            {% endblock %}
+        </header>
+
+
+        {# Main content of page - other layout templates may override this block #}
+        {% block content_wrapper %}
+            {% block header %}
+                <section class="intro-block intro-page boxed-section page-bg overlay-dark-m">
+
+                    <!-- Container -->
+                    <div class="container">
+                        <!-- Section Title -->
+                        <div class="section-title invert-colors no-margin-b">
+                            <h2>{% block headertext %}{% endblock %}</h2>
+                            <p class="hidden-xs">{% block subheader %}{% endblock subheader %}</p>
+                        </div>
+                        <!-- /Section Title -->
+                    </div>
+                    <!-- /Container -->
+
+                </section>
+            {% endblock %}
+
+            <section class="page-info-block boxed-section">
+                <!-- Container -->
+                <div class="container cont-pad-x-15">
+                    {% block breadcrumbs %}{% endblock %}
+                </div>
+                <!-- /Container -->
+            </section>
+
+            {% include "partials/alert_messages.html" %}
+            {% block subnavigation %}{% endblock %}
+
+            {# Render promotions #}
+            <div id="promotions">
+                {% for promotion in promotions_page %}
+                    {% render_promotion promotion %}
+                {% endfor %}
+            </div>
+
+            <section class="content-block default-bg">
+
+                <!-- Container -->
+                <div class="container cont-main no-pad-t">
+                    {# Div exists for AJAX updates to entire content section #}
+                    <div id="content_inner">{% block content %}{% endblock %}</div>
+                </div>
+                <!-- /Container -->
+
+            </section>
+
+        {% endblock %}
+
+        {% include "partials/footer.html" %}
+    </div>
+{% endblock %}
+
+{# Local scripts #}
+{% block scripts %}
+    {{ block.super }}
+    {% compress js %}
+        <script src="{% static "uikit/js/uikit.js" %}"></script>
+        <script src="{% static "uikit/js/jquery-latest.min.js" %}"></script>
+        <!-- Twitter Bootstrap -->
+        <script type="text/javascript" src="{% static "uikit/bootstrap/js/bootstrap.min.js" %}"></script>
+        <!-- Oscar -->
+        <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block extrascripts %}
+    {% include "partials/extrascripts.html" %}
+    {{ block.super }}
+{% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.init();
+{% endblock %}
+

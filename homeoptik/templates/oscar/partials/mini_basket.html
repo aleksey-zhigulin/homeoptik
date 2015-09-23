@@ -1,0 +1,70 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load basket_tags %}
+
+
+<!-- Right Col -->
+<div class="right-col">
+
+    <!-- vcenter -->
+    <div class="vcenter">
+
+        <!-- v-centered -->
+        <div class="vcenter-this">
+
+            <!-- Cart Summary -->
+            <div class="header-cart-summary pull-right clearfix">
+
+                <i class="icon ti ti-bag"></i>
+
+                <!-- Summary Text -->
+                <div class="summary-text">
+
+                    <small>({{ request.basket.num_lines  }}) товаров в корзине</small>
+
+                    <a class="total" data-toggle="dropdown" href="#">
+                        <span class="hidden-xs hidden-sm total-text">ВСЕГО</span>
+                        <span class="total-price">
+                            {% if request.basket.is_tax_known %}
+                                {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+                            {% else %}
+                                {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+                            {% endif %}
+                        </span>
+                        <i class="toggler ti ti-plus rot-135"></i>
+                    </a>
+
+                    <!-- Dropdown Panel -->
+                    <div class="dropdown-menu dropdown-panel dropdown-right arrow-top" data-keep-open="true">
+                        <section>
+                            {% include "basket/partials/basket_quick.html" %}
+                        </section>
+                        {% if request.basket.num_lines %}
+                            <section>
+                                <div class="row grid-10">
+                                    <div class="col-md-6">
+                                        <a class="btn btn-base btn-block margin-y-5" href="{% url 'basket:summary' %}">{% trans "view basket" %}</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a class="btn btn-primary btn-block margin-y-5" href="{% url 'checkout:index' %}">{% trans "checkout" %}</a>
+                                    </div>
+                                </div>
+                            </section>
+                        {% endif %}
+                    </div>
+                    <!-- /Dropdown Panel -->
+
+                </div>
+                <!-- /Summary Text -->
+
+            </div>
+            <!-- /Cart summary -->
+
+        </div>
+        <!-- v-centered -->
+
+    </div>
+    <!-- vcenter -->
+
+</div>
+<!-- /Right Col -->

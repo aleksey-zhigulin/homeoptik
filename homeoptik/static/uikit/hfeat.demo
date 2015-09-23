@@ -1,0 +1,359 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Horizontal Feature Box</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">Horizontal Feature Box Class</h3>
+  <p>Use the <code>.hfeat</code> class to create horizontal feature boxes.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <!-- hfeat -->
+    <div class="hfeat">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>There are no notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  <h3 class="demo-title">Size Classes</h3>
+  <p>Use <code>.hfeat-sm</code> and <code>.hfeat-lg</code> together with  <code>.hfeat</code> to display different sizes</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <h6 class="dont-copy">Small Size<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-sm">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <h6 class="dont-copy">Default Size<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <h6 class="dont-copy">Large Size<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-lg">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>The size classes are automatically generated from a sass <b>map</b> containing the size variables</p>
+        <ul>
+          <li>To prevent a certain size from being generated, simply set <code>active:trues</code> to <code>active:false</code></li>
+          <li>You may add your own custom sizes if you wish</li>
+        </ul>
+<pre>
+<code class="javascript">
+$hfeat-sizes:(
+  default:(
+    active: false,
+    icon-w: 50px,
+    icon-boxed-w: 70px,
+    icon-mg: 15px,
+    title-size: 16px,
+    title-mg: 12px,
+    text-size: 14px,
+    text-lh: 1.6em,
+  ),
+  sm:(
+    active: true,
+    icon-w: 40px,
+    icon-boxed-w: 50px,
+    icon-mg: 10px,
+    title-size: 14px,
+    title-mg: 6px,
+    text-size: 11px,
+    text-lh: 1em,
+  ),
+  lg:(
+    active: true,
+    icon-w: 60px,
+    icon-boxed-w: 80px,
+    icon-mg: 10px,
+    title-size: 16px,
+    title-mg: 6px,
+    text-size: 14px,
+    text-lh: 1.6em,
+  ),
+);
+          </code>
+        </pre>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Style Classes</h3>
+  <p>Use the <code>.hfeat-box</code> to box the icons. Variant styles are suffixed as numbers e.g <code>.hfeat-box-01</code></p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-box">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-bcolor</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-box hfeat-box-bcolor">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-pcolor</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-box hfeat-box-pcolor">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-outline</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-box hfeat-box-outline">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>There are no notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+<p>Use the <code>.hfeat-round</code> class to round the icons. Use together with the <code>.hfeat-box</code> classes e.g <code>.hfeat-box-bcolor</code></p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-round</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-round">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-bcolor</code> + <code>.hfeat-round</code><a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-round hfeat-box-bcolor">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-pcolor</code> + <code>.hfeat-round</code><a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-round hfeat-box-pcolor">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <h6 class="dont-copy"><code>.hfeat-box-outline</code> + <code>.hfeat-round</code><a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- hfeat -->
+    <div class="hfeat hfeat-round hfeat-box-outline">
+      <i class="icon fa fa-apple"></i>
+      <a class="title">some feature title</a>
+      <p class="text">some description here</p>
+    </div>
+    <!-- /hfeat -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>There are no notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  </div>
+<!-- /Block Demo -->

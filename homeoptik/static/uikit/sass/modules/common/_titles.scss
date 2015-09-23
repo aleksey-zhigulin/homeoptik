@@ -1,0 +1,50 @@
+/* UNDERLINED TITLEs
+------------------------------------------- */
+.hstyle-line, .hstyle-dline{
+  position: relative; 
+  text-align: left;
+  line-height: 1;
+  color: inherit;
+  display:block;
+  padding:0 0 0.6em 0;
+
+  
+  &:after {
+    content: "";
+    position: absolute;
+    left:0;
+    height: 2px;
+    width:60px;
+    background: getvar(colors pcolor);
+    bottom:0;
+    @include vendorize(box-sizing, content-box);
+  }
+
+}
+
+.hstyle-dline {
+  
+  &:after {
+    border-right: 50px solid #fff;
+    width:50px;
+  }
+
+}
+
+.hstyle-centered {
+  text-align: center;
+  &:after {
+    right:0;
+    margin-right:auto;
+    margin-left: auto;
+  }
+}
+
+
+.hstyle-light {
+  color: #fff;
+  
+  &:after {
+  
+  }
+}

@@ -1,0 +1,376 @@
+/* HEADER BLOCK
+------------------------------------------- */
+.header-block {
+  margin:0 0 10px 0;
+  
+  &.line-top {
+    border-top: 4px solid getvar(colors bcolor);
+  }
+  
+  @media (max-width:767px) {
+    padding-top:56px;
+    &.line-top {
+      border-top:none;
+    }
+  }
+}
+
+.main-header {
+  $h: 140px;
+  border-top: 1px solid rgba(#000, 0.06);
+  
+  @media (max-width: 767px) {
+    border-top: none;
+  }
+
+  .header-cols {
+    position: relative;
+  }
+  
+  .brand-col {
+    width:25%;
+    margin:0 auto;
+    text-align:center;
+    padding:40px 0;
+    a {
+      display:block;
+    }
+    
+    img {
+      display:inline-block;
+      max-width:100%;
+      height:auto;
+    }
+  }
+  .left-col, .right-col {
+    width: 37.5%;
+    height:100%;
+    position: absolute;
+    top:0;
+  }
+
+  .left-col {
+    left:0;
+    padding-right:30px;
+  }
+  
+  .right-col {
+    right: 0;
+    padding-left:30px;
+  }
+  
+  @media (max-width: 767px) {
+    .brand-col {
+      width:auto;
+      height:auto;
+      padding:30px 0;
+      
+      img {
+        width:auto;
+        max-width: 100%;
+        display:inline;
+      }
+    }
+    .left-col, .right-col {
+      position: static;
+      width: auto;
+      padding:0;
+    }
+  }
+  
+  &.brand-left {
+    .brand-col {
+      margin:0;
+    }
+    
+    .left-col {
+      left:auto;
+      right: 25%;
+      padding:0;
+    }
+  }
+}
+
+/* HEADER ELEMENTS
+------------------------------------------- */
+.header-text {
+  margin:0 0 13px 15px;
+  display:block;
+  font: getvar(cond-font m-bold) 14px/1 getvar(cond-font name);
+}
+
+.header-search {
+  width: 250px;
+  margin:0 15px;
+  
+  .form-group {
+    position: relative;
+    margin:0;
+    
+    input {
+      width:100%;
+      border:1px solid rgba(#000, 0.2);
+    }
+    
+    .btn {
+      position: absolute;
+      right:0;
+      top:0;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    width:180px;
+  }
+  
+  @media (max-width: 767px) {
+    margin:0 auto;
+    width:100%;
+  }
+}
+
+.header-cart-summary {
+  position: relative; 
+  margin:0 15px 0 0;
+  
+  .icon, .summary-text {
+    float:left;
+  }
+  .summary-text {
+    padding-top:3px;
+  } 
+  .icon {
+    font-size:43px;
+    margin:0 15px 0 0;
+  }
+  
+  small{
+    font: getvar(cond-font m-bold) 12px/1 getvar(cond-font name);
+    display:block;
+    margin:0 0 7px 0;
+  }
+  
+  .total{
+    font: getvar(cond-font m-bold) 17px/1 getvar(cond-font name);
+    margin:0;
+    color:getvar(colors bcolor-m);
+    
+    .total-text:after {
+      content: ":";
+      padding:0 7px;
+      opacity:0.5;
+    }
+    .total-price {
+      color: getvar(colors pcolor);
+    }
+    
+    .toggler {
+      margin:0 0 0 10px;
+      transition:all 0.6s;
+      opacity:0.7;
+      display:inline-block;
+      line-height:20px;
+      font-size:0.7em;
+    }
+    
+  } 
+
+  .open .toggler{
+    transform: rotate(180deg);
+    
+    &.rot-45 {
+      transform: rotate(45deg);
+    }
+    
+    &.rot-135 {
+      transform: rotate(135deg);
+    }
+  }  
+  
+  .dropdown-panel {
+    top:110%;
+  }
+  
+  @media (max-width: 991px) {
+    .icon {
+      font-size:35px;
+    }
+    
+    .total {
+      font-size:17px;
+    }
+  }
+  
+  @media (max-width:767px) {
+    float:none!important;
+    text-align:center;
+    padding:15px 0;
+    margin:0;
+    
+    small, .icon, .summary-text {
+      display:inline-block;
+      float:none;
+      margin:0 10px 0 0;
+      padding:0;
+    }
+    .icon, .total, small {
+      font-size:15px;
+    }
+    
+    .dropdown-menu.dropdown-panel {
+      min-width:none;
+      max-width:300px;
+      left:0;
+      margin:0 auto;
+      top:100%;
+    }
+  }
+}
+
+/* HEADER NAVS
+------------------------------------------- */
+.hnav.nav-top {
+  margin: 0;
+  border: none;
+}
+
+.hnav.nav-side {
+  padding:0 15px;
+  height:50px;
+  .navbar-nav > li > a {
+
+  }
+}
+
+
+.hnav.nav-bottom {
+  
+  &.hnav-ruled {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    
+    .navbar-nav.line-top > li.active,   .navbar-nav.line-top > li:hover {
+      > a:after {
+        top: -1px;
+      }
+    }  
+    
+    .navbar-nav.line-bottom > li.active,   .navbar-nav.line-bottom > li:hover {
+      > a:after {
+        bottom: -1px;
+      }
+    }  
+  }
+  
+  .container {
+    padding:0;
+  }
+  
+  &.fixed {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    border:1px solid rgba(#000, 0.2);
+    border-top:none;
+    box-shadow:0 1px 2px rgba(#000, 0.1);
+    margin:0 auto;
+    z-index:getvar(z-layers nav) + 10;
+    -webkit-transform: translateZ(0);
+    
+    &.invert-colors {
+      border:none;
+    }
+    
+    .navbar-nav .nav-label {
+      display:none;
+    }
+  }
+  
+  .navbar-header {
+    margin:0;
+  }
+  
+  @media (max-width:991px) {
+    .navbar-nav > li > a {
+      padding:0 10px;
+    }
+    
+    .navbar-collapse .navbar-nav > li > a {
+      padding:0 20px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    border:1px solid rgba(#000, 0.2);
+    box-shadow:0 1px 2px rgba(#000, 0.1);
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:getvar(z-layers nav) + 20;
+    
+    &.invert-colors {
+      border:none;
+    }
+  }
+}
+
+/* HEADER MINI CART
+--------------------------------------- */
+.mini-cart {
+  margin:0;
+  padding: 0;
+  list-style:none;
+  text-transform: none;
+  
+  > li {
+    border-bottom: 1px dotted rgba(#000, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    
+    img {
+      width:25%;
+      height:auto;
+      float:left;
+    }
+    
+    .text {
+      width: 75%;
+      float:left;
+      padding-left:10px;
+    }
+    
+    &:last-child {
+      border: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+  
+  .btn-group {
+    display:block;
+    float:right;
+    .btn {
+      font-size:10px;
+      padding:0 7px;
+      line-height:20px;
+      height: auto;
+    }
+  }
+  
+  .title, .details {
+    display: block;
+  }
+  
+  .title {
+    color: getvar(colors bcolor);
+    margin:0 0 7px 0;
+  }
+  
+  .details {
+    line-height:20px;
+    margin:10px 0 0 0;
+    color: getvar(colors pcolor);
+  }
+}

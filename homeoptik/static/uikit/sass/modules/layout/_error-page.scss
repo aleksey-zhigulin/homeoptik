@@ -1,0 +1,89 @@
+/* ERROR BLOCKS
+------------------------------------------- */
+.error-block {
+  $pad: 40px;
+  width:100%;
+  position:relative;
+  padding-left: 50%;
+  
+  
+  .search input{
+    border: 1px solid rgba(#000, 0.1);
+    width:300px;
+    font-size:16px;
+  }
+  
+  .error-icon {
+    @include fixed-icon(round, 170px);
+    border: 3px solid rgba(#000, 0.2);
+    color: getvar(colors bcolor)
+  }
+  h1 {
+    font-size: 170px;
+  }
+  
+  .right {
+    border-left: 1px solid rgba(#000, 0.07);
+    padding:$pad 0 $pad $pad;
+
+    h4 {
+      text-transform: uppercase;
+    }
+  }
+  
+  .left {
+    position:absolute;
+    left:0;
+    top:0;
+    width:50%;
+    padding-right:$pad;
+    height:100%;
+    text-align:right;
+  }
+  
+}
+
+.error-block.wider {
+  $w: 40%;
+  padding-left: $w;
+  
+  .left {
+    width: $w;
+  }
+}
+
+@media (max-width: 767px) {
+  .error-block, .error-block.wider {
+    padding:0;
+    
+    .left {
+      position:relative;
+      text-align:center;
+      width:auto;
+      padding:0;
+      
+      .error-icon {
+        margin:0 auto 20px auto;
+        @include fixed-icon(reset, 100px);
+      }
+    }
+    
+    .right {
+      text-align:center;
+      border:none;
+      padding:0;
+    }
+    
+    form {
+      text-align:left;
+    }
+    
+    form.search {
+      width:80%;
+      margin:0 auto;
+      input, .btn {
+        width:100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Color Icons</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">Color icons Class</h3>
+  <p>Use the <code>.color-icons</code> class together with the <code>.hlinks</code> class to display colored icons. View the <code>HTML</code> tab for class names and usage. Alternatively, you can click the copy icon to view code snippets.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Fixed Icons + Color Icons<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Fixed icons + background colors<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons-bg">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Colored on hover<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons-hovered">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">Colored background on hover<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons-bg-hovered">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">With mixed classes<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons-borders color-icons color-icons-bg-hovered">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-12">
+    <h6 class="dont-copy">With mixed classes reversed<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- vlinks -->
+    <ul class="hlinks hlinks-icons color-icons-borders color-icons-bg color-icons-hovered">
+      <li><a href="#"><i class="icon fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-rss"></i></a></li>
+      <li><a href="#"><i class="icon fa fa-google-plus"></i></a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  <h5 class="demo-title">Adding your own colors</h5>
+  <p>Color icons are generate from the <code>$brand-colors</code> variable found in <code>variables.scss</code> file. To add your own, simply append your values to the list.</p>
+  <ul>
+    <li>Follow the same format as the items in the <code>$brand-colors</code> list.</li>
+    <li>The <code>first part</code> is the unique icon name as used in <mark>FontAwesome</mark> or the icon set you are using</li>
+    <li>The <code>second</code> part is the color to use</li>
+  </ul>
+  <pre>
+  <code class="javascript">
+$brand-colors: 
+  "facebook" #5371AD, 
+  "twitter" #2AA9E0, 
+  "google-plus" #D34829, 
+  "rss" #EF5C29, 
+  "vine" #18B485, 
+  "flickr" #ED1384, 
+  "soundcloud" #F14B25,          
+  "linkedin" #016597, 
+  "skype" #37C5F5, 
+  "pinterest" #CE2127, 
+  "instagram" #5580A3, 
+  "wordpress" #21769D, 
+  "dropbox" #3283C5, 
+  "apple" #A8A9AB,
+  
+  "my-icon" #333,
+;
+  </code>
+</pre>
+  </div>
+<!-- /Block Demo -->
+

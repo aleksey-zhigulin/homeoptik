@@ -1,0 +1,161 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>How it works</h1>
+    <p class="no-margin-b">This theme's components was designed to be both reusable and portable. All of the required stylesheets and scripts are contained in a single folder that you can easily move between projects.</p>
+  </header>
+  <!-- /Header -->
+  
+  <h3 class="demo-title">Kit Structure</h3>
+  <p>In the root of this theme is a folder named <b>uikit</b>. This directory contains all of the required stylesheets and scripts that make up the kit. The <b>latest bootstrap release</b> is also contained in the <b>uikit</b> directory.</p>
+  <img src="images/help/intro-1.jpg" alt="" class="help-img"/>
+  <h3 class="demo-title">Setting Up</h3>
+  <p>Using this uikit is quite simple. Simply locate the <code>uikit</code> folder in the download package and <b>copy it to the root directory</b> of your web project. Now just link to the following stylesheets as shown below.</p>
+<pre>
+  <code class="format-code html">
+<!-- Bootstrap core CSS
+================================================== -->
+<link href="uikit/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template
+================================================== -->
+<link href="uikit/css/uikit.css" rel="stylesheet">
+  </code>
+</pre>
+  <p>Finally link to the following scripts at the very bottom of your page just before the end of the body tag</p>
+<pre>
+  <code class="format-code html">
+<!-- Javascript
+================================================== -->
+<script src="uikit/js/jquery-latest.min.js"></script>
+<script src="uikit/js/uikit.js"></script>
+<!-- /JavaScript
+================================================== -->
+  </code>
+</pre>
+  <h3 class="demo-title">As simple as copying and pasting</h3>
+  <p>Browse the uikit using the links on the left. If you find something you like, just hit the <mark>HTML</mark> tab or the <i class="fa fa-copy pcolor" style="margin:0 10px"></i> icon.! Alternatively you can just use the various demo template pages that come with this package.</p>
+
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+ 
+  <!-- Col -->
+  <div class="col-md-5">
+    <p class="dont-copy">Handy <code>.flipper</code> class<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></p>
+    
+    <!-- flipper-->
+    <div class="flipper">
+      <!-- Sides -->
+      <div class="flipper-sides">
+        <!-- Front -->
+        <div class="front">
+          <img src="images/demo/team1.jpg" alt="" />
+        </div>
+        <!-- /Front -->
+        
+        <!-- Back -->
+        <div class="back pcolor-bg">
+          <!-- Content -->
+          <div class="vcenter align-center">
+            <i class="vcenter-this icon fa fa-expand fa-2x white"></i>
+          </div>
+          <!-- /Content -->
+        </div>
+        <!-- /Back -->
+      </div>
+      <!-- /Sides -->
+    </div>
+    <!-- /flipper -->
+    
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <h5>Additional helper classes have been used</h5>
+        <p>These classes are not necessary for the revealer to work and are only used to presentation.</p>
+        <ul>
+          <li>To color the back section we used the <code>.pcolor-bg</code> class</li>
+          <li>To color the icon white we used the <code>.white</code> class</li>
+          <li>To center the icon we used the <code>.vacenter</code> and <code>.align-center</code> classes.</li>
+        </ul>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  <h3 class="demo-title">The CSS Structure</h3>
+  <p>All style sheets used with exception to bootstrap and the included fonts are located in the <b>css</b> folder.</p>
+  <ul>
+    <li>The main css is named <code>uikit.css</code></li>
+    <li><code>uikit.css</code> must be referenced on every page</li>
+  </ul>
+  <p>The popular css pre-processor <i><b>Sass</b></i> was used to generate the main stylesheet. You <b>can still edit the file directly</b> but it may be better to work with the source <b>Sass files instead</b>.</p>
+  <h3 class="demo-title">The SASS Structure</h3>
+  <p>All Sass files can be found in the sass folder. When compiled, any css output files are copied to the css directory.</p>
+  <ul>
+    <li>Different sections have been organized inside directories and sub directories.</li>
+    <li>The main sass files is named <code>uikit.scss</code> and imports all the required sections</li>
+    <li>When <code>uikit.scss</code> is compiled it gereates <code>uikit.css</code> which is copied to the css directory</li>
+  </ul>
+  <p>If you do not need any of the sections you can simply <b>delete the section's import statement</b> in <code>uikit.scss</code></p>
+  <div class="bs-callout bs-callout-info">
+    <h4>Which is the main CSS/SASS file?</h4>
+    <p>The main <b>Sass</b> file is named <code>uikit.scss</code> and generates <code>uikit.css</code> when compiled.</p>
+  </div>
+
+  <h3 class="demo-title">Script Management</h3>
+  <p>The uikit has an inbuilt script loader that allows you to <mark>manage all your scripts in one location</mark>. The script loader is contained in the <code>uikit.js</code> file found in the js directroy. To add your own files, simply append the name to the <code>scripts</code> variable as shown below.</p>
+<pre>
+  <code class="format-code javascript">
+var scripts = [
+  "js/uikit-utils.js",
+  "js/jquery.bxslider-rahisified.js",
+  "js/jquery-ui.min.js",
+  "js/highlight.pack.js",
+  "bootstrap/js/bootstrap.min.js",
+  "js/wow.min.js",
+  "js/theme.js",
+  "js/style-switcher.js",
+  
+  // Add your own scripts here
+  "js/my-script.js",
+];
+  </code>
+</pre>  
+  <div class="bs-callout bs-callout-info">
+    <h4>Which is the main Javascriptfile?</h4>
+    <p>The main <b>JS</b> file is named <code>uikit.js</code> and loads all the required scripts.</p>
+  </div>
+  <h3 class="demo-title">Only use the modules you require</h3>
+  <p>The uikit is made up of dozens of independent sass stylesheets neatly aranged in sub folders. Each module is imported in a master stylesheet that gets compiled to produce a single css sheet named <code>uikit.css</code>. Thus you can <b>only pick the required modules</b> and generate a smaller stylesheet.</p>
+  
+</div>
+<!-- /Block Demo -->

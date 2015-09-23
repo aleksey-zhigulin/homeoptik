@@ -1,0 +1,71 @@
+/* TEAM MEMBER
+-------------------------------------------------- */
+.vprofile { 
+  margin: 15px 0;
+  
+  .links {    
+    a {
+      display: inline-block;
+      margin: 0 3px;
+    }
+    
+    .fa {
+      font-size: 20px;
+      display: block;
+      color: #fff;
+      border: 2px solid #fff;
+      @include fixed-icon(round, 40px);
+      
+      &:hover {
+        background: #fff;
+        color: getvar(colors pcolor);
+      }
+      
+      @media (max-width: 767px) {
+        font-size: 14px;
+        @include fixed-icon(reset, 30px);
+        border: 1px solid #fff;
+      }
+    }
+  }
+  
+  .text {
+    text-align: center;
+    background: #F7F8F8;
+    padding: 20px 0;
+    
+    
+    .name{
+      margin: 0 0 5px 0;
+      font-weight: normal;
+      font-size: 20px;
+      display: block;
+      color: getvar(colors title);
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-size: 11px;
+      display:block;
+    }
+    
+    @media (max-width: 767px) {
+     
+      padding: 10px;
+      
+      .name {
+        font-size: 17px;
+      }
+      
+      .title {
+        font-size: 9px;
+      }
+    }
+  }
+  
+}
+
+
+
+
+

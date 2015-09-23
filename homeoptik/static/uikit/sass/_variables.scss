@@ -1,0 +1,136 @@
+$kit-dir: "../";
+$site-dir: "../../";
+
+// KIT VARIABLES
+// =========================================
+$active-skin: $skin-2;
+
+$kit-vars:(
+  colors: $active-skin,
+  body-font: map-get($fonts, roboto),
+  nav-font: map-get($fonts, roboto),
+  title-font: map-get($fonts, roboto),
+  main-font: map-get($fonts, roboto),
+  cond-font: map-get($fonts, roboto-cond),
+  
+  type:(
+    font-size: 14px,
+    scale: 1.16,
+    line-h: 1.7,
+    line-h-px: 1.7 * 14px,
+  ),
+  
+  z-layers:(
+    bottom:0,
+    overlay: 100,
+    content: 200,
+    nav: 300,
+    controls: 400,
+    modals: 500,
+  ),
+  
+  layout: (
+    fixed-nav-offset: 140px, // total height of nav block used to offset fixed nav
+    fixed-nav-offset-xs: 90px, // total height of nav block used to offset fixed nav
+  ),
+
+  screens:(
+    large: 1200px,
+    large-max: 1199px,
+    medium: 992px,
+    medium-max: 991px,
+    small: 768px,
+    small-max: 767px,
+    xsmall: 480px,
+    xsmall-max: 479px,
+  ),
+);
+
+
+// Variable Retriever
+// =========================================
+// If using a different set of vars set it here
+@function getvar($keys) {
+  @return map-seek($kit-vars, $keys);
+}
+
+// BRAND COLORS
+// -----------------------------------------
+$brand-colors: 
+  "facebook" #5371AD, 
+  "twitter" #2AA9E0, 
+  "google-plus" #D34829, 
+  "rss" #EF5C29, 
+  "pinterest" #CE2127, 
+  "youtube" #F03434,
+  "instagram" #569DC9,
+  "flickr" #FF0084,
+;
+
+/* COLOR CLASSES
+-------------------------------------------- */
+@each $color, $val in getvar(colors classes) {
+  .#{$color} {
+    color: $val;
+  }
+  .#{$color}-bg {
+    background-color: $val;
+  }
+}
+
+@each $color, $val in $default-colors {
+  .#{$color} {
+    color: $val;
+  }
+  .#{$color}-bg {
+    background-color: $val;
+  }
+}
+
+
+
+/* BACKGROUND IMAGES
+------------------------------------------------------ */
+.bg-cover{
+  @include vendorize(background-size, "cover!important");
+}
+
+
+// - Add your own here
+// - To use simply apply generated class names in your markup e.g "cover-1-bg"
+
+$covers:(
+  cover-1: $site-dir + "images/backgrounds/cover1.jpg",
+  cover-2: $site-dir + "images/backgrounds/cover2.jpg",
+  cover-3: $site-dir + "images/backgrounds/cover3.jpg",
+  cover-4: $site-dir + "images/backgrounds/cover4.jpg",
+  page: $site-dir + "images/backgrounds/cover1.jpg",
+);
+
+$tiles:(
+  tile-1: $site-dir + "images/backgrounds/tile1.png",
+);
+
+@each $cover, $image in $covers {
+  .#{$cover}-bg {
+    background:url($image) no-repeat center 0 fixed;
+    @extend .bg-cover;
+  }
+}
+
+@each $tile, $image in $tiles{
+  .#{$tile}-bg {
+    background:url($image) repeat center 0 fixed;
+  }
+}
+.bg-local {
+  background-attachment: local;
+}
+
+.bg-scroll {
+  background-attachment: scroll;
+}
+
+.bg-fixed {
+  background-attachment: fixed;
+}

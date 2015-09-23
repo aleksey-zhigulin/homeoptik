@@ -1,0 +1,821 @@
+/* HNAV
+----------------------------------------- */
+$hnav-sizes:(
+  default:(
+    active: false,
+    nav-h: 56px,
+    link-h: 56px,
+    boxed-link-h:46px,
+    brand-h: 30px,
+    brand-font-size:20px,
+    el-h: 34px,
+    toggle-h: 30px,
+    font-size: 14px,
+    link-pad-x: 20px,
+  ),
+  
+  hnav-sm:(
+    active: true,
+    nav-h: 50px,
+    link-h: 50px,
+    boxed-link-h:40px,
+    brand-h: 30px,
+    brand-font-size:15px,
+    el-h: 34px,
+    toggle-h:  30px,
+    font-size: 13px,
+    link-pad-x: 15px,
+  ),
+);
+// Default vars
+$hnav-default: map-get($hnav-sizes, default);
+
+.hnav {
+  font: getvar(nav-font m-bold) map-get($hnav-default, font-size) getvar(nav-font name);
+  min-height: map-get($hnav-default, nav-h);
+  z-index: getvar(z-layers nav);
+  border:1px solid rgba(#000, 0.1);
+  margin:0;
+  
+  &.hnav-borderless {
+    border:none;
+  }
+  
+  &.hnav-ruled {
+    border:none;
+    border-top: 1px solid getvar(colors bcolor);
+    border-bottom: 1px solid getvar(colors bcolor);
+    box-sizing: content-box;
+  }
+  
+  .container {
+    position: relative;  
+    z-index: getvar(z-layers content);
+  }
+  
+  .navbar-right {
+    margin-left: 15px;
+    margin-right:0;
+  }
+  
+  .navbar-absolute {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    
+    @media (max-width: 767px) {
+      position: static;
+      width: auto;
+    }
+  }
+  
+  .navbar-center {
+    text-align:center;
+    float:none;
+  }
+  .navbar-nav.navbar-center {
+    font-size:0;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+    @media (max-width: 767px) {
+      text-align: left;
+      > li {
+        display: block;
+      }
+    }
+  }
+  
+  .navbar-nav.navbar-left-xs {
+    @media (max-width: 767px) {
+      text-align: left;
+      > li {
+        display: block;
+      }
+    }
+  }  
+  
+  .navbar-nav.navbar-right-xs {
+    @media (max-width: 767px) {
+      text-align: right;
+      > li {
+        display: block;
+      }
+    }
+  } 
+  
+  .navbar-nav.navbar-center-xs {
+    @media (max-width: 767px) {
+      float: none!important;
+      font-size:0;
+      text-align:center;
+      > li {
+        float: none!important;
+        display: inline-block;
+      }
+    }
+  }
+  
+  .navbar-left {
+    margin-right: 15px;
+    margin-left:0;
+  }
+  
+  .navbar-left, .navbar-right {
+    .navbar-left:last-child, .navbar-right:last-child {
+      margin-right: 0;
+      margin-left:0;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .navbar-right-xs {
+      float: right!important;
+      margin-left: 15px;
+      margin-right:0;
+    }
+    
+    .navbar-left-xs {
+      float: left!important;
+      margin-right: 15px;
+      margin-left:0;
+    }
+  }
+}
+
+/* navbar header
+........................... */
+.hnav .navbar-header {
+  height: map-get($hnav-default, nav-h);  
+}
+
+/* navbar brand 
+........................... */
+.hnav .navbar-brand {
+  display: block;
+  margin:0;
+  padding:0 15px 0 30px;
+  color: inherit;
+  line-height: map-get($hnav-default, nav-h);
+  height: map-get($hnav-default, nav-h);
+  font-size: map-get($hnav-default, brand-font-size);
+
+  img {
+    width: auto;
+    display:block;
+    line-height:1;
+    height: map-get($hnav-default, brand-h);
+    margin: cmg(map-get($hnav-default, nav-h), map-get($hnav-default, brand-h)) 0;
+  }
+  
+  &.border-r {
+    border-right: 1px solid rgba(#000, 0.1);
+    padding-right: 30px;
+    margin-right:15px; 
+  }
+}
+
+/* navbar toggle 
+........................... */
+.hnav .navbar-toggle {
+  $h: map-get($hnav-default, toggle-h);
+  padding:0;
+  text-align:center;
+  color: getvar(colors bcolor);
+  margin:cmg(map-get($hnav-default, nav-h), $h) 15px 0 15px;
+  height: $h;
+  width: $h;
+  line-height: $h - 2px;
+  height: $h;
+  font-size: floor($h * 0.7); 
+  border-radius:0;  
+  border: 1px solid getvar(colors bcolor);
+  position:relative;
+  z-index:300;
+  
+  &.no-border {
+    border:none;
+  }
+}
+
+/* navbar-nav
+........................ */
+.hnav .navbar-nav {
+  margin: 0;
+  position:static;
+  line-height:1;
+  
+  &.borders-r > li > a, &.borders-lr > li > a{
+    border-right: 1px solid rgba(#000, 0.1);
+  }
+  
+  &.borders-l > li > a, &.borders-lr > li > a{
+    border-left: 1px solid rgba(#000, 0.1);
+  }
+  
+  &.borders-lr > li > a {
+    margin-left:-1px;
+  }
+  
+  &.boxed-links > li > a {
+    line-height: map-get($hnav-default, boxed-link-h);
+    height: map-get($hnav-default, boxed-link-h);
+    margin:cmg(map-get($hnav-default, nav-h), map-get($hnav-default, boxed-link-h)) 0;   
+  }
+  
+  > li {
+    text-transform: inherit;
+    > a {
+      text-transform: inherit;
+      color: getvar(colors nav);
+      padding:0 map-get($hnav-default, link-pad-x);
+      font: getvar(nav-font normal) map-get($hnav-default, font-size)/#{map-get($hnav-default, nav-h)} getvar(nav-font name);
+      border-radius:0;
+      height: map-get($hnav-default, nav-h);
+      
+      .img-left, .icon-left, .toggler {
+        display: inline-block;
+      }
+
+      &.square {
+        display:block;
+        width: map-get($hnav-default, link-h);
+        text-align:center;
+        padding:0;
+      }
+
+      .icon-outline, .icon-outline.icon-left {
+        @include fixed-icon(square, map-get($hnav-default, el-h));
+        border:1px solid rgba(#000, 0.2);
+      }
+      
+      .img-left {
+        margin:0 10px 0 0;
+      }
+      
+      .icon-lg {
+        font-size: 1.5em;
+      }
+
+      .toggler {
+        margin-left:10px;
+        opacity: 0.5;
+        transition: all 0.3s;
+      }
+      
+      .nav-label {
+        position:absolute;
+        color:#fff;
+        text-transform:uppercase;
+        padding:0 10px;
+        line-height: 20px;
+        top:-10px;
+        right:0;
+        font-size:11px;
+        z-index:10;
+        
+        &.label-hot {
+          background: #E95144;
+        }
+        
+        &.label-new {
+          background: #00B2B2;
+        }
+        
+        &.label-feat {
+          background: #468C00,
+        }
+      }
+    }
+    
+    &:hover > a, &.active > a, &.open > a, > a:focus, &.alt-state > a {
+      color: getvar(colors pcolor);
+      background: none;
+      
+      .nav-label {
+        top: -25px;
+      }
+    }
+    
+    
+  }
+  
+  &.active-bcolor > li {
+    &:hover > a, &.active > a, &.open > a, > a:focus, &.alt-state > a {
+      color: getvar(colors bcolor);
+    }
+  }
+  
+  > li.dropdown.open {
+    > a {
+      height: auto;
+    }
+    .toggler, .caret {
+      transform: rotate(180deg);
+      
+      &.rot-45 {
+        transform: rotate(45deg);
+      }
+      
+      &.rot-135 {
+        transform: rotate(135deg);
+      }
+    }
+  }
+}
+
+/* dropdowns
+........................... */
+
+.hnav .navbar-collapse {
+  .navbar-nav > .dropdown .dropdown-menu,
+  .dropdown-menu {
+    @media (max-width: 767px) {
+      margin: -1px 0;
+      border: 1px solid rgba(#000, 0.1);
+      
+      &:after, &:before {
+        display: none;
+      }
+    }
+  }
+  
+  @media (max-width:767px) {
+    overflow:auto;
+    max-height:370px;
+  }
+}
+
+/* Mega Menu
+.............................. */
+.hnav .has-mega-menu {
+  position: relative;
+}
+.hnav .navbar-nav .dropdown-mega {
+  position: static;
+}
+
+.hnav .dropdown-menu.mega-menu {
+  width:100%;
+  position: absolute;
+  top:100%;
+
+  .row {
+    margin:30px 15px;
+  }
+  
+  h5 {
+    text-transform: uppercase;
+    margin:0 0 20px 0;
+    padding:15px;
+    background: getvar(colors bcolor-m);
+    line-height:1;
+    font-size:13px;
+    color: #fff;
+  }
+  
+  .featured-img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  .links {
+    @include no-list();
+    
+    > li > a {
+      border-bottom: 1px dotted #ddd;
+      line-height:3em;
+      text-transform: capitalize;
+      color: getvar(colors text);
+      display:block;
+      padding:0 15px; 
+      font-size: 12px;         
+    }
+    
+    > li:last-child > a {
+      border: none;
+    }
+    
+    > li.active > a, > li:hover > a {
+      color: getvar(colors pcolor);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    position: static;
+  }
+}
+
+
+/* navbar elements
+........................... */
+.hnav {
+  .navbar-el, .navbar-text, .navbar-btn, .navbar-form, .navbar-btn-group .btn {
+    margin-top:cmg(map-get($hnav-default, nav-h), map-get($hnav-default, el-h));
+    height: map-get($hnav-default, el-h);
+    line-height: map-get($hnav-default, el-h);
+    font-size: map-get($hnav-default, font-size);
+    font-family: inherit;
+    padding-top:0;
+    padding-bottom: 0;
+    
+    &.case-u {
+      //font-size: 0.9em;
+    }
+  }
+}
+
+/* navbar btn
+........................... */
+.hnav .navbar-btn, .hnav .btn {
+  position:relative;
+  padding:0 20px;
+  height: map-get($hnav-default, el-h);
+  line-height: map-get($hnav-default, el-h) - 2px;
+  
+  .count {
+    display:block;
+    min-width:23px;
+    line-height:23px;
+    text-align:center;
+    color: #fff;
+    background: #D93600;
+    right:-10px;
+    top:-10px;
+    position:absolute;
+    font-size:11px;
+    
+    &.count-round {
+      border-radius: 50%;
+    }
+  }
+  .count-pcolor {
+    background: getvar(colors pcolor);
+  }
+  .count-scolor {
+    background: getvar(colors scolor);
+  }
+  .count-default {
+    background: getvar(colors bcolor-xl);
+    color: getvar(colors pcolor);
+  }
+
+  
+}
+
+/* 
+........................... */
+.hnav .navbar-btn-group {
+  font-size:0;
+  float: left;
+  margin-right: 15px;
+  position:relative;
+  height: map-get($hnav-default, nav-h);  
+  
+  .btn {
+    padding:0 15px;
+    height: map-get($hnav-default, el-h);
+    line-height: map-get($hnav-default, el-h);
+    font-size: map-get($hnav-default, font-size);
+    margin-bottom:0;
+  }
+  
+  .btn-wrapper {
+    float:left;
+    position:relative;
+    margin-left:-1px;
+    
+    > .btn {
+      display:block;
+    }
+  }
+}
+
+
+.hnav .navbar-dont-collapse {
+
+  @media (max-width: 767px) {
+    position: absolute;
+    top:0;
+    right:0;
+    padding-right: map-get($hnav-default, el-h) + 30px;
+    width: 100%;
+    
+    &.no-toggle {
+      padding-right:0;
+    }
+    
+    .navbar-left, &.navbar-left {
+      float:left;
+    }
+    
+    .navbar-right, &.navbar-right {
+      float:right;
+    }
+    
+    .navbar-nav > li {
+      float: left;
+    }
+    .navbar-nav .open .dropdown-menu {
+      position: absolute;
+      background: #fff;
+    }
+  }
+}
+
+/* navbar-collapse
+........................ */
+.hnav .navbar-collapse {
+  padding:0;
+  
+  @media (max-width: 767px) {
+    margin:0 15px 15px 15px;
+    
+    .navbar-nav {
+      
+      > li > a  {
+        background: getvar(colors bcolor);
+        color: rgba(#fff, 0.7);
+        padding:0 20px;
+        line-height: 50px;
+        height:auto;
+        font-size: 12px;
+        border-bottom: 1px solid rgba(#fff, 0.1);
+        margin:0;
+        
+        .icon-left {
+          text-align:center;
+          width:20px;
+        }
+        
+        .toggler {
+          float:right;
+          line-height:inherit;
+        }
+        
+        .nav-label {
+          display:none;
+          right:20px;
+          top:0;
+          bottom:0;
+          margin:auto 0;
+          height:20px;
+        }
+      }
+      
+      > li:last-child > a {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+/* Hnav Styles
+----------------------------------------- */
+.hnav .navbar-nav.line-top, .hnav .navbar-nav.line-above,  
+.hnav .navbar-nav.line-bottom, .hnav .navbar-nav.line-below,{
+  > li:hover > a:after, >li.active > a:after {
+    content: "";
+    position: absolute;
+    height:3px;
+    width:100%;
+    background: getvar(colors pcolor);
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+  }
+  
+  
+  
+  > li.no-line > a:after {
+    display:none;
+  }
+}
+
+.hnav .navbar-nav.line-bcolor {
+  > li:hover > a:after, >li.active > a:after {
+    background: getvar(colors bcolor) !important;
+  }
+
+}
+
+.hnav .navbar-collapse {
+  .navbar-nav.line-top, .hnav .navbar-nav.line-above,  
+  .navbar-nav.line-bottom, .hnav .navbar-nav.line-below{
+    @media (max-width: 767px) {
+      > li:hover > a:after, > li.active > a:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.hnav .navbar-nav.line-bottom{
+  > li:hover > a:after, >li.active > a:after {
+    bottom: 0;
+    top:auto;
+  }
+}
+
+.hnav .navbar-nav.line-above {
+  > li:hover > a:after, >li.active > a:after {
+    top: - 3px;
+  }
+}
+
+.hnav .navbar-nav.line-below {
+  > li:hover > a:after, >li.active > a:after {
+    bottom: - 3px;
+    top:auto;
+  }
+}
+
+.hnav .navbar-nav.boxed-links{
+  > li:hover > a, >li.active > a{
+    color: #fff;
+    background: getvar(colors pcolor);
+  }
+}
+
+.hnav .navbar-nav.boxed-bcolor{
+  > li:hover > a, >li.active > a{
+    color: #fff;
+    background: getvar(colors bcolor);
+  }
+}
+
+.hnav .navbar-nav.fill-default{
+  > li:hover > a, >li.active > a{
+    background: rgba(#000, 0.1);
+  }
+}
+
+.hnav .navbar-nav.fill-bcolor{
+  > li:hover > a, >li.active > a{
+    background: getvar(colors bcolor);
+    color: #fff;
+  }
+}
+
+.hnav .navbar-nav.fill-pcolor{
+  > li:hover > a, >li.active > a{
+    background: getvar(colors pcolor);
+  }
+}
+
+/* Hnav Inverse
+----------------------------------------- */
+.hnav.invert-colors {
+  color:#fff;
+  
+  .btn-outline {
+    color: rgba(#fff, 0.8);
+    border: 1px solid rgba(#fff, 0.8);
+    
+    &:hover {
+      background:rgba(#fff, 0.1);
+    }
+  }
+  .navbar-brand {
+    color:#fff;
+    &.border-r {
+      border-right: 1px solid rgba(#fff, 0.1);
+    }
+  }
+  .navbar-toggle {
+    color: #fff;
+    border:1px solid rgba(#fff, 0.1);
+    
+    &.no-border {
+      border:none;
+    }
+  }
+  .navbar-nav {
+    &.borders-lr > li > a, , &.borders-l > li > a, , &.borders-r > li > a{
+      border-color: rgba(#fff, 0.2) !important;
+    }   
+  
+    > li {
+    
+      > a {
+        color: rgba(#fff, 0.8);
+      }
+    
+      &:hover > a, &.active > a {
+        color: #fff;
+      }
+
+    }
+  }
+  
+  .navbar-nav.fill-default{
+    > li:hover > a, >li.active > a{
+      background: rgba(#fff, 0.1);
+    }
+  }
+}
+
+/* Sizes */
+@mixin reset-hnav($class, $map) {
+/* Hnav Sizes
+------------------------------------ */ 
+  /* #{$class} */
+  .hnav.#{$class} {
+    min-height: map-get($map, nav-h);
+    
+    .navbar-header {
+      height: map-get($map, nav-h);  
+    }
+    // navbar brand
+    // .........................
+    .navbar-brand {
+      line-height: map-get($map, nav-h);
+      height: map-get($map, nav-h);
+      font-size: map-get($map, brand-font-size);
+
+      img {
+        height: map-get($map, brand-h);
+        margin: cmg(map-get($map, nav-h), map-get($map, brand-h)) 0;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .nav-buttons {
+        position: absolute;
+        top: cmg(map-get($map, nav-h), map-get($map, el-h));
+        right: map-get($map, toggle-h) + 30px;
+        
+        .navbar-left, .btn-wrapper.navbar-left {
+          float:left;
+          margin:0 0 0 15px;
+        }
+      }
+    }
+    
+    // navbar toggle
+    // .........................
+    .navbar-toggle {
+      $h: map-get($map, toggle-h);
+      margin-top:cmg(map-get($map, nav-h), $h);
+      height: $h;
+      width: $h;
+      line-height: $h;
+      font-size: floor($h * 0.5);      
+    }
+    
+    // navbar nav
+    // .........................
+    .navbar-nav > li > a {
+      padding:0 map-get($map, link-pad-x);
+      line-height: map-get($map, nav-h);
+      height: map-get($map, nav-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-nav.boxed-links > li > a {
+      line-height: map-get($map, boxed-link-h);
+      height: map-get($map, boxed-link-h);
+      margin:cmg(map-get($map, nav-h), map-get($map, boxed-link-h)) 0;   
+    }
+
+    
+    // navbar elements
+    // .........................
+    .navbar-btn-group{
+      height: map-get($map, nav-h);
+    }
+    .navbar-el, .navbar-text, .navbar-btn, .navbar-form, .navbar-btn-group .btn{
+      margin-top:cmg(map-get($map, nav-h), map-get($map, el-h));
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-btn-group .btn {
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+
+    // navbar form
+    // .........................
+    .navbar-form {
+      .form-group, .form-control, .button, .btn {
+        height: map-get($map, el-h); 
+        line-height: map-get($map, el-h);
+      }
+    }
+  }
+}
+
+
+@each $size, $vars in $hnav-sizes {
+  @if(map-get($vars, active)) {
+    @include reset-hnav($size, $vars);
+  }
+}

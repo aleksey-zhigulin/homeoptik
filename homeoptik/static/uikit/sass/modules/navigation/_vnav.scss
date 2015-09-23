@@ -1,0 +1,213 @@
+/* VNAV
+----------------------------------------- */
+$vnav-sizes:(
+  default:(
+    active: false,
+    link-h: 50px,
+    font-size: 13px,
+    dd-font-size: 11px,
+    link-pad-x: 20px,
+  ),
+
+);
+
+$vnav-default: map-get($vnav-sizes, default);
+
+.vnav {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  font-family: getvar(nav-font name);
+  
+  .navbar-collapse {
+    padding:0;
+    margin:0;
+  }
+  
+  .icon-left {
+    margin-right:10px;
+  }
+  
+  .icon-right {
+    margin-left:10px;
+  }
+
+}
+
+/* navbar nav
+........................... */
+.vnav .navbar-nav {
+  position:relative;
+  float:none;
+  display:block; 
+  
+  &.has-borders > li > a{
+    border-right: 1px solid rgba(#000, 0.1);
+  }
+
+  
+  > li {
+    float:none;
+    display:block;
+    width:100%;
+    
+    > a {
+      text-transform: capitalize;
+      position: relative;
+      color: getvar(colors nav);
+      font-weight:500;
+      border-bottom:1px solid rgba(#000, 0.1);
+      padding:0 map-get($vnav-default, link-pad-x);
+      line-height: map-get($vnav-default, link-h);
+      font-size: map-get($vnav-default, font-size);
+      
+      .icon-left, .icon-right, .icon {
+        text-align:center;
+        display:inline-block;
+         width: map-get($vnav-default, font-size) + 2;
+      }
+      
+      .toggler {
+        float:right;
+        line-height: map-get($vnav-default, link-h);
+      }
+    }
+    
+    &:hover > a, &.active > a, &.open > a, > a:focus, &.alt-state > a {
+      color: getvar(colors pcolor);
+      background: none;
+    }
+    
+    // dropdown
+    // .........................
+    &.dropdown {
+      .caret, .toggler {
+        transition: all 0.3s;
+      }
+      
+      &.open .caret, &.open .toggler{
+      
+        transform: rotate(180deg);
+        
+        &.rot-45 {
+          transform: rotate(45deg);
+        }
+        
+        &.rot-135 {
+          transform: rotate(135deg);
+        }
+      }
+      
+      
+      &.open .dropdown-menu {
+       opacity:1;
+       display:block;
+      }
+    }
+    
+    // dropdown menu
+    // .........................
+    .dropdown-menu {
+      display:none;
+      overflow:hidden;
+      transition: all 0.1s;
+      border: none;
+      left:100%;
+      top:0;
+      margin-left: 10px;
+      opacity:0;
+      background: none;
+    
+      > li > a {
+        border: 1px solid rgba(#000, 0.1);
+        line-height:4em;
+        padding:0 20px;
+         background: getvar(colors bcolor-xxl);
+        color: getvar(colors text);
+        font-size:12px;
+        position:relative;
+        text-transform: capitalize;
+        margin-bottom:-1px;
+      }
+      
+      > li:hover > a, li.active > a {
+        color: getvar(colors pcolor);
+         background: #fff;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          height:60%;
+          width:3px;
+          background: getvar(colors pcolor);
+          top:0;
+          bottom:0;
+          left:0;
+          margin:auto 0;
+        }
+      }
+
+    }
+  }
+  
+  @media (max-width: getvar(screens small-max)) {
+    border: 1px solid getvar(colors bcolor)-ml;
+    padding:0;
+    margin:0 0 15px 0;
+    > li > a{
+      border-bottom: 1px solid getvar(colors bcolor-l);
+    }
+    > li:last-child > a{
+      border-bottom: none;
+    }
+    > li:hover > a, li.active > a {
+      background: getvar(colors bcolor-xl);
+    }
+  }
+}
+
+/* VNAV STYLES
+----------------------------------------- */
+.vnav .navbar-nav.line-left, .vnav .navbar-nav.line-right{
+  > li:hover > a:after, >li.active > a:after {
+    content: "";
+    position: absolute;
+    height:60%;
+    width:3px;
+    background: getvar(colors pcolor);
+    top:0;
+    bottom:0;
+    left:0;
+    margin:auto 0;
+  }
+}
+
+// VNAV MIXIN
+// ----------------------------------------- 
+@mixin reset-vnav($class, $map) {
+  /* #{$class} */
+  .vnav.#{$class} {
+    // navbar nav
+    // .........................
+    .navbar-nav > li > a {
+      padding:0 map-get($map, link-pad-x);
+      line-height: map-get($map, link-h);
+      font-size: map-get($map, font-size);
+      
+      .icon-left, .icon-right, .icon {
+        width: map-get($map, font-size) + 2;
+      }
+      
+      .toggler {
+        line-height: map-get($map, link-h);
+      }
+    }
+  }
+}
+
+@each $size, $vars in $vnav-sizes {
+  @if(map-get($vars, active)) {
+    @include reset-vnav($size, $vars);
+  }
+}

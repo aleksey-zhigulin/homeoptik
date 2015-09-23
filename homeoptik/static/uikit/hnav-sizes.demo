@@ -1,0 +1,186 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Horizontal Navigation</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+
+  <h3 class="demo-title">The hnav class</h3>
+  <p>A custom navbar class <code>.hnav</code> has been developed to <mark>minimise the effort required to customize the default bootstrap</mark> navigation. This class takes a set of variables and automatically generates properly sized bootstrap navbars.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- HNav -->
+<nav class="navbar hnav hnav-md" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <button class="btn btn-primary navbar-btn navbar-right">button</button>
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right has-borders">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Hnav sizes</h3>
+  <p>Each size is generated from a sass map named <code>.$hnav-sizes</code>. Thus you can easily create your own by adding your own set of variables. Your navbar class will then be generated suffixed with your name. e.g <code>.hnav-jumbo</code></p>
+  <div class="bs-callout bs-callout-info">
+    <h4>Hnav automatically centers everything!</h4>
+    <p>Hnav calculates and applies the required vertical margins needed for centering any navigation element.</p>
+  </div>
+  <pre>
+<code class="javascript">
+$hnav-sizes:(
+  default:(
+    active: false,
+    nav-h: 80px,
+    link-h: 80px,
+    brand-h: 40px,
+    el-h: 35px,
+    font-size: 14px,
+    link-pad-x: 20px,
+  ),
+  
+  hnav-jumbo:(
+    active: true,
+    nav-h: 110px,
+    link-h: 110px,
+    brand-h: 40px,
+    el-h: 35px,
+    font-size: 14px,
+    link-pad-x: 20px,
+  ),
+  
+  hnav-sm:(
+    active: true,
+    nav-h: 60px,
+    link-h: 60px,
+    brand-h: 30px,
+    el-h: 30px,
+    font-size: 12px,
+    link-pad-x: 15px,
+  ),
+);
+</code>
+</pre>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<h6>Small size: hnav-sm</h6>
+<p>This navbar uitilises the <code>.hnav-sm</code> class and has a <mark>height of 60px</mark> as input is <code>$hnav-sizes</code>. Notice how everything is centred!</p>
+<!-- HNav -->
+<nav class="navbar hnav hnav-sm" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <button class="btn btn-primary navbar-btn navbar-right">button</button>
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right has-borders">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+</div>

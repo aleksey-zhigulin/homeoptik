@@ -1,0 +1,104 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Vertical Profiles</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">vprofile class</h3>
+  <p>Use the <code>.vprofile</code> class to display vertical profiles of persons such as team members. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-5">
+    <h6 class="dont-copy">Simple Profile<a class="copy-code" href="#">copy</a></h6>
+    <!-- vprofile -->
+    <div class="vprofile">
+      <img src="images/demo/team1.jpg" alt="">
+      <div class="text">
+        <a class="name" href="#">John H. Doe</a>
+        <span class="title">Chief Officer</span>
+      </div>
+    </div>
+    <!-- /vprofile -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-5">
+    <h6 class="dont-copy">With social links<a class="copy-code" href="#">copy</a></h6>
+    <!-- vprofile -->
+    <div class="vprofile">
+      <!-- fader -->
+      <div class="fader">
+        <img src="images/demo/team2.jpg" alt="">
+        <!-- hidden -->
+        <div class="fader-hidden pcolor-bg">
+          <div class="vcenter align-center">
+            <div class="vcenter-this links">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- /hidden-->
+      </div>
+      <!-- /fader -->
+      <div class="text">
+        <a class="name" href="#">Mary H. Doe</a>
+        <span class="title">Graphic Designer</span>
+      </div>
+    </div>
+    <!-- /vprofile -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  </div>
+<!-- /Block Demo -->
+

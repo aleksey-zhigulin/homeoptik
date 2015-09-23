@@ -1,0 +1,184 @@
+$prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
+
+// Short Cuts
+// -------------------------------------------------------------------
+@mixin no-list() {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+@mixin nav-list() {
+	list-style:none;
+	padding:0;
+	margin:0;
+  zoom:1;
+  font-size:0;
+}
+
+@mixin fixed-icon($type, $diameter) {
+
+  @if $type == 'square' {
+    display:inline-block;
+    text-align: center;
+    line-height: $diameter;
+    height: $diameter;
+    width: $diameter;
+    font-size:floor($diameter * 0.4);
+    @include vendorize(box-sizing, content-box);
+	} 
+  @elseif $type == 'round' {
+    display:inline-block;
+    text-align: center;
+    line-height: $diameter;
+    height: $diameter;
+    width: $diameter;
+    font-size:floor($diameter * 0.4);
+    @include vendorize(box-sizing, content-box);
+    @include vendorize(border-radius, "50%");
+	} 
+  @elseif $type == 'reset' {
+    line-height: $diameter;
+    height: $diameter;
+    width: $diameter;
+    font-size:floor($diameter * 0.4);
+	} 
+}
+
+@mixin vendorize($property, $value) { 
+	@each $prefix in $prefixes {
+		#{$prefix}#{$property}: #{$value};
+	}
+}
+
+@mixin clearfix() {
+  zoom:1;
+  &:before, &:after {
+      content: "\0020"; 
+      display: block; 
+      height: 0; 
+      overflow: hidden; 
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+// COLORS
+// -----------------------------------------------------
+
+@mixin gradient($property, $value) { 
+	@each $prefix in $prefixes {
+		background-image: #{$prefix}#{$property}#{$value};
+	}
+}
+
+@mixin invert-colors($color, $bgcolor) {
+  background-color: $color;
+  color: $bgcolor;
+}
+
+// ARROWS
+// -------------------------------------------------------------------
+@mixin arrow($dir, $w, $h, $color) { 
+
+	display:block;
+	width: 0;
+	height:0;
+	background: none;
+	border: none;
+	
+	@if $dir == 'up' {
+		border-bottom: $h solid $color;
+		border-right: ($w / 2) solid transparent;
+		border-left: ($w / 2) solid transparent;
+	
+	} 
+	@elseif $dir == 'down' {
+		border-top: $h solid $color;
+		border-right: ($w / 2) solid transparent;
+		border-left: ($w / 2) solid transparent;
+	}
+	@elseif $dir == 'right' {
+		border-left: $w solid $color;
+		border-top: ($h / 2) solid transparent;
+		border-bottom: ($h / 2) solid transparent;
+	}
+	@elseif $dir == 'left' {
+		border-right: $w solid $color;
+		border-top: ($h / 2) solid transparent;
+		border-bottom: ($h / 2) solid transparent;
+	}
+	@elseif $dir == 'top-right' {
+		border-right: $w solid $color;
+		border-bottom: $h solid transparent;
+	}
+	@elseif $dir == 'top-left' {
+		border-left: $w solid $color;
+		border-bottom: $h solid transparent;
+	}
+	@elseif $dir == 'bottom-right' {
+		border-right: $w solid $color;
+		border-top: $h solid transparent;
+	}
+	@elseif $dir == 'bottom-left' {
+		border-left: $w solid $color;
+		border-top: $h solid transparent;
+	}
+}
+
+// CIRCLES
+// -------------------------------------------------------------------
+@mixin circle($diameter) {
+  height: $diameter;
+	width: $diameter;
+	@include vendorize(border-radius, "50%");
+}
+
+@mixin semi-circle($dir, $width, $height) {
+
+  display:block;
+  
+	@if $dir == 'up' {
+    width: $width;
+    height: $height;
+    @include vendorize(border-radius, $width $width 0 0);
+	} 
+	@elseif $dir == 'down' {
+    width: $width;
+    height: $height;
+    @include vendorize(border-radius, 0 0 $width $width);
+	}
+	@elseif $dir == 'right' {
+    width: $width;
+    height: $height;
+    @include vendorize(border-radius, 0 $height $height 0);
+	}
+	@elseif $dir == 'left' {
+    width: $width;
+    height: $height;
+    @include vendorize(border-radius, $height 0 0 $height);
+	}
+}
+
+// FONKIT MAKER
+// ---------------------------------------------------------------------
+@mixin fontkit($fonts, $family, $dir) {
+  /* #{$family} Fontkit (LOCAL)
+  -----------------------------------------*/
+  $n: 0;
+
+  @each $font in $fonts{
+    $n : $n + 1;
+    /*(#{$n}) #{nth($font, 1)}
+    .......................................*/
+    @font-face {
+      font-family: $family;
+      src: url("#{$dir}#{nth($font, 1)}.eot");
+      src: url("#{$dir}#{nth($font, 1)}.eot?#iefix"), url("#{$dir}#{nth($font, 1)}.woff") format("woff"), url("#{$dir}#{nth($font, 1)}.ttf") format("truetype"), url("#{$dir}#{nth($font, 1)}.svg##{$family}") format("svg");
+      font-weight: nth($font, 2);
+      font-style: nth($font, 3);
+    }
+  }
+
+}

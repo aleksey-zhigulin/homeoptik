@@ -9,12 +9,12 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
         <li class="active">{% trans "Product alerts" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}

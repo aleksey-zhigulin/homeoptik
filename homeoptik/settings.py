@@ -338,6 +338,7 @@ HAYSTACK_CONNECTIONS = {
 
 # Implicit setup can often lead to problems with circular imports, so we
 # explicitly wire up the toolbar
+
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
@@ -378,6 +379,8 @@ OSCAR_SHOP_TAGLINE = 'оптика на дом'
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
 OSCAR_DEFAULT_CURRENCY = 'RUB'
+OSCAR_CURRENCY_FORMAT = u'#,##0 ¤'
+
 
 # This is added to each template context by the core context processor.  It is
 # useful for test/stage/qa sites where you want to show the version of the site

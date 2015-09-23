@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
@@ -17,7 +17,7 @@
             <a href="{% url 'dashboard:user-alert-list' %}">{% trans "Product alerts" %}</a>
         </li>
         <li class="active">{% blocktrans with id=alert.id %}Alert #{{ id }}{% endblocktrans %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}

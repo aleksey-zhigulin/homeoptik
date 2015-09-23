@@ -106,9 +106,9 @@
 
     <div class="container-fluid dashboard">
         {% block breadcrumbs %}
-        <ol class="breadcrumb pull-left">
+        <ul class="breadcrumb">
             <li><a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a></li>
-        </ol>
+        </ul>
         {% endblock %}
 
         <div class="content">

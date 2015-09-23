@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
@@ -15,7 +15,7 @@
             <a href="{% url 'dashboard:shipping-method-list' %}">{% trans "Shipping methods" %}</a>
         </li>
         <li class="active">{{ method.name }}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}

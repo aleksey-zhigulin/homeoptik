@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
@@ -20,7 +20,7 @@
             <a href="{% url 'dashboard:voucher-stats' pk=voucher.pk %}">{{ voucher }}</a>
         </li>
         <li class="active">{% trans "Delete?" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}

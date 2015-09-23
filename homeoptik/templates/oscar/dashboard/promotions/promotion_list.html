@@ -14,12 +14,12 @@
 {% endblock header %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
         <li class="active">{% trans "Content blocks" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block dashboard_content %}

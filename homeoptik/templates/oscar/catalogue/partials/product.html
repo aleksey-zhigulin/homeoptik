@@ -5,40 +5,60 @@
 {% load staticfiles %}
 
 {% block product %}
-    <article class="product_pod">
+    <div class="product clearfix">
         {% block product_image %}
-            <div class="image_container">
+            <div class="image">
                 {% with image=product.primary_image %}
-                    {% thumbnail image.original "x155" upscale=False as thumb %}
-                    <a href="{{ product.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
+                    {% thumbnail image.original "x270" as thumb %}
+                        <a href="{{ product.get_absolute_url }}" class="main"><img src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
                     {% endthumbnail %}
                 {% endwith %}
             </div>
         {% endblock %}
 
-        {% block product_review %}
-            {% iffeature "reviews" %}
-                <p class="star-rating {{ product.rating|as_stars }}">
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                </p>
-            {% endiffeature %}
-        {% endblock %}
+{#        <span class="label label-sale">sale</span>#}
 
-        {% block product_title %}
-            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
-        {% endblock %}
+        <!-- Details -->
+        <div class="details">
 
-        {% block product_price %}
-            <div class="product_price">
-                {% include "catalogue/partials/stock_record.html" %}
+            {% block product_title %}
+                <a class="title" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
+                    {{ product.get_title|truncatewords:4|title }}
+                </a>
+            {% endblock %}
+
+            {% block product_review %}
+                {% iffeature "reviews" %}
+                    {# TODO: ratings stars #}
+                    <!-- rating -->
+                    <ul class="hlinks hlinks-rating {{ product.rating|as_stars }}">
+                        <li class="active"><i class="icon fa fa-star"></i></li>
+                        <li class="active"><i class="icon fa fa-star"></i></li>
+                        <li class="active"><i class="icon fa fa-star"></i></li>
+                        <li><i class="icon fa fa-star"></i></li>
+                        <li><i class="icon fa fa-star"></i></li>
+                    </ul>
+                    <!-- /rating -->
+                {% endiffeature %}
+            {% endblock %}
+
+            <p class="desc">{{ product.description|removetags:"p" }}</p>
+
+            {% block product_price %}
+                <!-- Price Box -->
+                <div class="price-box">
+                    {% include "catalogue/partials/stock_record.html" %}
+                </div>
+                <!-- /Price Box -->
+            {% endblock %}
+
+            <div class="btn-group">
                 {% if not product.is_parent %}
                     {% include "catalogue/partials/add_to_basket_form_compact.html" %}
                 {% endif %}
             </div>
-        {% endblock %}
-    </article>
+        </div>
+        <!-- /Details -->
+
+    </div>
 {% endblock %}

@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
@@ -22,7 +22,7 @@
         </li>
     {% endif %}
     <li class="active">{% trans "Edit" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}{{ title }}{% endblock %}

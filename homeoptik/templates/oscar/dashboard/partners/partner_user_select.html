@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
@@ -18,7 +18,7 @@
             <a href="{% url 'dashboard:partner-manage' pk=partner.id %}">{{ partner.name }}</a>
         </li>
         <li class="active">{% trans "Link an existing user" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block headertext %}

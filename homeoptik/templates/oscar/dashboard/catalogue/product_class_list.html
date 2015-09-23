@@ -3,12 +3,12 @@
 {% load i18n %}
 
 {% block breadcrumbs %}
-    <ol class="breadcrumb pull-left">
+    <ul class="breadcrumb">
         <li>
             <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
         </li>
         <li class="active">{% trans "Product Type" %}</li>
-    </ol>
+    </ul>
 {% endblock %}
 
 {% block header %}

@@ -24,18 +24,19 @@
 {% block column_left %}
     {% category_tree as tree_categories %}
     {% if tree_categories %}
-        <h4>{% trans "Show results for" %}</h4>
-        <div class="side_categories">
-            <ul class="nav nav-list">
+        <div class="side-widget no-margin-l">
+            <h5 class="boxed-title">Категории</h5>
+            <ul class="ul-toggle font-size-sm">
                 {% for tree_category, info in tree_categories %}
                     <li>
-                    {% if tree_category.pk == category.pk %}
-                        <strong>{{ tree_category.name }}</strong>
-                    {% else %}
-                        <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
-                    {% endif %}
-
-                    {% if info.has_children %}<ul>{% else %}</li>{% endif %}
+                        {% if tree_category.pk == category.pk %}
+                            <i class="icon fa fa-angle-right"></i><strong>{{ tree_category.name|title }}</strong>
+                        {% else %}
+                            <a href="{{ tree_category.get_absolute_url }}">
+                                <i class="icon fa fa-angle-right"></i>{{ tree_category.name|title }}
+                            </a>
+                        {% endif %}
+                        {% if info.has_children %}<i class="toggler ti ti-plus"></i><ul>{% else %}</li>{% endif %}
                     {% for n in info.num_to_close %}
                         </ul></li>
                     {% endfor %}
@@ -43,6 +44,7 @@
             </ul>
         </div>
     {% endif %}
+    {# TODO: filter #}
     {% if has_facets %}
         <h4>{% trans "Refine by" %}</h4>
         <div class="side_categories">
@@ -93,16 +95,41 @@
     </form>
 
     {% if products %}
-        <section>
-            <div>
-                <ol class="row">
-                    {% for product in products %}
-                        <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">{% render_product product %}</li>
-                    {% endfor %}
-                </ol>
-                {% include "partials/pagination.html" %}
+        <!-- Products Filter -->
+        <div class="products-filter clearfix">
+            <div class="display">
+                <span class="show-list" onclick="changeView('list')"><i class="icon fa fa-th-list"></i></span>
+                <span class="show-grid" onclick="changeView('grid')"><i class="icon fa fa-th"></i></span>
             </div>
-        </section>
+
+{#            <div class="filter"><b class="hidden-xs">No</b>#}
+{#                <select>#}
+{#                    <option value="9" selected="selected">9</option>#}
+{#                    <option value="12">12</option>#}
+{#                    <option value="15">15</option>#}
+{#                    <option value="18">18</option>#}
+{#                </select>#}
+{#            </div>#}
+{##}
+{#            <div class="filter"><b class="hidden-xs">Sort By</b>#}
+{#                <select>#}
+{#                    <option value="9" selected="selected">Date</option>#}
+{#                    <option value="12">Price</option>#}
+{#                    <option value="15">Popularity</option>#}
+{#                </select>#}
+{#            </div>#}
+
+        </div>
+        <!-- /Products Filter -->
+
+        <div class="product-grid row grid-20 mgb-20">
+            {% for product in products %}
+                <div class="col-sm-6 col-md-4">
+                    {% render_product product %}
+                </div>
+            {% endfor %}
+            {% include "partials/pagination.html" %}
+        </div>
     {% else %}
         <p class="nonefound">{% trans "No products found." %}</p>
     {% endif %}

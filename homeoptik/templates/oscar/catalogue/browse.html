@@ -59,69 +59,49 @@
 
 {% block content %}
 
-    <form method="get" class="form-horizontal">
-        {# Render other search params in a hidden block #}
-        <div style="display:none">
-            {% for value in selected_facets %}
-                <input name="selected_facets" value="{{ value }}" />
-            {% endfor %}
-            {{ form.q }}
-        </div>
-
-        {% if paginator.count %}
-            {% if paginator.num_pages > 1 %}
-                {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
-                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
-                {% plural %}
-                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
-                {% endblocktrans %}
-            {% else %}
-                {% blocktrans count num_results=paginator.count %}
-                    <strong>1</strong> result.
-                {% plural %}
-                    <strong>{{ num_results }}</strong> results.
-                {% endblocktrans %}
-            {% endif %}
-            {% if form %}
-                <div class="pull-right">
-                    {% include "partials/form_field.html" with field=form.sort_by %}
-                </div>
-            {% endif %}
-        {% else %}
-            <p>
-                {% trans "<strong>0</strong> results." %}
-            </p>
-        {% endif %}
-    </form>
-
-    {% if products %}
-        <!-- Products Filter -->
-        <div class="products-filter clearfix">
+    <!-- Products Filter -->
+    <div class="products-filter clearfix">
+        <form method="get" class="form-horizontal">
+            {# Render other search params in a hidden block #}
+            <div style="display:none">
+                {% for value in selected_facets %}
+                    <input name="selected_facets" value="{{ value }}" />
+                {% endfor %}
+                {{ form.q }}
+            </div>
             <div class="display">
                 <span class="show-list" onclick="changeView('list')"><i class="icon fa fa-th-list"></i></span>
                 <span class="show-grid" onclick="changeView('grid')"><i class="icon fa fa-th"></i></span>
+                {% if paginator.count %}
+                    {% if paginator.num_pages > 1 %}
+                        {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
+                            <strong>{{ num_results }}</strong> результат - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
+                        {% plural %}
+                            <strong>{{ num_results }}</strong> результатов - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
+                        {% endblocktrans %}
+                    {% else %}
+                        {% blocktrans count num_results=paginator.count %}
+                            <strong>1</strong> результат.
+                        {% plural %}
+                            <strong>{{ num_results }}</strong> результатов.
+                        {% endblocktrans %}
+                    {% endif %}
+                    {% if form %}
+                        <div class="pull-right">
+                            {% include "partials/form_field.html" with field=form.sort_by %}
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <p>
+                        {% trans "<strong>0</strong> results." %}
+                    </p>
+                {% endif %}
             </div>
+        </form>
+    </div>
+    <!-- /Products Filter -->
 
-{#            <div class="filter"><b class="hidden-xs">No</b>#}
-{#                <select>#}
-{#                    <option value="9" selected="selected">9</option>#}
-{#                    <option value="12">12</option>#}
-{#                    <option value="15">15</option>#}
-{#                    <option value="18">18</option>#}
-{#                </select>#}
-{#            </div>#}
-{##}
-{#            <div class="filter"><b class="hidden-xs">Sort By</b>#}
-{#                <select>#}
-{#                    <option value="9" selected="selected">Date</option>#}
-{#                    <option value="12">Price</option>#}
-{#                    <option value="15">Popularity</option>#}
-{#                </select>#}
-{#            </div>#}
-
-        </div>
-        <!-- /Products Filter -->
-
+    {% if products %}
         <div class="product-grid row grid-20 mgb-20">
             {% for product in products %}
                 <div class="col-sm-6 col-md-4">

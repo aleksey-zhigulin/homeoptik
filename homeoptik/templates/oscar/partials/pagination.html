@@ -4,14 +4,12 @@
 
 {% if paginator.num_pages > 1 %}
     <ul class="pagination">
-        {% if page_obj.has_previous %}
-            <li><a href="?{% get_parameters page %}page={{ page_obj.previous_page_number }}">«</a></li>
-        {% endif %}
+        <li><a {% if page_obj.has_previous %}href="?{% get_parameters page %}page={{ page_obj.previous_page_number }}"{% endif %}>«</a></li>
         {% nearest_pages page_obj.number paginator.num_pages as pages %}
         {% for page_num in pages %}
             <li>
                 <a href="?{% get_parameters page %}page={{ page_num }}"
-                            {% if page_obj.number == page_num %}class="btn disabled"{% endif %}>
+                   {% if page_obj.number == page_num %}class="btn disabled"{% endif %}>
                     {% if page_obj.number == page_num %}
                         <strong class="pcolor">{{ page_num }}</strong>
                     {% else %}
@@ -20,8 +18,6 @@
                 </a>
             </li>
         {% endfor %}
-        {% if page_obj.has_next %}
-            <li><a href="?{% get_parameters page %}page={{ page_obj.next_page_number }}">»</a></li>
-        {% endif %}
+        <li><a {% if page_obj.has_next %}href="?{% get_parameters page %}page={{ page_obj.next_page_number }}"{% endif %}>»</a></li>
     </ul>
 {% endif %}

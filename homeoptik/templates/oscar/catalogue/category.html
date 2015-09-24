@@ -12,9 +12,11 @@
 
 {% block headertext %}{{ category.name }}{% endblock %}
 
-{% if category.image %}
-    {% block intro_bg %}{{ category.image.url }}{% endblock %}
-{% endif %}
+{% block intro_bg %}
+    {% if category.image %}
+        {{ category.image.url }}
+    {% endif %}
+{% endblock %}
 
 {% block subheader %}{{ category.description|safe }}{% endblock %}
 

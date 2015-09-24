@@ -54,7 +54,7 @@ var scripts = [
   "js/jquery.prettyPhoto.js",
   "js/wow.min.js",
   "js/theme.js",
-  "js/style-switcher.js",
+  //"js/style-switcher.js",
   "js/rating-stars.js",
 ];
 

@@ -12,6 +12,8 @@
 
 {% block headertext %}{{ summary }}{% endblock %}
 
+{% block breadcrumbs_styles %}{{ block.super }} page-info-alt{% endblock %}
+
 {% block breadcrumbs %}
     <ol class="breadcrumb pull-left">
         <li>

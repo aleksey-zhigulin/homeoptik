@@ -309,8 +309,9 @@ INSTALLED_APPS = [
     'rosetta',          # For i18n testing
     'compressor',
     'widget_tweaks',
-    #'apps.gateway',     # For allowing dashboard access
+    'app',
 ]
+
 from oscar import get_core_apps
 INSTALLED_APPS = INSTALLED_APPS + get_core_apps()
 
@@ -380,6 +381,18 @@ OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
 OSCAR_DEFAULT_CURRENCY = 'RUB'
 OSCAR_CURRENCY_FORMAT = u'#,##0 ¤'
+
+
+OSCAR_PRODUCTS_PER_PAGE = 12
+OSCAR_OFFERS_PER_PAGE = 12
+OSCAR_REVIEWS_PER_PAGE = 12
+OSCAR_NOTIFICATIONS_PER_PAGE = 12
+OSCAR_EMAILS_PER_PAGE = 12
+OSCAR_ORDERS_PER_PAGE = 12
+OSCAR_ADDRESSES_PER_PAGE = 12
+OSCAR_STOCK_ALERTS_PER_PAGE = 12
+OSCAR_DASHBOARD_ITEMS_PER_PAGE = 12
+
 
 
 # This is added to each template context by the core context processor.  It is

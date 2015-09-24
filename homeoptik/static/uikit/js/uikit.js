@@ -55,6 +55,7 @@ var scripts = [
   "js/wow.min.js",
   "js/theme.js",
   "js/style-switcher.js",
+  "js/rating-stars.js",
 ];
 
 // IMPORTANT: To force caching change false to true

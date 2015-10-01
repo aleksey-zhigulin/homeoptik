@@ -3047,7 +3047,7 @@ body {
   padding: 0 0 0 50px;
   min-height: 40px; }
   .hfeat.hfeat-sm .icon {
-    font-size: 40px;
+    font-size: 20px;
     width: 40px;
     line-height: 40px; }
   .hfeat.hfeat-sm.hfeat-box {
@@ -5702,3 +5702,45 @@ div.pp_default .pp_details, div.light_rounded .pp_details, div.dark_rounded .pp_
   background: #82B440; }
 
 /*# sourceMappingURL=uikit.css.map */
+.reviewrating select {
+  display: none;
+}
+.reviewrating .star-rating {
+  margin-bottom: 10px;
+  font-size: 280%;
+}
+.reviewrating .star-rating i {
+  cursor: pointer;
+}
+
+.star-[] {
+  color: #CBCBCB;
+}
+.star-rating i {
+  letter-spacing: -1px;
+  width: auto;
+}
+.star-rating a {
+  margin-left: 10px;
+}
+.star-rating.One i:first-child {
+  color: #E6CE31;
+}
+.star-rating.Two i:first-child,
+.star-rating.Two i:first-child + i {
+  color: #E6CE31;
+}
+.star-rating.Three i:first-child,
+.star-rating.Three i:first-child + i,
+.star-rating.Three i:first-child + i + i {
+  color: #E6CE31;
+}
+.star-rating.Four i:first-child,
+.star-rating.Four i:first-child + i,
+.star-rating.Four i:first-child + i + i,
+.star-rating.Four i:first-child + i + i + i {
+  color: #E6CE31;
+}
+.star-rating.Five i {
+  color: #E6CE31;
+}

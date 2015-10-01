@@ -27,26 +27,29 @@
 {% endblock %}
 
 {% block headertext %}
-    {% trans "Customer reviews" %}
+    Отзывы покупателей
 {% endblock  %}
 
 {% block content %}
 
-    <section>        
+    <section>
         {% include 'catalogue/reviews/review_product.html' %}
 
         {% if reviews %}
-            <form action="." method="get" class="form-inline">
-                {% for field in form %}
-                    {{ field.label }}
-                    {{ field }}
-                {% endfor %}
-                <input type="submit" class="btn btn-default" value="{% trans "Go" %}" />
+            <form action="." method="get" class="products-filter clearfix">
+                <div class="filter">
+                    {% for field in form %}
+                        <b class="hidden-xs">{{ field.label }}</b>
+                        {{ field }}
+                    {% endfor %}
+                </div>
             </form>
 
-            {% for review in reviews %}
-                {% include 'catalogue/partials/review.html' %}
-            {% endfor %}
+            <ol class="comments-list">
+                {% for review in reviews %}
+                    {% include 'catalogue/partials/review.html' %}
+                {% endfor %}
+            </ol>
             {% include 'partials/pagination.html' %}
 
         {% else %}
@@ -54,4 +57,9 @@
         {% endif %}
 
     </section>
+{% endblock %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    $('#id_sort_by').change(function() { this.form.submit(); })
 {% endblock %}

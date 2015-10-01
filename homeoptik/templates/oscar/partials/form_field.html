@@ -3,7 +3,7 @@
 
 {% if field.is_hidden %}
     {{ field }}
-{% else %}
+{% elif field.label %}
     {% comment %}
         Make the field widget type available to templates so we can mark-up
         checkboxes differently to other widgets.
@@ -17,8 +17,16 @@
                 {% if not nolabel and field.widget_type != 'CheckboxInput' %}
                     <label for="{{ field.auto_id }}" class="{% if style|default:"stacked" != 'stacked' %}col-sm-4{% endif%} control-label{% if field.field.required %} required{% endif %}">
                         {{ field.label|safe }}
+
+
                     </label>
                 {% endif %}
+            {% endblock %}
+
+            {% block errors %}
+                {% for error in field.errors %}
+                    <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> {{ error }}</span>
+                {% endfor %}
             {% endblock %}
 
             {% block controls %}
@@ -34,11 +42,6 @@
                         {% endif %}
                     {% endblock %}
 
-                    {% block errors %}
-                        {% for error in field.errors %}
-                            <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
-                        {% endfor %}
-                    {% endblock %}
 
                     {% block help_text %}
                         {% if field.help_text %}

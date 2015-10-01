@@ -10,8 +10,9 @@
                 {#                <link rel="stylesheet" type="text/less" href="{% static "oscar/less/styles.less" %}" />#}
             {% else %}
                 {#                <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />#}
-                <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+                <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
                 <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
+                <link href="{% static "uikit/css/uikit-browser.css" %}" rel="stylesheet">
             {% endif %}
         {% endcompress %}
     {% endblock %}
@@ -33,7 +34,61 @@
         {# Top-horizontal bar with account, notifictions, dashboard links #}
 
         {# Site logo/title, mini-basket, browse dropdown and searchbox #}
-        <header class="header-block line-top">
+        <header class="header-block">
+            <!-- Nav Top............................................. -->
+            <nav class="nav-top hnav hnav-sm hnav-borderless invert-colors bcolor-bg visible-md visible-lg">
+
+                <!-- Container -->
+                <div class="container">
+
+                    <!-- Dont Collapse -->
+                    <div class="navbar-dont-collapse no-toggle">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- hfeat -->
+                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">
+                                    <i class="icon fa fa-cogs"></i>
+                                    <a class="title" style="color: rgba(255, 255, 255, 0.8)">изготовление очков</a>
+                                    <p class="text" style="color: rgba(255, 255, 255, 0.8)">любой сложности</p>
+                                </div>
+                                <!-- /hfeat -->
+                            </div>
+                            <div class="col-md-3">
+                                <!-- hfeat -->
+                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">
+                                    <i class="icon fa fa-rouble"></i>
+                                    <a class="title" style="color: rgba(255, 255, 255, 0.8)">Лучшие цены</a>
+                                    <p class="text" style="color: rgba(255, 255, 255, 0.8)">убедитесь сами</p>
+                                </div>
+                                <!-- /hfeat -->
+                            </div>
+                            <div class="col-md-3">
+                                <!-- hfeat -->
+                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">
+                                    <i class="icon fa fa-thumbs-o-up"></i>
+                                    <a class="title" style="color: rgba(255, 255, 255, 0.8)">гарантия</a>
+                                    <p class="text" style="color: rgba(255, 255, 255, 0.8)">на все оправы и линзы</p>
+                                </div>
+                                <!-- /hfeat -->
+                            </div>
+                            <div class="col-md-3">
+                                <!-- hfeat -->
+                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">
+                                    <i class="icon ti-shield"></i>
+                                    <a class="title" style="color: rgba(255, 255, 255, 0.8)">без подделок</a>
+                                    <p class="text" style="color: rgba(255, 255, 255, 0.8)">только оригинальная продукция от известных брендов</p>
+                                </div>
+                                <!-- /hfeat -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Dont Collapse -->
+
+                </div>
+                <!-- /Container -->
+
+            </nav>
+            <!-- /Nav Top............................................ -->
             <div class="main-header container">
                 <div class="header-cols">
                     {% include "partials/brand.html" %}
@@ -67,7 +122,7 @@
                 </section>
             {% endblock %}
 
-            <section class="{% block breadcrumbs_styles %}page-info-block boxed-section{% endblock %}">
+            <section class="page-info-block page-info-alt boxed-section">
                 <!-- Container -->
                 <div class="container cont-pad-x-15">
                     {% block breadcrumbs %}{% endblock %}
@@ -75,8 +130,9 @@
                 <!-- /Container -->
             </section>
 
-            {% include "partials/alert_messages.html" %}
             {% block subnavigation %}{% endblock %}
+
+            {% include "partials/alert_messages.html" %}
 
             {# Render promotions #}
             <div id="promotions">
@@ -85,7 +141,7 @@
                 {% endfor %}
             </div>
 
-            <section class="content-block default-bg">
+            <section class="{% block section_class %}content-block default-bg {% endblock %}">
 
                 <!-- Container -->
                 <div class="container cont-main no-pad-t">
@@ -97,8 +153,9 @@
             </section>
 
         {% endblock %}
-
         {% include "partials/footer.html" %}
+
+
     </div>
 {% endblock %}
 
@@ -112,6 +169,7 @@
         <script type="text/javascript" src="{% static "uikit/bootstrap/js/bootstrap.min.js" %}"></script>
         <!-- Oscar -->
         <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static "notifIt/js/notifIt.min.js" %}" type="text/javascript" charset="utf-8"></script>
     {% endcompress %}
 {% endblock %}
 

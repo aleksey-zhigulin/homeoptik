@@ -49,7 +49,7 @@ TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru_RU'
 
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
@@ -60,7 +60,7 @@ LANGUAGES = (
     #('nl', gettext_noop('Dutch')),
     #('it', gettext_noop('Italian')),
     #('pl', gettext_noop('Polish')),
-    ('ru', gettext_noop('Russian')),
+    ('ru_RU', gettext_noop('Russian')),
     #('sk', gettext_noop('Slovak')),
     #('pt-br', gettext_noop('Brazilian Portuguese')),
     #('fr', gettext_noop('French')),
@@ -75,9 +75,14 @@ LANGUAGES = (
     #('el', gettext_noop('Greek')),
 )
 
-ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
+# ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
+ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage'
 ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 ROSETTA_REQUIRES_AUTH = False
+ROSETTA_WSGI_AUTO_RELOAD = True
+LOCALE_PATHS = (
+    location('../locale'),
+)
 
 SITE_ID = 1
 
@@ -108,6 +113,7 @@ STATIC_ROOT = location('public/static')
 STATICFILES_DIRS = (
     location('static/'),
 )
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -472,4 +478,3 @@ try:
     from settings_local import *
 except ImportError:
     pass
-

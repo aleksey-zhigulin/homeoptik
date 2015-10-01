@@ -4,7 +4,7 @@
 {% load i18n %}
 
 
-<nav class="nav-bottom hnav hnav-borderless pcolor-bg invert-colors boxed-section">
+<nav class="nav-bottom hnav hnav-ruled white-bg boxed-section">
 
     <!-- Container -->
     <div class="container">
@@ -22,7 +22,7 @@
         <!-- Collapse -->
         <div id="nav-collapse" class="collapse navbar-collapse navbar-absolute">
             {% block nav_dropdown %}
-                <ul id="browse" class="nav navbar-nav navbar-center fill-default case-u">
+                <ul id="browse" class="nav navbar-nav navbar-center line-top case-c">
                     <li class="dropdown active {% if expand_dropdown %}open{% endif %}">
                         <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
                             {% trans "Browse store" %}

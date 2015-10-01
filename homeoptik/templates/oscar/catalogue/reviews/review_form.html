@@ -1,11 +1,12 @@
 {% extends "catalogue/detail.html" %}
 {% load i18n %}
+{% load staticfiles  %}
 
 {% block product_review %}
-    <div id="addreview" class="review_add">
-        <form id="add_review_form" method="post" action="./#addreview">
+    <div id="addreview" class="col-md-9 mgb-30-xs review_add">
+        <form id="add_review_form" method="post" action="./#addreview" class="form-panel">
+            <header>{% trans "Leave a product review" %}</header>
             <fieldset>
-                <legend>{% trans "Leave a product review" %}</legend>
                 {% csrf_token %}
                 
                 {% include 'partials/form_field.html' with field=form.title %}
@@ -16,14 +17,13 @@
                     </label>
                     <div class="controls">
                         {{ form.score }}
-                        <div class="star-rating {% if form.score.value == '1' %}One{% elif form.score.value == '2' %}Two{% elif form.score.value == '3' %}Three{% elif form.score.value == '4' %}Four{% elif form.score.value == '5' %}Five{% endif %}">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                        </div>
-
+                         <ul class="hlinks hlinks-rating {% if form.score.value == '1' %}One{% elif form.score.value == '2' %}Two{% elif form.score.value == '3' %}Three{% elif form.score.value == '4' %}Four{% elif form.score.value == '5' %}Five{% endif %}">
+                            <li style="font-size:40px;" ><a><i class="icon fa fa-star"></i></a></li>
+                            <li style="font-size:40px;" ><a><i class="icon fa fa-star"></i></a></li>
+                            <li style="font-size:40px;" ><a><i class="icon fa fa-star"></i></a></li>
+                            <li style="font-size:40px;" ><a><i class="icon fa fa-star"></i></a></li>
+                            <li style="font-size:40px;" ><a><i class="icon fa fa-star"></i></a></li>
+                        </ul>
                         {% for error in form.score.errors %}
                             <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
                         {% endfor %}
@@ -39,7 +39,7 @@
                 {% include 'partials/form_field.html' with field=form.email %}
 
 
-                <button type="submit" class="btn btn-primary btn-lg" data-loading-text="{% trans 'Saving...' %}">{% trans "Save review" %}</button>
+                <button type="submit" class="btn btn-default  btn-bigger" data-loading-text="{% trans 'Saving...' %}">{% trans "Save review" %}</button>
                 {% trans "or" %}
                 <a href="{{ product.get_absolute_url }}">{% trans "cancel" %}</a>
             </fieldset>

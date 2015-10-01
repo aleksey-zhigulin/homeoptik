@@ -47,12 +47,12 @@ main content area to split it into a sidebar and a content block
                 <!-- Side Col -->
                 <div class="side-col side-col-padded col-sm-3 col-md-3">
                     {# Render promotions at the top of the left-hand sidebar #}
+                    {% block column_left %}{% endblock %}
                     <div id="promotions_left">
                         {% for promotion in promotions_left %}
                             {% render_promotion promotion %}
                         {% endfor %}
                     </div>
-                    {% block column_left %}{% endblock %}
                 </div>
                 <!-- /Side Col -->
 

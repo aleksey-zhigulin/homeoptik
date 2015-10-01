@@ -84,7 +84,7 @@ var oscar = (function(o, $) {
             // show clickable stars instead of a select dropdown for product rating
             ratings = $('.reviewrating');
             if(ratings.length){
-                ratings.find('.star-rating i').on('click',o.forms.reviewRatingClick);
+                ratings.find('.hlinks-rating i').on('click',o.forms.reviewRatingClick);
             }
         },
         submitIfNotLocked: function(event) {
@@ -96,8 +96,10 @@ var oscar = (function(o, $) {
         },
         reviewRatingClick: function(event){
             var ratings = ['One','Two','Three','Four','Five']; //possible classes for display state
-            $(this).parent().removeClass('One Two Three Four Five').addClass(ratings[$(this).index()]);
-            $(this).closest('.controls').find('select').val($(this).index() + 1); //select is hidden, set value
+            $(this).closest('ul').removeClass('One Two Three Four Five').addClass(ratings[$(this).closest('li').index()]);
+            $(this).closest('.controls').find('select').val($(this).closest('li').index() + 1); //select is hidden, set value
+            $(this).closest('ul').find("li").slice(0, 5).removeClass('active');
+            $(this).closest('ul').find("li").slice(0, $(this).closest('li').index() + 1).toggleClass('active');
         }
     };
 

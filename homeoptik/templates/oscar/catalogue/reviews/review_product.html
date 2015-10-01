@@ -1,21 +1,36 @@
 {% load thumbnail %}
 {% load staticfiles %}
+{% load reviews_tags %}
 
-<div class="row">
-    <div class="col-sm-2">
-        <div class="image_container">
-            {% with image=product.primary_image %}
-                {% thumbnail image.original "x155" upscale=False as thumb %}
-                    <a href="{{ product.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
-                {% endthumbnail %}
-            {% endwith %}
-        </div>
+<!-- product -->
+<div class="product product-listview clearfix">
+
+    <div class="image">
+        {% with image=product.primary_image %}
+            {% thumbnail image.original "155x100" padding=True as thumb %}
+                <a href="{{ product.get_absolute_url }}" class="main"><img src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
+            {% endthumbnail %}
+        {% endwith %}
     </div>
-    <div class="col-sm-10">
-        <h2><a href="{{ product.get_absolute_url }}">{{ product.get_title }}</a></h2>
-        {% include "catalogue/partials/stock_record.html" %}
-        {% include "catalogue/reviews/partials/review_stars.html" %}
+
+    <div class="details">
+        <a class="title" href="{{ product.get_absolute_url }}">{{ product.get_title }}</a>
+        <!-- hlinks -->
+        <ul class="hlinks hlinks-rating {{ product.rating|as_stars }}">
+            <li><a>
+                <i class="icon fa fa-star"></i></a></li>
+            <li><a><i class="icon fa fa-star"></i></a></li>
+            <li><a><i class="icon fa fa-star"></i></a></li>
+            <li><a><i class="icon fa fa-star"></i></a></li>
+            <li><a><i class="icon fa fa-star"></i></a></li>
+        </ul>
+        <!-- /hlinks -->
+{#        {% include "catalogue/partials/stock_record.html" with verbose=1%}#}
+        <p class="desc">{{ product.description|removetags:"p" }}</p>
     </div>
+
 </div>
+<!-- /product -->
 
-<hr>
+<hr class="y-200pc"/>
+

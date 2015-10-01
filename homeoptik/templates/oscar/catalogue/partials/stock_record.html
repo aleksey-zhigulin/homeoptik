@@ -5,6 +5,14 @@
 
 {% purchase_info_for_product request product as session %}
 
+
+{% if verbose %}
+    <div class="price-box">
+        <h4 class="product-price">
+{% else %}
+    <span class="price">
+{% endif %}
+
 {% if session.price.exists %}
     {% if session.price.excl_tax == 0 %}
         <span class="price">{% trans "Free" %}</span>
@@ -14,13 +22,22 @@
         <span class="price">{{ session.price.excl_tax|currency:session.price.currency }}</span>
     {% endif %}
 {% else %}
-    <span class="price">&nbsp;</span>
+    <small>
+        <i class="fa fa-close red"></i>
+        Нет в наличии
+    </small>
 {% endif %}
-{#<p class="{{ session.availability.code }} availability">#}
-{#    <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>#}
-{#    {% if verbose %}#}
-{#        {{ session.availability.message }}#}
-{#    {% else %}#}
-{#        {{ session.availability.short_message }}#}
-{#    {% endif %}#}
-{#</p>#}
+
+{% if verbose %}
+        </h4>
+    </div>
+    {% if session.availability.is_available_to_buy %}
+        <p>
+            <i class="fa fa-check green"></i>
+            В наличии ({{ session.availability.message|lower }})
+        </p>
+    {% endif %}
+{% else %}
+    </span>
+{% endif %}
+

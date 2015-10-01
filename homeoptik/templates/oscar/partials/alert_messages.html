@@ -8,33 +8,34 @@ Use message tags to control these alerts.  Available tags include:
 - error/success/info - these change the connotation of the alert
 {% endcomment %}
 
-<div id="messages">
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert {% for tag in message.tags|split %}alert-{{ tag }} {% endfor %} fade in">
-            <a class="close" data-dismiss="alert" href="#">&times;</a>
-            <div class="alertinner {% if 'noicon' not in message.tags %}wicon{% endif %}">
-                {# Allow HTML to be embedded in messages #}
-                {% if 'safe' in message.tags %}
-                    {{ message|safe }}
-                {% else %}
-                    {{ message }}
-                {% endif %}
 
-                {% if 'noicon' not in message.tags %}
-                    {# Include an icon by default #}
-                    {% if 'success' in message.tags %}
-                        <i class="icon-ok-sign"></i>
-                    {% elif 'info' in message.tags %}
-                        <i class="icon-info-sign"></i>
-                    {% elif 'warning' in message.tags %}
-                        <i class="icon-warning-sign"></i>
-                    {% elif 'danger' in message.tags %}
-                        <i class="icon-exclamation-sign"></i>
+<div id="messages">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% for tag in message.tags|split %}alert-{{ tag }} {% endfor %} fade in">
+                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                <div class="alertinner {% if 'noicon' not in message.tags %}wicon{% endif %}">
+{#Allow HTML to be embedded in messages#}
+                    {% if 'safe' in message.tags %}
+                        {{ message|safe }}
+                    {% else %}
+                        {{ message }}
                     {% endif %}
-                {% endif %}
+
+                    {% if 'noicon' not in message.tags %}
+{#Include an icon by default#}
+                        {% if 'success' in message.tags %}
+                            <i class="icon-ok-sign"></i>
+                        {% elif 'info' in message.tags %}
+                            <i class="icon-info-sign"></i>
+                        {% elif 'warning' in message.tags %}
+                            <i class="icon-warning-sign"></i>
+                        {% elif 'danger' in message.tags %}
+                            <i class="icon-exclamation-sign"></i>
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-{% endif %}
+        {% endfor %}
+    {% endif %}
 </div>

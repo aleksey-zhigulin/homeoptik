@@ -5,8 +5,9 @@
 {% purchase_info_for_product request product as session %}
 
 {% if session.availability.is_available_to_buy %}
+    <h4>Купить сейчас</h4>
     {% basket_form request product as basket_form %}
-    <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="pull-left">
+    <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post">
         {% csrf_token %}
         {% include "partials/form_fields.html" with form=basket_form %}
         <button type="submit" class="btn btn-default btn-bigger" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}"><i class="icon-left ti ti-shopping-cart"></i>{% trans "Add to basket" %}</button>
@@ -14,11 +15,11 @@
 {#    {% include "catalogue/partials/add_to_wishlist.html" %}#}
 {% else %}
     {% if has_active_alert %}
-        <p>{% trans "You have an active stock alert for this product." %}</p>
+        <h5>Мы уведомим Вас когда товар будет в наличии.</h5>
     {% else %}
         <form id="alert_form" method="post" action="{% url 'customer:alert-create' pk=product.id %}" class="add-to-basket">
             {% csrf_token %}
-            <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
+            <h5>Мы можем уведомить Вас по email когда товар будет в наличии.</h5>
             {% include "partials/form_fields.html" with form=alert_form %}
             <button type="submit" class="btn btn-default btn-bigger" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-left ti ti-email"></i>{% trans "Notify me" %}</button>
         </form>

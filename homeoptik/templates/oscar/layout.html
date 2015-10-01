@@ -128,11 +128,12 @@
                     {% block breadcrumbs %}{% endblock %}
                 </div>
                 <!-- /Container -->
+                {% include "partials/alert_messages.html" %}
             </section>
 
             {% block subnavigation %}{% endblock %}
 
-            {% include "partials/alert_messages.html" %}
+
 
             {# Render promotions #}
             <div id="promotions">

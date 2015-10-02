@@ -319,7 +319,7 @@ INSTALLED_APPS = [
 ]
 
 from oscar import get_core_apps
-INSTALLED_APPS = INSTALLED_APPS + get_core_apps()
+INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout'])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -399,7 +399,9 @@ OSCAR_ADDRESSES_PER_PAGE = 12
 OSCAR_STOCK_ALERTS_PER_PAGE = 12
 OSCAR_DASHBOARD_ITEMS_PER_PAGE = 12
 
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'line1', 'city')
 
+OSCAR_FROM_EMAIL = 'noreply@homeoptik.ru'
 
 # This is added to each template context by the core context processor.  It is
 # useful for test/stage/qa sites where you want to show the version of the site

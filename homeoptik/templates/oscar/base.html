@@ -1,6 +1,6 @@
 {% load i18n compress %}
 {% load staticfiles %}
-<!DOCTYPE html>
+<!DOCTYPE html >
 <!--[if lt IE 7]>      <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9"> <![endif]-->
@@ -52,7 +52,7 @@
     {% endblock %}
 </head>
 
-<body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}preload bcolor-xxl-bg ukb{% endblock %}">
+<body id="{% block body_id %}default{% endblock %}" style="background:white" class="{% block body_class %}preload ukb{% endblock %}">
 
     {# Main content goes in this 'layout' block #}
     {% block layout %}{% endblock %}

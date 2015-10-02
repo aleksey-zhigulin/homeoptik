@@ -2,6 +2,8 @@
 {% load currency_filters %}
 {% load category_tags %}
 {% load i18n %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
 
 
 <nav class="nav-bottom hnav hnav-ruled white-bg boxed-section">
@@ -23,34 +25,55 @@
         <div id="nav-collapse" class="collapse navbar-collapse navbar-absolute">
             {% block nav_dropdown %}
                 <ul id="browse" class="nav navbar-nav navbar-center line-top case-c">
-                    <li class="dropdown active {% if expand_dropdown %}open{% endif %}">
+                    <li class="dropdown dropdown-mega {% if 'catalogue' in request.get_full_path %}active{% endif %} {% if expand_dropdown %}open{% endif %}">
                         <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
                             {% trans "Browse store" %}
                             <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu" data-navigation="dropdown-menu">
-                            {% category_tree depth=2 as tree_categories %}
-                            <li><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All products" %}</a></li>
-                            {% if tree_categories %}
-                                {% for tree_category, info in tree_categories %}
-                                    {% if info.has_children %}
-                                        <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
-                                        <ul class="dropdown-menu">
-                                    {% else %}
-                                        <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
-                                    {% endif %}
+                        <div class="mega-menu dropdown-menu">
+                            <!-- Row -->
+                            <div class="row">
 
-                                {% for close in info.num_to_close %}
-                                    </ul></li>
-                                {% endfor %}
-                                {% endfor %}
-                            {% endif %}
-                            {% block nav_dropdown_extra_items %}
-                                <li><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
-                            {% endblock %}
-                        </ul>
+                                <!-- col -->
+                                <div class="col-md-3">
+                                    <img class="featured-img hidden-xs hidden-sm" src="{% static "images/menu-pic.jpg" %}" alt="">
+                                </div>
+                                <!-- /col -->
+
+                                {% category_tree depth=2 as tree_categories %}
+                                {% if tree_categories %}
+                                    {% for tree_category, info in tree_categories %}
+                                        {% if info.has_children %}
+                                            <!-- col -->
+                                            <div class="col-md-3">
+                                            <h5>{{ tree_category.name }}</h5>
+                                            <ul class="links">
+                                        {% else %}
+                                            <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}><a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
+                                        {% endif %}
+
+                                        {% for close in info.num_to_close %}
+                                            </ul>
+                                            </div>
+                                            <!-- /col -->
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}
+
+                            </div>
+                            <!-- /Row -->
+                        </div>
                     </li>
+
+                    {% block nav_dropdown_extra_items %}
+                        {% url 'offer:list' as offers_url %}
+                        <li {% if offers_url == request.get_full_path %}class="active"{% endif %}><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
+                    {% endblock %}
+
+                    {% for page in flatpages %}
+                        <li {% if page.url == request.get_full_path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+
                     {% block nav_extra %}
                     {% endblock %}
                 </ul>

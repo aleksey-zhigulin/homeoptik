@@ -22,7 +22,7 @@
 {% endblock breadcrumbs %}
 
 {% block column_left %}
-    {% category_tree as tree_categories %}
+    {% category_tree depth=2 as tree_categories %}
     {% if tree_categories %}
         <div class="side-widget no-margin-l">
             <h5 class="boxed-title">Категории</h5>

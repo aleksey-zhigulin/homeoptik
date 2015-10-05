@@ -3,8 +3,10 @@
 {% load category_tags %}
 {% load i18n %}
 {% load flatpages %}
-{% get_flatpages as flatpages %}
+{% load homeoptik_tags %}
 
+{% get_flatpages as flatpages %}
+{% get_offers_list as offers %}
 
 <nav class="nav-bottom hnav hnav-ruled white-bg boxed-section">
 
@@ -49,26 +51,38 @@
                                             <h5>{{ tree_category.name }}</h5>
                                             <ul class="links">
                                         {% else %}
-                                            <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}><a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
+                                            <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}>
+                                                <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                                            </li>
                                         {% endif %}
 
-                                        {% for close in info.num_to_close %}
-                                            </ul>
-                                            </div>
-                                            <!-- /col -->
-                                        {% endfor %}
+                                    {% for close in info.num_to_close %}
+                                        </ul>
+                                        </div>
+                                        <!-- /col -->
+                                    {% endfor %}
                                     {% endfor %}
                                 {% endif %}
 
+                                <!-- col -->
+                                <div class="col-md-3">
+                                    <h5>Скидки и акции</h5>
+                                    <ul class="links">
+                                        {% for offer in offers %}
+                                            {% url 'offer:detail' slug=offer.slug  as offer_url%}
+                                            <li {% if offer_url == request.get_full_path %}class="active"{% endif %}>
+                                                <a href="{{ offer_url }}">{{ offer.name }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <!-- /col -->
                             </div>
                             <!-- /Row -->
                         </div>
                     </li>
 
-                    {% block nav_dropdown_extra_items %}
-                        {% url 'offer:list' as offers_url %}
-                        <li {% if offers_url == request.get_full_path %}class="active"{% endif %}><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
-                    {% endblock %}
+                    {% block nav_dropdown_extra_items %}{% endblock %}
 
                     {% for page in flatpages %}
                         <li {% if page.url == request.get_full_path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>

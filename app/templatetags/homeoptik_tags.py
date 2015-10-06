@@ -23,3 +23,9 @@ def get_offers_list():
     """return offers list"""
 
     return ConditionalOffer.active.filter(offer_type=ConditionalOffer.SITE)
+
+
+@register.assignment_tag(takes_context=True)
+def has_choice(context):
+    return sum(i['count'] for i in context['items']) > 0 and \
+        sum(i['disabled'] for i in context['items']) + 1 < len(context['items'])

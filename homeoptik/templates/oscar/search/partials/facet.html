@@ -1,26 +1,31 @@
 {% load i18n %}
+{% load homeoptik_tags %}
 
-<dl>
-    <dt class="nav-header">{{ name }}</dt>
+{% has_choice as has_choice %}
+{% if has_choice %}
+    <label>{{ name }}</label>
     {% for item in items %}
-        <dd>
-            {% if item.selected %}
-                <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />
-                <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
-                <strong>{{ item.name }}</strong>
-            {% else %}
-                {% if item.disabled %}
-                    <input type="checkbox" name="{{ item.name }}" disabled />
-                    {{ item.name }}
+        {% if not item.disabled  %}
+            <div class="form-group slider-group">
+                {% if item.selected %}
+                    <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />
+                    <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
+                    <strong>{{ item.name }}</strong>
                 {% else %}
-                    <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" />
-                    <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
-                    <a href="{{ item.select_url }}">{{ item.name }}</a>
+                    {% if item.disabled %}
+                        <input type="checkbox" name="{{ item.name }}" disabled />
+                        {{ item.name }}
+                    {% else %}
+                        <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" />
+                        <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
+                        <a href="{{ item.select_url }}">{{ item.name }}</a>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-            {% if item.show_count %}
-                ({{ item.count }})
-            {% endif %}
-        </dd>
+                {% if item.show_count %}
+                    ({{ item.count }})
+                {% endif %}
+            </div>
+        {% endif %}
     {% endfor %}
-</dl>
+{% endif %}
+

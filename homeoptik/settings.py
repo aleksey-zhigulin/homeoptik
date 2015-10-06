@@ -319,7 +319,7 @@ INSTALLED_APPS = [
 ]
 
 from oscar import get_core_apps
-INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout'])
+INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout', 'forked.search'])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -332,10 +332,19 @@ LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True
 
 # Haystack settings
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+#         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+#     },
+# }
+
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr',
+        'INCLUDE_SPELLING': True,
+        'EXCLUDED_INDEXES': ['forked.search.search_indexes.CoreProductIndex'],
     },
 }
 
@@ -402,6 +411,34 @@ OSCAR_DASHBOARD_ITEMS_PER_PAGE = 12
 OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'line1', 'city')
 
 OSCAR_FROM_EMAIL = 'noreply@homeoptik.ru'
+
+OSCAR_PROMOTION_POSITIONS = (('page', 'Page'),
+                             ('right', 'Right-hand sidebar'),
+                             ('left', 'Left-hand sidebar'),
+                             ('bottom', 'Bottom'))
+
+OSCAR_SEARCH_FACETS = {
+    'fields': OrderedDict([
+        ('product_class', {'name': gettext_noop('Type'), 'field': 'product_class'}),
+        ('rating', {'name': gettext_noop('Rating'), 'field': 'rating'}),
+        ('glass_style', {'name': gettext_noop('Form'), 'field': 'glass_style'}),
+    ]),
+    'queries': OrderedDict([
+        ('price_range',
+         {
+             'name': gettext_noop('Price range'),
+             'field': 'price',
+             'queries': [
+                 # This is a list of (name, query) tuples where the name will
+                 # be displayed on the front-end.
+                 (gettext_noop('0 to 20'), u'[0 TO 20]'),
+                 (gettext_noop('20 to 40'), u'[20 TO 40]'),
+                 (gettext_noop('40 to 60'), u'[40 TO 60]'),
+                 (gettext_noop('60+'), u'[60 TO *]'),
+             ]
+         }),
+    ]),
+}
 
 # This is added to each template context by the core context processor.  It is
 # useful for test/stage/qa sites where you want to show the version of the site

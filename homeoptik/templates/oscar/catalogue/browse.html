@@ -44,16 +44,22 @@
             </ul>
         </div>
     {% endif %}
-    {# TODO: filter #}
     {% if has_facets %}
-        <h4>{% trans "Refine by" %}</h4>
-        <div class="side_categories">
-            {% for field, data in facet_data.items %}
-                {% if data.results %}
+        <!-- Side Widget -->
+        <div class="side-widget no-margin-l">
+
+            <h5 class="boxed-title">{% trans "Refine by" %}</h5>
+
+            <!-- Price Range Form -->
+            <form class="side-form-panel">
+                {% for field, data in facet_data.items %}
                     {% include 'search/partials/facet.html' with name=data.name items=data.results %}
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+
+            </form>
+            <!-- /Price Range Form -->
         </div>
+        <!-- /Side Widget -->
     {% endif %}
 {% endblock %}
 
@@ -86,17 +92,18 @@
                             <strong>{{ num_results }}</strong> результатов.
                         {% endblocktrans %}
                     {% endif %}
-                    {% if form %}
-                        <div class="pull-right">
-                            {% include "partials/form_field.html" with field=form.sort_by %}
-                        </div>
-                    {% endif %}
                 {% else %}
                     <p>
                         {% trans "<strong>0</strong> results." %}
                     </p>
                 {% endif %}
             </div>
+            {% if form %}
+                <div class="filter">
+                    <b class="hidden-xs">Сортировать по</b>
+                    {% include "partials/form_field.html" with nolabel=1 field=form.sort_by %}
+                </div>
+            {% endif %}
         </form>
     </div>
     <!-- /Products Filter -->

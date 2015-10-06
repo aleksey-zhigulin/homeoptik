@@ -3268,7 +3268,7 @@ body {
       .hlinks > li > a .icon-left {
         margin-right: 10px;
         opacity: 0.4; }
-    .hlinks > li:hover > a, .hlinks > li.active > a {
+     .hlinks > li.active > a {
       color: #E7214C; }
   .hlinks.invert-colors > li > a {
     color: #fff; }
@@ -4271,7 +4271,7 @@ ul.tags {
     border-color: #131416; }
   .product .hlinks-rating {
     margin: 0 0 15px 0; }
-    .product .hlinks-rating > li.active > a, .product .hlinks-rating > li:hover > a {
+    .product .hlinks-rating > li.active > a {
       color: #FFC60A; }
 
 .product-no-margin .product {

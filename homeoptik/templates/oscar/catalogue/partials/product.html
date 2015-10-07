@@ -17,12 +17,13 @@
             </div>
         {% endblock %}
 
-        {% if product.date_created|days_since <= 7 %}
-            <span class="label label-new">новинка</span>
-        {% elif product.is_popular %}
-            <span class="label label-hot">популярный</span>
+        {% if not nolabel %}
+            {% if product.date_created|days_since <= 7 %}
+                <span class="label label-new">новинка</span>
+            {% elif product.is_popular %}
+                <span class="label label-hot">популярно</span>
+            {% endif %}
         {% endif %}
-
 
         <!-- Details -->
         <div class="details">

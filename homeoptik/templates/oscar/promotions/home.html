@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% load i18n %}
 {% load staticfiles %}
+{% load product_tags %}
+
 {##}
 {#{% block navigation %}#}
 {#    {% include "partials/nav_primary.html" with expand_dropdown=1 %}#}
@@ -85,7 +87,100 @@
     </div>
     <!-- /Intro Block
     ============================================ -->
-    <!-- Content Block
+
+    <!-- Tabs Block
+    ============================================ -->
+    <div class="content-block">
+
+        <!-- Container -->
+        <div class="container no-pad-t">
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-tabs-line-bottom line-pcolor nav-tabs-center case-u" role="tablist">
+                    <li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>
+                    <li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>
+                    <li><a href="#tab-newest" data-toggle="tab">новинки</a></li>
+                </ul>
+                <!-- /Nav Tabs -->
+
+                {% with nolabel=1 %}
+                <!-- Tab panes -->
+                <div class="tab-content tab-no-borders">
+                    {% if popular_products %}
+                        <!-- Tab Popular -->
+                        <div class="tab-pane active" id="tab-popular">
+
+                            <!-- Row -->
+                            <div class="row">
+                                {% for product in popular_products %}
+                                    <!-- Col -->
+                                    <div class="col-sm-6 col-md-3">
+                                        {% render_product product%}
+                                    </div>
+                                    <!-- /Col -->
+                                {% endfor %}
+                            </div>
+                            <!-- /Row -->
+
+                        </div>
+                        <!-- /Tab Popular -->
+                    {% endif %}
+                    {% if latest_products %}
+                        <!-- Tab Popular -->
+                        <div class="tab-pane" id="tab-latest">
+
+                            <!-- Row -->
+                            <div class="row">
+                                {% for product in latest_products %}
+                                    <!-- Col -->
+                                    <div class="col-sm-6 col-md-3">
+                                        {% render_product product %}
+                                    </div>
+                                    <!-- /Col -->
+                                {% endfor %}
+                            </div>
+                            <!-- /Row -->
+
+                        </div>
+                        <!-- /Tab Popular -->
+                    {% endif %}
+                    {% if newest_products %}
+                        <!-- Tab Popular -->
+                        <div class="tab-pane" id="tab-newest">
+
+                            <!-- Row -->
+                            <div class="row">
+                                {% for product in newest_products %}
+                                    <!-- Col -->
+                                    <div class="col-sm-6 col-md-3">
+                                        {% render_product product %}
+                                    </div>
+                                    <!-- /Col -->
+                                {% endfor %}
+                            </div>
+                            <!-- /Row -->
+
+                        </div>
+                        <!-- /Tab Popular -->
+                    {% endif %}
+                </div>
+                <!-- /Tab panes -->
+                {% endwith %}
+
+            </div>
+            <!-- Product Tabs -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Tabs Block
+    ============================================ -->
+
+    <!-- Brands Block
          ============================================ -->
     <div class="content-block" >
 
@@ -143,7 +238,7 @@
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}d" alt=""/>
+                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
                     </div>
                     <!-- /Slide -->
                 </div>
@@ -155,7 +250,7 @@
         <!-- /Container -->
 
     </div>
-    <!-- Content Block
+    <!-- /Brands Block
     ============================================ -->
 
 {% endblock %}

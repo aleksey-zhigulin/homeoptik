@@ -1,5 +1,6 @@
 __author__ = 'aleksey'
 
+from django.utils.timezone import now
 from django import template
 
 from oscar.core.loading import get_model
@@ -29,3 +30,13 @@ def get_offers_list():
 def has_choice(context):
     return sum(i['count'] for i in context['items']) > 0 and \
         sum(i['disabled'] for i in context['items']) + 1 < len(context['items'])
+
+
+@register.filter
+def days_since(value):
+    since = 0
+    try:
+        since = (now() - value).days
+    except:
+        pass
+    return since

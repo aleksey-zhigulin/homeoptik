@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load display_tags %}
 {% load staticfiles %}
+{% load homeoptik_tags %}
 
 {% block product %}
     <div class="product clearfix">
@@ -16,7 +17,10 @@
             </div>
         {% endblock %}
 
-{#        <span class="label label-sale">sale</span>#}
+        {% if product.date_created|days_since <= 7 %}
+            <span class="label label-new">новинка         {{ product.date_created|days_since }}</span>
+        {% endif %}
+
 
         <!-- Details -->
         <div class="details">

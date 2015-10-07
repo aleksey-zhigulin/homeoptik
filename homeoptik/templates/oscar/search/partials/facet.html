@@ -5,7 +5,7 @@
 {% if has_choice %}
     <label>{{ name }}</label>
     {% for item in items %}
-        {% if not item.disabled  %}
+{#        {% if not item.disabled  %}#}
             <div class="form-group slider-group">
                 {% if item.selected %}
                     <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />
@@ -25,7 +25,7 @@
                     ({{ item.count }})
                 {% endif %}
             </div>
-        {% endif %}
+{#        {% endif %}#}
     {% endfor %}
 {% endif %}
 

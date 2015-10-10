@@ -11,7 +11,7 @@
     {% annotate_form_field field %}
 
     {% block control_group %}
-{#        <div class="{% if field.errors %}has-error{% endif %}">#}
+        <div class="form-group {% if field.errors %}has-error{% endif %}">
 
             {% block label %}
                 {% if not nolabel and field.widget_type != 'CheckboxInput' %}
@@ -38,7 +38,7 @@
                                 {% render_field field  %}
                             </label>
                         {% else %}
-                            {% render_field field %}
+                            {% render_field field class+="form-control"%}
                         {% endif %}
                     {% endblock %}
 
@@ -53,6 +53,6 @@
                     {% endblock %}
 {#                </div>#}
             {% endblock %}
-{#        </div>#}
+        </div>
     {% endblock %}
 {% endif %}

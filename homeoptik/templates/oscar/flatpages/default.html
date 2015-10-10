@@ -5,14 +5,9 @@
     {{ flatpage.title}} | {{ block.super }}
 {% endblock %}
 
-{% block header%}
-    <div class="page-header action">
-        {% if user.is_authenticated and user.is_staff %}
-            <a class="pull-right hidden-xs" href="{% url 'dashboard:page-update' pk=flatpage.id %}"><small><i class="icon-edit"></i> {% trans "Edit this page" %}</small></a>
-        {% endif %}
-        <h1>{{ flatpage.title }}</h1>
-    </div>
-{% endblock %}
+{% block headertext %}{{ flatpage.title }}{% endblock %}
+
+{% block breadcrumbs_style %}{% endblock %}
 
 {% block breadcrumbs %}
     <ol class="breadcrumb pull-left">
@@ -21,8 +16,17 @@
         </li>
         <li class="active">{{ flatpage.title }}</li>
     </ol>
+    <!-- hlinks -->
+    <ol class="breadcrumb pull-right">
+      <li>
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'dashboard:page-update' pk=flatpage.id %}"><i class="fa fa-edit"></i> {% trans "Edit this page" %}</a>
+        {% endif %}
+      </li>
+    </ol>
+    <!-- /hlinks -->
 {% endblock %}
 
 {% block content %}
-    <article>{{ flatpage.content }}</article>
+    {{ flatpage.content }}
 {% endblock %}

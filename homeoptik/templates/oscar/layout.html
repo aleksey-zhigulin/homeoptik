@@ -122,7 +122,7 @@
                 </section>
             {% endblock %}
 
-            <section class="page-info-block page-info-alt boxed-section">
+            <section class="page-info-block {% block breadcrumbs_style %}page-info-alt{% endblock %} boxed-section">
                 <!-- Container -->
                 <div class="container cont-pad-x-15">
                     {% block breadcrumbs %}{% endblock %}
@@ -132,13 +132,6 @@
             </section>
 
             {% block subnavigation %}{% endblock %}
-
-            {# Render promotions #}
-            <div id="promotions">
-                {% for promotion in promotions_page %}
-                    {% render_promotion promotion %}
-                {% endfor %}
-            </div>
 
             <section class="{% block section_class %}content-block default-bg {% endblock %}">
 
@@ -152,6 +145,14 @@
             </section>
 
         {% endblock %}
+
+        {# Render promotions #}
+        <div id="promotions">
+            {% for promotion in promotions_page %}
+                {% render_promotion promotion %}
+            {% endfor %}
+        </div>
+
         {% include "partials/footer.html" %}
 
 

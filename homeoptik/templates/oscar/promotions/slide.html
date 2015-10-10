@@ -1,0 +1,22 @@
+{% load thumbnail %}
+<!-- Slide -->
+<div class="slide">
+    {% if promotion.image %}
+        {% thumbnail promotion.image "1140x500" crop='center' as thumb %}
+            <img class="img-main" src="{{ thumb.url }}" alt="{{ promotion.name }}"/><!-- slider image + background -->
+        {% endthumbnail %}
+    {% endif %}
+    <!-- Text -->
+    <div class="text">
+        <div class="vcenter">
+            <div class="vcenter-this text-block">
+                {{ promotion.body|safe }}
+                {% if promotion.link_url %}
+                    <a class="btn btn-primary bx-layer" data-anim="bounceInUp" data-dur="1000" data-delay="1000">Подробнее</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- /Text -->
+</div>
+<!-- /Slide -->

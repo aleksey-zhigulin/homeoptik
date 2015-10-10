@@ -319,7 +319,11 @@ INSTALLED_APPS = [
 ]
 
 from oscar import get_core_apps
-INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout', 'forked.search', 'forked.catalogue', 'forked.promotions'])
+INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
+                                                 'forked.search',
+                                                 'forked.catalogue',
+                                                 'forked.promotions',
+                                                 'forked.dashboard.promotions',])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -412,10 +416,13 @@ OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'line1', 'city')
 
 OSCAR_FROM_EMAIL = 'noreply@homeoptik.ru'
 
+# Promotions
 OSCAR_PROMOTION_POSITIONS = (('page', 'Page'),
                              ('right', 'Right-hand sidebar'),
                              ('left', 'Left-hand sidebar'),
+                             ('home_slides', 'Slides on home page'),
                              ('bottom', 'Bottom'))
+
 
 OSCAR_SEARCH_FACETS = {
     'fields': OrderedDict([

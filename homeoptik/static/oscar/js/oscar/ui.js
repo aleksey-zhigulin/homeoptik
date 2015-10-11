@@ -49,10 +49,10 @@ var oscar = (function(o, $) {
     // Notifications inbox within 'my account' section.
     o.notifications = {
         init: function() {
-            $('a[data-behaviours~="archive"]').click(function() {
+            $('button[data-behaviours~="archive"]').click(function() {
                 o.notifications.checkAndSubmit($(this), 'archive');
             });
-            $('a[data-behaviours~="delete"]').click(function() {
+            $('button[data-behaviours~="delete"]').click(function() {
                 o.notifications.checkAndSubmit($(this), 'delete');
             });
         },
@@ -176,7 +176,7 @@ var oscar = (function(o, $) {
                 options = {'basketURL': document.URL};
             }
             o.basket.url = options.basketURL || document.URL;
-            $('#content_inner').on('click', '#basket_formset a[data-behaviours~="remove"]', function(event) {
+            $('#content_inner').on('click', '#basket_formset button[data-behaviours~="remove"]', function(event) {
                 o.basket.checkAndSubmit($(this), 'form', 'DELETE');
                 event.preventDefault();
             });
@@ -237,8 +237,10 @@ var oscar = (function(o, $) {
             if (o.basket.is_form_being_submitted) {
                 return;
             }
+            console.log($ele, formPrefix, idSuffix)
             var formID = $ele.attr('data-id');
             var inputID = '#id_' + formPrefix + '-' + formID + '-' + idSuffix;
+            console.log(formID, inputID);
             $(inputID).attr('checked', 'checked');
             $ele.closest('form').submit();
             o.basket.is_form_being_submitted = true;

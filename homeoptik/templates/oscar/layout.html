@@ -128,15 +128,14 @@
                     {% block breadcrumbs %}{% endblock %}
                 </div>
                 <!-- /Container -->
-                {% include "partials/alert_messages.html" %}
             </section>
 
             {% block subnavigation %}{% endblock %}
 
             <section class="{% block section_class %}content-block default-bg {% endblock %}">
-
                 <!-- Container -->
                 <div class="container cont-main no-pad-t">
+                    {% include "partials/alert_messages.html" %}
                     {# Div exists for AJAX updates to entire content section #}
                     <div id="content_inner">{% block content %}{% endblock %}</div>
                 </div>

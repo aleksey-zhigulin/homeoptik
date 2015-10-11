@@ -1,4 +1,33 @@
-<footer class="footer container-fluid">
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Footer
+=================================================== -->
+<footer class="footer-block">
     {% block footer %}
+    <!-- Bottom -->
+    <div class="footer-bottom invert-colors bcolor-bg">
+
+        <!-- Container -->
+        <div class="container">
+
+            <span class="copy-text">© 2015 Хоум Оптика.</span>
+            <!-- hlinks -->
+            {#            <ul class="hlinks pull-right">#}
+            {#                <li><a href="#">About</a></li>#}
+            {#                <li><a href="#">Login</a></li>#}
+            {#                <li><a href="#">Sign Up</a></li>#}
+            {#                <li><a href="#">Support</a></li>#}
+            {#            </ul>#}
+            <!-- /hlinks -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Bottom -->
     {% endblock %}
 </footer>
+<!-- /Footer
+=================================================== -->
+

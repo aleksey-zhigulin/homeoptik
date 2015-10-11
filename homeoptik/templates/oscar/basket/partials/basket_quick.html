@@ -19,11 +19,8 @@
                 {% endwith %}
                 <div class="text">
                     <a class="title" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
-                    <div class="details">{{ line.quantity }} x {{ line.unit_price_excl_tax|currency:request.basket.currency }}
-                        <div class="btn-group">
-                            <a class="btn btn-primary" href="#"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-default" href="#"><i class="fa fa-trash"></i></a>
-                        </div>
+                    <div class="details">
+                        {{ line.quantity }} x {{ line.unit_price_excl_tax|currency:request.basket.currency }}
                     </div>
                 </div>
             </li>

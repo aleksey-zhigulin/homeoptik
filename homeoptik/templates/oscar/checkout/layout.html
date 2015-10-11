@@ -5,50 +5,79 @@
 
 {% block layout %}
 
-    <header class="header container-fluid">
-        <div class="page_inner">
-            <div class="row">
-                {% include "partials/brand.html" %}
-            </div><!-- /row -->
-        </div>
-        {% block checkout_nav %}{% endblock %}
-    </header><!-- /header -->
+    <div class="page-wrapper shadow boxed-wrapper">
+        {# Top-horizontal bar with account, notifictions, dashboard links #}
 
-    <div class="container-fluid page">
-       <div class="page_inner">
-            {% include 'partials/alert_messages.html' %}
-
-            <div class="sub-header">
-                <h1>{% block checkout_title %}{% endblock %}</h1>
-            </div>
-
-            <!-- The main nav on checkout pages contain links to modal flatpages -->
-            {% block modal %}
-                {% load flatpages %}
-                {% get_flatpages '/order/' as flatpages %}
-                {% for page in flatpages %}
-                <div id="{{ page.title|slugify }}" class="modal hide fade">
-                    <div class="modal-header">
-                        <a class="close" data-dismiss="modal">×</a>
-                        <h3>{{ page.title }}</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="large-content">
-                            {{ page.content|safe }}
-                        </div>
-                    </div>
+        {# Site logo/title, mini-basket, browse dropdown and searchbox #}
+        <header class="header-block line-top">
+            <div class="main-header container">
+                <div class="header-cols">
+                    {% include "partials/brand.html" %}
                 </div>
-                {% endfor %}
+            </div>
+            {% block checkout_nav %}{% endblock %}
+        </header>
+
+
+        {# Main content of page - other layout templates may override this block #}
+        {% block content_wrapper %}
+            {% block header %}
+                <section class="intro-block intro-page boxed-section page-bg overlay-dark-m">
+
+                    <!-- Container -->
+                    <div class="container">
+                        <!-- Section Title -->
+                        <div class="section-title invert-colors no-margin-b">
+                            <h2>{% block checkout_title %}{% endblock %}</h2>
+                        </div>
+                        <!-- /Section Title -->
+                    </div>
+                    <!-- /Container -->
+
+                </section>
             {% endblock %}
 
-            {% block content %}{% endblock %}
+            <section class="{% block section_class %}content-block default-bg {% endblock %}">
+                <!-- Container -->
+                <div class="container cont-main no-pad-t">
+                    {% include "partials/alert_messages.html" %}
+                    {# Div exists for AJAX updates to entire content section #}
 
-            <div id="promotions">
-                {% for promotion in promotions_page %}
-                    {% render_promotion promotion %}
-                {% endfor %}
-            </div>
-        </div><!-- /page_inner -->
+                    <!-- The main nav on checkout pages contain links to modal flatpages -->
+                    {% block modal %}
+                        {% load flatpages %}
+                        {% get_flatpages '/order/' as flatpages %}
+                        {% for page in flatpages %}
+                        <div id="{{ page.title|slugify }}" class="modal hide fade">
+                            <div class="modal-header">
+                                <a class="close" data-dismiss="modal">×</a>
+                                <h3>{{ page.title }}</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="large-content">
+                                    {{ page.content|safe }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endblock %}
+                    <div id="content_inner">{% block content %}{% endblock %}</div>
+                </div>
+                <!-- /Container -->
+
+            </section>
+
+        {% endblock %}
+
+        {# Render promotions #}
+        <div id="promotions">
+            {% for promotion in promotions_page %}
+                {% render_promotion promotion %}
+            {% endfor %}
+        </div>
+
+        {% include "partials/footer_checkout.html" %}
+
     </div>
-    {% include "partials/footer_checkout.html" %}
+
 {% endblock %}

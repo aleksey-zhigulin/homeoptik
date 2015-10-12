@@ -36,7 +36,7 @@
                     <tr>
                         <th class="hidden-xs">{% trans "Image" %}</th>
                         <th>{% trans "Items to buy now" %}</th>
-                        <th>{% trans "Quantity" %}</th>
+                        <th>Кол-во</th>
                         <th class="hidden-xs">{% trans "Price" %}</th>
                         <th>{% trans "Total" %}</th>
                     </tr>
@@ -118,31 +118,34 @@
 
             </table>
         </form>
-        <table class="cart-summary">
+        {% block vouchers %}
+            {# Hide the entire section if a custom BasketView doesn't pass in a voucher form #}
+            {% if voucher_form %}
+                <table class="cart-contents">
+                    <td class="text-center">
+                        <span id="voucher_form_link"><a href="#voucher" class="btn btn-success btn-lg"><i class="fa fa-certificate"></i> У меня есть купон!</a></span>
+                        <div id="voucher_form_container" class="form-group col-md-offset-3 col-md-6" style="display:none">
+                            <form id="voucher_form" action="{% url 'basket:vouchers-add' %}" method="post">
+                                {% csrf_token %}
+                                {% include "partials/form_fields.html" with form=voucher_form %}
+                                <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
+                                {% trans "or" %} <a href="#" id="voucher_form_cancel">{% trans "cancel" %}</a>
+                            </form>
+                        </div>
+                    </td>
+                </table>
+            {% endif %}
+        {% endblock vouchers %}
+        <table class="cart-summary" style="width:100%">
             <tbody>
             <tr>
-                <td class="terms">
-                    {% block vouchers %}
-                        {# Hide the entire section if a custom BasketView doesn't pass in a voucher form #}
-                        {% if voucher_form %}
-                            <h5><i class="fa fa-certificate"></i>{% trans "Voucher/promo code" %}</h5>
-                            <p id="voucher_form_link"><a href="#voucher" class="btn btn-default btn-full">{% trans "I have a voucher code..." %}</a></p>
-                            <div id="voucher_form_container" class="form-group" style="display:none">
-                                <form id="voucher_form" action="{% url 'basket:vouchers-add' %}" method="post">
-                                    {% csrf_token %}
-                                    {% include "partials/form_fields.html" with form=voucher_form %}
-                                    <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
-                                    {% trans "or" %} <a href="#" id="voucher_form_cancel">{% trans "cancel" %}</a>
-                                </form>
-                            </div>
-                        {% endif %}
-                        {% if shipping_methods|length > 1 and editable %}
-                            <h5><i class="fa fa-info-circle"></i>{% trans "Shipping" %}</h5>
-                            <p>{% trans "Alternative shipping methods can be chosen during checkout" %}</p>
-                        {% endif %}
-                        <h5><i class="fa fa-info-circle"></i>{% trans "Возврат и обмен" %}</h5>
+                <td class="terms" style="width:60%">
+                    {% if shipping_methods|length > 1 and editable %}
+                        <h5><i class="fa fa-info-circle"></i>{% trans "Shipping" %}</h5>
                         <p>{% trans "Alternative shipping methods can be chosen during checkout" %}</p>
-                    {% endblock vouchers %}
+                    {% endif %}
+                    <h5><i class="fa fa-info-circle"></i>{% trans "Возврат и обмен" %}</h5>
+                    <p>{% trans "Alternative shipping methods can be chosen during checkout" %}</p>
                 </td>
                 {% block baskettotals %}
                     {% include 'basket/partials/basket_totals.html' %}
@@ -172,5 +175,6 @@
         </p>
     {% endblock %}
 {% endif %}
+
 
 

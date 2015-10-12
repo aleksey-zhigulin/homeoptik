@@ -35,7 +35,6 @@ class CreateRedirectView(generic.RedirectView):
     def get_redirect_url(self, **kwargs):
         code = self.request.GET.get('promotion_type', None)
         urls = {}
-        print PROMOTION_CLASSES
         for klass in PROMOTION_CLASSES:
             urls[klass.classname()] = reverse('dashboard:promotion-create-%s' %
                                               klass.classname())

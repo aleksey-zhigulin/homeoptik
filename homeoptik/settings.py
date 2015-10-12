@@ -511,7 +511,6 @@ if not os.path.exists(LOG_ROOT):
 
 THUMBNAIL_DEBUG = True
 THUMBNAIL_KEY_PREFIX = 'oscar'
-THUMBNAIL_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Use a custom KV store to handle integrity error
 #THUMBNAIL_KVSTORE = 'oscar.sorl_kvstore.ConcurrentKVStore'

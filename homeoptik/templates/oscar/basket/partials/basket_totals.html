@@ -6,6 +6,7 @@
     <table class="cart-totals">
             <tr>
                 <td class="cart-total">{% trans "Basket" %}</td>
+                <tr></tr>
             </tr>
             {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
                 {% block discount_totals %}
@@ -36,6 +37,7 @@
                         {% if voucher_discounts %}
                             <tr>
                                 <td class="cart-total">{% trans "Vouchers" %}</td>
+                                <tr></tr>
                             </tr>
                             {% for discount in voucher_discounts %}
                                 <tr>
@@ -86,6 +88,7 @@
             {% block shipping_totals %}
                 <tr>
                     <td class="cart-total">{% trans "Shipping" %}</td>
+                    <tr></tr>
                 </tr>
                 {% if not shipping_method.is_discounted %}
                     <tr>
@@ -141,7 +144,7 @@
             {% block tax_totals %}
                 {% if show_tax_separately %}
                     <tr>
-                        <td class="cart-total">{% trans "Tax" %}</td>
+                        <td class="cart-total">{% trans "Tax" %}</td><tr></tr>
                     </tr>
                     <tr>
                         <td>{% trans "Basket" %}</td>
@@ -162,6 +165,7 @@
                 {% if basket.post_order_actions %}
                     <tr>
                         <td class="cart-total">{% trans "Post order actions" %}<small>{% trans "These will be applied once your order is placed." %}</small></td>
+                        <tr></tr>
                     </tr>
                     {% for discount in basket.post_order_actions %}
                         <tr>
@@ -177,6 +181,7 @@
             {% block order_total %}
                 <tr>
                     <td class="cart-total">{% trans "Order total" %}</td>
+                    <tr></tr>
                     <td class="cart-total price">
                             {% if order_total.is_tax_known %}
                                 {{ order_total.incl_tax|currency:basket.currency }}

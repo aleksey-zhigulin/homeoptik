@@ -22,13 +22,14 @@
         {# Main content of page - other layout templates may override this block #}
         {% block content_wrapper %}
             {% block header %}
-                <section class="intro-block intro-page boxed-section page-bg overlay-dark-m">
+                <section class="intro-block intro-page boxed-section page-bg overlay-dark-m mgb-20">
 
                     <!-- Container -->
                     <div class="container">
                         <!-- Section Title -->
-                        <div class="section-title invert-colors no-margin-b">
+                        <div class="section-title invert-colors">
                             <h2>{% block checkout_title %}{% endblock %}</h2>
+                            <p class="hidden-xs">{% block checkout_subheader %}{% endblock checkout_subheader %}</p>
                         </div>
                         <!-- /Section Title -->
                     </div>

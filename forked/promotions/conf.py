@@ -6,5 +6,3 @@ def get_promotion_classes():
             AutomaticProductList, HandPickedProductList, MultiImage)
 
 PROMOTION_CLASSES = get_promotion_classes()
-
-print PROMOTION_CLASSES

@@ -1,0 +1,29 @@
+{% extends "checkout/checkout.html" %}
+
+{% load currency_filters %}
+{% load i18n %}
+{% load shipping_tags %}
+
+{% block title %}
+    {% trans "Shipping method" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+    {% include 'checkout/nav.html' with step=3 %}
+{% endblock %}
+
+{% block checkout_title %}{% trans "Payment method" %}{% endblock %}
+
+{% block order_contents %}{% endblock %}
+{% block shipping_address %}{% endblock %}
+{% block payment_method %}
+    <form name="ShopForm" method="POST" action="{% url 'checkout:payment-method' %}">
+        {% csrf_token %}
+        {% include "partials/form_fields.html" with form=payment_method_form %}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-large btn-primary">{% trans "Continue" %}</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block shipping_method %}{% endblock shipping_method %}

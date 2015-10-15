@@ -1,0 +1,29 @@
+{% extends "checkout/checkout.html" %}
+
+{% load currency_filters %}
+{% load i18n %}
+{% load shipping_tags %}
+
+{% block title %}
+    {% trans "Shipping method" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}{% endblock %}
+
+{% block checkout_title %}{% endblock %}
+
+{% block order_contents %}{% endblock %}
+{% block shipping_address %}{% endblock %}
+{% block payment_method %}
+    <form name="ShopForm" method="POST" action="https://demomoney.yandex.ru/eshop.xml">
+        {% include "partials/form_fields.html" with form=payment_form%}
+    </form>
+{% endblock %}
+
+<script>
+    window.onload = function(){
+        document.forms['ShopForm'].submit()
+    }
+</script>
+
+{% block shipping_method %}{% endblock shipping_method %}

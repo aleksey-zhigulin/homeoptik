@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from decimal import Decimal as D
+
 import os
 import sys
 import dj_database_url
@@ -318,6 +320,7 @@ INSTALLED_APPS = [
     'compressor',
     'widget_tweaks',
     'app',
+    'yandex_money',
 ]
 
 from oscar import get_core_apps
@@ -325,7 +328,8 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
                                                  'forked.search',
                                                  'forked.catalogue',
                                                  'forked.promotions',
-                                                 'forked.dashboard.promotions',])
+                                                 'forked.dashboard.promotions',
+                                                 'forked.shipping',])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -425,6 +429,9 @@ OSCAR_PROMOTION_POSITIONS = (('page', 'Page'),
                              ('home_slides', 'Slides on home page'),
                              ('bottom', 'Bottom'))
 
+# Shipping
+OSCAR_SHIPPING_PICKUP_EXCL_TAX = D('300.00')
+OSCAR_SHIPPING_PICKUP_INCL_TAX = D('300.00')
 
 OSCAR_SEARCH_FACETS = {
     'fields': OrderedDict([
@@ -520,6 +527,17 @@ THUMBNAIL_KEY_PREFIX = 'oscar'
 # django/core/serializers/json.Serializer to have the `dumps` function. Also
 # in tests/config.py
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+#YANDEX MONEY KIT
+YANDEX_MONEY_DEBUG = False
+YANDEX_MONEY_SCID = 12345
+YANDEX_MONEY_SHOP_ID = 56789
+YANDEX_MONEY_SHOP_PASSWORD = 'password'
+YANDEX_MONEY_FAIL_URL = 'http://9dd05044.ngrok.io/checkout/fail-payment/'
+YANDEX_MONEY_SUCCESS_URL = 'http://9dd05044.ngrok.io/checkout/success-payment/'
+# информировать о случаях, когда модуль вернул Яндекс.Кассе ошибку
+YANDEX_MONEY_MAIL_ADMINS_ON_PAYMENT_ERROR = True
+
 
 # Try and import local settings which can be used to override any of the above.
 try:

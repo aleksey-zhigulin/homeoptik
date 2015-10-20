@@ -51,15 +51,12 @@
 
             <h5 class="boxed-title">{% trans "Refine by" %}</h5>
 
-            <!-- Price Range Form -->
-            <form class="side-form-panel">
-                <ul class="ul-toggle font-size-sm">
-                    {% for field, data in facet_data.items %}
-                        {% include 'search/partials/facet.html' with name=data.name items=data.results %}
-                    {% endfor %}
-                </ul>
+            <form class="panel-group">
+                {% for field, data in facet_data.items %}
+                    {% include 'search/partials/facet.html' with number=forloop.counter0 name=data.name items=data.results %}
+                {% endfor %}
             </form>
-            <!-- /Price Range Form -->
+
         </div>
         <!-- /Side Widget -->
     {% endif %}

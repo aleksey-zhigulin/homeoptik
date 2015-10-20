@@ -1,31 +1,119 @@
 {% load i18n %}
-{% load homeoptik_tags %}
+{#{% load homeoptik_tags %}#}
 
-{% has_choice as has_choice %}
+{#{% has_choice as has_choice %}#}
 {#{% if has_choice %}#}
-    <label>{{ name }}</label>
-    {% for item in items %}
-{#        {% if not item.disabled  %}#}
-            <div class="form-group slider-group">
-                {% if item.selected %}
-                    <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />
-                    <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
-                    <strong>{{ item.name }}</strong>
-                {% else %}
-                    {% if item.disabled %}
-                        <input type="checkbox" name="{{ item.name }}" disabled />
-                        {{ item.name }}
-                    {% else %}
-                        <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" />
-                        <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
-                        <a href="{{ item.select_url }}">{{ item.name }}</a>
-                    {% endif %}
-                {% endif %}
-                {% if item.show_count %}
-                    ({{ item.count }})
-                {% endif %}
-            </div>
-{#        {% endif %}#}
-    {% endfor %}
-{#{% endif %}#}
+<!-- Panel -->
 
+<div class="panel panel-default no-margin {% if number %}no-border-t{% endif %}">
+    <!-- Heading -->
+    <div class="panel-heading no-bg-color">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ number }}" aria-expanded="true">
+                {{ name }}
+            </a>
+            <i class="font-size-sm toggler ti ti-plus"></i>
+        </h4>
+    </div>
+    <!-- /Heading -->
+
+    <!-- Collapse -->
+    <div id="collapse{{ number }}" class="panel-collapse collapse in">
+        <div class="panel-body no-pad-t no-pad-b">
+            {% for item in items %}
+                <div class="checkbox">
+{#        {% if not item.disabled  %}#}
+                    <label>
+                        {% if item.selected %}
+                            <input class="" type="checkbox" name="{{ item.name }}" checked />
+                            <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
+                            <strong>{{ item.name }}</strong>
+                        {% else %}
+                            {% if item.disabled %}
+                                <input type="checkbox" name="{{ item.name }}" disabled />
+                                {{ item.name }}
+                            {% else %}
+                                <input class="" type="checkbox" name="{{ item.name }}" />
+                                <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
+                                <a href="{{ item.select_url }}">{{ item.name }}</a>
+                            {% endif %}
+                        {% endif %}
+                        {% if item.show_count %}
+                            ({{ item.count }})
+                        {% endif %}
+                    </label>
+
+{#        {% endif %}#}
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- /Collapse -->
+
+</div>
+
+<!-- ul-toggle -->
+
+{#<li>{{ name }}<i class="toggler ti ti-plus"></i>#}
+{#    <ul>#}
+{#        {% for item in items %}#}
+{#            <div class="checkbox">#}
+                {#                            {% if not item.disabled  %}#}
+{#                <label>#}
+{#                    {% if item.selected %}#}
+{#                        <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />#}
+{#                        <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />#}
+{#                        <strong>{{ item.name }}</strong>#}
+{#                    {% else %}#}
+{#                        {% if item.disabled %}#}
+{#                            <input type="checkbox" name="{{ item.name }}" disabled />#}
+{#                            {{ item.name }}#}
+{#                        {% else %}#}
+{#                            <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" />#}
+{#                            <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />#}
+{#                            <a href="{{ item.select_url }}">{{ item.name }}</a>#}
+{#                        {% endif %}#}
+{#                    {% endif %}#}
+{#                    {% if item.show_count %}#}
+{#                        ({{ item.count }})#}
+{#                    {% endif %}#}
+{#                </label>#}
+{##}
+                {#                {% endif %}#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#</li>#}
+
+{% comment %}
+<!-- /Panel -->
+<label>{{ name }}</label>
+{% for item in items %}
+    <div class="checkbox">
+        {#                {% if not item.disabled  %}#}
+        <label>
+            {% if item.selected %}
+                <input class="" type="checkbox" name="{{ item.name }}" checked />
+                <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
+                <strong>{{ item.name }}</strong>
+            {% else %}
+                {% if item.disabled %}
+                    <input type="checkbox" name="{{ item.name }}" disabled />
+                    {{ item.name }}
+                {% else %}
+                    <input class="" type="checkbox" name="{{ item.name }}" />
+                    <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
+                    <a href="{{ item.select_url }}">{{ item.name }}</a>
+                {% endif %}
+            {% endif %}
+            {% if item.show_count %}
+                ({{ item.count }})
+            {% endif %}
+        </label>
+
+        {#    {% endif %}#}
+    </div>
+{% endfor %}
+{#{% endif %}#}
+{% endcomment %}

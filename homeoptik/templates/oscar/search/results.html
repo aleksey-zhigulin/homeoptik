@@ -30,11 +30,13 @@
             <h5 class="boxed-title">{% trans "Refine by" %}</h5>
 
             <!-- Price Range Form -->
-            <form class="side-form-panel">
+            <form class="panel-group" id="accordion">
+                <!-- Accordion -->
+                {#                <div class="panel-group" id="accordion">#}
                 {% for field, data in facet_data.items %}
-                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                    {% include 'search/partials/facet.html' with number=forloop.counter0 name=data.name items=data.results %}
                 {% endfor %}
-
+                {#                </div>#}
             </form>
             <!-- /Price Range Form -->
         </div>
@@ -62,31 +64,33 @@
             <div class="display">
                 <span class="show-list" onclick="changeView('list')"><i class="icon fa fa-th-list"></i></span>
                 <span class="show-grid" onclick="changeView('grid')"><i class="icon fa fa-th"></i></span>
-                {% if paginator.count %}
-                    {% if paginator.num_pages > 1 %}
-                        {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
-                            <strong>{{ num_results }}</strong> результат - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
-                        {% plural %}
-                            <strong>{{ num_results }}</strong> результатов - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
-                        {% endblocktrans %}
-                    {% else %}
-                        {% blocktrans count num_results=paginator.count %}
-                            <strong>1</strong> результат.
-                        {% plural %}
-                            <strong>{{ num_results }}</strong> результатов.
-                        {% endblocktrans %}
-                    {% endif %}
-                {% else %}
-                    <p>
-                        {% trans "Found <strong>0</strong> results." %}
-                        {% if suggestion %}
-                            {% url 'search:search' as search_url %}
-                            {% blocktrans %}
-                                Did you mean <a href="{{ search_url }}?q={{ suggestion }}">"{{ suggestion }}"</a>?
+                <span class="hidden-xs">
+                    {% if paginator.count %}
+                        {% if paginator.num_pages > 1 %}
+                            {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
+                                <strong>{{ num_results }}</strong> результат - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
+                            {% plural %}
+                                <strong>{{ num_results }}</strong> результатов - показано с <strong>{{ start }}</strong> по <strong>{{ end }}</strong>.
+                            {% endblocktrans %}
+                        {% else %}
+                            {% blocktrans count num_results=paginator.count %}
+                                <strong>1</strong> результат.
+                            {% plural %}
+                                <strong>{{ num_results }}</strong> результатов.
                             {% endblocktrans %}
                         {% endif %}
-                    </p>
-                {% endif %}
+                    {% else %}
+                        <p>
+                            {% trans "Found <strong>0</strong> results." %}
+                            {% if suggestion %}
+                                {% url 'search:search' as search_url %}
+                                {% blocktrans %}
+                                    Did you mean <a href="{{ search_url }}?q={{ suggestion }}">"{{ suggestion }}"</a>?
+                                {% endblocktrans %}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </span>
             </div>
             {% if paginator.count %}
                 <div class="filter">

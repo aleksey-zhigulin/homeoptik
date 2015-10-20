@@ -4,6 +4,7 @@
 {% load promotion_tags %}
 {% load category_tags %}
 {% load product_tags %}
+{% load widget_tweaks %}
 {% load i18n %}
 
 {% block title %}
@@ -52,10 +53,11 @@
 
             <!-- Price Range Form -->
             <form class="side-form-panel">
-                {% for field, data in facet_data.items %}
-                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
-                {% endfor %}
-
+                <ul class="ul-toggle font-size-sm">
+                    {% for field, data in facet_data.items %}
+                        {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                    {% endfor %}
+                </ul>
             </form>
             <!-- /Price Range Form -->
         </div>
@@ -78,6 +80,7 @@
             <div class="display">
                 <span class="show-list" onclick="changeView('list')"><i class="icon fa fa-th-list"></i></span>
                 <span class="show-grid" onclick="changeView('grid')"><i class="icon fa fa-th"></i></span>
+                <span class="hidden-xs">
                 {% if paginator.count %}
                     {% if paginator.num_pages > 1 %}
                         {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
@@ -97,6 +100,7 @@
                         {% trans "<strong>0</strong> results." %}
                     </p>
                 {% endif %}
+                </span>
             </div>
             {% if form %}
                 <div class="filter">

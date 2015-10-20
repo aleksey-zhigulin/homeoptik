@@ -1,4 +1,4 @@
-{% extends "checkout/checkout.html" %}
+{% extends "checkout/shipping_address.html" %}
 {% load i18n %}
 
 {% block title %}
@@ -9,14 +9,13 @@
     {% include 'checkout/nav.html' with step=2 %}
 {% endblock %}
 
-{% block checkout_title %}{% trans "Shipping address" %}{% endblock %}
+{% block checkout_title %}{% trans "Pickup address" %}{% endblock %}
 {% block checkout_subheader %}{% trans "Where should we ship to?" %}{% endblock %}
 
 {% block order_contents %}{% endblock %}
 
 {% block shipping_address %}
-    {% if user.is_authenticated %}
-        {% if addresses %}
+    {% if addresses %}
             <div class="col-md-5 col-xs-12">
                 <div class="form-panel">
                     <header>{% trans "An address from your addressbook?" %}</header>
@@ -25,7 +24,7 @@
                             {% block select_address_form %}
                                 <li style="padding: 20px 20px 0px 20px;">
                                     {% if forloop.counter|divisibleby:"2" %}<hr/>{% endif %}
-                                    <form action="{% url 'checkout:shipping-address' %}" method="post" id="select_shipping_address_{{ address.id }}">
+                                    <form action="{% url 'checkout:shipping-address-pickup' %}" method="post" id="select_shipping_address_{{ address.id }}">
                                         {% csrf_token %}
                                         <input type="hidden" name="action" value="ship_to" />
                                         <input type="hidden" name="address_id" value="{{ address.id }}" />
@@ -43,9 +42,6 @@
                                                     {% endfor %}
                                                 </p>
                                                 {% endblock %}
-                                                (<a href="{% url 'checkout:user-address-update' pk=address.id %}">редактировать</a>
-                                                или
-                                                <a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn-remove-address">удалить</a>)
                                             </div>
                                         </address>
                                         {% if address.is_default_for_shipping %}
@@ -61,26 +57,7 @@
                 </div>
             </div>
         {% endif %}
-    {% endif %}
-
     {% block new_address_form %}
-        <div class="{% if not addresses %}col-md-offset-3{% endif %} col-md-7 col-xs-12">
-            <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
-                {% csrf_token %}
-                <div class="form-panel">
-                    <header>{% trans "Or a new address?" %}</header>
-                    <fieldset>
-                        {% include "partials/form_fields.html" with form=form style='horizontal' %}
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Continuing...' %}">{% trans "Continue" %}</button>
-                                {% trans "or" %} <a href="{% url 'basket:summary' %}">{% trans "return to basket" %}</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-            </form>
-        </div>
     {% endblock %}
 {% endblock shipping_address %}
 

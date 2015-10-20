@@ -329,7 +329,8 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
                                                  'forked.catalogue',
                                                  'forked.promotions',
                                                  'forked.dashboard.promotions',
-                                                 'forked.shipping',])
+                                                 'forked.shipping',
+                                                 'forked.address',])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.

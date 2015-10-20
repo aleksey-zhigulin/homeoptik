@@ -11,12 +11,15 @@ CoreCheckoutApplication = get_class('checkout.app', 'CheckoutApplication')
 class CheckoutApplication(CoreCheckoutApplication):
 
     payment_yandex_view = get_class('checkout.views', 'PaymentYandexView')
+    shipping_address_pickup_view = get_class('checkout.views', 'ShippingAddressPickupView')
 
     def get_urls(self):
         urls = [
             url(r'^$', self.index_view.as_view(), name='index'),
 
             # Shipping/user address views
+            url(r'shipping-address-pickup/$',
+                self.shipping_address_pickup_view.as_view(), name='shipping-address-pickup'),
             url(r'shipping-address/$',
                 self.shipping_address_view.as_view(), name='shipping-address'),
             url(r'user-address/edit/(?P<pk>\d+)/$',

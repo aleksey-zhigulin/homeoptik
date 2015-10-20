@@ -101,7 +101,7 @@
             {% if form %}
                 <div class="filter">
                     <b class="hidden-xs">Сортировать по</b>
-                    {% include "partials/form_field.html" with nolabel=1 field=form.sort_by %}
+                    {% render_field form.sort_by %}
                 </div>
             {% endif %}
         </form>

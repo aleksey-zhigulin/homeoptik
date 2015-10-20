@@ -2,7 +2,7 @@
 {% load homeoptik_tags %}
 
 {% has_choice as has_choice %}
-{% if has_choice %}
+{#{% if has_choice %}#}
     <label>{{ name }}</label>
     {% for item in items %}
 {#        {% if not item.disabled  %}#}
@@ -27,5 +27,5 @@
             </div>
 {#        {% endif %}#}
     {% endfor %}
-{% endif %}
+{#{% endif %}#}
 

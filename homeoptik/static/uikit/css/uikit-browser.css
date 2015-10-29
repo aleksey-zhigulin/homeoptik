@@ -1,7 +1,5 @@
 /* UIKIT BROWSER
 ------------------------------------------- */
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic");
-@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic");
 @import url("../fonts/themify/themify-icons.css");
 @import url("../fonts/font-awesome/font-awesome.min.css");
 .font-roboto {

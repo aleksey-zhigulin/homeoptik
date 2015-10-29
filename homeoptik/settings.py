@@ -4,7 +4,6 @@ from decimal import Decimal as D
 
 import os
 import sys
-import dj_database_url
 
 # Path helper
 PROJECT_DIR = os.path.dirname(__file__)
@@ -18,7 +17,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 SQL_DEBUG = True
 
-ALLOWED_HOSTS = ['homeoptik.herokuapp.com',]
+ALLOWED_HOSTS = ['homeoptik.myihor.ru','185.58.204.167',]
 
 ADMINS = (
     ('Aleksey Zhigulin', 'a.a.zhigulin@yandex.ru'),
@@ -28,14 +27,22 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
 
-# Use a Sqlite database by default
-DATABASES = {'default': dj_database_url.config(default='postgres://kbnzibvwndmgwt:5kFaSFUdgzkGpJrVwZSuVMarim@ec2-54-243-149-147.compute-1.amazonaws.com:5432/dehb58j6jcp7tg')}
 
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'homeoptik_db',
+        'USER': 'homeoptik',
+        'PASSWORD': 'kBcwGP',
+        'HOST': '',
+        'PORT': '',
+    }
+}
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 
@@ -98,7 +105,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = location("public/media")
+MEDIA_ROOT = location("../media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -111,7 +118,7 @@ MEDIA_URL = '/media/'
 #ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = location('public/static')
+STATIC_ROOT = location('../static')
 STATICFILES_DIRS = (
     location('static/'),
 )
@@ -321,6 +328,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'app',
     'yandex_money',
+    'gunicorn',
 ]
 
 from oscar import get_core_apps
@@ -342,13 +350,6 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True
 
-# Haystack settings
-# HAYSTACK_CONNECTIONS = {
-#     'default': {
-#         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-#         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-#     },
-# }
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -492,6 +493,7 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 USE_LESS = False
 
 COMPRESS_ENABLED = False
+# COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
 )
@@ -509,7 +511,7 @@ COMPRESS_OUTPUT_DIR = 'oscar'
 # Logging
 # =======
 
-LOG_ROOT = location('logs')
+LOG_ROOT = location('../logs')
 # Ensure log root exists
 if not os.path.exists(LOG_ROOT):
     os.mkdir(LOG_ROOT)
@@ -538,7 +540,6 @@ YANDEX_MONEY_FAIL_URL = 'http://9dd05044.ngrok.io/checkout/fail-payment/'
 YANDEX_MONEY_SUCCESS_URL = 'http://9dd05044.ngrok.io/checkout/success-payment/'
 # информировать о случаях, когда модуль вернул Яндекс.Кассе ошибку
 YANDEX_MONEY_MAIL_ADMINS_ON_PAYMENT_ERROR = True
-
 
 # Try and import local settings which can be used to override any of the above.
 try:

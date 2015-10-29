@@ -65,16 +65,32 @@
                             <!-- Tab Popular -->
                             <div class="tab-pane active" id="tab-popular">
 
-                                <!-- Row -->
-                                <div class="row">
-                                    {% for product in popular_products %}
-                                        <!-- Col -->
-                                        <div class="col-sm-6 col-md-3">
-                                            {% render_product product%}
-                                        </div>
-                                        <!-- /Col -->
-                                    {% endfor %}
+                                <!-- Slider Wrapper -->
+                                <div class="brand-slider">
+
+                                    <!-- BxSlider -->
+                                    <div class="bxslider" data-call="bxslider" data-options="{pager:false, slideMargin:20}" data-breaks="[{screen:0, slides:1}, {screen:460, slides:2}, {screen:768, slides:3}, {screen:998, slides:4}]">
+
+                                        {% for product in popular_products %}
+                                            <!-- Slide -->
+                                            <div class="slide">
+                                                {% render_product product%}
+                                            </div>
+                                            <!-- /Slide -->
+                                        {% endfor %}
+
+                                    </div>
                                 </div>
+                                <!-- Row -->
+                                {#                                <div class="row">#}
+                                {#                                    {% for product in popular_products %}#}
+                                {#                                        <!-- Col -->#}
+                                {#                                        <div class="col-sm-6 col-md-3">#}
+                                {#                                            {% render_product product%}#}
+                                {#                                        </div>#}
+                                {#                                        <!-- /Col -->#}
+                                {#                                    {% endfor %}#}
+                                {#                                </div>#}
                                 <!-- /Row -->
 
                             </div>

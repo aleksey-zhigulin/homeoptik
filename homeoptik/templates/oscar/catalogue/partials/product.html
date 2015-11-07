@@ -10,7 +10,7 @@
         {% block product_image %}
             <div class="image">
                 {% with image=product.primary_image %}
-                    {% thumbnail image.original "270x300" padding=True as thumb %}
+                    {% thumbnail image.original "270x200" padding=True as thumb %}
                         <a href="{{ product.get_absolute_url }}" class="main"><img src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
                     {% endthumbnail %}
                 {% endwith %}
@@ -53,9 +53,9 @@
 
             {% block product_price %}
                 <!-- Price Box -->
-                <div class="price-box">
+{#                <div class="price-box">#}
                     {% include "catalogue/partials/stock_record.html" %}
-                </div>
+{#                </div>#}
                 <!-- /Price Box -->
             {% endblock %}
 

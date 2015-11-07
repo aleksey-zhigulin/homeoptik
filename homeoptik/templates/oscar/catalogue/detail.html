@@ -126,45 +126,45 @@
                                 {#                                <div class="panel-body">#}
 
                                 <table class="table">
-                                    {% if product.upc %}
-                                        <tr>
-                                            <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
-                                        </tr>
-                                    {% endif %}
-                                    <tr>
-                                        <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name|lower }}</td>
-                                    </tr>
+{#                                    {% if product.upc %}#}
+{#                                        <tr>#}
+{#                                            <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>#}
+{#                                        </tr>#}
+{#                                    {% endif %}#}
+{#                                    <tr>#}
+{#                                        <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name|lower }}</td>#}
+{#                                    </tr>#}
 
-                                    {% purchase_info_for_product request product as session %}
-                                    {% if session.price.exists %}
-                                        <tr>
-                                            <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
-                                        </tr>
-                                        {% if session.price.is_tax_known %}
-                                            <tr>
-                                                <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>
-                                            </tr>
-                                        {% endif %}
-                                        <tr>
-                                            <th>{% trans "Availability" %}</th>
-                                            <td>{{ session.availability.message }}</td>
-                                        </tr>
-                                    {% endif %}
+{#                                    {% purchase_info_for_product request product as session %}#}
+{#                                    {% if session.price.exists %}#}
+{#                                        <tr>#}
+{#                                            <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>#}
+{#                                        </tr>#}
+{#                                        {% if session.price.is_tax_known %}#}
+{#                                            <tr>#}
+{#                                                <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>#}
+{#                                            </tr>#}
+{#                                            <tr>#}
+{#                                                <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>#}
+{#                                            </tr>#}
+{#                                        {% endif %}#}
+{#                                        <tr>#}
+{#                                            <th>{% trans "Availability" %}</th>#}
+{#                                            <td>{{ session.availability.message }}</td>#}
+{#                                        </tr>#}
+{#                                    {% endif %}#}
                                     {% for av in product.attribute_values.all %}
                                         <tr>
                                             <th>{{ av.attribute.name }}</th>
-                                            <td>{{ av.value_as_text|lower }}</td>
+                                            <td>{{ av.value_as_text }}</td>
                                         </tr>
                                     {% endfor %}
-                                    {% iffeature "reviews" %}
-                                        <tr>
-                                            <th>{% trans "Number of reviews" %}</th>
-                                            <td>{{ product.num_approved_reviews }}</td>
-                                        </tr>
-                                    {% endiffeature %}
+{#                                    {% iffeature "reviews" %}#}
+{#                                        <tr>#}
+{#                                            <th>{% trans "Number of reviews" %}</th>#}
+{#                                            <td>{{ product.num_approved_reviews }}</td>#}
+{#                                        </tr>#}
+{#                                    {% endiffeature %}#}
                                 </table>
 
                                 {#                                </div>#}
@@ -208,11 +208,11 @@
                         <p>
                             {% if product|is_review_permitted:user %}
                                 {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
-                                {% blocktrans %}This product does not have any reviews yet -
-                                    <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                                {% blocktrans %}Пока нет отзывов об этом товаре -
+                                    <a href="{{ add_review_url }}#addreview">напишите отзыв первым</a>.
                                 {% endblocktrans %}
                             {% else %}
-                                {% trans "This product does not have any reviews yet" %}.
+                                Пока нет отзывов об этом товаре.
                             {% endif %}
                         </p>
                     {% else %}

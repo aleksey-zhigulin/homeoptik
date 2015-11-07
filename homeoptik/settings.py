@@ -17,7 +17,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 SQL_DEBUG = True
 
-ALLOWED_HOSTS = ['homeoptik.myihor.ru','185.58.204.167',]
+ALLOWED_HOSTS = ['homeoptik.ru',]
 
 ADMINS = (
     ('Aleksey Zhigulin', 'a.a.zhigulin@yandex.ru'),
@@ -26,7 +26,6 @@ EMAIL_SUBJECT_PREFIX = '[HomeOptik] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
-
 
 DATABASES = {
     'default': {
@@ -90,7 +89,7 @@ ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
 ROSETTA_REQUIRES_AUTH = False
 ROSETTA_WSGI_AUTO_RELOAD = True
 LOCALE_PATHS = (
-    location('../locale'),
+    location('locale'),
 )
 
 SITE_ID = 1
@@ -326,9 +325,9 @@ INSTALLED_APPS = [
     'rosetta',          # For i18n testing
     'compressor',
     'widget_tweaks',
-    'app',
     'yandex_money',
     'gunicorn',
+    'homeoptik',
 ]
 
 from oscar import get_core_apps
@@ -338,7 +337,8 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
                                                  'forked.promotions',
                                                  'forked.dashboard.promotions',
                                                  'forked.shipping',
-                                                 'forked.address',])
+                                                 'forked.address',
+                                                 'forked.partner',])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -434,29 +434,42 @@ OSCAR_PROMOTION_POSITIONS = (('page', 'Page'),
 # Shipping
 OSCAR_SHIPPING_PICKUP_EXCL_TAX = D('300.00')
 OSCAR_SHIPPING_PICKUP_INCL_TAX = D('300.00')
-
 OSCAR_SEARCH_FACETS = {
-    'fields': OrderedDict([
-        ('product_class', {'name': gettext_noop('Type'), 'field': 'product_class'}),
-        ('rating', {'name': gettext_noop('Rating'), 'field': 'rating'}),
-        ('glass_style', {'name': gettext_noop('Form'), 'field': 'glass_style'}),
-    ]),
     'queries': OrderedDict([
         ('price_range',
          {
-             'name': gettext_noop('Price range'),
+             'name': gettext_noop('Цена'),
              'field': 'price',
              'queries': [
                  # This is a list of (name, query) tuples where the name will
                  # be displayed on the front-end.
-                 (gettext_noop('0 to 20'), u'[0 TO 20]'),
-                 (gettext_noop('20 to 40'), u'[20 TO 40]'),
-                 (gettext_noop('40 to 60'), u'[40 TO 60]'),
-                 (gettext_noop('60+'), u'[60 TO *]'),
+                 (gettext_noop('от 0 до 1000 руб.'), u'[0 TO 1000]'),
+                 (gettext_noop('от 1000 до 3000 руб.'), u'[1000 TO 3000]'),
+                 (gettext_noop('от 3000 до 5000 руб.'), u'[3000 TO 5000]'),
+                 (gettext_noop('от 5000 руб.'), u'[5000 TO *]'),
              ]
          }),
     ]),
+    'fields': OrderedDict([
+        ('brand', {'name': gettext_noop('Бренд'), 'field': 'brand'}),
+        ('purpose', {'name': gettext_noop('Назначение'), 'field': 'purpose'}),
+        ('lenses_type', {'name': gettext_noop('Тип линз'), 'field': 'lenses_type'}),
+        ('material', {'name': gettext_noop('Материал'), 'field': 'material'}),
+        ('properties', {'name': gettext_noop('Свойства'), 'field': 'properties'}),
+        ('index', {'name': gettext_noop('Индекс уточнения'), 'field': 'index'}),
+        ('cover', {'name': gettext_noop('Покрытие'), 'field': 'cover'}),
+        ('reflex', {'name': gettext_noop('Остаточный рефлекс'), 'field': 'reflex'}),
+
+
+        # ('product_class', {'name': gettext_noop('Type'), 'field': 'product_class'}),
+        # ('astigmatic', {'name': gettext_noop('Возможность заказал астигматичных линз'), 'field': 'astigmatic'}),
+        # ('color', {'name': gettext_noop('Цвет линзы'), 'field': 'color'}),
+        # ('design', {'name': gettext_noop('Дизайн'), 'field': 'design'}),
+        # ('rating', {'name': gettext_noop('Rating'), 'field': 'rating'}),
+        # ('glass_style', {'name': gettext_noop('Form'), 'field': 'glass_style'}),
+    ]),
 }
+
 
 # This is added to each template context by the core context processor.  It is
 # useful for test/stage/qa sites where you want to show the version of the site
@@ -523,7 +536,7 @@ THUMBNAIL_DEBUG = True
 THUMBNAIL_KEY_PREFIX = 'oscar'
 
 # Use a custom KV store to handle integrity error
-#THUMBNAIL_KVSTORE = 'oscar.sorl_kvstore.ConcurrentKVStore'
+# THUMBNAIL_KVSTORE = 'oscar.sorl_kvstore.ConcurrentKVStore'
 
 # Django 1.6 has switched to JSON serializing for security reasons, but it does not
 # serialize Models. We should resolve this by extending the

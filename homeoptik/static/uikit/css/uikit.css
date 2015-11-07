@@ -4125,6 +4125,12 @@ ul.tags li a:hover {
     left: 0;
     width: 100%;
     height: 100%; }
+.intro-slider .slide .text .inverted {
+    color: #000000;
+}
+.intro-slider .slide .text .pcolor {
+    color: #E7214C;
+}
 .intro-slider .slide .text h1, .intro-slider .slide .text p, .intro-slider .slide .text h5 {
     color: inherit;
     text-transform: uppercase; }
@@ -4134,6 +4140,12 @@ ul.tags li a:hover {
     border: 2px solid #fff;
     padding: 20px 50px;
     display: inline-block; }
+.intro-slider .slide .text h1.inverted  {
+    border: 2px solid #000000;
+}
+.intro-slider .slide .text h1.pcolor  {
+    border: 2px solid #E7214C;
+}
 .intro-slider .slide .text p, .intro-slider .slide .text h5 {
     font: 300 17px/60px "Roboto Condensed";
     margin: 0;

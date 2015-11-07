@@ -15,11 +15,11 @@
 
 {% if session.price.exists %}
     {% if session.price.excl_tax == 0 %}
-        <span class="price">{% trans "Free" %}</span>
+        {% trans "Free" %}
     {% elif session.price.is_tax_known %}
-        <span class="price">{{ session.price.incl_tax|currency:session.price.currency }}</span>
+        {{ session.price.incl_tax|currency:session.price.currency }}
     {% else %}
-        <span class="price">{{ session.price.excl_tax|currency:session.price.currency }}</span>
+        {{ session.price.excl_tax|currency:session.price.currency }}
     {% endif %}
 {% else %}
     <small>
@@ -34,7 +34,7 @@
     {% if session.availability.is_available_to_buy %}
         <p>
             <i class="fa fa-check green"></i>
-            В наличии ({{ session.availability.message|lower }})
+            В наличии ({% if session.availability.num_available > 20 %}много{% else %}{{ session.availability.num_available }}{% endif %})
         </p>
     {% endif %}
 {% else %}

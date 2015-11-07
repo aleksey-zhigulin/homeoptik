@@ -8,6 +8,8 @@
 {#{% block navigation %}#}
 {#    {% include "partials/nav_primary.html" with expand_dropdown=1 %}#}
 {#{% endblock %}#}
+
+
 {% block content_wrapper %}
     <!-- Intro Block
      ============================================ -->
@@ -52,51 +54,35 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-line-bottom line-pcolor nav-tabs-center case-u" role="tablist">
-                    <li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>
-                    <li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>
-                    <li><a href="#tab-newest" data-toggle="tab">новинки</a></li>
+                    {% if popular_products|length == 4 %}<li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>{% endif %}
+                    {% if latest_products|length == 4 %}<li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>{% endif %}
+                    {% if newest_products|length == 4 %}<li><a href="#tab-newest" data-toggle="tab">новинки</a></li>{% endif %}
                 </ul>
                 <!-- /Nav Tabs -->
 
                 {% with nolabel=1 %}
                     <!-- Tab panes -->
                     <div class="tab-content tab-no-borders">
-                        {% if popular_products %}
+                        {% if popular_products|length == 4 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane active" id="tab-popular">
 
-                                <!-- Slider Wrapper -->
-                                <div class="brand-slider">
-
-                                    <!-- BxSlider -->
-                                    <div class="bxslider" data-call="bxslider" data-options="{pager:false, slideMargin:20}" data-breaks="[{screen:0, slides:1}, {screen:460, slides:2}, {screen:768, slides:3}, {screen:998, slides:4}]">
-
-                                        {% for product in popular_products %}
-                                            <!-- Slide -->
-                                            <div class="slide">
-                                                {% render_product product%}
-                                            </div>
-                                            <!-- /Slide -->
-                                        {% endfor %}
-
-                                    </div>
-                                </div>
                                 <!-- Row -->
-                                {#                                <div class="row">#}
-                                {#                                    {% for product in popular_products %}#}
-                                {#                                        <!-- Col -->#}
-                                {#                                        <div class="col-sm-6 col-md-3">#}
-                                {#                                            {% render_product product%}#}
-                                {#                                        </div>#}
-                                {#                                        <!-- /Col -->#}
-                                {#                                    {% endfor %}#}
-                                {#                                </div>#}
+                                <div class="row">
+                                    {% for product in popular_products %}
+                                        <!-- Col -->
+                                        <div class="col-sm-6 col-md-3">
+                                            {% render_product product%}
+                                        </div>
+                                        <!-- /Col -->
+                                    {% endfor %}
+                                </div>
                                 <!-- /Row -->
 
                             </div>
                             <!-- /Tab Popular -->
                         {% endif %}
-                        {% if latest_products %}
+                        {% if latest_products|length == 4 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane" id="tab-latest">
 
@@ -115,7 +101,7 @@
                             </div>
                             <!-- /Tab Popular -->
                         {% endif %}
-                        {% if newest_products %}
+                        {% if newest_products|length == 4 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane" id="tab-newest">
 
@@ -148,6 +134,129 @@
     <!-- /Tabs Block
     ============================================ -->
 
+    <div class="content-block">
+
+        <div class="container no-pad-t">
+
+            {# Render promotions #}
+            <div class="row">
+                {% for promotion in promotions_page %}
+                    <div class="col-md-3">
+                        <div class="image">
+                            {% render_promotion promotion %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Testimonials Block
+      ============================================ -->
+    <div class="content-block visible-md visible-lg" >
+
+        <!-- Container -->
+        <div class="container cont-md">
+
+            <!-- Section Title -->
+            <div class="section-title line-pcolor">
+                <h2>Отзывы</h2>
+                <p>У нас <span class="pcolor" style="">3273</span> довольных клиентов. Что они о нас говорят?</p>
+            </div>
+            <!-- /Section Title -->
+
+            <!-- Row -->
+            <div class="row">
+                <!-- Col -->
+                <div class="col-md-6">
+                    <div class="hquote">
+                        <blockquote>
+                            <p>
+                                <img class="avatar" src="{% static "images/reviews/Денис.png" %}" alt="Денис Дремов">
+                                <small class="author-top"><a>Денис Дремов</a></small>
+                                Заказал очки TITANflex. Очень легкие и удобные. Качество на высоте! Через пару дней после заказа прошли первое испытание: забыл на сидении в машине, потом благополучно на них сел - товарный вид не потеряли. Спасибо большое за качество и отличные цены!
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+                <!-- /Col -->
+
+                <!-- Col -->
+                <div class="col-md-6">
+                    <div class="hquote hquote-right">
+                        <blockquote>
+                            <p>
+                                <img class="avatar" src="{% static "images/reviews/Тимур.png" %}" alt="Тимур Смирнов">
+                                <small class="author-top"><a>Тимур Смирнов</a></small>
+                                Долго мучил специалиста с подбором оправы и линз, и удивлён, как он выдержал это испытание:) В итоге подобрали отличные очки по суперской цене с эксклюзивными линзами! Чему я безумно рад! УСПЕХОВ!<br/> Всем носить очки!
+                            </p>
+                        </blockquote>
+                    </div>
+                    <!-- /hquote -->
+
+                </div>
+                <!-- /Col -->
+
+            </div>
+            <!-- /Row -->
+
+            <div class="row" style="margin-top: 30px;margin-bottom: 30px;">
+                <div class="col-md-12">
+
+                    <div class="hquote">
+                        <blockquote>
+                            <p>
+                                <img class="avatar" src="{% static "images/reviews/Кира.png" %}" alt="Кира Касторнова"><small class="author-top"><a>Кира Касторнова</a></small>
+                                А вот и моя история: в связи с частой работой за компьютером село зрение. Конечно же, я отправилась в линзмастер, как обыкновенный обыватель, и столкнулась с нереальными ценами на те оправы, которые мне бы хотелось приобрести. Да и линзы вставить стоит недешево. Но ведь надо... Расстроилась. Нашла эту чудесную оптику. И счастью моему не было предела! Мне все подробно рассказали и ответили на все многочисленные вопросы. Решила брать оправу не меряя. Переживали все))) Но в итоге все оказалось просто невероятно круто! Нереально ответственный, обаятельный и коммуникабельный Антон, знающий свое дело, привез мне очки спустя 2 дня после моего решения. Все подошло идеально. А цена мурчала как котенок. Спасибо огромное! Скоро буду оформлять еще и компьютерные! Друзья, заказывая здесь очки, вы столкнетесь с нереальным позитивом, качеством и быстротой, что очень важно и ценно в нашем не очень честном мире))) Вот, собственно, и я в офигительнейших очках от Marc O'Polo))) Всем добра!
+                            </p>
+                        </blockquote>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Row -->
+            <div class="row">
+                <!-- Col -->
+                <div class="col-md-6">
+                    <div class="hquote">
+                        <blockquote>
+                            <p>
+                                <img class="avatar" src="{% static "images/reviews/Олеся.png" %}" alt="Олеся Шестак">
+                                <small class="author-top"><a>Олеся Шестак</a></small>
+                                Вы еще сомневаетесь, заказывать ли очки в Хоум Оптике? Вы просто теряете драгоценное время. Потому что эта оптика = отличное качество + хорошие цены + потрясающий сервис! Говорю как человек, который знает это по собственному опыту. Очень крутые линзы, мегапотрясающая оправа и очки, готовые за один день!!!!!<br/> Спасибо за шикарнейшие очки!!!<br/> Ждите следующий заказ...
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+                <!-- /Col -->
+
+                <!-- Col -->
+                <div class="col-md-6">
+                    <div class="hquote hquote-right">
+                        <blockquote>
+                            <p>
+                                <img class="avatar" src="{% static "images/reviews/Полина.png" %}" alt="Полна Беседская">
+                                <small class="author-top"><a>Полина Беседская</a></small>
+                                Спасибо большое за доброжелательность и вежливость! Все рассказали и объяснили. Очень пунктуальные, что в наше время редкость! Очки очень крутые! Качество супер! Все так быстро, просто и хорошо) Все для клиента. Оказывается настолько хуже видно в очках с простыми линзами, чем с покрытиями - кто бы сказал, не поверила! Вещь на века) Ну или пока не появится новая коллекция) Обращусь не раз еще и расскажу всем знакомым, где заказать очки.  Спасибо!)
+                            </p>
+                        </blockquote>
+                    </div>
+                    <!-- /hquote -->
+
+                </div>
+                <!-- /Col -->
+
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+    </div>
+    <!-- /Testimonials Block
+         ============================================ -->
+
     <!-- Brands Block
          ============================================ -->
     <div class="content-block" >
@@ -170,43 +279,49 @@
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/bogner.png" %}" alt="Bogner"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/brendel.png" %}" alt="Brendel"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/crush.png" %}" alt="Crush"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/humphreys.png" %}" alt="HUMPHREY'S"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/marcopolo.png" %}" alt="Marc O'Polo"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/oceanblue.png" %}" alt="Oceanblue"/>
                     </div>
                     <!-- /Slide -->
 
                     <!-- Slide -->
                     <div class="slide">
-                        <img class="img-main" src="{% static "images/company1.jpg" %}" alt=""/>
+                        <img class="img-main" src="{% static "images/brands/oio.png" %}" alt="OiO"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/titanflex.png" %}" alt="TitanFlex"/>
                     </div>
                     <!-- /Slide -->
                 </div>

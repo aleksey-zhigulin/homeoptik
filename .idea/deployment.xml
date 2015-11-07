@@ -6,6 +6,7 @@
         <serverdata>
           <mappings>
             <mapping deploy="/var/www/Projects/homeoptik" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/var/www/solr/example/solr/collection1/conf" local="$PROJECT_DIR$/configs/solr/conf" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/Helena 1.0.5" />

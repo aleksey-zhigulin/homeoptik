@@ -22,19 +22,19 @@
         <div class="panel-body no-pad-t no-pad-b">
             {% for item in items %}
                 <div class="checkbox">
-{#        {% if not item.disabled  %}#}
+                    {#        {% if not item.disabled  %}#}
                     <label>
                         {% if item.selected %}
-                            <input class="" type="checkbox" name="{{ item.name }}" checked />
-                            <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
+                            <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />
+                            <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.deselect_url }}" />
                             <strong>{{ item.name }}</strong>
                         {% else %}
                             {% if item.disabled %}
                                 <input type="checkbox" name="{{ item.name }}" disabled />
                                 {{ item.name }}
                             {% else %}
-                                <input class="" type="checkbox" name="{{ item.name }}" />
-                                <input type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
+                                <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" />
+                                <input class="facet_url" type="hidden" name="url_for_{{ item.name }}" value="{{ item.select_url }}" />
                                 <a href="{{ item.select_url }}">{{ item.name }}</a>
                             {% endif %}
                         {% endif %}
@@ -43,7 +43,7 @@
                         {% endif %}
                     </label>
 
-{#        {% endif %}#}
+                    {#        {% endif %}#}
                 </div>
             {% endfor %}
 
@@ -59,7 +59,7 @@
 {#    <ul>#}
 {#        {% for item in items %}#}
 {#            <div class="checkbox">#}
-                {#                            {% if not item.disabled  %}#}
+{#                            {% if not item.disabled  %}#}
 {#                <label>#}
 {#                    {% if item.selected %}#}
 {#                        <input class="facet_checkbox" type="checkbox" name="{{ item.name }}" checked />#}
@@ -80,7 +80,7 @@
 {#                    {% endif %}#}
 {#                </label>#}
 {##}
-                {#                {% endif %}#}
+{#                {% endif %}#}
 {#            </div>#}
 {#        {% endfor %}#}
 {#    </ul>#}

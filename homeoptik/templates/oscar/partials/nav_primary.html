@@ -29,7 +29,7 @@
                 <ul id="browse" class="nav navbar-nav navbar-center line-top case-c">
                     <li class="dropdown dropdown-mega {% if 'catalogue' in request.get_full_path %}active{% endif %} {% if expand_dropdown %}open{% endif %}">
                         <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
-                            {% trans "Browse store" %}
+                            КАТАЛОГ
                             <b class="caret"></b>
                         </a>
                         <div class="mega-menu dropdown-menu">
@@ -38,7 +38,7 @@
 
                                 <!-- col -->
                                 <div class="col-md-3">
-                                    <img class="featured-img hidden-xs hidden-sm" src="{% static "images/menu-pic.jpg" %}" alt="">
+                                    <img class="featured-img hidden-xs hidden-sm" src="{% static "images/nav-megamenu.png" %}" alt="">
                                 </div>
                                 <!-- /col -->
 
@@ -50,7 +50,7 @@
                                         <ul class="links">
                                             {% for tree_category, info in tree_categories %}
                                                 <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}>
-                                                    <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                                                    <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name|capfirst }}</a>
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -92,7 +92,7 @@
                     {% block nav_dropdown_extra_items %}{% endblock %}
 
                     {% for page in flatpages %}
-                        <li {% if page.url == request.get_full_path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        <li {% if page.url == request.get_full_path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title|upper }}</a></li>
                     {% endfor %}
 
                     {% block nav_extra %}

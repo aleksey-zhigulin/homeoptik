@@ -7,12 +7,12 @@ main content area to split it into a sidebar and a content block
 {% endcomment %}
 {% block content_wrapper %}
     {% block header %}
-        <section class="intro-block intro-page boxed-section page-bg overlay-dark-m" >
-            <style>
-                .page-bg {
-                    background: url("{% block intro_bg %}{% endblock %}") no-repeat center 0 fixed;
-                }
-            </style>
+        <style>
+            .intro-bg {
+                background: url("{% spaceless %}{% block intro_bg %}{% endblock %}{% endspaceless %}") no-repeat center 0 fixed;
+            }
+        </style>
+        <section class="intro-block intro-page boxed-section intro-bg overlay-dark-m" >
             <!-- Container -->
             <div class="container">
                 <!-- Section Title -->

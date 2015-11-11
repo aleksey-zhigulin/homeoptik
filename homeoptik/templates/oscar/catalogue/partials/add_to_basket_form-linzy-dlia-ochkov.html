@@ -1,0 +1,169 @@
+{% load basket_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+
+{% purchase_info_for_product request product as session %}
+
+{% if session.availability.is_available_to_buy %}
+    <h4>Купить сейчас</h4>
+    {% basket_form request product as basket_form %}
+    <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post">
+        {% csrf_token %}
+        <div class="hidden">
+            {% include "partials/form_fields.html" with form=basket_form %}
+        </div>
+
+        <div id="receipt">
+            <h6 class="no-margin">
+                OS - левый глаз
+            </h6>
+            <fieldset id='OS'>
+
+                <div class="row">
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Сфера">SPH</abbr></div>
+                            <select id='OS_SPH'class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Цилиндр">CYL</abbr></div>
+                            <select id='OS_CYL' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Ось">AX</abbr></div>
+                            <select id='OS_AX' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Расстояние">PD</abbr></div>
+                            <select id='OS_PD' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                </div>
+            </fieldset>
+
+            <h6 class="no-margin inline-block">
+                OD - правый глаз
+            </h6>
+            &nbsp; &nbsp; &nbsp;
+            <label class="inline-checkbox">
+                OD = OS <input type="checkbox" id='OD_OS'/>
+            </label>
+            <fieldset id="OD">
+                <div class="row">
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Сфера">SPH</abbr></div>
+                            <select id='OD_SPH' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Цилиндр">CYL</abbr></div>
+                            <select id='OD_CYL' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Ось">AX</abbr></div>
+                            <select id='OD_AX' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                    <div class="form-group col-sm-3 col-xs-6">
+                        <!-- Input Group -->
+                        <div class="input-group">
+                            <div class="input-group-addon"><abbr title="Расстояние">PD</abbr></div>
+                            <select id='OD_PD' class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <!-- /Input Group -->
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        {{ product.product_class.attributes.objects.all }}
+        <button type="submit" class="btn btn-primary btn-bigger" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}"><i class="icon-left ti ti-shopping-cart"></i>{% trans "Add to basket" %}</button>
+    </form>
+    {#    {% include "catalogue/partials/add_to_wishlist.html" %}#}
+{% else %}
+    {% if has_active_alert %}
+        <h5>Мы уведомим Вас когда товар будет в наличии.</h5>
+    {% else %}
+        <form id="alert_form" method="post" action="{% url 'customer:alert-create' pk=product.id %}" class="add-to-basket">
+            {% csrf_token %}
+            <h5>Мы можем уведомить Вас по email когда товар будет в наличии.</h5>
+            {% include "partials/form_fields.html" with form=alert_form %}
+            <button type="submit" class="btn btn-default btn-bigger" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-left ti ti-email"></i>{% trans "Notify me" %}</button>
+        </form>
+    {% endif %}
+    {#    {% include "catalogue/partials/add_to_wishlist.html" %}#}
+{% endif %}

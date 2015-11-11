@@ -59,11 +59,13 @@
                 <!-- /Price Box -->
             {% endblock %}
 
+            {% block product_basket_form_compact %}
             <div class="btn-group">
                 {% if not product.is_parent %}
                     {% include "catalogue/partials/add_to_basket_form_compact.html" %}
                 {% endif %}
             </div>
+            {% endblock %}
         </div>
         <!-- /Details -->
 

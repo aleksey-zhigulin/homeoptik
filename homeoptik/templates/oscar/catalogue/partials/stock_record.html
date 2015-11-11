@@ -8,7 +8,7 @@
 
 {% if verbose %}
     <div class="price-box">
-        <h4 class="product-price">
+        <h4 class="product-price inline-block">
 {% else %}
     <span class="price">
 {% endif %}
@@ -29,14 +29,14 @@
 {% endif %}
 
 {% if verbose %}
-        </h4>
-    </div>
+    </h4>
     {% if session.availability.is_available_to_buy %}
-        <p>
+        <span>
             <i class="fa fa-check green"></i>
             В наличии ({% if session.availability.num_available > 20 %}много{% else %}{{ session.availability.num_available }}{% endif %})
-        </p>
+        </span>
     {% endif %}
+    </div>
 {% else %}
     </span>
 {% endif %}

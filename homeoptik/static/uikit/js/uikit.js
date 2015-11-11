@@ -56,6 +56,7 @@ var scripts = [
   "js/theme.js",
   //"js/style-switcher.js",
   "js/rating-stars.js",
+  "js/uikit-browser.js",
 ];
 
 // IMPORTANT: To force caching change false to true

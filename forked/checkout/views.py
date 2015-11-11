@@ -114,7 +114,7 @@ class ShippingAddressView(CoreShippingAddressView):
             return super(ShippingAddressView, self).post(
                 request, *args, **kwargs)
 
-class ShippingMethodView(CoreShippingMethodView):
+class ShippingMethodView(CheckoutSessionMixin, generic.TemplateView):
 
     template_name = 'checkout/shipping_methods.html'
     pre_conditions = ['check_basket_is_not_empty',
@@ -124,6 +124,7 @@ class ShippingMethodView(CoreShippingMethodView):
     def get(self, request, *args, **kwargs):
 
         self._methods = self.get_available_shipping_methods()
+
         if len(self._methods) == 1:
             # Only one shipping method - set this and redirect onto the next
             # step
@@ -134,6 +135,25 @@ class ShippingMethodView(CoreShippingMethodView):
         # the user to make a choice.
         return super(ShippingMethodView, self).get(request, *args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        kwargs = super(ShippingMethodView, self).get_context_data(**kwargs)
+        kwargs['methods'] = self._methods
+        return kwargs
+
+    def post(self, request, *args, **kwargs):
+        # Need to check that this code is valid for this user
+        method_code = request.POST.get('method_code', None)
+        if not self.is_valid_shipping_method(method_code):
+            messages.error(request, _("Your submitted shipping method is not"
+                                      " permitted"))
+            return redirect('checkout:shipping-method')
+
+        # Save the code for the chosen shipping method in the session
+        # and continue to the next step.
+        self.checkout_session.use_shipping_method(method_code)
+
+        return self.get_success_response()
+
     def get_available_shipping_methods(self):
         """
         Returns all applicable shipping method objects for a given basket.
@@ -142,6 +162,12 @@ class ShippingMethodView(CoreShippingMethodView):
             basket=self.request.basket, user=self.request.user,
             shipping_addr=None,
             request=self.request)
+
+    def is_valid_shipping_method(self, method_code):
+        for method in self.get_available_shipping_methods():
+            if method.code == method_code:
+                return True
+        return False
 
     def get_success_response(self):
         if self.checkout_session.shipping_method_code(self.request.basket) == 'pickup-shipping':

@@ -164,7 +164,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     #'django.middleware.transaction.TransactionMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'forked.flatpages.middleware.FlatpageFallbackMiddleware',
     # Allow languages to be selected
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -314,14 +314,13 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-    'django.contrib.flatpages',
+    'forked.flatpages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django_extensions',
     # Debug toolbar + extensions
     'debug_toolbar',
     'template_timings_panel',
-    #'south',
     'rosetta',          # For i18n testing
     'compressor',
     'widget_tweaks',
@@ -336,6 +335,7 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
                                                  'forked.catalogue',
                                                  'forked.promotions',
                                                  'forked.dashboard.promotions',
+                                                 'forked.dashboard.pages',
                                                  'forked.shipping',
                                                  'forked.address',
                                                  'forked.partner',])

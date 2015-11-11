@@ -59,9 +59,11 @@
 
             <!-- Col -->
             <div class="col-md-7">
+                {% comment %}
                 {% iffeature "reviews" %}
                     {% include "catalogue/reviews/partials/review_stars.html" %}
                 {% endiffeature %}
+                {% endcomment %}
 
                 <h3 class="product-title">
                     {{ product.get_title }}
@@ -77,109 +79,7 @@
                     {% include "catalogue/partials/stock_record.html" with verbose=1 %}
                 {% endblock %}
 
-                <!-- Accordion -->
-                <div class="panel-group" id="accordion">
-
-                    {% block product_description %}
-                        {% if product.description %}
-                            <!-- Panel -->
-                            <div class="panel panel-default">
-
-                                <!-- Heading -->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            {% trans "Product Description" %}
-                                        </a>
-                                    </h4>
-                                </div>
-                                <!-- /Heading -->
-
-                                <!-- Collapse -->
-                                <div id="collapseOne" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        {{ product.description|safe }}
-                                    </div>
-                                </div>
-                                <!-- /Collapse -->
-
-                            </div>
-                            <!-- /Panel -->
-                        {% endif %}
-                    {% endblock %}
-
-                    {% block product_info %}
-                        <!-- Panel -->
-                        <div class="panel panel-default">
-                            <!-- Heading -->
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                        {% trans "Product Information" %}
-                                    </a>
-                                </h4>
-                            </div>
-                            <!-- /Heading -->
-
-                            <!-- Collapse -->
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                {#                                <div class="panel-body">#}
-
-                                <table class="table">
-{#                                    {% if product.upc %}#}
-{#                                        <tr>#}
-{#                                            <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>#}
-{#                                        </tr>#}
-{#                                    {% endif %}#}
-{#                                    <tr>#}
-{#                                        <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name|lower }}</td>#}
-{#                                    </tr>#}
-
-{#                                    {% purchase_info_for_product request product as session %}#}
-{#                                    {% if session.price.exists %}#}
-{#                                        <tr>#}
-{#                                            <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>#}
-{#                                        </tr>#}
-{#                                        {% if session.price.is_tax_known %}#}
-{#                                            <tr>#}
-{#                                                <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>#}
-{#                                            </tr>#}
-{#                                            <tr>#}
-{#                                                <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>#}
-{#                                            </tr>#}
-{#                                        {% endif %}#}
-{#                                        <tr>#}
-{#                                            <th>{% trans "Availability" %}</th>#}
-{#                                            <td>{{ session.availability.message }}</td>#}
-{#                                        </tr>#}
-{#                                    {% endif %}#}
-                                    {% for av in product.attribute_values.all %}
-                                        <tr>
-                                            <th>{{ av.attribute.name }}</th>
-                                            <td>{{ av.value_as_text }}</td>
-                                        </tr>
-                                    {% endfor %}
-{#                                    {% iffeature "reviews" %}#}
-{#                                        <tr>#}
-{#                                            <th>{% trans "Number of reviews" %}</th>#}
-{#                                            <td>{{ product.num_approved_reviews }}</td>#}
-{#                                        </tr>#}
-{#                                    {% endiffeature %}#}
-                                </table>
-
-                                {#                                </div>#}
-                            </div>
-                            <!-- /Collapse -->
-
-                        </div>
-                        <!-- /Panel -->
-                    {% endblock %}
-
-                </div>
-                <!-- /Accordion -->
-
                 {% block product_basket_form %}
-
                     {% include "catalogue/partials/add_to_basket_form.html" %}
                 {% endblock %}
             </div>
@@ -189,78 +89,90 @@
 
     </div>
     <!-- /Product Row -->
+
     <hr class="y-200pc">
 
     <!-- Row -->
     <div class="row">
+        <div class="col-md-9">
+            <div class="code-sample">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs cs-nav" style="margin-bottom: 30px" role="tablist">
+                    <li class="active"><a href="#" data-tab=".tab-desc"><i class="icon-left fa fa-info-circle"></i>Описание</a></li>
+                    <li class=""><a href="#" data-tab=".tab-props"><i class="icon-left fa fa-list"></i>Подробнее</a></li>
+                    {#                    <li class=""><a href="#" data-tab=".tab-revs"><i class="icon-left ti ti-comment"></i>Отзывы ({{ product.num_approved_reviews }})</a></li>#}
+                </ul>
+                <!-- /Nav tabs -->
 
-        {% iffeature "reviews" %}
-            {% block product_review %}
-                <!-- Main Col -->
-                <div id="main-col" class="col-md-9 mgb-30-xs">
-
-                    <h4>Отзывы ({{ product.num_approved_reviews }})</h4>
-                    {% if product.num_approved_reviews > 3 %}
-                        <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
-                    {% endif %}
-
-                    {% if product.num_approved_reviews == 0 %}
-                        <p>
-                            {% if product|is_review_permitted:user %}
-                                {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
-                                {% blocktrans %}Пока нет отзывов об этом товаре -
-                                    <a href="{{ add_review_url }}#addreview">напишите отзыв первым</a>.
-                                {% endblocktrans %}
-                            {% else %}
-                                Пока нет отзывов об этом товаре.
+                <!-- Tabs -->
+                <div class="tabs cs-tabs">
+                    <!-- Description -->
+                    <div class="tab tab-desc active">
+                        {% block product_description %}
+                            {% if product.description %}
+                                {{ product.description|safe }}
                             {% endif %}
-                        </p>
-                    {% else %}
-                        <!-- Comments List -->
-                        <ol class="comments-list">
-                            {% for review in reviews|slice:":3" %}
-                                {% include 'catalogue/partials/review.html' %}
-                            {% endfor %}
-                        </ol>
-                        <!-- Comments List / END -->
-                    {% endif %}
-{##}
-{#                    <h4 class="case-c">add comment</h4>#}
-{##}
-{#                    <!-- Comment Form -->#}
-{#                    <div class="contact-form">#}
-{#                        <form>#}
-{#                            <!-- Row -->#}
-{#                            <div class="row">#}
-{#                                <!-- Col -->#}
-{#                                <div class="col-md-6">#}
-{#                                    <div class="form-group">#}
-{#                                        <input placeholder="Your Name - Required" class="form-control" type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <!-- /Col -->#}
-{#                                <!-- Col -->#}
-{#                                <div class="col-md-6">#}
-{#                                    <div class="form-group">#}
-{#                                        <input placeholder="Your Email - Required" class="form-control" type="text">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <!-- /Col -->#}
-{#                            </div>#}
-{#                            <!-- /Row -->#}
-{##}
-{#                            <div class="form-group">#}
-{#                                <textarea placeholder="You Message..." class="form-control" rows="8"></textarea>#}
-{#                            </div>#}
-{##}
-{#                            <button class="btn btn-default  btn-bigger" type="submit">Submit comment</button>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                    <!-- /Contact Form -->#}
+                        {% endblock %}
+
+                    </div>
+                    <!-- /Description -->
+
+                    <!-- Properties -->
+                    <div class="tab tab-props">
+                        {% block product_info %}
+
+                            <table class="table">
+                                {% for av in product.attribute_values.all %}
+                                    <tr>
+                                        <th>{{ av.attribute.name }}</th>
+                                        <td>{{ av.value_as_text }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                        {% endblock %}
+
+                    </div>
+                    <!-- /Properties -->
+                    {% comment %}
+                    <!-- Reviews -->
+                    <div class="tab tab-revs">
+                        {% iffeature "reviews" %}
+                            {% block product_review %}
+
+                                {% if product.num_approved_reviews > 3 %}
+                                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+                                {% endif %}
+
+                                {% if product.num_approved_reviews == 0 %}
+                                    <p>
+                                        {% if product|is_review_permitted:user %}
+                                            {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                                            {% blocktrans %}Пока нет отзывов об этом товаре -
+                                                <a href="{{ add_review_url }}#addreview">напишите отзыв первым</a>.
+                                            {% endblocktrans %}
+                                        {% else %}
+                                            Пока нет отзывов об этом товаре.
+                                        {% endif %}
+                                    </p>
+                                {% else %}
+                                    <!-- Comments List -->
+                                    <ol class="comments-list">
+                                        {% for review in reviews|slice:":3" %}
+                                            {% include 'catalogue/partials/review.html' %}
+                                        {% endfor %}
+                                    </ol>
+                                    <!-- Comments List / END -->
+                                {% endif %}
+                            {% endblock product_review %}
+                        {% endiffeature %}
+                    </div>
+                    <!-- /Reviews -->
+                    {% endcomment %}
                 </div>
-                <!-- /Main Col -->
-            {% endblock product_review %}
-        {% endiffeature %}
+            </div>
+        </div>
+
 
         {% with recommended_products=product.recommended_products.all|slice:":6" %}
             {% if recommended_products %}

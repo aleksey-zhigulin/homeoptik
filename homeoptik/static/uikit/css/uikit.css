@@ -1657,7 +1657,7 @@ input[type="checkbox"] {
 .hnav .dropdown-menu.mega-menu .links > li > a {
     border-bottom: 1px dotted #ddd;
     line-height: 3em;
-    text-transform: capitalize;
+    text-transform: none;
     color: #666b76;
     display: block;
     padding: 0 15px;
@@ -3105,7 +3105,7 @@ body {
     box-sizing: content-box; }
 .vfeat .title {
     font-size: 14px;
-    text-transform: capitalize;
+    text-transform: none;
     line-height: 1;
     margin: 0 0 6px 0; }
 .vfeat .text {

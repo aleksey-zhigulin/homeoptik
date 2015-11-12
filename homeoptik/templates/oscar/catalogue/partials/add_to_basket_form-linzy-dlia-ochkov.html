@@ -3,6 +3,7 @@
 {% load purchase_info_tags %}
 {% load widget_tweaks %}
 {% load staticfiles %}
+{% load homeoptik_tags %}
 
 {% purchase_info_for_product request product as session %}
 
@@ -27,11 +28,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Сфера">SPH</abbr></div>
                             <select id='OS_SPH'class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_sph_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -41,11 +38,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Цилиндр">CYL</abbr></div>
                             <select id='OS_CYL' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_cyl_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -55,11 +48,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Ось">AX</abbr></div>
                             <select id='OS_AX' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_ax_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -69,11 +58,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Расстояние">PD</abbr></div>
                             <select id='OS_PD' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_pd_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -95,11 +80,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Сфера">SPH</abbr></div>
                             <select id='OD_SPH' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_sph_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -109,11 +90,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Цилиндр">CYL</abbr></div>
                             <select id='OD_CYL' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_cyl_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -123,11 +100,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Ось">AX</abbr></div>
                             <select id='OD_AX' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_ax_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->
@@ -137,11 +110,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><abbr title="Расстояние">PD</abbr></div>
                             <select id='OD_PD' class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {% render_pd_options %}
                             </select>
                         </div>
                         <!-- /Input Group -->

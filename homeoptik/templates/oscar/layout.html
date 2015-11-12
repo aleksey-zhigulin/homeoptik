@@ -5,17 +5,17 @@
 
 {% block mainstyles %}
     {% block styles %}
-{#        {% compress css %}#}
-{#            {% if use_less %}#}
-                {#                <link rel="stylesheet" type="text/less" href="{% static "oscar/less/styles.less" %}" />#}
-{#            {% else %}#}
-                {#                <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />#}
-                <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
-                <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,500italic,700,700italic,900,900italic|Roboto+Condensed:400,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-                <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
-                <link href="{% static "uikit/css/uikit-browser.css" %}" rel="stylesheet">
-{#            {% endif %}#}
-{#        {% endcompress %}#}
+        {#        {% compress css %}#}
+        {#            {% if use_less %}#}
+        {#                <link rel="stylesheet" type="text/less" href="{% static "oscar/less/styles.less" %}" />#}
+        {#            {% else %}#}
+        {#                <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />#}
+        <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,500italic,700,700italic,900,900italic|Roboto+Condensed:400,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
+        <link href="{% static "uikit/css/uikit-browser.css" %}" rel="stylesheet">
+        {#            {% endif %}#}
+        {#        {% endcompress %}#}
     {% endblock %}
 {% endblock %}
 
@@ -27,58 +27,58 @@
         {# Site logo/title, mini-basket, browse dropdown and searchbox #}
         <header class="header-block  line-top">
             <!-- Nav Top............................................. -->
-{#            <nav class="nav-top hnav hnav-sm hnav-borderless visible-md visible-lg">#}
-{##}
-{#                <!-- Container -->#}
-{#                <div class="container">#}
-{##}
-{#                    <!-- Dont Collapse -->#}
-{#                    <div class="navbar-dont-collapse no-toggle">#}
-{#                        <div class="row">#}
-{#                            <div class="col-md-3">#}
-{#                                <!-- hfeat -->#}
-{#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
-{#                                    <i class="icon fa fa-cogs"></i>#}
-{#                                    <a class="title">изготовление очков</a>#}
-{#                                    <p class="text">любой сложности</p>#}
-{#                                </div>#}
-{#                                <!-- /hfeat -->#}
-{#                            </div>#}
-{#                            <div class="col-md-3">#}
-{#                                <!-- hfeat -->#}
-{#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
-{#                                    <i class="icon fa fa-rouble"></i>#}
-{#                                    <a class="title">Лучшие цены</a>#}
-{#                                    <p class="text">убедитесь сами</p>#}
-{#                                </div>#}
-{#                                <!-- /hfeat -->#}
-{#                            </div>#}
-{#                            <div class="col-md-3">#}
-{#                                <!-- hfeat -->#}
-{#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
-{#                                    <i class="icon fa fa-thumbs-o-up"></i>#}
-{#                                    <a class="title">гарантия</a>#}
-{#                                    <p class="text">на все оправы и линзы</p>#}
-{#                                </div>#}
-{#                                <!-- /hfeat -->#}
-{#                            </div>#}
-{#                            <div class="col-md-3">#}
-{#                                <!-- hfeat -->#}
-{#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
-{#                                    <i class="icon ti-shield"></i>#}
-{#                                    <a class="title">без подделок</a>#}
-{#                                    <p class="text">только оригинальная продукция от известных брендов</p>#}
-{#                                </div>#}
-{#                                <!-- /hfeat -->#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- /Dont Collapse -->#}
-{##}
-{#                </div>#}
-{#                <!-- /Container -->#}
-{##}
-{#            </nav>#}
+            {#            <nav class="nav-top hnav hnav-sm hnav-borderless visible-md visible-lg">#}
+            {##}
+            {#                <!-- Container -->#}
+            {#                <div class="container">#}
+            {##}
+            {#                    <!-- Dont Collapse -->#}
+            {#                    <div class="navbar-dont-collapse no-toggle">#}
+            {#                        <div class="row">#}
+            {#                            <div class="col-md-3">#}
+            {#                                <!-- hfeat -->#}
+            {#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
+            {#                                    <i class="icon fa fa-cogs"></i>#}
+            {#                                    <a class="title">изготовление очков</a>#}
+            {#                                    <p class="text">любой сложности</p>#}
+            {#                                </div>#}
+            {#                                <!-- /hfeat -->#}
+            {#                            </div>#}
+            {#                            <div class="col-md-3">#}
+            {#                                <!-- hfeat -->#}
+            {#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
+            {#                                    <i class="icon fa fa-rouble"></i>#}
+            {#                                    <a class="title">Лучшие цены</a>#}
+            {#                                    <p class="text">убедитесь сами</p>#}
+            {#                                </div>#}
+            {#                                <!-- /hfeat -->#}
+            {#                            </div>#}
+            {#                            <div class="col-md-3">#}
+            {#                                <!-- hfeat -->#}
+            {#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
+            {#                                    <i class="icon fa fa-thumbs-o-up"></i>#}
+            {#                                    <a class="title">гарантия</a>#}
+            {#                                    <p class="text">на все оправы и линзы</p>#}
+            {#                                </div>#}
+            {#                                <!-- /hfeat -->#}
+            {#                            </div>#}
+            {#                            <div class="col-md-3">#}
+            {#                                <!-- hfeat -->#}
+            {#                                <div class="hfeat hfeat-sm hfeat-round hfeat-box-pcolor">#}
+            {#                                    <i class="icon ti-shield"></i>#}
+            {#                                    <a class="title">без подделок</a>#}
+            {#                                    <p class="text">только оригинальная продукция от известных брендов</p>#}
+            {#                                </div>#}
+            {#                                <!-- /hfeat -->#}
+            {#                            </div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                    <!-- /Dont Collapse -->#}
+            {##}
+            {#                </div>#}
+            {#                <!-- /Container -->#}
+            {##}
+            {#            </nav>#}
             <!-- /Nav Top............................................ -->
             <div class="main-header container">
                 <div class="header-cols">
@@ -117,6 +117,13 @@
                 <!-- Container -->
                 <div class="container cont-pad-x-15">
                     {% block breadcrumbs %}{% endblock %}
+                    <ul class="page-links pull-right hlinks hlinks-icons color-icons-borders color-icons-bg-hovered">
+                        {% block breadcrumbs_right %}
+                        <li><a href="https://vk.com/homeoptik/"><i class="icon fa fa-vk"></i></a></li>
+                        <li><a href="https://instagram.com/homeoptik/"><i class="icon fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCUB-CdLxuCyfqxJKYFQ11CQ"><i class="icon fa fa-youtube"></i></a></li>
+                        {% endblock %}
+                    </ul>
                 </div>
                 <!-- /Container -->
             </section>
@@ -137,11 +144,11 @@
         {% endblock %}
 
         {# Render promotions #}
-{#        <div id="promotions">#}
-{#            {% for promotion in promotions_page %}#}
-{#                {% render_promotion promotion %}#}
-{#            {% endfor %}#}
-{#        </div>#}
+        {#        <div id="promotions">#}
+        {#            {% for promotion in promotions_page %}#}
+        {#                {% render_promotion promotion %}#}
+        {#            {% endfor %}#}
+        {#        </div>#}
 
         {% include "partials/footer.html" %}
 

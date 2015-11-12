@@ -18,7 +18,7 @@
                     {% endthumbnail %}
                 {% endwith %}
                 <div class="text">
-                    <a class="title" href="{{ line.product.get_absolute_url }}">{{ line.description }}</a>
+                    <a class="title" href="{{ line.product.get_absolute_url }}">{{ line.description|truncatechars:40 }}</a>
                     <div class="details">
                         {{ line.quantity }} x {{ line.unit_price_excl_tax|currency:request.basket.currency }}
                     </div>
@@ -27,7 +27,8 @@
             <!-- /Item -->
         {% endfor %}
     {% else %}
-        <li class="clearfix">{% trans "Your basket is empty." %}</li>
+        <li class="clearfix">Корзина пуста</li>
     {% endif %}
 </ul>
 <!-- /Mini Cart -->
+

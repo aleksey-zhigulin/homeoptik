@@ -16,15 +16,15 @@
         </li>
         <li class="active">{{ flatpage.title }}</li>
     </ol>
-    <!-- hlinks -->
-    <ol class="breadcrumb pull-right">
+{% endblock %}
+
+{% block breadcrumbs_right %}
       <li>
         {% if user.is_authenticated and user.is_staff %}
-            <a href="{% url 'dashboard:page-update' pk=flatpage.id %}"><i class="fa fa-edit"></i> {% trans "Edit this page" %}</a>
+            <a href="{% url 'dashboard:page-update' pk=flatpage.id %}"><i class="fa fa-edit"></i> {% trans "Edit this page"|upper %}</a>
         {% endif %}
       </li>
-    </ol>
-    <!-- /hlinks -->
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}

@@ -54,16 +54,16 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-line-bottom line-pcolor nav-tabs-center case-u" role="tablist">
-                    {% if popular_products|length == 4 %}<li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>{% endif %}
-                    {% if latest_products|length == 4 %}<li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>{% endif %}
-                    {% if newest_products|length == 4 %}<li><a href="#tab-newest" data-toggle="tab">новинки</a></li>{% endif %}
+                    {% if popular_products|length == 8 %}<li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>{% endif %}
+                    {% if latest_products|length == 8 %}<li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>{% endif %}
+                    {% if newest_products|length == 8 %}<li><a href="#tab-newest" data-toggle="tab">новинки</a></li>{% endif %}
                 </ul>
                 <!-- /Nav Tabs -->
 
                 {% with nolabel=1 %}
                     <!-- Tab panes -->
                     <div class="tab-content tab-no-borders">
-                        {% if popular_products|length == 4 %}
+                        {% if popular_products|length == 8 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane active" id="tab-popular">
 
@@ -71,7 +71,7 @@
                                 <div class="row">
                                     {% for product in popular_products %}
                                         <!-- Col -->
-                                        <div class="col-sm-6 col-md-3">
+                                        <div class="col-xs-6 col-md-3">
                                             {% render_product product%}
                                         </div>
                                         <!-- /Col -->
@@ -82,7 +82,7 @@
                             </div>
                             <!-- /Tab Popular -->
                         {% endif %}
-                        {% if latest_products|length == 4 %}
+                        {% if latest_products|length == 8 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane" id="tab-latest">
 
@@ -90,7 +90,7 @@
                                 <div class="row">
                                     {% for product in latest_products %}
                                         <!-- Col -->
-                                        <div class="col-sm-6 col-md-3">
+                                        <div class="col-xs-6 col-md-3">
                                             {% render_product product %}
                                         </div>
                                         <!-- /Col -->
@@ -101,7 +101,7 @@
                             </div>
                             <!-- /Tab Popular -->
                         {% endif %}
-                        {% if newest_products|length == 4 %}
+                        {% if newest_products|length == 8 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane" id="tab-newest">
 
@@ -109,7 +109,7 @@
                                 <div class="row">
                                     {% for product in newest_products %}
                                         <!-- Col -->
-                                        <div class="col-sm-6 col-md-3">
+                                        <div class="col-xs-6 col-md-3">
                                             {% render_product product %}
                                         </div>
                                         <!-- /Col -->
@@ -134,6 +134,7 @@
     <!-- /Tabs Block
     ============================================ -->
 
+    {% comment %}
     <div class="content-block">
 
         <div class="container no-pad-t">
@@ -151,18 +152,157 @@
 
         </div>
     </div>
+    {% endcomment %}
+
+    <!-- Brands Block
+         ============================================ -->
+    <div class="content-block" >
+
+        <!-- Container -->
+        <div class="container no-pad-t cont-md">
+
+            <!-- Section Title -->
+            <div class="section-title line-pcolor">
+                <h2>бренды</h2>
+                <p>У нас вы можете купить оригинальную продукцию известных брендов.</p>
+            </div>
+            <!-- /Section Title -->
+
+            <!-- Slider Wrapper -->
+            <div class="brand-slider">
+
+                <!-- BxSlider -->
+                <div class="bxslider" data-call="bxslider" data-options="{pager:false, slideMargin:20}" data-breaks="[{screen:0, slides:2}, {screen:460, slides:3}, {screen:768, slides:5}]">
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/bogner.png" %}" alt="Bogner"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/brendel.png" %}" alt="Brendel"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/crush.png" %}" alt="Crush"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/humphreys.png" %}" alt="HUMPHREY'S"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/marcopolo.png" %}" alt="Marc O'Polo"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/oceanblue.png" %}" alt="Oceanblue"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/oio.png" %}" alt="OiO"/>
+                    </div>
+                    <!-- /Slide -->
+
+                    <!-- Slide -->
+                    <div class="slide">
+                        <img class="img-main" src="{% static "images/brands/titanflex.png" %}" alt="TitanFlex"/>
+                    </div>
+                    <!-- /Slide -->
+                </div>
+                <!-- /BxSlider -->
+
+            </div>
+            <!-- Slider Wrapper -->
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Brands Block
+    ============================================ -->
+
+
+    <!-- Features Block
+    ============================================ -->
+    <div class="content-block">
+        <div class="container no-pad-t">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- vfeat -->
+                    <div class="vfeat vfeat-lg">
+                        <i class="icon fa fa-"></i>
+                        <a class="title">large size</a>
+                        <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                    </div>
+                    <!-- /vfeat -->
+                </div>
+                <div class="col-md-3">
+                    <!-- vfeat -->
+                    <div class="vfeat vfeat-lg">
+                        <i class="icon fa fa-truck"></i>
+                        <a class="title">Доставка по все России</a>
+                        <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                    </div>
+                    <!-- /vfeat -->
+                </div>
+                <div class="col-md-3">
+                    <!-- vfeat -->
+                    <div class="vfeat vfeat-lg">
+                        <i class="icon fa fa-cogs"></i>
+                        <a class="title">Изготовим очки по рецепту</a>
+                        <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                    </div>
+                    <!-- /vfeat -->
+                </div>
+                <div class="col-md-3">
+                    <!-- vfeat -->
+                    <div class="vfeat vfeat-lg">
+                        <i class="icon fa fa-apple"></i>
+                        <a class="title">large size</a>
+                        <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                    </div>
+                    <!-- /vfeat -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Features Block
+    ============================================ -->
+
 
     <!-- Testimonials Block
       ============================================ -->
     <div class="content-block visible-md visible-lg" >
 
         <!-- Container -->
-        <div class="container cont-md">
+        <div class="container no-pad-t cont-md">
 
             <!-- Section Title -->
             <div class="section-title line-pcolor">
                 <h2>Отзывы</h2>
-                <p>У нас <span class="pcolor" style="">3273</span> довольных клиентов. Что они о нас говорят?</p>
+                <script type="text/javascript">
+                    window.onload=function (){
+                        document.getElementById('counter').innerHTML =
+                                Math.round(Math.abs(((new Date()).getTime() - (new Date(2015,01,01)).getTime())/(4*60*60*1000)))-1000;
+                    }
+                </script>
+                <p>
+                    У нас
+                    <span id="counter" class="pcolor" style="font-weight: bold; font-size: x-large"></span>
+                    довольных клиентов. Что они о нас говорят?
+                </p>
             </div>
             <!-- /Section Title -->
 
@@ -256,84 +396,5 @@
     </div>
     <!-- /Testimonials Block
          ============================================ -->
-
-    <!-- Brands Block
-         ============================================ -->
-    <div class="content-block" >
-
-        <!-- Container -->
-        <div class="container cont-md">
-
-            <!-- Section Title -->
-            <div class="section-title line-pcolor">
-                <h2>бренды</h2>
-                <p>У нас вы можете купить оригинальную продукцию известных брендов.</p>
-            </div>
-            <!-- /Section Title -->
-
-            <!-- Slider Wrapper -->
-            <div class="brand-slider">
-
-                <!-- BxSlider -->
-                <div class="bxslider" data-call="bxslider" data-options="{pager:false, slideMargin:20}" data-breaks="[{screen:0, slides:2}, {screen:460, slides:3}, {screen:768, slides:5}]">
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/bogner.png" %}" alt="Bogner"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/brendel.png" %}" alt="Brendel"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/crush.png" %}" alt="Crush"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/humphreys.png" %}" alt="HUMPHREY'S"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/marcopolo.png" %}" alt="Marc O'Polo"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/oceanblue.png" %}" alt="Oceanblue"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/oio.png" %}" alt="OiO"/>
-                    </div>
-                    <!-- /Slide -->
-
-                    <!-- Slide -->
-                    <div class="slide">
-                        <img class="img-main" src="{% static "images/brands/titanflex.png" %}" alt="TitanFlex"/>
-                    </div>
-                    <!-- /Slide -->
-                </div>
-                <!-- /BxSlider -->
-
-            </div>
-            <!-- Slider Wrapper -->
-        </div>
-        <!-- /Container -->
-
-    </div>
-    <!-- /Brands Block
-    ============================================ -->
 
 {% endblock %}

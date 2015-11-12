@@ -5,10 +5,11 @@
 
 {% block mainstyles %}
     {% block styles %}
-        {% compress css %}
+{#        {% compress css %}#}
             <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,500italic,700,700italic,900,900italic|Roboto+Condensed:400,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
             <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
-        {% endcompress %}
+{#        {% endcompress %}#}
     {% endblock %}
 {% endblock %}
 

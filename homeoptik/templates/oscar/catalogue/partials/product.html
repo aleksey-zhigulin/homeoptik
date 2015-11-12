@@ -34,6 +34,7 @@
                 </a>
             {% endblock %}
 
+            {% comment %}
             {% block product_review %}
                 {% iffeature "reviews" %}
                     {# TODO: ratings stars #}
@@ -48,6 +49,7 @@
                     <!-- /rating -->
                 {% endiffeature %}
             {% endblock %}
+            {% endcomment %}
 
             <p class="desc">{{ product.description|removetags:"p" }}</p>
 

@@ -31,10 +31,10 @@
                 {% for tree_category, info in tree_categories %}
                     <li>
                         {% if tree_category.pk == category.pk %}
-                            <i class="icon fa fa-angle-right"></i><strong>{{ tree_category.name|title }}</strong>
+                            <i class="icon fa fa-angle-right"></i><strong>{{ tree_category.name|upper }}</strong>
                         {% else %}
                             <a href="{{ tree_category.get_absolute_url }}">
-                                <i class="icon fa fa-angle-right"></i>{{ tree_category.name|title }}
+                                <i class="icon fa fa-angle-right"></i>{{ tree_category.name|capfirst }}
                             </a>
                         {% endif %}
                         {% if info.has_children %}<i class="toggler ti ti-plus"></i><ul>{% else %}</li>{% endif %}
@@ -55,9 +55,13 @@
                 <div class="">
                     <ul class="nav navbar-nav">
 
-                        {% for field, data in facet_data.items %}
-                            {% include 'search/partials/facet.html' with number=forloop.counter0 name=data.name items=data.results %}
+                        {% for field, data in facet_data.items|slice:"-1:" %}
+                            {% include 'search/partials/facet.html' with expanded=1 number=0 name=data.name items=data.results %}
                         {% endfor %}
+                        {% for field, data in facet_data.items|slice:":-1" %}
+                            {% include 'search/partials/facet.html' with number=forloop.counter name=data.name items=data.results %}
+                        {% endfor %}
+
 
                     </ul>
                 </div>
@@ -118,12 +122,12 @@
     {% if products %}
         <div class="product-grid row grid-20 mgb-20">
             {% for product in products %}
-                <div class="col-sm-6 col-md-4">
+                <div class="col-xs-6 col-md-4">
                     {% render_product product %}
                 </div>
             {% endfor %}
-            {% include "partials/pagination.html" %}
         </div>
+        {% include "partials/pagination.html" %}
     {% else %}
         <p class="nonefound">{% trans "No products found." %}</p>
     {% endif %}

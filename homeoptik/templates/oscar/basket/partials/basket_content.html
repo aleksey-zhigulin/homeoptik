@@ -62,7 +62,7 @@
                                 </td>
                                 <td class="details">
                                     <div class="clearfix">
-                                        <div class="pull-left no-float-xs">
+                                        <div class="pull-left no-float-xs" style="max-width:70%">
                                             <a href="{{ product.get_absolute_url }}" class="title">{{ line.description }}</a>
                                             <!-- hlinks -->
 {#                                            <div class="rating hlinks hlinks-rating {{ product.rating|as_stars }}">#}
@@ -145,7 +145,7 @@
                         <p>{% trans "Alternative shipping methods can be chosen during checkout" %}</p>
                     {% endif %}
                     <h5><i class="fa fa-info-circle"></i>{% trans "Возврат и обмен" %}</h5>
-                    <p>{% trans "Alternative shipping methods can be chosen during checkout" %}</p>
+                    <p>{% lorem %}</p>
                 </td>
                 {% block baskettotals %}
                     {% include 'basket/partials/basket_totals.html' %}

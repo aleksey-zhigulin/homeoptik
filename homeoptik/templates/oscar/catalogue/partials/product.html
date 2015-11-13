@@ -30,7 +30,7 @@
 
             {% block product_title %}
                 <a class="title" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
-                    {{ product.get_title|truncatewords:4|title }}
+                    {{ product.get_title|truncatechars:35|title }}
                 </a>
             {% endblock %}
 

@@ -90,6 +90,7 @@ ROSETTA_REQUIRES_AUTH = False
 ROSETTA_WSGI_AUTO_RELOAD = True
 LOCALE_PATHS = (
     location('locale'),
+    location('../forked/newsletter_subscription/locale'),
 )
 
 SITE_ID = 1
@@ -155,6 +156,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'oscar.apps.checkout.context_processors.checkout',
     'oscar.core.context_processors.metadata',
     'oscar.apps.customer.notifications.context_processors.notifications',
+    # Custom
+    'homeoptik.context_processors.subscribe_form',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -326,6 +329,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'yandex_money',
     'gunicorn',
+    'towel',
+    'forked.newsletter_subscription',
     'homeoptik',
 ]
 

@@ -19,6 +19,12 @@ from django.contrib import admin
 from oscar.app import application
 from oscar.views import handler500, handler404, handler403
 
+from models import Subscription
+
+from forked.newsletter_subscription.backend import ModelBackend
+from forked.newsletter_subscription.urls import newsletter_subscriptions_urlpatterns
+
+
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
@@ -27,22 +33,28 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'', include(application.urls)),
-]
+    url(
+        r'^newsletter/',
+        include(newsletter_subscriptions_urlpatterns(
+            backend=ModelBackend(Subscription),
+        )),
+    ),
+    ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',
-        url(r'^rosetta/', include('rosetta.urls')),
-    )
+                            url(r'^rosetta/', include('rosetta.urls')),
+                            )
 
 if settings.DEBUG:
     import debug_toolbar
 
     # Allow error pages to be tested
     urlpatterns += patterns('',
-        url(r'^403$', handler403),
-        url(r'^404$', handler404),
-        url(r'^500$', handler500),
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT}),
-    )
+                            url(r'^403$', handler403),
+                            url(r'^404$', handler404),
+                            url(r'^500$', handler500),
+                            url(r'^__debug__/', include(debug_toolbar.urls)),
+                            url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                                'document_root': settings.MEDIA_ROOT}),
+                            )

@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load flatpages %}
+{% load widget_tweaks %}
 
 {% get_flatpages '/help/' as flatpages %}
 
@@ -9,7 +10,9 @@
 
     <!-- Container -->
     <div class="container">
-        <form>
+
+        <form action="/newsletter/next={{ request.path }}" method="post">
+            {% csrf_token %}
             <!-- Row -->
             <div class="row grid-10">
                 <!-- Col -->
@@ -21,16 +24,23 @@
                     </span>
                 </div>
                 <!-- Col -->
-
                 <!-- Col -->
                 <div class="col-sm-6 col-md-6">
-                    <input class="form-control" placeholder="Введите ваш Email" type="text">
+                    {% for field in subscribe_form %}
+                        {% if field.html_name == 'email' %}
+                            {% render_field field placeholder="Введите ваш Email" class="form-control"%}
+                        {% else %}
+                            <div class="hidden">
+                                {{ field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <!-- Col -->
 
                 <!-- Col -->
                 <div class="col-sm-3 col-md-2">
-                    <button class="btn btn-block btn-color yellow-bg"><i class="icon-left fa fa-envelope"></i>подписаться</button>
+                    <button type="submit" class="btn btn-block btn-color yellow-bg"><i class="icon-left fa fa-envelope"></i>подписаться</button>
                 </div>
                 <!-- /Col -->
 
@@ -71,10 +81,12 @@
                         <!-- Col -->
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <h5>О нас</h5>
-                            <p>alksdmaldm</p>
+                            <p>
+                            У нас Вы можете заказать очки для постоянного ношения, для вождения, для работы за компьютером, для чтения, для ребенка или солнцезащитные. Имеем все сертификаты соответствия, подтверждающие оригинальность оправ и очков.
+                            </p>
                             <!-- hlinks -->
                             <ul class="hlinks hlinks-icons color-icons-borders color-icons-bg color-icons-hovered">
-                                <li><a href="https://vk.com/homeoptik/"><i class="icon fa fa-vk"></i></a></li>
+                                <li><a href="https://vk.com/homeoptik"><i class="icon fa fa-vk"></i></a></li>
                                 <li><a href="https://instagram.com/homeoptik/"><i class="icon fa fa-instagram"></i></a></li>
                                 <li><a href="https://www.youtube.com/channel/UCUB-CdLxuCyfqxJKYFQ11CQ"><i class="icon fa fa-youtube"></i></a></li>
                             </ul>

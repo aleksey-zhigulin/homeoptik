@@ -13,7 +13,7 @@
                 <ul class="bxslider" data-call="bxslider" data-options="{pagerCustom:'#thumb-pager', controls:false}">
                     {% for image in all_images %}
                         <li>
-                            {% thumbnail image.original "x458" padding=True as thumb %}
+                            {% thumbnail image.original "458x300" padding=True as thumb %}
                                 <img class="fillw" src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                             {% endthumbnail %}
                         </li>
@@ -30,7 +30,7 @@
                     {% for image in all_images %}
                         <li>
                             <a data-slide-index="{{ forloop.counter0 }}">
-                                {% thumbnail image.original "130" padding=True as thumb %}
+                                {% thumbnail image.original "199x114" padding=True as thumb %}
                                     <img class="fillw" src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                                 {% endthumbnail %}
                             </a>

@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=2 %}
+    {% include 'checkout/nav.html' with step=1 %}
 {% endblock %}
 
 {% block checkout_title %}{% trans "Shipping method" %}{% endblock %}
@@ -19,46 +19,53 @@
 {% block payment_method %}{% endblock %}
 
 {% block shipping_method %}
-    <div class="basket-title">
-        <div class="row">
-            <h4 class="col-sm-8">{% trans "Method" %}</h4>
-            <h4 class="col-sm-3">{% trans "Cost" %}</h4>
-        </div>
+    <div class="cart">
+        <table class="cart-contents">
+            <thead>
+            <tr>
+                <th class="text-center">Способ</th>
+                <th class="text-center">Цена</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for method in methods %}
+                <tr>
+                    <td>
+                        <h4>{{ method.name }}</h4>
+                        {% if method.description %}
+                            <p>{{ method.description|safe }}</p>
+                        {% endif %}
+                        {% if method.is_discounted %}
+                            <small>
+                                {% shipping_charge_discount method basket as discount %}
+                                {% blocktrans with amount=discount|currency:basket.currency name=method.discount_name %}
+                                    This includes a discount of <strong>{{ amount }}</strong> as
+                                    your basket qualifies for the <strong>{{ name }}</strong> offer.
+                                {% endblocktrans %}
+                            </small>
+                        {% endif %}
+                    </td>
+                    <td class="total-price text-center" style="vertical-align:middle; width: 20%">
+                        {% shipping_charge method basket as charge %}
+                        {% if charge.is_tax_known %}
+                            {{ charge.incl_tax|currency:basket.currency }}
+                        {% else %}
+                            {{ charge.excl_tax|currency:basket.currency }}
+                        {% endif %}
+                    </td>
+                    <td class="text-center" style="vertical-align:middle; width: 10%">
+                        <form method="post" action="{% url 'checkout:shipping-method' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="method_code" value="{{ method.code }}" />
+                            <button type="submit" class="btn btn-primary" data-loading-text="Сохраняем...">Выбрать</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
-    {% for method in methods %}
-        <div class="basket-items">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h4>{{ method.name }}</h4>
-                    {% if method.description %}
-                        <p>{{ method.description|safe }}</p>
-                    {% endif %}
-                    {% if method.is_discounted %}
-                        <small>
-                            {% shipping_charge_discount method basket as discount %}
-                            {% blocktrans with amount=discount|currency:basket.currency name=method.discount_name %}
-                                This includes a discount of <strong>{{ amount }}</strong> as
-                                your basket qualifies for the <strong>{{ name }}</strong> offer.
-                            {% endblocktrans %}
-                        </small>
-                    {% endif %}
-                </div>
-                <div class="col-sm-1">
-                    {% shipping_charge method basket as charge %}
-                    {% if charge.is_tax_known %}
-                        {{ charge.incl_tax|currency:basket.currency }}
-                    {% else %}
-                        {{ charge.excl_tax|currency:basket.currency }}
-                    {% endif %}
-                </div>
-                <div class="col-sm-3">
-                    <form method="post" action="{% url 'checkout:shipping-method' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="method_code" value="{{ method.code }}" />
-                        <button type="submit" class="btn btn-lg btn-primary pull-right" data-loading-text="{% trans 'Submitting...' %}">{% trans "Select option" %}</button>
-                    </form>
-                </div>    
-            </div>
-        </div>
-    {% endfor %}
+
 {% endblock shipping_method %}

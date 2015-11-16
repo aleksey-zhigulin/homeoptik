@@ -60,7 +60,6 @@ window.onload = function (){
             'OD=OS': $('#OD_OS').prop('checked')
         }
         Cookies.set('Receipt', receipt);
-        updateReceiptForm();
     } else {
 
         //left eye
@@ -106,15 +105,16 @@ window.onload = function (){
         }
 
     }
+    updateReceiptForm();
 };
 
 function updateReceiptForm() {
     var receipt = Cookies.getJSON('Receipt');
     if (receipt['OD=OS']) {
         $('#id_quantity').val(2);
-        $('#id_recept').val('OS: SPH('+receipt.OS.SPH+'), CYL('+receipt.OS.CYL+'), AX('+receipt.OS.AX+'), PD('+receipt.OS.PD+')');
+        $('#id_recept').val('OS=OD: SPH('+receipt.OS.SPH+'), CYL('+receipt.OS.CYL+'), AX('+receipt.OS.AX+'), PD('+receipt.OS.PD+')');
     } else {
-        $('#id_quantity').val(1);
+        $('#id_quantity').val(2);
         $('#id_recept').val(
             'OS: SPH('+receipt.OS.SPH+'), CYL('+receipt.OS.CYL+'), AX('+receipt.OS.AX+'), PD('+receipt.OS.PD+'); ' +
             'OD: SPH('+receipt.OD.SPH+'), CYL('+receipt.OD.CYL+'), AX('+receipt.OD.AX+'), PD('+receipt.OD.PD+')');

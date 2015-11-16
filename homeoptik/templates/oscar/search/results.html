@@ -5,6 +5,7 @@
 {% load product_tags %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load staticfiles %}
 
 {% block title %}
     "{{ query }}" | {{ block.super }}
@@ -118,6 +119,10 @@
         </div>
     {% endif %}
 
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="{% static "homeoptik/js/facets.js" %}" type="text/javascript"></script>
 {% endblock %}
 
 {% block onbodyload %}

@@ -27,7 +27,7 @@ main content area to split it into a sidebar and a content block
         </section>
     {% endblock %}
 
-    <section class="page-info-block boxed-section">
+    <section class="page-info-block {% block page_info_class %}{% endblock %} boxed-section">
         <!-- Container -->
         <div class="container cont-pad-x-15">
             {% block breadcrumbs %}{% endblock %}
@@ -62,7 +62,7 @@ main content area to split it into a sidebar and a content block
                 <!-- /Side Col -->
 
                 <!-- Main Col -->
-                <div class="main-col col-sm-9 col-md-9">
+                <div class="col-sm-9 col-md-9">
                     {% include "partials/alert_messages.html" %}
 
                     <div id="promotions">

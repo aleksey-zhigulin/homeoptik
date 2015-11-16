@@ -1,5 +1,6 @@
 from django import http
 from django.contrib import messages
+from django.conf import settings
 from django.http import HttpResponseRedirect, QueryDict
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.shortcuts import redirect
@@ -213,7 +214,19 @@ class PaymentMethodView(CheckoutSessionMixin, generic.TemplateView):
         return redirect('checkout:preview')
 
 
-# class PaymentDetailsView(views.PaymentDetailsView):
+class PaymentDetailsView(views.PaymentDetailsView):
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        choices = dict(settings.PAYMENT_METHODS + Payment.PAYMENT_TYPE.CHOICES)
+        code = self.checkout_session.payment_method()
+        context['payment_method'] = {
+            'code': code,
+            'name': choices[code],
+        }
+        return self.render_to_response(context)
+
+
 #
 #     def handle_payment(self, order_number, total, **kwargs):
 #         payment = Payment(

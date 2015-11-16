@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 
+
 <!-- Nav Bottom
 .............................................. -->
 <nav class="nav-bottom hnav hnav-ruled white-bg boxed-section">
@@ -24,49 +25,42 @@
             <!-- Navbar Center -->
             <ul class="nav navbar-nav navbar-center line-top case-c">
                 {% spaceless %}
-                    <li class="step1 {% if step == 1 %}active{% else %}{% if step == 2 %}previous{% else %}{% if step > 1 %}visited{% else %}disabled{% endif %}{% endif %}{% endif %} ">
+                    <li class="step1 {% if step == 1 %}active{% elif step == 5 %}disabled{% endif %} ">
                         {% if step == 2 or step == 3 or step == 4 %}
-                            <a href="{% url 'checkout:shipping-address' %}">
-                                <span class="visible-inline-sm icon-chevron-right"></span>
-                        <span>
-                            {% trans "1. Shipping address" %}
-                        </span>
-                            </a>
-                        {% else %}
-                            <a class="">{%  trans "1. Shipping address" %}</a>
-                        {% endif %}
-                    </li>
-
-                    <li class="step2 {% if step == 2 %}active{% else %}{% if step == 3 %}previous{% else %}{% if step > 2 %}visited{% else %}disabled{% endif %}{% endif %}{% endif %} ">
-                        {% if step == 3 or step == 4 %}
                             <a href="{% url 'checkout:shipping-method' %}">
-                                <span class="visible-inline-sm icon-chevron-right"></span>
-                                <span>
-                                    {% trans "2. Shipping method" %}
-                                </span>
+                               Способ доставки <i class="ti-package"></i>
                             </a>
                         {% else %}
-                            <a>{%  trans "2. Shipping method" %}</a>
+                            <a>Способ доставки <i class="ti-package"></i></a>
                         {% endif %}
                     </li>
 
-                    <li class="step3 {% if step == 3 %}active{% else %}{% if step == 4 %}previous{% else %}{% if step > 3 %}visited{% else %}disabled{% endif %}{% endif %}{% endif %} ">
-                        {% if step == 4 %}
-                            <a href="{% url 'checkout:payment-details' %}">
-                                <span class="visible-inline-sm icon-chevron-right"></span>
-                                <span>{% trans "3. Payment" %}</span>
+                    <li class="step2 {% if step == 2 %}active{% elif step == 1 or step == 5 %}disabled{% endif %} ">
+                        {% if step == 3 or step == 4 %}
+                            <a href="{% url 'checkout:shipping-address' %}">
+                                Адрес <i class="ti-location-pin"></i>
                             </a>
                         {% else %}
-                            <a>{%  trans "3. Payment" %}</a>
+                            <a>Адрес <i class="ti-location-pin"></i></a>
+                        {% endif %}
+                    </li>
+
+                    <li class="step3 {% if step == 3 %}active{% elif step < 3 or step == 5 %}disabled{% endif %} ">
+                        {% if step == 4 %}
+                            <a href="{% url 'checkout:payment-method' %}">
+                                Оплата <i class="fa fa-money"></i>
+                            </a>
+                        {% else %}
+                            <a>Оплата <i class="fa fa-money"></i></a>
                         {% endif %}
                     </li>
 
                     <li class="step4 {% if step == 4 %}active{% else %}disabled{% endif %} ">
-                        <a>{% trans "4. Preview" %}</a>
+                        <a>Проверка <i class="ti-check-box"></i></a>
                     </li>
 
                     <li class="step5 {% if step == 5 %}active{% else %}disabled{% endif %} ">
-                        <a>{% trans "5. Confirmation" %}</a>
+                        <a>Подтверждение <i class="ti-face-smile"></i></a>
                     </li>
                 {% endspaceless %}
             </ul>

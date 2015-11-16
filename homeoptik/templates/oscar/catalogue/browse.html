@@ -5,6 +5,7 @@
 {% load category_tags %}
 {% load product_tags %}
 {% load widget_tweaks %}
+{% load staticfiles %}
 {% load i18n %}
 
 {% block title %}
@@ -134,7 +135,12 @@
 
 {% endblock content %}
 
+{% block extrascripts %}
+    <script src="{% static "homeoptik/js/facets.js" %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block onbodyload %}
     {{ block.super }}
     oscar.search.init();
+
 {% endblock %}

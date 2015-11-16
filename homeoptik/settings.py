@@ -475,6 +475,10 @@ OSCAR_SEARCH_FACETS = {
     ]),
 }
 
+PAYMENT_METHODS = (
+            ('CASH', u'Наличными курьеру'),
+            ('POST', u'Наложенным платежем'),
+)
 
 # This is added to each template context by the core context processor.  It is
 # useful for test/stage/qa sites where you want to show the version of the site

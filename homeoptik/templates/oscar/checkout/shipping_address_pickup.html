@@ -1,24 +1,12 @@
 {% extends "checkout/shipping_address.html" %}
 {% load i18n %}
 
-{% block title %}
-    {% trans "Shipping address" %} | {{ block.super }}
-{% endblock %}
-
-{% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=2 %}
-{% endblock %}
-
-{% block checkout_title %}{% trans "Pickup address" %}{% endblock %}
-{% block checkout_subheader %}{% trans "Where should we ship to?" %}{% endblock %}
-
-{% block order_contents %}{% endblock %}
-
 {% block shipping_address %}
+    <div class="row">
     {% if addresses %}
-            <div class="col-md-5 col-xs-12">
+            <div class="col-xs-12">
                 <div class="form-panel">
-                    <header>{% trans "An address from your addressbook?" %}</header>
+                    <header>Выберите адрес самовывоза</header>
                     <ul class="list-unstyled">
                         {% for address in addresses %}
                             {% block select_address_form %}
@@ -44,11 +32,7 @@
                                                 {% endblock %}
                                             </div>
                                         </address>
-                                        {% if address.is_default_for_shipping %}
-                                            <button type="submit" class="btn btn-success btn-large" data-loading-text="{% trans 'Saving...' %}"><i class="fa fa-check"></i> {% trans "Ship to your default shipping address" %}</button>
-                                        {% else %}
-                                            <button type="submit" class="btn btn-primary btn-large" data-loading-text="{% trans 'Saving...' %}">{% trans "Ship to this address" %}</button>
-                                        {% endif %}
+                                        <button type="submit" class="btn btn-primary btn-large" data-loading-text="Сохраняем...">Забрать отсюда</button>
                                     </form>
                                 </li>
                             {% endblock %}
@@ -59,7 +43,6 @@
         {% endif %}
     {% block new_address_form %}
     {% endblock %}
+    </div>
 {% endblock shipping_address %}
 
-{% block shipping_method %}{% endblock %}
-{% block payment_method %}{% endblock %}

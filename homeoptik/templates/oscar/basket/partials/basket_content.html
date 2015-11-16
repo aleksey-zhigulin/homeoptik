@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="qty error{% if form.errors %}error{% endif %}">
+                                <td class="qty {% if form.errors %}error{% endif %}">
                                     {% render_field form.quantity class+="form-control" %}
                                 </td>
                                 <td class="unit-price hidden-xs">

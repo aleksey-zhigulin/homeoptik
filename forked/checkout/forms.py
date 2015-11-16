@@ -19,10 +19,12 @@ class ShippingAddressForm(OldShippingAddressForm):
 
 
 
+
+
 class PaymentMethodsForm(forms.Form):
 
     paymentType = forms.CharField(label=u'Способ оплаты',
-                                  widget=forms.Select(choices=Payment.PAYMENT_TYPE.CHOICES),
+                                  widget=forms.Select(choices=settings.PAYMENT_METHODS + Payment.PAYMENT_TYPE.CHOICES),
                                   min_length=2, max_length=2,
                                   initial=Payment.PAYMENT_TYPE.PC)
 
@@ -32,5 +34,6 @@ class PaymentMethodsForm(forms.Form):
             allowed_payment_types = settings.YANDEX_ALLOWED_PAYMENT_TYPES
             self.fields['paymentType'].widget.choices = filter(
                 lambda x: x[0] in allowed_payment_types,
-                self.fields['paymentType'].widget.choices)
+                self.fields['paymentType'].widget.choices) + settings.PAYMENT_METHODS
+
 

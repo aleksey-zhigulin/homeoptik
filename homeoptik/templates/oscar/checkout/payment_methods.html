@@ -3,9 +3,10 @@
 {% load currency_filters %}
 {% load i18n %}
 {% load shipping_tags %}
+{% load staticfiles %}
 
 {% block title %}
-    {% trans "Shipping method" %} | {{ block.super }}
+    Способ оплаты | {{ block.super }}
 {% endblock %}
 
 {% block checkout_nav %}
@@ -17,13 +18,30 @@
 {% block order_contents %}{% endblock %}
 {% block shipping_address %}{% endblock %}
 {% block payment_method %}
-    <form name="ShopForm" method="POST" action="{% url 'checkout:payment-method' %}">
-        {% csrf_token %}
-        {% include "partials/form_fields.html" with form=payment_method_form %}
-        <div class="form-actions">
-            <button type="submit" class="btn btn-large btn-primary">{% trans "Continue" %}</button>
+    <div class="container">
+        <form id="ShopForm" method="POST" action="{% url 'checkout:payment-method' %}">
+            {% csrf_token %}
+            <div class="hidden">
+                {% include 'partials/form_fields.html' with form=payment_method_form  %}
+            </div>
+        </form>
+
+        <div class="row">
+            {% for field in payment_method_form %}
+                {% for code, name in field.field.widget.choices %}
+                    <div class="col-md-2 col-sm-4 col-xs-6">
+                        <div class="vfeat vfeat-lg">
+                            <a href="#" onclick="$('#id_paymentType').val('{{ code }}'); $('#ShopForm').submit();" class="title">
+                                <img src="{% static  "images/payments/"|add:code|add:".png" %}" alt="{{ name }}"/>
+                                {{ name }}
+                            </a>
+                        </div>
+                        <!-- /hfeat -->
+                    </div>
+                {% endfor %}
+            {% endfor %}
         </div>
-    </form>
+    </div>
 {% endblock %}
 
 {% block shipping_method %}{% endblock shipping_method %}

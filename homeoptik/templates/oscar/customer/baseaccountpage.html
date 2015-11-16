@@ -6,8 +6,10 @@
     {{ page_title }} | {% trans 'Account' %} | {{ block.super }}
 {% endblock %}
 
-{#{% block body_class %}account-profile{% endblock %}#}
+{% block header %}{% endblock %}
 
+{#{% block body_class %}account-profile{% endblock %}#}
+{% block page_info_class %}page-info-alt{% endblock %}
 {% block breadcrumbs %}
     <ol class="breadcrumb pull-left">
         <li>
@@ -20,6 +22,7 @@
         <li class="active">{{ page_title }}</li>
     </ol>
 {% endblock %}
+
 
 {% block headertext %}{{ page_title }}{% endblock %}
 

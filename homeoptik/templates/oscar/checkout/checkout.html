@@ -184,23 +184,24 @@
                         {% endif %}
                     </td>
                 </tr>
-                {% if voucher_discounts %}
-                    {% for discount in voucher_discounts %}
-                        <tr>
-                            <td>
-                                {{ discount.voucher.name }} ({{ discount.voucher.code }})
-                                {% if editable %}
-                                    <form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
-                                        {% csrf_token %}
-                                        <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm btn-danger" />
-                                    </form>
-                                {% endif %}
-                            </td>
-                            <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-                {% for discount in offer_discounts %}
+                {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+                    {% if voucher_discounts %}
+                        {% for discount in voucher_discounts %}
+                            <tr>
+                                <td>
+                                    {{ discount.voucher.name }} ({{ discount.voucher.code }})
+                                    {% if editable %}
+                                        <form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm btn-danger" />
+                                        </form>
+                                    {% endif %}
+                                </td>
+                                <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    {% for discount in offer_discounts %}
                     <tr>
                         <td>
                             <span class="label label-success">скидка</span>
@@ -212,6 +213,7 @@
                         <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
                     </tr>
                 {% endfor %}
+                {% endwith %}
                 {% if not shipping_method.is_discounted %}
                     <tr>
                         <td>

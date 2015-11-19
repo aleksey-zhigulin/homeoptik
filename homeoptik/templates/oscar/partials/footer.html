@@ -16,7 +16,7 @@
             <!-- Row -->
             <div class="row grid-10">
                 <!-- Col -->
-                <div class="col-sm-3 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <span class="case-c">
                         ПОЛУЧИТЕ
                         <span style="display: inline-block; color:#E7214C; font-weight: bold;font-size: large;">500</span>
@@ -25,7 +25,7 @@
                 </div>
                 <!-- Col -->
                 <!-- Col -->
-                <div class="col-sm-6 col-md-6">
+                <div class="col-sm-8 col-md-6">
                     {% for field in subscribe_form %}
                         {% if field.html_name == 'email' %}
                             {% render_field field placeholder="Введите ваш Email" class="form-control"%}
@@ -39,7 +39,7 @@
                 <!-- Col -->
 
                 <!-- Col -->
-                <div class="col-sm-3 col-md-2">
+                <div class="col-sm-4 col-md-2">
                     <button type="submit" class="btn btn-block btn-color yellow-bg"><i class="icon-left fa fa-envelope"></i>подписаться</button>
                 </div>
                 <!-- /Col -->

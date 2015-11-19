@@ -43,11 +43,12 @@
                                 {% render_field field  %}
                             </label>
                         {% else %}
-                            {% if field.widget_type == 'Textarea' %}
-                                {% render_field field class+="form-control" rows="3"%}
-                            {% else %}
+{#                            {% if field.widget_type == 'Textarea' %}#}
+{#                                {% render_field field class+="form-control" rows="3"%}#}
+{#                            {% else %}#}
+                                {{ field.widget.attr.rows }}
                                 {% render_field field class+="form-control"%}
-                            {% endif %}
+{#                            {% endif %}#}
                         {% endif %}
                     {% endblock %}
 

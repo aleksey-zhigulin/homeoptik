@@ -23,7 +23,15 @@ ADMINS = (
     ('Aleksey Zhigulin', 'a.a.zhigulin@yandex.ru'),
 )
 EMAIL_SUBJECT_PREFIX = '[HomeOptik] '
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@homeoptik.ru'
+EMAIL_HOST_PASSWORD = '2QPr86'
+DEFAULT_FROM_EMAIL = 'noreply@homeoptik.ru'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 MANAGERS = ADMINS
 
@@ -331,6 +339,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'towel',
     'forked.newsletter_subscription',
+    'qwert',
     'homeoptik',
 ]
 
@@ -351,6 +360,7 @@ AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.Emailbackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
 
 LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True

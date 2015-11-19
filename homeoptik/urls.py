@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.contrib import admin
+# from django.contrib.sitemaps.views import sitemap
+
+
 from oscar.app import application
 from oscar.views import handler500, handler404, handler403
 
@@ -39,7 +42,9 @@ urlpatterns = [
             backend=ModelBackend(Subscription),
         )),
     ),
-    ]
+    url(r'^help/contacts/$', 'homeoptik.views.email', name='contact'),
+    # url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+]
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += patterns('',

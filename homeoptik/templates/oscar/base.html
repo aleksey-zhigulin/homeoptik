@@ -46,10 +46,7 @@
 
     {% block extrahead %}{% endblock %}
 
-    {% block tracking %}
-        {# Default to using Google analytics #}
-        {% include "partials/google_analytics.html" %}
-    {% endblock %}
+
 </head>
 
 <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}tile-1-bg preload ukb{% endblock %}">
@@ -89,6 +86,14 @@
             {% block onbodyload %}{% endblock %}
         });
     </script>
+
+    {% block tracking %}
+        {% if not user.is_staff %}
+            {# Default to using Google analytics #}
+            {% include "partials/google_analytics.html" %}
+            {% include "partials/yandex_metrika.html" %}
+        {% endif %}
+    {% endblock %}
 
     {# Page meta-data - this is populated by the 'metadata' template context processor #}
     <!-- {% trans "Version:" %} {{ version }} -->

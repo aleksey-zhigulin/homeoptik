@@ -97,7 +97,12 @@
         {# Main content of page - other layout templates may override this block #}
         {% block content_wrapper %}
             {% block header %}
-                <section class="intro-block intro-page boxed-section page-bg overlay-dark-m">
+                <style>
+                    .intro-bg {
+                        background: url("{% spaceless %}{% block intro_bg %}{% endblock %}{% endspaceless %}") no-repeat center 0 fixed;
+                    }
+                </style>
+                <section class="intro-block intro-page boxed-section intro-bg overlay-dark-m">
 
                     <!-- Container -->
                     <div class="container">
@@ -119,9 +124,9 @@
                     {% block breadcrumbs %}{% endblock %}
                     <ul class="page-links pull-right hlinks hlinks-icons color-icons-borders color-icons-bg-hovered">
                         {% block breadcrumbs_right %}
-                        <li><a href="https://vk.com/homeoptik/"><i class="icon fa fa-vk"></i></a></li>
-                        <li><a href="https://instagram.com/homeoptik/"><i class="icon fa fa-instagram"></i></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCUB-CdLxuCyfqxJKYFQ11CQ"><i class="icon fa fa-youtube"></i></a></li>
+                            <li><a href="https://vk.com/homeoptik/"><i class="icon fa fa-vk"></i></a></li>
+                            <li><a href="https://instagram.com/homeoptik/"><i class="icon fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCUB-CdLxuCyfqxJKYFQ11CQ"><i class="icon fa fa-youtube"></i></a></li>
                         {% endblock %}
                     </ul>
                 </div>
@@ -178,4 +183,5 @@
     {{ block.super }}
     oscar.init();
 {% endblock %}
+
 

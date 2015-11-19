@@ -19,14 +19,17 @@
 {% endblock %}
 
 {% block breadcrumbs_right %}
-      <li>
+    <li>
         {% if user.is_authenticated and user.is_staff %}
-            <a href="{% url 'dashboard:page-update' pk=flatpage.id %}"><i class="fa fa-edit"></i> {% trans "Edit this page"|upper %}</a>
+            <a href="{% url 'dashboard:page-update' pk=flatpage.id %}" class="hidden-xs"><i class="fa fa-edit"></i> {% trans "Edit this page"|upper %}</a>
         {% endif %}
-      </li>
+    </li>
     {{ block.super }}
 {% endblock %}
 
+{% block intro_bg %}{% if flatpage.image %}{{ flatpage.image.url }}{% endif %}{% endblock %}
+
 {% block content %}
-    {{ flatpage.content }}
+    {% load evaluate_tag %}
+    {% evaluate flatpage.content %}
 {% endblock %}

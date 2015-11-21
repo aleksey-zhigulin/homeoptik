@@ -3,44 +3,66 @@
 
 {% load i18n %}
 {% load product_tags %}
+{% load staticfiles %}
 
 {% block title %}
-{% trans "Offers" %} | {{ block.super }}
+    Скидки и акции | {{ block.super }}
 {% endblock %}
 
+{% block intro_bg %}{% static "images/backgrounds/offers.jpg" %}{% endblock %}
+
 {% block breadcrumbs %}
-<ol class="breadcrumb pull-left">
-    <li>
-        <a href="{{ homepage_url }}"><i class="ti ti-home"></i></a>
-    </li>
-    <li class="active">{% trans "Offers" %}</li>
-</ol>
+    <ol class="breadcrumb pull-left">
+        <li>
+            <a href="{{ homepage_url }}"><i class="ti ti-home"></i></a>
+        </li>
+        <li class="active">Скидки и акции</li>
+    </ol>
 {% endblock %}
 
 {% block headertext %}
-    {% trans "Offers" %}
+    Скидки и акции
 {% endblock %}
+
+{% block breadcrumbs_style %}{% endblock %}
 
 {% block content %}
     {% if not offers %}
         <p>{% trans "There are no site offers at the moment." %}</p>
     {% else %}
         {% for offer in offers %}
-        <h2>{{ offer.name }}</h2>
-        {% if offer.description %}
-            <p>{{ offer.description|safe }}</p>
-        {% endif %}
-        {% if offer.has_products %}
-            <ul class="row">
-                {% for product in offer.products|slice:":12" %}
-                <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">{% render_product product %}</li>
-                {% endfor %}
-            </ul>
-            <p>
-                <a class="btn btn-default" href="{% url 'offer:detail' slug=offer.slug %}">{% trans "Browse products in offer" %}</a>
-            </p>
-        {% endif %}
-        <hr/>
+            <h2>{{ offer.name }}</h2>
+            {% if offer.description %}
+                <p>{{ offer.description|safe }}</p>
+            {% endif %}
+            {% if offer.has_products %}
+                <style>
+                .brand-slider {
+                    width: 80%;
+                }
+                .brand-slider img {
+                    width: 100%;
+                    border: none;
+                }
+                </style>
+                <div class="brand-slider">
+                    <!-- BxSlider -->
+                    <div class="bxslider" data-call="bxslider" data-options="{pager:false, slideMargin:20}" data-breaks="[{screen:0, slides:2}, {screen:460, slides:3}, {screen:768, slides:4}]">
+                        {% for product in offer.products|slice:":12" %}
+                            <!-- Slide -->
+                            <div class="slide">
+                                {% render_product product %}
+                            </div>
+                            <!-- /Slide -->
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- /BxSlider -->
+                <p>
+                    <a class="btn btn-primary" href="{% url 'offer:detail' slug=offer.slug %}">{{ "Все товары участвующие в акции"|upper }}</a>
+                </p>
+            {% endif %}
+            {% if not forloop.last %}<hr/>{% endif %}
         {% endfor %}
     {% endif %}
 {% endblock content %}

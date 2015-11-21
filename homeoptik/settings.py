@@ -339,7 +339,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'towel',
     'forked.newsletter_subscription',
-    'qwert',
+    # 'qwert',
     'homeoptik',
 ]
 
@@ -350,7 +350,9 @@ INSTALLED_APPS = INSTALLED_APPS + get_core_apps(['forked.checkout',
                                                  'forked.promotions',
                                                  'forked.dashboard.promotions',
                                                  'forked.dashboard.pages',
+                                                 'forked.dashboard.offers',
                                                  'forked.shipping',
+                                                 'forked.offer',
                                                  'forked.address',
                                                  'forked.partner',])
 

@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "msx";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/msx-intershop-font.woff") format("woff");
+}
+
+.msx {
+  display: inline-block;
+  font: normal normal normal 14px/1 msx;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+
+.female:before{ content:"\2640"; }
+.male:before{ content:"\2642"; }
+
+.oval:before{ content:"\e609"; }
+.aviator:before{ content:"\e642"; }
+.rectangle:before{ content:"\e604"; }
+.round:before{ content:"\e606"; }
+.butterfly:before{ content:"\e605"; }
+.trapezoid:before{ content:"\e009"; }
+.singlelens:before{ content:"\e60a"; }
+
+.small:before{ content:"\e616"; }
+.medium:before{ content:"\e012"; }
+.wide:before{ content:"\e01c"; }
+
+.frameless:before{ content:"\e010"; }
+.halfframe:before{ content:"\e60b"; }
+.fullframe:before{ content:"\e604"; }
+
+.faceshape.heart_shaped:before{ content:"\e61e"; }
+.faceshape.oval:before{ content:"\e01b"; }
+.faceshape.round:before{ content:"\e614"; }
+.faceshape.angled:before{ content:"\e622"; }
+

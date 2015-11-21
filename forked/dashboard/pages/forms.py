@@ -5,5 +5,5 @@ class PageUpdateForm(CorePageUpdateForm):
 
     class Meta:
         model = FlatPage
-        fields = ('title', 'url', 'content', 'image')
+        fields = ('title', 'subheader', 'url', 'content', 'image')
 

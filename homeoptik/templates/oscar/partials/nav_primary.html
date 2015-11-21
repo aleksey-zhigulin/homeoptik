@@ -69,27 +69,19 @@
                                 </div>
                                 <!-- /col -->
 
-                                {% if offers %}
-                                    <!-- col -->
-                                    <div class="col-md-3">
-                                        <h5>Скидки и акции</h5>
-                                        <ul class="links">
-                                            {% for offer in offers %}
-                                                {% url 'offer:detail' slug=offer.slug  as offer_url%}
-                                                <li {% if offer_url == request.get_full_path %}class="active"{% endif %}>
-                                                    <a href="{{ offer_url }}">{{ offer.name }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                    <!-- /col -->
-                                {% endif %}
                             </div>
                             <!-- /Row -->
                         </div>
                     </li>
 
                     {% block nav_dropdown_extra_items %}{% endblock %}
+
+                    {% if offers %}
+                        {% url 'offer:list' as offer_url%}
+                        <li {% if offer_url == request.get_full_path %}class="active"{% endif %}>
+                            <a href="{{ offer_url }}">СКИДКИ</a>
+                        </li>
+                    {% endif %}
 
                     {% for page in flatpages %}
                         <li {% if page.url == request.get_full_path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title|upper }}</a></li>

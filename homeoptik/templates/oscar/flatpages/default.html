@@ -7,6 +7,8 @@
 
 {% block headertext %}{{ flatpage.title }}{% endblock %}
 
+{% block subheader %}{{ flatpage.subheader }}{% endblock subheader %}
+
 {% block breadcrumbs_style %}{% endblock %}
 
 {% block breadcrumbs %}
@@ -33,3 +35,93 @@
     {% load evaluate_tag %}
     {% evaluate flatpage.content %}
 {% endblock %}
+
+<h4>Изготовим очки любой сложности по Вашему рецепту</h4>
+<p>
+    Мы имеем собственную лабораторию в которой наши высококвалифицированные мастера <span class="pcolor">бесплатно</span>
+    установят линзы в оправу любого типа. Мы также можем установить линзы в оправу, купленную
+    не в нашем магазине, но в этом случае услуга платна (<a href="#цены">цены</a>). На изготавливаемые очки
+    предоставляется <span class="pcolor">гарантия 1 год</span>!
+</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- hfeat -->
+            <div class="hfeat hfeat-lg">
+                <i class="icon ti-face-smile"></i>
+                <a class="title">Бесплатное изготовление</a>
+                <p class="text">
+                    При условии покупки линз и оправы в нашем магазине, мы изготовим для Вас очки бесплатно!
+                </p>
+            </div>
+            <!-- /hfeat -->
+        </div>
+        <div class="col-md-6">
+            <!-- hfeat -->
+            <div class="hfeat hfeat-lg">
+                <i class="icon ti-user"></i>
+                <a class="title">Высококвалифицированные мастера</a>
+                <p class="text">
+                    В собственной лаборатории нашего магазина, наши мастера работают
+                    только на высококлассном оборудовании.
+                </p>
+            </div>
+            <!-- /hfeat -->
+        </div>
+        <div class="col-md-6">
+            <!-- hfeat -->
+            <div class="hfeat hfeat-lg">
+                <i class="icon ti-timer"></i>
+                <a class="title">Срок изготовления</a>
+                <p class="text">Изготовление очков занимает от 2-х до 4-х дней.</p>
+            </div>
+            <!-- /hfeat -->
+        </div>
+        <div class="col-md-6">
+            <!-- hfeat -->
+            <div class="hfeat hfeat-lg">
+                <i class="icon ti-shield"></i>
+                <a class="title">Гарантия 1 год</a>
+                <p class="text">На все изготавливаемые очки мы предоставляем гарантию 1 год.</p>
+            </div>
+            <!-- /hfeat -->
+        </div>
+    </div>
+</div>
+
+
+<h4 id="цены">Стоимость установки линз в оправу, приобретенную не у нас</h4>
+
+<div class="container" >
+
+    <div class="row">
+        <div class="col-md-4">
+            <!-- vfeat -->
+            <div class="vfeat vfeat-lg">
+                <i class="icon msx fullframe"></i>
+                <a class="title">Ободковая</a>
+                <p class="text"><span style="font-weight: bold;" class="green">300</span> рублей</p>
+            </div>
+            <!-- /vfeat -->
+        </div>
+        <div class="col-md-4">
+            <!-- vfeat -->
+            <div class="vfeat vfeat-lg">
+                <i class="icon msx halfframe"></i>
+                <a class="title">Полуободковая</a>
+                <p class="text"><span style="font-weight: bold;" class="green">400</span> рублей</p>
+            </div>
+            <!-- /vfeat -->
+        </div>
+        <div class="col-mx-4">
+            <!-- vfeat -->
+            <div class="vfeat vfeat-lg">
+                <i class="icon msx frameless"></i>
+                <a class="title">Безободковая</a>
+                <p class="text"><span style="font-weight: bold;" class="green">600</span> рублей</p>
+            </div>
+            <!-- /vfeat -->
+        </div>
+    </div>
+</div>

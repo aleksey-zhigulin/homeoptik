@@ -4270,8 +4270,8 @@ ul.tags li a:hover {
     font: 400 15px/1 "Roboto Condensed";
     color: #E7214C;
     margin: 0 5px; }
-.product .price.price-old {
-    color: rgba(0, 0, 0, 0.4);
+.price-old {
+    color: rgba(0, 0, 0, 0.4) !important;
     text-decoration: line-through; }
 .product .btn {
     font: 400 11px "Roboto Condensed";

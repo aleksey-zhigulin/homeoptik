@@ -27,52 +27,49 @@
         <div id="nav-collapse" class="collapse navbar-collapse navbar-absolute">
             {% block nav_dropdown %}
                 <ul id="browse" class="nav navbar-nav navbar-center line-top case-c">
-                    <li class="dropdown dropdown-mega {% if 'catalogue' in request.get_full_path %}active{% endif %} {% if expand_dropdown %}open{% endif %}">
-                        <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
-                            КАТАЛОГ
-                            <b class="caret"></b>
-                        </a>
-                        <div class="mega-menu dropdown-menu">
+                    {% category_tree depth=2 as tree_categories %}
+                    {% for tree_category, info in tree_categories %}
+                        {% if info.has_children %}
+                            <li class="dropdown dropdown-mega {% if tree_category.get_absolute_url in request.get_full_path %}active{% endif %}">
+                            <a href="#" class="dropdown-toggle" {% if not expand_dropdown %} data-toggle="dropdown"{% endif %}>
+                                {{ tree_category.name|upper }}
+                                <b class="caret"></b>
+                            </a>
+                            <div class="mega-menu dropdown-menu">
                             <!-- Row -->
                             <div class="row">
-
-                                <!-- col -->
-                                <div class="col-md-3">
-                                    <img class="featured-img hidden-xs hidden-sm" src="{% static "images/nav-megamenu.png" %}" alt="">
-                                </div>
-                                <!-- /col -->
-
-                                {% category_tree depth=1 as tree_categories %}
-                                {% if tree_categories %}
+                        {% else %}
+                            {% comment %}
                                     <!-- col -->
-                                    <div class="{% if offers %}col-md-3{% else %}col-md-offset-1 col-md-4{% endif %}">
-                                        <h5>По категориям</h5>
-                                        <ul class="links">
-                                            {% for tree_category, info in tree_categories %}
-                                                <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}>
-                                                    <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name|capfirst }}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
+                                    <div class="col-md-3">
+                                        <img class="featured-img hidden-xs hidden-sm" src="{% static "images/nav-megamenu.png" %}" alt="">
                                     </div>
                                     <!-- /col -->
-                                {% endif %}
-
+                            {% endcomment %}
+                            {% if tree_category.name|slice:":5" == "begin" %}
                                 <!-- col -->
-                                <div class="{% if offers %}col-md-3{% else %}col-md-4{% endif %}">
-                                    <h5>По брендам</h5>
+                                <div class="col-md-3">
+                                    <h5>{{ tree_category.name|cut:"begin_"|upper }}</h5>
                                     <ul class="links">
+                                        {% elif tree_category.name != "end" %}
                                         <li {% if tree_category.get_absolute_url == request.get_full_path %}class="active"{% endif %}>
-                                            <a href="/catalogue/?selected_facets=brand_exact:Essilor">Essilor</a>
+                                            <a href="{{ tree_category.get_absolute_url }}">{{ tree_category.name|capfirst }}</a>
                                         </li>
+                                        {% else %}
                                     </ul>
                                 </div>
                                 <!-- /col -->
-
+                            {% endif %}
+                        {% endif %}
+                    {% for close in info.num_to_close %}
+                        {% if forloop.first %}
                             </div>
                             <!-- /Row -->
+                        {% endif %}
                         </div>
-                    </li>
+                        </li>
+                    {% endfor %}
+                    {% endfor %}
 
                     {% block nav_dropdown_extra_items %}{% endblock %}
 

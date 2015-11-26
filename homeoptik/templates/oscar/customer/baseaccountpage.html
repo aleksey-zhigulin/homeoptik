@@ -8,7 +8,6 @@
 
 {% block header %}{% endblock %}
 
-{#{% block body_class %}account-profile{% endblock %}#}
 {% block page_info_class %}page-info-alt{% endblock %}
 {% block breadcrumbs %}
     <ol class="breadcrumb pull-left">
@@ -51,9 +50,6 @@
                     <li{% if active_tab == 'notifications' %} class="active"{% endif %}>
                         <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
                     </li>
-{#                    <li{% if active_tab == 'wishlists' %} class="active"{% endif %}>#}
-{#                        <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>#}
-{#                    </li>#}
                 {% endblock %}
             </ul>
             <!-- /Navbar Nav -->

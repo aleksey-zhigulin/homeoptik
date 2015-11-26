@@ -30,15 +30,21 @@
             <h5 class="boxed-title">Категории</h5>
             <ul class="ul-toggle font-size-sm">
                 {% for tree_category, info in tree_categories %}
-                    <li>
-                        {% if tree_category.pk == category.pk %}
-                            <i class="icon fa fa-angle-right"></i><strong>{{ tree_category.name|upper }}</strong>
-                        {% else %}
-                            <a href="{{ tree_category.get_absolute_url }}">
-                                <i class="icon fa fa-angle-right"></i>{{ tree_category.name|capfirst }}
-                            </a>
-                        {% endif %}
-                        {% if info.has_children %}<i class="toggler ti ti-plus"></i><ul>{% else %}</li>{% endif %}
+                    {% if tree_category.name|slice:":5" != "begin" and tree_category.name != "end" %}
+                        <li>
+                            {% if tree_category.pk == category.pk %}
+                                <i class="icon fa fa-angle-right"></i><strong>{{ tree_category.name|capfirst }}</strong>
+                            {% else %}
+                                <a href="{{ tree_category.get_absolute_url }}">
+                                    <i class="icon fa fa-angle-right"></i>{{ tree_category.name|capfirst }}
+                                </a>
+                            {% endif %}
+                            {% if info.has_children %}
+                                <i class="toggler ti ti-plus"></i><ul>
+                            {% else %}
+                        </li>
+                            {% endif %}
+                    {% endif %}
                     {% for n in info.num_to_close %}
                         </ul></li>
                     {% endfor %}

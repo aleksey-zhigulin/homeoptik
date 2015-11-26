@@ -4,11 +4,6 @@
 {% load product_tags %}
 {% load promotion_tags %}
 
-{##}
-{#{% block navigation %}#}
-{#    {% include "partials/nav_primary.html" with expand_dropdown=1 %}#}
-{#{% endblock %}#}
-
 
 {% block content_wrapper %}
     <!-- Intro Block
@@ -54,8 +49,8 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-line-bottom line-pcolor nav-tabs-center case-u" role="tablist">
-                    {% if popular_products|length == 8 %}<li class="active"><a href="#tab-popular" data-toggle="tab">популярные</a></li>{% endif %}
-                    {% if latest_products|length == 8 %}<li><a href="#tab-latest" data-toggle="tab">недавно просмотренные</a></li>{% endif %}
+                    {% if sale_products|length == 8 %}<li class="active"><a href="#tab-sale" data-toggle="tab">скидки</a></li>{% endif %}
+                    {% if popular_products|length == 8 %}<li{% if sale_products|length < 8 %} class="active"{% endif %}><a href="#tab-popular" data-toggle="tab">популярные</a></li>{% endif %}
                     {% if newest_products|length == 8 %}<li><a href="#tab-newest" data-toggle="tab">новинки</a></li>{% endif %}
                 </ul>
                 <!-- /Nav Tabs -->
@@ -63,6 +58,23 @@
                 {% with nolabel=1 %}
                     <!-- Tab panes -->
                     <div class="tab-content tab-no-borders">
+                        {% if sale_products|length == 8 %}
+                            <!-- Tab Sale -->
+                            <div class="tab-pane" id="tab-sale">
+                                <!-- Row -->
+                                <div class="row">
+                                    {% for product in sale_products %}
+                                        <!-- Col -->
+                                        <div class="col-xs-6 col-md-3">
+                                            {% render_product product %}
+                                        </div>
+                                        <!-- /Col -->
+                                    {% endfor %}
+                                </div>
+                                <!-- /Row -->
+                            </div>
+                            <!-- /Tab Sale -->
+                        {% endif %}
                         {% if popular_products|length == 8 %}
                             <!-- Tab Popular -->
                             <div class="tab-pane active" id="tab-popular">
@@ -73,25 +85,6 @@
                                         <!-- Col -->
                                         <div class="col-xs-6 col-md-3">
                                             {% render_product product%}
-                                        </div>
-                                        <!-- /Col -->
-                                    {% endfor %}
-                                </div>
-                                <!-- /Row -->
-
-                            </div>
-                            <!-- /Tab Popular -->
-                        {% endif %}
-                        {% if latest_products|length == 8 %}
-                            <!-- Tab Popular -->
-                            <div class="tab-pane" id="tab-latest">
-
-                                <!-- Row -->
-                                <div class="row">
-                                    {% for product in latest_products %}
-                                        <!-- Col -->
-                                        <div class="col-xs-6 col-md-3">
-                                            {% render_product product %}
                                         </div>
                                         <!-- /Col -->
                                     {% endfor %}
@@ -244,7 +237,7 @@
                     <div class="vfeat vfeat-lg">
                         <i class="icon fa fa-thumbs-o-up"></i>
                         <a class="title">Гарантия</a>
-                        <p class="text">На все оправы и линзы.</p>
+                        <p class="text">На все оправы и линзы, а также изготавливаемые нашими специалистами очки.</p>
                     </div>
                     <!-- /vfeat -->
                 </div>
@@ -262,7 +255,7 @@
                     <div class="vfeat vfeat-lg">
                         <i class="icon fa fa-cogs"></i>
                         <a class="title">Изготовим очки по рецепту</a>
-                        <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                        <p class="text">Мы имеем собственную лабораторию, в которой мы можем изготовить очки по Вашему рецепту.</p>
                     </div>
                     <!-- /vfeat -->
                 </div>

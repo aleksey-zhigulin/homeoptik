@@ -64,15 +64,6 @@
                                     <div class="clearfix">
                                         <div class="pull-left no-float-xs" style="max-width:70%">
                                             <a href="{{ product.get_absolute_url }}" class="title">{{ line.description }}</a>
-                                            <!-- hlinks -->
-{#                                            <div class="rating hlinks hlinks-rating {{ product.rating|as_stars }}">#}
-{#                                                <li><a><i class="icon fa fa-star"></i></a></li>#}
-{#                                                <li><a><i class="icon fa fa-star"></i></a></li>#}
-{#                                                <li><a><i class="icon fa fa-star"></i></a></li>#}
-{#                                                <li><a><i class="icon fa fa-star"></i></a></li>#}
-{#                                                <li><a><i class="icon fa fa-star"></i></a></li>#}
-{#                                            </div>#}
-                                            <!-- /hlinks -->
                                             {% if product.upc %}
                                                 <span>{% trans "UPC" %}:{{ product.upc }}</span>
                                             {% endif %}

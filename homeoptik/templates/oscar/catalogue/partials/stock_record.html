@@ -8,36 +8,57 @@
 
 {% if verbose %}
     <div class="price-box">
-        <h4 class="product-price inline-block">
-{% else %}
-    <span class="price">
-{% endif %}
-
-{% if session.price.exists %}
-    {% if session.price.excl_tax == 0 %}
-        {% trans "Free" %}
-    {% elif session.price.is_tax_known %}
-        {{ session.price.incl_tax|currency:session.price.currency }}
-    {% else %}
-        {{ session.price.excl_tax|currency:session.price.currency }}
-    {% endif %}
-{% else %}
-    <small>
-        <i class="fa fa-close red"></i>
-        Нет в наличии
-    </small>
-{% endif %}
-
-{% if verbose %}
-    </h4>
-    {% if session.availability.is_available_to_buy %}
-        <span>
+        <h4 class="product-price inline-block {% if sale %}price-old{% endif %}">
+            {% if session.price.exists %}
+                {% if session.price.excl_tax == 0 %}
+                    {% trans "Free" %}
+                {% elif session.price.is_tax_known %}
+                    {{ session.price.incl_tax|currency:session.price.currency }}
+                {% else %}
+                    {{ session.price.excl_tax|currency:session.price.currency }}
+                {% endif %}
+                {% if sale %}
+                    </h4>
+                    <h4 class="product-price inline-block">
+                    {{ discounted_price|currency:session.price.currency }}
+                {% endif %}
+            {% else %}
+                <small>
+                    <i class="fa fa-close red"></i>
+                    Нет в наличии
+                </small>
+            {% endif %}
+        </h4>
+        {% if session.availability.is_available_to_buy %}
+            <span>
             <i class="fa fa-check green"></i>
             В наличии ({% if session.availability.num_available > 20 %}много{% else %}{{ session.availability.num_available }}{% endif %})
         </span>
-    {% endif %}
+        {% endif %}
     </div>
 {% else %}
-    </span>
+    <span class="price {% if sale %}price-old{% endif %}">
+    {% if session.price.exists %}
+        {% if session.price.excl_tax == 0 %}
+            {% trans "Free" %}
+        {% elif session.price.is_tax_known %}
+            {{ session.price.incl_tax|currency:session.price.currency }}
+        {% else %}
+            {{ session.price.excl_tax|currency:session.price.currency }}
+        {% endif %}
+        {% if sale %}
+            </span>
+            <span class="price">
+            {{ discounted_price|currency:session.price.currency }}
+        {% endif %}
+    {% else %}
+        <small>
+            <i class="fa fa-close red"></i>
+            Нет в наличии
+        </small>
+    {% endif %}
+        </span>
 {% endif %}
+
+
 

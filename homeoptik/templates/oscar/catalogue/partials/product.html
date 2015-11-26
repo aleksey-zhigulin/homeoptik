@@ -1,12 +1,13 @@
-{% load reviews_tags %}
 {% load thumbnail %}
 {% load i18n %}
 {% load display_tags %}
 {% load staticfiles %}
 {% load homeoptik_tags %}
+{% load cache %}
 
 {% block product %}
     <div class="product clearfix">
+
         {% block product_image %}
             <div class="image">
                 {% with image=product.primary_image %}
@@ -17,8 +18,12 @@
             </div>
         {% endblock %}
 
+        {% get_discount_info_for_product product as discount_info %}
+
         {% if not nolabel %}
-            {% if product.date_created|days_since <= 7 %}
+            {% if discount_info.sale %}
+                <span class="label label-sale">скидка</span>
+            {% elif product.date_created|days_since <= 7 %}
                 <span class="label label-new">новинка</span>
             {% elif product.is_popular %}
                 <span class="label label-hot">популярно</span>
@@ -27,37 +32,17 @@
 
         <!-- Details -->
         <div class="details">
-
             {% block product_title %}
                 <a class="title" href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
                     {{ product.get_title|truncatechars:35|title }}
                 </a>
             {% endblock %}
 
-            {% comment %}
-            {% block product_review %}
-                {% iffeature "reviews" %}
-                    {# TODO: ratings stars #}
-                    <!-- rating -->
-                    <ul class="hlinks hlinks-rating {{ product.rating|as_stars }}">
-                        <li><a><i class="icon fa fa-star"></i></a></li>
-                        <li><a><i class="icon fa fa-star"></i></a></li>
-                        <li><a><i class="icon fa fa-star"></i></a></li>
-                        <li><a><i class="icon fa fa-star"></i></a></li>
-                        <li><a><i class="icon fa fa-star"></i></a></li>
-                    </ul>
-                    <!-- /rating -->
-                {% endiffeature %}
-            {% endblock %}
-            {% endcomment %}
-
             <p class="desc">{{ product.description|removetags:"p" }}</p>
 
             {% block product_price %}
                 <!-- Price Box -->
-{#                <div class="price-box">#}
-                    {% include "catalogue/partials/stock_record.html" %}
-{#                </div>#}
+                {% include "catalogue/partials/stock_record.html" with sale=discount_info.sale discounted_price=discount_info.discounted_price %}
                 <!-- /Price Box -->
             {% endblock %}
 

@@ -8,6 +8,7 @@
 {% load display_tags %}
 {% load i18n %}
 {% load purchase_info_tags %}
+{% load homeoptik_tags %}
 
 {% block title %}
     {{ product.title }} | {{ block.super }}
@@ -74,9 +75,10 @@
                     {% endif %}
                 </h3>
 
+                {% get_discount_info_for_product product as discount_info %}
 
                 {% block product_stock_record %}
-                    {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                    {% include "catalogue/partials/stock_record.html" with sale=discount_info.sale discounted_price=discount_info.discounted_price verbose=1 %}
                 {% endblock %}
 
                 {% block product_basket_form %}
@@ -100,7 +102,6 @@
                 <ul class="nav nav-tabs cs-nav" style="margin-bottom: 30px" role="tablist">
                     <li class="active"><a href="#" data-tab=".tab-desc"><i class="icon-left fa fa-info-circle"></i>Описание</a></li>
                     <li class=""><a href="#" data-tab=".tab-props"><i class="icon-left fa fa-list"></i>Подробнее</a></li>
-                    {#                    <li class=""><a href="#" data-tab=".tab-revs"><i class="icon-left ti ti-comment"></i>Отзывы ({{ product.num_approved_reviews }})</a></li>#}
                 </ul>
                 <!-- /Nav tabs -->
 

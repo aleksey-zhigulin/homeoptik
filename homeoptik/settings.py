@@ -14,8 +14,8 @@ PY3 = sys.version_info >= (3, 0)
 USE_TZ = True
 
 DEBUG = True
-TEMPLATE_DEBUG = True
-SQL_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+SQL_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['homeoptik.ru',]
 
@@ -98,7 +98,7 @@ ROSETTA_REQUIRES_AUTH = False
 ROSETTA_WSGI_AUTO_RELOAD = True
 LOCALE_PATHS = (
     location('locale'),
-    location('../forked/newsletter_subscription/locale'),
+        location('../forked/newsletter_subscription/locale'),
 )
 
 SITE_ID = 1
@@ -143,11 +143,14 @@ STATICFILES_FINDERS = (
 SECRET_KEY = '9_dh*7ko+n8)@^0^_vhqi^(3v$!*o9h1e&7*qzf(ya@g8y^86j'
 
 # List of callables that know how to import templates from various sources.
+
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # needed by django-treebeard for admin (and potentially other libs)
-    'django.template.loaders.eggs.Loader',
+     ('django.template.loaders.cached.Loader', (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+        # needed by django-treebeard for admin (and potentially other libs)
+        'django.template.loaders.eggs.Loader',
+     )),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -339,7 +342,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'towel',
     'forked.newsletter_subscription',
-    # 'qwert',
+    'qwert',
     'homeoptik',
 ]
 
@@ -564,6 +567,8 @@ THUMBNAIL_KEY_PREFIX = 'oscar'
 # django/core/serializers/json.Serializer to have the `dumps` function. Also
 # in tests/config.py
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+CACHE_MIDDLEWARE_KEY_PREFIX = 'homeoptik'
 
 #YANDEX MONEY KIT
 YANDEX_MONEY_DEBUG = False

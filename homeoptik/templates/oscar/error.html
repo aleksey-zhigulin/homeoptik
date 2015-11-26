@@ -5,29 +5,15 @@
 
 {% block mainstyles %}
     {% block styles %}
-{#        {% compress css %}#}
             <link href="{% static "uikit/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
             <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,500italic,700,700italic,900,900italic|Roboto+Condensed:400,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
             <link href="{% static "uikit/css/uikit.css" %}" rel="stylesheet">
-{#        {% endcompress %}#}
     {% endblock %}
 {% endblock %}
 
 {% block body_class %}bcolor-xxl-bg{% endblock %}
 
 {% block layout %}
-    {#{% include "partials/nav_accounts.html" %}#}
-    {##}
-    {#<div class="container-fluid">#}
-    {#    <div class="jumbotron">#}
-    {#        <h1>{% block error_heading %}{% trans 'Sorry!' %}{% endblock %}</h1>#}
-    {#        {% block error_message %}{% endblock %}#}
-    {#        <p>#}
-    {#            <a class="btn btn-primary btn-lg" onclick="javascript:history.go(-1);">{% trans 'Return to previous page' %}</a>#}
-    {#            <a class="btn btn-primary btn-lg" href="{{ homepage_url }}">{% trans "Go to homepage" %}</a>#}
-    {#        </p>#}
-    {#    </div>#}
-    {#</div>#}
     <div class="empty-block abs-filler">
         <!-- Vcenter -->
         <div class="vcenter">

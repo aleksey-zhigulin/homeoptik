@@ -122,7 +122,6 @@
         {{ product.product_class.attributes.objects.all }}
         <button type="submit" class="btn btn-primary btn-bigger" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}"><i class="icon-left ti ti-shopping-cart"></i>{% trans "Add to basket" %}</button>
     </form>
-    {#    {% include "catalogue/partials/add_to_wishlist.html" %}#}
 {% else %}
     {% if has_active_alert %}
         <h5>Мы уведомим Вас когда товар будет в наличии.</h5>
@@ -134,5 +133,4 @@
             <button type="submit" class="btn btn-default btn-bigger" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-left ti ti-email"></i>{% trans "Notify me" %}</button>
         </form>
     {% endif %}
-    {#    {% include "catalogue/partials/add_to_wishlist.html" %}#}
 {% endif %}

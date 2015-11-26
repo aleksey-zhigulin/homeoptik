@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with site_name=site.name %}Вопрос с сайта {{ site_name }}.{% endblocktrans %}

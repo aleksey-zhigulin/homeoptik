@@ -1,0 +1,8 @@
+{% extends "customer/emails/base.html" %}
+{% load i18n %}
+{% block body %}{% autoescape off %}
+    Вопрос от {{ name }}({{ email }}):
+
+    {{ message }}
+{% endautoescape %}{% endblock %}
+{% block footer %}{% endblock %}

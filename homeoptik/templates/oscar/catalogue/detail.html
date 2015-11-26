@@ -220,6 +220,14 @@
 
 {% block extrascripts %}
     {{ block.super }}
+    <script type="text/javascript" src="{% static "homeoptik/js/zoomIn.js" %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.fillw').zoomIn({
+                'description': false
+            });
+        });
+    </script>
 {% endblock %}
 
 

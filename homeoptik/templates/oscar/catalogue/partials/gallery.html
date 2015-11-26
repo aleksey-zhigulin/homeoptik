@@ -50,7 +50,7 @@
                 <ul class="bxslider" data-call="bxslider" data-options="{pagerCustom:'#thumb-pager', controls:false}">
                     <li>
                         {% with image=product.primary_image %}
-                            {% thumbnail image.original "x458" upscale=False as thumb %}
+                            {% thumbnail image.original "458x300" upscale=False as thumb %}
                                 <img class="fillw" src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                             {% endthumbnail %}
                         {% endwith %}

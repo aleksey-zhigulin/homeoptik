@@ -108,16 +108,28 @@
                         <!-- Col -->
                         <div class="col-xs-6 col-sm-3 col-md-3 newsletter">
                             <h5>способы оплаты</h5>
-                            <ul class="grid-list cols-3 cell-pad-5">
-                                <li><img src="{% static "images/cards/amazon.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/paypal.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/visa.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/mastercard.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/maestro.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/obopay.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/discover.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/cirrus.png" %}" alt=""></li>
-                                <li><img src="{% static "images/cards/google.png" %}" alt=""></li>
+                            <ul class="grid-list cols-4 cell-pad-5">
+                                <style>
+                                    img.payment {
+                                        height: 35px;
+                                    }
+                                </style>
+                                <li><img class="payment" src="{% static "images/payments/visa.svg" %}" alt="Visa"></li>
+                                <li><img class="payment" src="{% static "images/payments/MasterCard.svg" %}" alt="MasterCard"></li>
+                                <li><img class="payment" src="{% static "images/payments/Maestro.svg" %}" alt="Maestro"></li>
+                                <li><img class="payment" src="{% static "images/payments/Y.Wallet.svg" %}" alt="Яндекс.Деньги"></li>
+                                <li><img class="payment" src="{% static "images/payments/WebMoney.svg" %}" alt="WebMoney"></li>
+                                <li><img class="payment" src="{% static "images/payments/Qiwi.svg" %}" alt="Qiwi"></li>
+                                <li><img class="payment" src="{% static "images/payments/Beeline.svg" %}" alt="Билайн"></li>
+                                <li><img class="payment" src="{% static "images/payments/MegaFon.svg" %}" alt="Мегафон"></li>
+                                <li><img class="payment" src="{% static "images/payments/MTS.svg" %}" alt="МТС"></li>
+                                <li><img class="payment" src="{% static "images/payments/sberbank.png" %}" alt="Сбербанк Онлайн"></li>
+                                <li><img class="payment" src="{% static "images/payments/Alfa.svg" %}" alt="Альфа-Клик "></li>
+                                <li><img class="payment" src="{% static "images/payments/MasterPass.svg" %}" alt="MasterPass"></li>
+                                <li><img class="payment" src="{% static "images/payments/PSB.svg" %}" alt="Промсвязьбанк"></li>
+                                <li><img class="payment" src="{% static "images/payments/tks.svg" %}" alt="КупиВкредит"></li>
+                                <li><img class="payment" src="{% static "images/payments/Kuppiru.svg" %}" alt="Куппи.ру"></li>
+                                <li><img class="payment" src="{% static "images/payments/cash.png" %}" alt="Наличные"></li>
                             </ul>
                         </div>
                         <!-- /Col -->
@@ -173,4 +185,3 @@
 </footer>
 <!-- /Footer
 =================================================== -->
-

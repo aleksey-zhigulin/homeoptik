@@ -1,0 +1,263 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Buttons</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+
+  <h3 class="demo-title case-c">default buttons</h3>
+  <p>Two additional color classes <code>.btn-secondary</code> and <code>.btn-base</code> have been added.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<p class="demo-btns">
+  <button class="btn btn-default" type="button"><i class="icon-left fa fa-apple"></i>default</button>
+  <button class="btn btn-base" type="button"><i class="icon-left fa fa-user"></i>base</button>
+  <button class="btn btn-primary" type="button"><i class="icon-left fa fa-twitter"></i>primary</button>
+  <button class="btn btn-secondary" type="button"><i class="icon-left ti ti-settings"></i>secondary</button>
+  <button class="btn btn-success" type="button"><i class="icon-left ti ti-settings"></i>success</button>
+  <button class="btn btn-info" type="button"><i class="icon-left ti ti-settings"></i>info</button>
+  <button class="btn btn-danger" type="button"><i class="icon-left ti ti-settings"></i>danger</button>
+</p>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title case-c">Additional Size Class</h3>
+  <p>Use the<code>.btn-bigger</code> class together with the default size classes <code>.btn-xs, .btn-sm, .btn-lg</code> to slightly inflate the current size.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<h5>Default</h5>
+<p class="demo-btns">
+  <button class="btn btn-default btn-xs" type="button"><i class="icon-left fa fa-apple"></i>xsmall</button>
+  <button class="btn btn-base btn-sm" type="button"><i class="icon-left fa fa-user"></i>small</button>
+  <button class="btn btn-primary" type="button"><i class="icon-left fa fa-user"></i>default</button>
+  <button class="btn btn-secondary btn-lg" type="button"><i class="icon-left fa fa-twitter"></i>large</button>
+</p>
+<h5>With btn-bigger class</h5>
+<p class="demo-btns">
+  <button class="btn btn-default btn-xs btn-bigger" type="button"><i class="icon-left fa fa-apple"></i>xsmall</button>
+  <button class="btn btn-base btn-sm btn-bigger" type="button"><i class="icon-left fa fa-user"></i>small</button>
+  <button class="btn btn-primary btn-bigger" type="button"><i class="icon-left fa fa-user"></i>default</button>
+  <button class="btn btn-secondary btn-lg btn-bigger" type="button"><i class="icon-left fa fa-twitter"></i>large</button>
+</p>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title case-c">Custom Colors</h3>
+  <p>Need a custom colored button? Just use the <code>.btn-color</code> class to apply any color class. You can even set the color inline!</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<p class="demo-btns">
+  <button class="btn btn-color red-bg" type="button"><i class="icon-left fa fa-apple"></i>red</button>
+  <button class="btn btn-color orange-bg" type="button"><i class="icon-left fa fa-apple"></i>orange</button>
+  <button class="btn btn-color green-bg" type="button"><i class="icon-left fa fa-apple"></i>green</button>
+  <button class="btn btn-color blue-bg" type="button"><i class="icon-left fa fa-apple"></i>blue</button>
+  <button class="btn btn-color azure-bg" type="button"><i class="icon-left fa fa-apple"></i>azure</button>
+  <button class="btn btn-color cyan-bg" type="button"><i class="icon-left fa fa-apple"></i>cyan</button>
+  <button class="btn btn-color violet-bg" type="button"><i class="icon-left fa fa-apple"></i>violet</button>
+</p> 
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Twin Buttons</h3>
+  <p>Consists of 2 buttons with fixed equal widths. useful for displaying dual options.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<div class="demo-btn-twins">
+  <!-- Btn twins -->
+  <span class="btn-twins">
+    <a class="btn btn-primary">tupac</a><a class="btn btn-secondary">biggie</a>	
+    <span>or</span>    
+  </span>
+  <!-- /Btn twins -->
+  
+  <!-- Btn twins -->
+  <span class="btn-twins btn-md">
+    <a class="btn btn-primary">tupac</a><a class="btn btn-secondary">biggie</a>		
+    <span>or</span>    
+  </span>
+  <!-- /Btn twins -->
+  
+  <!-- Btn twins -->
+  <span class="btn-twins btn-lg">
+    <a class="btn btn-primary">tupac</a><a class="btn btn-secondary">biggie</a>		
+    <span>or</span>    
+  </span>
+  <!-- /Btn twins -->
+</div>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  
+
+  <h3 class="demo-title">Download Buttons</h3>
+  <p>CUse the <code>.btn-download</code> class to quickly create download buttons. All color classes are supported.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<div class="demo-btns">
+  <a class="btn btn-primary btn-download"><i class="icon fa fa-arrow-down"></i>download<span>free resource</span></a>
+  <a class="btn btn-default btn-download"><i class="icon fa fa-download"></i>download<span>filename.pdf 150kb</span></a>
+  <a class="btn btn-info btn-download"><i class="icon fa fa-arrow-down"></i>download<span>free resource</span></a>
+  <a class="btn btn-base btn-download"><i class="icon fa fa-music"></i>download<span>free resource</span></a>
+</div>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+
+</div>
+<!-- /Block Demo -->

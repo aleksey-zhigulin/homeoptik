@@ -1,0 +1,239 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>BxSlider - Custom Version</h1>
+    <p>The popular open source responsive slider plugin <a href="http://bxslider.com/"><i>BxSlider</i></a> has been <span class="orange">modified</span> to accept an unlimitted number of break points. Support for animated layers has also been added.</p>
+    <ul class="ul-icon">
+       <li><i class="icon fa fa-check yellow"></i>Added data attributes support</li>
+       <li><i class="icon fa fa-check yellow"></i>Added break points support</li>
+       <li><i class="icon fa fa-check yellow"></i>Added animatable layers</li>
+       <li><i class="icon fa fa-check yellow"></i>Added automatic slide width calculation</li> 
+       <li><i class="icon fa fa-check yellow"></i>Added self calling capability</li>
+    </ul>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Copying and Pasting made easy !</h4>
+    <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open any page in an HTML editor to view the markup!</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h4 class="demo-title">Simple Codeless Setup</h4>
+  <p>Use the data attribute <code>data-call="bxslider"</code> together with the <code>.bxslider</code> class to quickly setup a slider without writing any piece of code! Remember to wrap your <code>.bx-slider</code> class with a parent class so that you can style the slider. For usage in your markup refer to the <b>HTML</b> tab.</p>
+  <h4 class="demo-title">Adding Options</h4>
+  <p>Use the data attribute <code>data-options=""</code> to pass any bxSlider supported options. The options should be wrapped inside <code>{}</code> and seperated by commas. View <b>HTML</b> tab for usage.</p>
+ 
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (offset content to avoid white space when outputing to html tab!)-->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+  <h5>Default Setup</h5>
+  <!-- Slider -->
+  <div class="my-slider">
+    <ul class="bxslider" data-call="bxslider">
+      <li> <img src="images/sliders/pic1.jpg" /> </li>
+      <li> <img src="images/sliders/pic2.jpg" /> </li>
+      <li> <img src="images/sliders/pic3.jpg" /> </li>
+      <li> <img src="images/sliders/pic4.jpg" /> </li>
+    </ul>
+  </div>
+  <!-- /Slider -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-6">
+  <h5>With options</h5>
+  <!-- Slider -->
+  <div class="my-slider">
+    <ul class="bxslider" data-call="bxslider" data-options="{pager:false}">
+      <li> <img src="images/sliders/pic1.jpg" /> </li>
+      <li> <img src="images/sliders/pic2.jpg" /> </li>
+      <li> <img src="images/sliders/pic3.jpg" /> </li>
+      <li> <img src="images/sliders/pic4.jpg" /> </li>
+    </ul>
+  </div>
+  <!-- /Slider -->
+  </div>
+  <!-- /Col -->
+<!-- /Row -->
+</div>
+      </div>
+      <!-- /Output -->
+    
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+    
+    <!-- Notes -->
+    <div class="tab tab-notes">
+      <h5>Copy + Pasting made easy !</h5>
+      <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+    </div>
+    <!-- /Notes -->
+  </div>
+</div>
+<!-- /Code Sample -->  
+
+  <h4 class="demo-title">Layers Setup</h4>
+  <p>To add animatable layers use the <code>.bx-layer</code> on any element contained in your slide. Now just the following data attributers to your layer and your good to go.</p>
+  <ul>
+    <li>Set <code>data-anim=""</code> with one of the animation classes contained in the <a href="http://daneden.github.io/animate.css/">animate.css</a> library</li>
+    <li>Set <code>data-dur=""</code> with the duration of your animation in milliseconds</li>
+    <li>Set <code>data-delay=""</code> with the delay of your animation in milliseconds</li>
+  </ul>
+
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Please Refer to the Animate.css Library</h4>
+    <p>The layers only support the animations contained in the animate.css library. To browse the animations visit the <a href="http://daneden.github.io/animate.css/">official</a> site.</p>
+  </div>
+  <!-- /Callout -->
+  <h4 class="demo-title">Positioning Layers</h4>
+  <p>There are no premade classes for position the layers. You need to position the layers either using your own classes or using inline styles.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (offset content to avoid white space when outputing to html tab!)-->
+      <div class="tab tab-output active">
+<!-- slider -->
+<div class="bx-layers-demo">
+  <div class="bxslider" data-call="bxslider" data-options="{mode:'fade', auto:true, pause:6500}">
+    <div class="slide red-bg" >
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer <span>[ data-delay = 500, data-dur=1000 ]</span></h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer <span>[ data-delay = 1000, data-dur=1000]</span></h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="rotateIn" data-delay="2000" data-dur="1500">3rd Layer <span>[ data-delay = 2000, data-dur=1500]</span></h6>
+    </div>
+    <div class="slide orange-bg">
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer <span>[ data-delay = 500, data-dur=1000 ]</span></h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer <span>[ data-delay = 1000, data-dur=1000]</span></h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="flipInY" data-delay="2000" data-dur="1500">3rd Layer <span>[ data-delay = 2000, data-dur=1500]</span></h6>
+    </div>
+    <div class="slide green-bg">
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer <span>[ data-delay = 500, data-dur=1000 ]</span></h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer <span>[ data-delay = 1000, data-dur=1000]</span></h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="lightSpeedIn" data-delay="2000" data-dur="1500">3rd Layer <span>[ data-delay = 2000, data-dur=1500]</span></h6>
+    </div>
+  </div>
+</div>
+<!-- /slider -->
+      </div>
+      <!-- /Output -->
+    
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+    
+    <!-- Notes -->
+    <div class="tab tab-notes">
+      <h5>Copy + Pasting made easy !</h5>
+      <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+    </div>
+    <!-- /Notes -->
+  </div>
+</div>
+<!-- /Code Sample -->  
+
+
+  <h4 class="demo-title">Adding Break Points</h4>
+  <p>Use the data attribute <code>data-breaks=""</code> to pass options targeting specific <b>screen  break points</b>. Each break point is defined as a set of options enclosed in curly brackets. All of BxSlider's options are supported.. View <b>HTML</b> tab for usage.</p>
+  
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (offset content to avoid white space when outputing to html tab!)-->
+      <div class="tab tab-output active">
+<!-- Slider -->
+<div class="my-slider">
+  <ul class="bxslider" data-call="bxslider" data-options="{slideMargin:20, pager:false}" data-breaks="[{screen:0, slides:1, pager:false},{screen:460, slides:2},{screen:768, slides:4}]">
+    <li> <img src="images/sliders/pic1.jpg" /> </li>
+    <li> <img src="images/sliders/pic2.jpg" /> </li>
+    <li> <img src="images/sliders/pic3.jpg" /> </li>
+    <li> <img src="images/sliders/pic4.jpg" /> </li>
+  </ul>
+</div>
+<!-- /Slider -->
+      </div>
+      <!-- /Output -->
+    
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre class="no-wrap">
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+    
+    <!-- Notes -->
+    <div class="tab tab-notes">
+      <h5>Copy + Pasting made easy !</h5>
+      <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+    </div>
+    <!-- /Notes -->
+  </div>
+</div>
+<!-- /Code Sample -->  
+
+  <h4 class="demo-title">Alternative Setup</h4>
+  <p>If you prefer not to use data attributes, the breaks and other new options can still be passed in the <code>bxslider()</code> call. View <b>HTML</b> tab for usage.</p>
+<pre class="no-wrap">
+  <code>
+  $(document).ready( function() {
+  
+      $('.my-slider').bxSlider({
+        slideMargin: 5,
+        autoReload: true,
+        breaks: [{screen:0, slides:1, pager:false},{screen:460, slides:2},{screen:768, slides:3}]
+      });
+    
+  });
+  </code>
+</pre>
+</div>
+<!-- /Block Demo -->

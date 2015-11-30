@@ -1,0 +1,86 @@
+<!-- Style Switcher (DELETE WHEN NO LONGER NEEDED!)
+================================================== -->
+<div id="style-switcher">
+  <div class="ctrl"><i class="fa fa-gears"></i></div>
+  <div class="styles">
+    
+    <h5>Layout</h5>
+    <div class="radio-inline">
+      <label>
+      <input type="radio" name="nav" class="radio-opt" value="boxed-wrapper" data-target=".page-wrapper" data-remove="boxed-wrapper" checked>
+      Boxed
+      </label>
+    </div>
+    <div class="radio-inline">
+      <label>
+      <input type="radio" name="nav" class="radio-opt" value="" data-target=".page-wrapper" data-remove="boxed-wrapper">
+      Wide
+      </label>
+    </div>
+
+    <h5>Skins</h5>
+      <ul class="colors grid-list cols-3 cell-pad-5">
+        <li data-sheet="uikit/css/skin-1.css"><span class="skin-icon skin-1-bg"></span></li>
+        <li data-sheet="uikit/css/skin-2.css"><span class="skin-icon skin-2-bg"></span></li>
+        <li data-sheet="uikit/css/skin-3.css"><span class="skin-icon skin-3-bg"></span></li>
+        <li data-sheet="uikit/css/skin-4.css"><span class="skin-icon skin-4-bg"></span></li>
+        <li data-sheet="uikit/css/skin-5.css"><span class="skin-icon skin-5-bg"></span></li>
+        <li data-sheet="uikit/css/skin-6.css"><span class="skin-icon skin-6-bg"></span></li>
+      </ul>
+    <h5>Page Background</h5>
+    <div class="radio-inline">
+      <label>
+      <input type="radio" name="bg" class="radio-opt" value="bcolor-xxl-bg" data-target="body" data-remove="tile-1-bg">
+      Solid
+      </label>
+    </div>
+    <div class="radio-inline">
+      <label>
+      <input type="radio" name="bg" class="radio-opt" value="tile-1-bg" data-target="body" data-remove="bcolor-xxl-bg" checked>
+      Pattern
+      </label>
+    </div>
+
+  </div>
+</div>
+<script>
+  $('#style-switcher .ctrl').click(function (e) {
+    $('#style-switcher .styles').toggle('slow');
+  });
+  
+
+  
+  $('#style-switcher .radio-opt').click(function (e) {
+
+    var val = $(this).val();
+    var tg = $(this).attr("data-target");
+    var rmv = $(this).attr("data-remove");
+    $(tg).removeClass(rmv).addClass(val);
+    
+    // update any named sliders
+    for (var key in bxSliders ) {
+      bxSliders[key].reloadSlider();
+    }
+
+  });
+  
+  $('#style-switcher .colors li').click(function (e) {
+    var sheet = $(this).attr('data-sheet');
+    
+    if($('#demo-skin').length > 0) {
+    
+      $('#demo-skin').attr('href', sheet);
+    
+    }else {
+      $('<link>').attr('rel','stylesheet')
+      .attr('id', 'demo-skin')
+      .attr('type','text/css')
+      .attr('href',sheet)
+      .appendTo('head');
+    }
+    
+  });
+  
+</script>
+<!-- Style Switcher / END
+================================================== -->

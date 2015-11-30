@@ -1,0 +1,317 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Typography</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+
+  <!-- Row -->
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>H1 Heading</h1>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+      <h2>H2 Heading</h2>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+      <h3>H3 Heading</h3>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>    
+    </div>
+    <div class="col-sm-6">
+      <h4>H4 Heading</h4>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+      <h5>H5 Heading</h5>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+      <h6>H6 Heading</h6>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+    </div>
+  </div>
+  <!-- /Row -->
+  
+  <h3 class="demo-title">Drop caps</h3>
+  <p>Use the <code>.dcap</code> class to create drop caps. To view usage refer to the <b>HTML tab</b> in the sample below.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dcap">Dauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan. Quisque auctor faucibus ornare. Mauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan.</p>
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+   <p class="dcap dcap-pcolor">Dauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan. Quisque auctor faucibus ornare. Mauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan.</p>
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dcap dcap-square">Dauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan. Quisque auctor faucibus ornare. Mauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan.</p>
+ </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dcap dcap-round">Dauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan. Quisque auctor faucibus ornare. Mauris placerat placerat felis, non tincidunt sem pretium eget. Aliquam lacinia nisi vel mi ultricies accumsan.</p>
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Colored Text</h3>
+  <p>Use any of the color classes such as <code>.pcolor</code> to color any block of text. To view usage refer to the <b>HTML tab</b> in the sample below.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<h5>Eminem: Sing For the Moment</h5>
+
+<p>Let's take a look at a rhyme scheme, created by Eminem. What we have here is a quatrain from a song of his, called <span class="pcolor">"Sing for the Moment"</span>. It's composed of compounds and internals. </p>
+
+<p class="black">These <span class="violet">ideas</span> are, <span class="blue">nightmares</span> to white <span class="red">parents</span><br/> 
+Whose worst <span class="violet">fear</span> is a child with dyed <span class="blue">hair</span> and who likes <span class="red">earrings</span><br/>
+Like whatever they say has no <span class="red">bearing</span><br/>
+it's so <span class="red">scary</span> in a <span class="orange">house</span> that <span class="orange">allows</span> no <span class="red">swearing</span></p>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Higlighted Text</h3>
+  <p>Use any of the color classes such as <code>.pcolor</code> together with the <code>&lt;mark&gt;</code> tag to highlight any block of text. To view usage refer to the <b>HTML tab</b> in the sample below.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<h4>Default Usage</h4>
+
+<p>it's so <mark>scary</mark> in a <mark>house</mark> that <mark>allows</mark> no <mark>swearing</mark></p>
+
+<h4>With colored text</h4>
+
+<p>it's so <mark class="red">scary</mark> in a <mark class="orange">house</mark> that <mark class="green">allows</mark> no <mark class="blue">swearing</mark></p>
+
+<h4>With mixed colors</h4>
+
+<p>it's so <mark class="red-bg white">scary</mark> in a <mark class="yellow-bg red">house</mark> that <mark class="yellow green-bg">allows</mark> no <mark class="pcolor bcolor-bg">swearing</mark></p>
+ </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+
+
+  <h3 class="demo-title">Blockquotes</h3>
+  <p>Use any of the <code>&lt;blockquote&gt;</code> to create quotes. To view usage refer to the <b>HTML tab</b> in the sample below.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<blockquote>
+  Mauris aliquet ultricies ante, non faucibus ante gravida sed. Sed ultrices pellentesque purus, vulputate volutpat ipsum hendrerit sed neque sed sapien rutrum laoreet justo ultrices. In pellentesque lorem condimentum dui morbi pulvinar dui non quam pretium ut lacinia tortor.
+  <small>John Anonymous Doe</small>
+</blockquote>    
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->  
+  
+  <h3 class="demo-title">Lists</h3>
+  <p>Use any of the <code>&lt;blockquote&gt;</code> to create quotes. To view usage refer to the <b>HTML tab</b> in the sample below.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (offset to avoid white space when outputing to html tab!)-->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+    <p>Default unordered list</p>
+    <ul class="ul-disc">
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+    </ul> 
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <p>Unordered list with <code>.ul-circle</code> class</p>
+    <ul class="ul-circle">
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+    </ul> 
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <p>Unordered list with <code>.ul-square</code> class</p>
+    <ul class="ul-square">
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+      <li>Neque porro quisquam est qui dolorem</li>
+    </ul> 
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-6">
+    <p>Unordered list with <code>.ul-icon</code> class</p>
+    <ul class="ul-icon">
+      <li><i class="icon fa fa-folder-open yellow"></i>Neque porro quisquam est qui dolorem</li>
+      <li><i class="icon fa fa-folder-open yellow"></i>Neque porro quisquam est qui dolorem</li>
+      <li><i class="icon fa fa-folder-open yellow"></i>Neque porro quisquam est qui dolorem</li>
+      <li><i class="icon fa fa-folder-open yellow"></i>Neque porro quisquam est qui dolorem</li>
+    </ul> 
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->  
+</div>
+<!-- /Block Demo -->

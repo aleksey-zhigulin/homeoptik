@@ -1,0 +1,158 @@
+/* HQUOTE
+------------------------------------ */
+$quote-bg: getvar(colors bcolor-xl);
+
+$hquote-sizes:(
+  default:(
+    pad: 20px,
+    font-size: 14px,
+    arrow-h: 20px,
+    arrow-w: 16px,
+    arrow-mg: 10px,
+    avatar-size: 60px,
+  ),
+);
+
+$hquote-vars: map-get($hquote-sizes, default);
+$qpad-left: map-get($hquote-vars, avatar-size) + map-get($hquote-vars, arrow-w) + map-get($hquote-vars, arrow-mg);
+
+.hquote {
+  @extend .clearfix;
+}
+.hquote {
+  blockquote {
+    border: none;
+    font-size: map-get($hquote-vars, font-size);
+    padding:0 0 0 $qpad-left;
+    margin:0;
+    
+    p {
+      padding: map-get($hquote-vars, pad);
+      background: $quote-bg;
+      margin:0;
+      position:relative;
+      font-style: italic;
+      
+      &:after {
+        content: "";
+				@include arrow(left, map-get($hquote-vars, arrow-w), map-get($hquote-vars, arrow-h), $quote-bg);
+				position:absolute;
+        top:0;
+        bottom:0;
+        left: - map-get($hquote-vars, arrow-w);
+        margin:auto 0;
+      }
+      
+      .avatar {
+        position:absolute;
+        width: map-get($hquote-vars, avatar-size);
+        height: map-get($hquote-vars, avatar-size);
+        margin:auto 0;
+        top:0;
+        bottom:0;
+        left: - $qpad-left;
+        border-radius: 50%;
+      }
+
+    }
+    
+    .author-top, .author-bottom {
+      font-size: 0.9em;
+      line-height: 1;
+      &:before {
+        margin:0;
+        display: none;
+      }
+      
+      a {
+        font-weight: getvar(title-font m-bold);
+        color: getvar(colors title);
+      }
+    }
+
+    .author-bottom {
+      margin:15px 0 0 map-get($hquote-vars, pad);
+    }
+    
+    .author-top {
+      margin:0 0 15px 0;
+      
+      &:before, &:after {
+        display: inline-block;
+        font-size: 30px;
+        vertical-align: middle;
+        font-family: "FontAwesome"; 
+      }
+      &:before {
+        content: "\f10d";
+        margin:0 10px 0 0;
+      }
+
+    }
+
+  }
+}
+
+.hquote.hquote-right {
+  blockquote {
+    padding:0 $qpad-left 0 0;
+  
+    p {
+    
+      &:after {
+        @include arrow(right, map-get($hquote-vars, arrow-w), map-get($hquote-vars, arrow-h), $quote-bg);
+        right: - map-get($hquote-vars, arrow-w);
+        left: auto;
+      }
+      
+      .avatar {
+        right: - $qpad-left;
+        left: auto;
+      }
+    
+    }
+    
+    .author-top, .author-bottom {
+      text-align: right;
+    }
+    
+    .author-bottom {
+      text-align: right;
+      margin:15px map-get($hquote-vars, pad) 0 0;
+    }
+    
+    .author-top {
+      &:after {
+        content: "\f10e";
+        margin:0 0 0 10px;
+      }
+      
+      &:before {
+        display:none;
+      }
+    }
+  }
+}
+
+.hquote-invert-all .hquote{
+  $bg: rgba(#fff, 0.1);
+  
+    p {
+      background: $bg;
+      color: rgba(#fff, 0.7);
+      
+      &:after {
+				@include arrow(left, map-get($hquote-vars, arrow-w), map-get($hquote-vars, arrow-h), $bg);
+      }
+    }
+    
+    .author-top, .author-bottom {
+      a {
+        color: #fff;
+      }
+    }
+    
+    &.hquote-right p:after {
+      @include arrow(right, map-get($hquote-vars, arrow-w), map-get($hquote-vars, arrow-h), $bg);
+    }
+}

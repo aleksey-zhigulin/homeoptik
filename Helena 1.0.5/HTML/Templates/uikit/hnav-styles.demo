@@ -1,0 +1,282 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Hnav Styles</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+
+  <h3 class="demo-title">Lined links Effect</h3>
+
+  <p>To draw top lines on links use the  <code>.line-top</code> class on the desired <code>.navbar-nav</code> navigation group</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- HNav -->
+<nav class="navbar hnav hnav-md" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <button class="btn btn-primary navbar-btn navbar-right">button</button>
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right line-top">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li class="active"><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+
+   <p>To draw bottom lines on links use the  <code>.line-bottom</code> class on the desired <code>.navbar-nav</code> navigation group</p>
+   <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- HNav -->
+<nav class="navbar hnav hnav-md" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <button class="btn btn-primary navbar-btn navbar-right">button</button>
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right line-bottom">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li class="active"><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+      
+        <h3 class="demo-title">Boxed links Effect</h3>
+
+  <p>To wrap active links with boxes use the  <code>.boxed-links</code> class on the desired <code>.navbar-nav</code> navigation group</p>
+   <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- HNav -->
+<nav class="navbar hnav hnav-md" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right boxed-links">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li class="active"><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+        <h3 class="demo-title">Dark NavBar</h3>
+
+  <p>Use the <code>.invert-colors</code> class to color your navbar for use with a dark background.</p>
+   <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<!-- HNav -->
+<nav class="navbar hnav hnav-md bcolor-bg no-border invert-colors" role="navigation">
+  <!-- Container -->
+  <div class="container">
+    <!-- Header-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ti ti-menu"></i>
+      </button>
+      <a class="navbar-brand border-r" href="#home"><img src="images/demo/brand-white.png" alt="" /></a>
+    </div>
+    <!-- /Header-->
+
+    <!-- Navbar Collapse-->
+    <div class="collapse navbar-collapse">
+      <!-- Navbar Right -->
+      <ul class="nav navbar-nav navbar-right line-top">
+        <li><a href="#"><i class="icon ti ti-home"></i></a></li>
+        <li class="active"><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+      </ul>
+      <!-- /Navbar right -->
+    </div>
+    <!-- /Navbar Collapse -->
+  </div>
+  <!-- /Container -->
+</nav>
+<!-- /HNav -->
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+</div>

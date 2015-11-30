@@ -1,0 +1,87 @@
+/* VERTICAL PLAN
+------------------------------------ */
+.vplan {
+  margin:15px 0;
+  padding:50px 0;
+  border: 1px solid rgba(#000, 0.1);
+  text-align: center;
+  background: getvar(colors bcolor-xxl);
+  
+  .icon, .price, .btn {
+    @include vendorize(transition, all 0.5s ease);
+  }
+  
+  .icon {
+    @include fixed-icon(round, 90px);
+    color: #fff;  
+    background: getvar(colors pcolor);
+    margin:0 auto 20px auto;
+  }
+  
+  
+  .title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin:0 0 10px 0;
+    line-height:1;
+    font-size:17px;
+    color: getvar(colors title);
+  }
+  
+  .price {
+    color: getvar(colors pcolor);
+    display:block;
+    margin:0 0 10px 0;
+    i {
+      padding-right:5px;
+    }
+  }
+  
+  .info {
+    font-size: 13px;
+    line-height: 1.7em;
+    margin:0 auto;
+    width: 70%;
+    color: getvar(colors text);
+  }
+  
+  .items {
+    width:70%;
+    margin:0 auto;
+    
+    > li {
+      display:block;
+      line-height:45px;
+      border-bottom:1px solid rgba(#000, 0.1);
+      font-size: 12px;
+      
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  
+  .btn {
+    padding:13px 26px;
+    margin-top:30px;
+  }
+}
+
+.vplan.vplan-featured, .vplan:hover {
+  border:1px solid getvar(colors pcolor);
+  box-shadow:0 0 0 5px getvar(colors pcolor);
+  background: #fff;
+}
+
+
+.vplan:hover {
+  .icon {
+    @include vendorize(transform, "scale(1.05) rotate(360deg)");
+  }
+  .price {
+    @include vendorize(transform, "scale(1.1) ");
+  }
+  .btn{
+    @include vendorize(transform, "scale(1.05) ");
+  }
+}

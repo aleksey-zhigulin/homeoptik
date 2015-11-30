@@ -1,0 +1,240 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Animations Library</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h5 class="demo-title">Based on the Animate.css Library</h5>
+  <p>Animate.css is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness. The official project can be found here <a href="https://github.com/daneden/animate.css">github.com/daneden/animate.css</a></p>
+  <!-- Anim Player -->
+  <div class="anim-player">
+    <img id="anim-object" src="images/demo/anim-pic.png" alt="" />
+    <!-- Selector -->
+    <div class="form-group anim-selector">
+      <div class="input-group">
+        <div id="replay" class="input-group-addon"><i class="icon fa fa-play"></i>Replay</div>
+        <select id="anim-select" class="form-control">
+
+        <optgroup label="Attention Seekers">
+          <option value="bounce">bounce</option>
+          <option value="flash">flash</option>
+          <option value="pulse">pulse</option>
+          <option value="rubberBand">rubberBand</option>
+          <option value="shake">shake</option>
+          <option value="swing">swing</option>
+          <option value="tada">tada</option>
+          <option value="wobble">wobble</option>
+        </optgroup>
+
+        <optgroup label="Bouncing Entrances">
+          <option value="bounceIn">bounceIn</option>
+          <option value="bounceInDown">bounceInDown</option>
+          <option value="bounceInLeft">bounceInLeft</option>
+          <option value="bounceInRight">bounceInRight</option>
+          <option value="bounceInUp">bounceInUp</option>
+        </optgroup>
+
+        <optgroup label="Bouncing Exits">
+          <option value="bounceOut">bounceOut</option>
+          <option value="bounceOutDown">bounceOutDown</option>
+          <option value="bounceOutLeft">bounceOutLeft</option>
+          <option value="bounceOutRight">bounceOutRight</option>
+          <option value="bounceOutUp">bounceOutUp</option>
+        </optgroup>
+
+        <optgroup label="Fading Entrances">
+          <option value="fadeIn">fadeIn</option>
+          <option value="fadeInDown">fadeInDown</option>
+          <option value="fadeInDownBig">fadeInDownBig</option>
+          <option value="fadeInLeft">fadeInLeft</option>
+          <option value="fadeInLeftBig">fadeInLeftBig</option>
+          <option value="fadeInRight">fadeInRight</option>
+          <option value="fadeInRightBig">fadeInRightBig</option>
+          <option value="fadeInUp">fadeInUp</option>
+          <option value="fadeInUpBig">fadeInUpBig</option>
+        </optgroup>
+
+        <optgroup label="Fading Exits">
+          <option value="fadeOut">fadeOut</option>
+          <option value="fadeOutDown">fadeOutDown</option>
+          <option value="fadeOutDownBig">fadeOutDownBig</option>
+          <option value="fadeOutLeft">fadeOutLeft</option>
+          <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+          <option value="fadeOutRight">fadeOutRight</option>
+          <option value="fadeOutRightBig">fadeOutRightBig</option>
+          <option value="fadeOutUp">fadeOutUp</option>
+          <option value="fadeOutUpBig">fadeOutUpBig</option>
+        </optgroup>
+
+        <optgroup label="Flippers">
+          <option value="flip">flip</option>
+          <option value="flipInX">flipInX</option>
+          <option value="flipInY">flipInY</option>
+          <option value="flipOutX">flipOutX</option>
+          <option value="flipOutY">flipOutY</option>
+        </optgroup>
+
+        <optgroup label="Lightspeed">
+          <option value="lightSpeedIn">lightSpeedIn</option>
+          <option value="lightSpeedOut">lightSpeedOut</option>
+        </optgroup>
+
+        <optgroup label="Rotating Entrances">
+          <option value="rotateIn">rotateIn</option>
+          <option value="rotateInDownLeft">rotateInDownLeft</option>
+          <option value="rotateInDownRight">rotateInDownRight</option>
+          <option value="rotateInUpLeft">rotateInUpLeft</option>
+          <option value="rotateInUpRight">rotateInUpRight</option>
+        </optgroup>
+
+        <optgroup label="Rotating Exits">
+          <option value="rotateOut">rotateOut</option>
+          <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+          <option value="rotateOutDownRight">rotateOutDownRight</option>
+          <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+          <option value="rotateOutUpRight">rotateOutUpRight</option>
+        </optgroup>
+
+        <optgroup label="Specials">
+          <option value="hinge">hinge</option>
+          <option value="rollIn">rollIn</option>
+          <option value="rollOut">rollOut</option>
+        </optgroup>
+
+        <optgroup label="Zoom Entrances">
+          <option value="zoomIn">zoomIn</option>
+          <option value="zoomInDown">zoomInDown</option>
+          <option value="zoomInLeft">zoomInLeft</option>
+          <option value="zoomInRight">zoomInRight</option>
+          <option value="zoomInUp">zoomInUp</option>
+        </optgroup>
+
+        <optgroup label="Zoom Exits">
+          <option value="zoomOut">zoomOut</option>
+          <option value="zoomOutDown">zoomOutDown</option>
+          <option value="zoomOutLeft">zoomOutLeft</option>
+          <option value="zoomOutRight">zoomOutRight</option>
+          <option value="zoomOutUp">zoomOutUp</option>
+        </optgroup>
+      
+        </select>
+      </div>
+    </div>
+    <!-- /Selector -->
+  </div> 
+  <!-- /Anim Player-->
+  
+  <h5 class="demo-title">Usage</h5>
+  <p>To use simply add the class <code>.animated</code> to an element, along with any of the animation names. That's it! You've got a CSS animated element. Super!</p>
+<pre>
+  <code class="format-code html">
+  <img src="images/demo/logo-light.png" class="animated bounceIn" />
+  </code>
+</pre>
+  <h5 class="demo-title">Usage in BxSlider</h5>
+  <p>To add animatable layers use the <code>.bx-layer</code> on any element contained in your slide. Now just the following data attributers to your layer and your good to go.</p>
+  <ul>
+    <li>Set <code>data-anim=""</code> with one of the animation classes contained in the <a href="http://daneden.github.io/animate.css/">animate.css</a> library</li>
+    <li>Set <code>data-dur=""</code> with the duration of your animation in milliseconds</li>
+    <li>Set <code>data-delay=""</code> with the delay of your animation in milliseconds</li>
+  </ul>
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-warning">
+    <h4>Animations only work on this BxSlider Version!</h4>
+    <p>This theme uses a customized version of BxSlider. The shown examples won't work on other versions!</p>
+  </div>
+  <!-- /Callout -->
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (offset content to avoid white space when outputing to html tab!)-->
+      <div class="tab tab-output active">
+<!-- slider -->
+<div class="bx-layers-demo">
+  <div class="bxslider" data-call="bxslider" data-options="{mode:'fade', controls:false, auto:true, pause:6500}">
+    <div class="slide red-bg" >
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer</h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer</h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="rotateIn" data-delay="2000" data-dur="1500">3rd Layer</h6>
+    </div>
+    <div class="slide orange-bg">
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer</h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer</h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="flipInY" data-delay="2000" data-dur="1500">3rd Layer</h6>
+    </div>
+    <div class="slide green-bg">
+      <h6 style="left:20px; top:80px" class="bx-layer" data-anim="bounceInDown" data-delay="500" data-dur="1000">1st Layer</h6>
+      <h6 style="left:20px; top:140px" class="bx-layer" data-anim="bounceInLeft" data-delay="1000" data-dur="1000">2nd Layer</h6>
+      <h6 style="right:20px; top:40px" class="bx-layer" data-anim="lightSpeedIn" data-delay="2000" data-dur="1500">3rd Layer</h6>
+    </div>
+  </div>
+</div>
+<!-- /slider -->
+      </div>
+      <!-- /Output -->
+    
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+    
+    <!-- Notes -->
+    <div class="tab tab-notes">
+      <h5>Copy + Pasting made easy !</h5>
+      <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+    </div>
+    <!-- /Notes -->
+  </div>
+</div>
+<!-- /Code Sample -->  
+</div>
+
+<script>
+  $().ready(function() {
+    /* 
+    =======================================================
+      Adapted from >> http://daneden.github.io/animate.css/ 
+    =======================================================
+    */
+    
+    $("#anim-select").change(function() {
+      var val = $(this).val();
+      testAnim(val);
+    });
+    
+    $("#replay").click(function() {
+      var val = $("#anim-select").val();
+      testAnim(val);
+    });
+    
+    function testAnim(x) {
+      $('#anim-object').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
+      });
+    }; 
+  
+  });
+</script>

@@ -1,0 +1,148 @@
+/*------------------------------------------------
+    SETUP
+-------------------------------------------------*/
+
+
+/* SHORT CODES
+================================================== */
+.clear{clear:both!important;visibility: hidden;display: block; height:0}
+.clearfix:before, .clearfix:after { content: '\0020';display: block;overflow: hidden;visibility: hidden;height:0}
+.clearfix:after { clear: both; }
+.u-case{text-transform:uppercase}
+.l-case{text-transform:lowercase}
+.c-case{text-transform:capitalize}
+.no-margin {margin:0!important}
+.no-margin-x {margin-left:0!important;margin-right:0!important}
+.no-margin-y {margin-top:0!important;margin-bottom:0!important}
+.no-margin-l {margin-left:0!important}
+.no-margin-r {margin-right:0!important}
+.no-margin-b {margin-bottom:0!important}
+.no-margin-t {margin-top:0!important}
+.margin-b-30 {margin-bottom:30px}
+.margin-b-20 {margin-bottom:20px}
+.margin-b-15 {margin-bottom:15px}
+.margin-b-10 {margin-bottom:15px}
+.smaller {font-size:90%}
+.pad-10{padding:10px}
+.pad-15{padding:15px}
+.pad-20{padding:20px}
+.pad-30{padding:20px}
+
+.dark-inset-text { color: rgba(0, 0, 0, 0.6); -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);}
+.light-inset-text { color: rgba(0, 0, 0, 0.5); -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);}
+.dark-inset { background: url(images/black-10.png);-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5);-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5);box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5);}
+.light-inset {background:url(images/black-5.png); -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), inset 1px 1px 1px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), inset 1px 1px 3px rgba(0, 0, 0, 0.5); box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4), inset 1px 1px 3px rgba(0, 0, 0, 0.2);}
+.dark-inset-shadow {-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5); box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.5);}
+.light-inset-shadow {-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), inset 1px 1px 1px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), inset 1px 1px 3px rgba(0, 0, 0, 0.5); box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4), inset 1px 1px 3px rgba(0, 0, 0, 0.2);}
+
+
+/* Typography
+================================================== */
+
+body{font-size: 12px;font-family: Arial, Tahoma, Verdana;line-height:20px;color:#666}
+
+h1{font-size:26px;margin-bottom:15px}
+h2{font-size:24px;margin-bottom:15px}
+h3{font-size:20px;margin-bottom:15px}
+h4{font-size:18px;margin-bottom:15px}
+h5{font-size:16px;margin-bottom:15px}
+
+h1, h2, h3, h4, h5 {line-height:1.6em;font-weight:normal; color:#333}
+
+p,ul, ol,blockquote{line-height:20px;margin-bottom:20px;}
+
+hr{margin:30px 0; background:#ccc; height:2px; border:0}
+a
+{
+    text-decoration: none;
+    color: #3399FF;
+}
+a:hover{text-decoration:underline}
+hr {margin:30px 0; border-color:#ddd; border:0; border-top:1px solid #ddd}
+
+img {max-width:100%; height:auto}
+
+strong {color:#2F4D6F}
+i {color:#E05119}
+
+/* LAYOUT
+================================================== */
+
+body {background:#eee}
+#page-wrapper { width: 980px; margin: 0px auto; background:#333;}
+#main-panel{width:700px;padding:30px;float:left;background:#fff}
+#side-panel{width:160px;padding:30px;float:left; position:relative}
+
+#nav {position:fixed;margin:0 ;top: 240px; width:160px; border-color:#666; list-style:none; padding:0;}
+#nav a{color:#E4F5FD;line-height:40px;border-bottom:1px solid rgba(0,0,0,0.2);display:block}
+#nav li{border-bottom:1px solid rgba(255,255,255,0.1);padding:0}
+#nav li:last-child, #nav li:last-child a {border:none}
+#nav a:hover {color:#fff}
+
+.desc {list-style:none; margin:0; padding:0}
+.desc li{line-height:16px; position:relative; display:inline-block;padding-left:20px;margin-right:10px}
+.desc img{position:absolute;left:0;height:16px}
+.desc, .desc a { color: #336699; }
+
+/* CONTENT
+================================================== */
+ul.photo-credits{margin-bottom:20px; list-style:none; margin:0; padding:0}
+ul.photo-credits li{display:block;float:left; margin:0 20px 20px 0; width:100px;overflow:hidden}
+ul.photo-credits li:nth-child(6n){margin-right:0}
+ul.photo-credits img{width:100px}
+
+.info-box {padding:20px; border:1px solid #AFDBEE; background-image: url(images/info_16.png); background-color:#E4F5FD; color:#2A80A7;}
+.info-box a {color:#2A80A7; border-bottom:#2A80A7 1px solid;}
+.info-box a:hover {color:#2A80A7; border-bottom:none !important;}
+
+.warning-box {border:1px solid #efdc75; background-image: url(images/warning_16.png); background-color:#fff7cb;color:#DB7701;}
+.warning-box a {color:#DB7701; border-bottom:#DB7701 1px solid;}
+.warning-box a:hover {color:#DB7701; border-bottom:none !important;}
+
+.success-box {border:1px solid #b3dc7c; background-image: url(images/tick_16.png);background-color:#e8ffca; color:#527A19;}
+.success-box a {color:#527A19; border-bottom:#527A19 1px solid;}
+.success-box a:hover {color:#527A19; border-bottom:none !important;}
+
+.error-box {border:1px solid #ebb1b1; background-image: url(images/cancel_16.png);background-color:#ffd6d6;color:#9d2121}
+.error-box a {color:#9d2121; border-bottom:#9d2121 1px solid;}
+.error-box a:hover {color:#9d2121; border-bottom:none !important;}
+
+.bs-callout {
+    border-left: 3px solid #EEEEEE;
+    margin: 20px 0;
+    padding: 20px;
+}
+.bs-callout h4 {margin:0 0 5px 0; font-size:14px}
+.bs-callout p {margin:0}
+
+.bs-callout-warning {
+    background-color: #FCF8F2!important;
+    border-color: #F0AD4E;
+	
+}
+.bs-callout-warning h4 {color:#F0AD4E}
+.bs-callout-danger {
+    background-color: #FDF7F7;
+    border-color: #D9534F!important;
+}
+.bs-callout-danger h4 {
+    color: #D9534F;
+}
+.bs-callout-info {
+    background-color: #F4F8FA;
+    border-color: #5BC0DE!important;
+}
+.bs-callout-info h4 {
+    color: #5BC0DE;
+}
+
+.bs-callout-success {
+    background-color: #DFF0D8;
+    border-color: #D6E9C6!important;
+}
+
+pre {
+  background: #eee;
+  border: 1px solid #ddd;
+  overflow: auto;
+}

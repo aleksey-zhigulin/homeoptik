@@ -1,0 +1,73 @@
+// MAPS
+// ----------------------
+
+@function pow ($x, $n) {
+$ret: 1;
+@if $n >= 0 {
+@for $i from 1 through $n {
+$ret: $ret * $x;
+}
+} @else {
+@for $i from $n to 0 {
+$ret: $ret / $x;
+}
+}
+@return $ret;
+}
+
+@function fact($number) {
+  $value: 1;
+  @if $number > 0 {
+    @for $i from 1 through $number {
+      $value: $value * $i;
+    }
+  }
+  @return $value;
+}
+
+@function pi() {
+  @return 3.14159265359;
+}
+
+@function set-avail($val, $default) {
+  @if($val) {
+    @return $val;
+  } @else {
+    @return $default;
+  }
+}
+
+
+@function map-seek($map, $keys) {
+  $key: nth($keys, 1);
+  $len: length($keys);
+  $val: map-get($map, $key);
+  
+  @if($len > 1) {
+    $rest: ();
+    
+    @for $i from 2 through $len {
+      $rest: append($rest, nth($keys, $i));
+    }
+    
+    @return map-seek($val, $rest);
+  } @else {
+    @return $val;
+  }
+}
+
+// COLORS
+// ----------------------
+@function tint($color, $pc){
+  @return mix(white, $color, $pc);
+}
+
+@function shade($color, $pc){
+  @return mix(black, $color, $pc);
+}
+
+// MATH
+// ------------------------
+@function cmg($h1, $h2) {
+  @return floor(($h1 - $h2) /2);
+}

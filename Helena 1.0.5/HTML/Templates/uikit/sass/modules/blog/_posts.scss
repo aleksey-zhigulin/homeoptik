@@ -1,0 +1,93 @@
+/* BLOG
+-------------------------------------------------- */
+
+.blog-entry {
+  margin: 0 0 40px 0;
+  padding: 0 0 40px 0;
+  border-bottom: 1px solid #eee;
+  
+  img {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  h4 {
+    line-height: 1;
+    margin: 0 0 20px 0;
+    display: block;
+    
+    a {
+      color: #323740;
+    }
+  }
+
+
+  .btn { font-size: 12px }
+
+  .meta {
+    padding: 10px 10px;
+    margin: 0 0 15px 0;
+    border: 1px solid #eee;
+
+    
+    .fa {
+      margin:0 10px 0 0; 
+      color: getvar(colors pcolor);
+    }
+    
+    a { color:getvar(colors title);}
+    
+    span {
+      margin:0 20px 0 0;
+      
+      &:hover a {
+        color:getvar(colors bcolor);
+      }
+      
+      &:hover .fa {
+        color:getvar(colors pcolor);
+      }
+    }
+    
+  }
+  
+  @media (max-width:767px) {
+    .meta {
+      font-size: 11px;
+    }
+  }
+}
+
+
+
+
+/* TAGS
+---------------------------------------------------*/
+
+ul.tags {
+  @include no-list();
+  
+  li {
+    display: block;
+    float: left;
+    margin: 0 7px 7px 0;
+    
+    a {
+      display: block;
+      font-size: 12px;
+      line-height: 1;
+      border:1px solid getvar(colors bcolor);
+      color: getvar(colors bcolor);
+      padding: 10px 15px;
+      
+      &:hover { 
+        background: getvar(colors pcolor); 
+        border:1px solid getvar(colors pcolor);
+        color: #fff;
+      }
+    }
+    
+  }
+
+}
+

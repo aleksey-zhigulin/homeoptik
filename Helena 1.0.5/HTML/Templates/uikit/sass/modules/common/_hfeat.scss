@@ -1,0 +1,172 @@
+/* HFEAT
+----------------------------------------- */
+$hfeat-sizes:(
+  default:(
+    active: false,
+    icon-w: 50px,
+    icon-boxed-w: 70px,
+    icon-mg: 15px,
+    title-size: 16px,
+    title-mg: 12px,
+    text-size: 14px,
+    text-lh: 1.6em,
+  ),
+  sm:(
+    active: true,
+    icon-w: 40px,
+    icon-boxed-w: 50px,
+    icon-mg: 10px,
+    title-size: 14px,
+    title-mg: 6px,
+    text-size: 11px,
+    text-lh: 1em,
+  ),
+  lg:(
+    active: true,
+    icon-w: 60px,
+    icon-boxed-w: 80px,
+    icon-mg: 10px,
+    title-size: 16px,
+    title-mg: 6px,
+    text-size: 14px,
+    text-lh: 1.6em,
+  ),
+);
+
+/* Default setup */
+.hfeat {
+  $vars: map-get($hfeat-sizes, default);
+  position: relative;
+  padding:0 0 0 map-get($vars, icon-w) + map-get($vars, icon-mg);
+  margin:15px 0;
+  display:block;
+  
+  .icon {
+    display:block;
+    font-size: map-get($vars, icon-w);
+    width: map-get($vars, icon-w);
+    line-height: map-get($vars, icon-w);
+    text-align:center;
+    position: absolute;
+    left:0;
+    top:0;
+    
+    @include vendorize(box-sizing, content-box);
+    color: getvar(colors pcolor);
+  }
+  
+  .title {
+    font-size: map-get($vars, title-size);
+    text-transform: capitalize;
+    line-height:1;
+    margin:0 0 map-get($vars, title-mg) 0;
+    color: getvar(colors title);
+    display:block;
+  }
+  
+  .text {
+    font-size: map-get($vars, text-size);
+    margin: 0;
+    line-height: map-get($vars, text-lh);
+    color: getvar(colors text);
+    display: block;
+  }
+  
+  .more-link {
+    font-size: 0.8em;
+    text-transform: capitalize;
+    display:block;
+    margin:10px 0 0 0;
+    
+    .icon-right {
+      line-height:1;
+      margin-left:10px;
+      font-size:inherit;
+    }
+  }
+}
+
+/* Styles */
+.hfeat.hfeat-box, .hfeat.hfeat-round {
+  $vars: map-get($hfeat-sizes, default);
+  padding:0 0 0 map-get($vars, icon-boxed-w) + map-get($vars, icon-mg);
+  
+  .icon {
+    width: map-get($vars, icon-boxed-w);
+    line-height: map-get($vars, icon-boxed-w);
+    background: getvar(colors bcolor-xl);     
+    font-size: floor(0.5 * map-get($vars, icon-boxed-w));
+  }
+}
+
+.hfeat.hfeat-round .icon{
+  border-radius: 50%;
+}
+
+
+.hfeat.hfeat-box-bcolor {
+  .icon {
+    background: getvar(colors text);
+    color: #fff;    
+  }
+  .title {
+    color: getvar(colors pcolor);
+  }
+}
+
+.hfeat.hfeat-box-pcolor{
+  .icon {
+    background: getvar(colors pcolor);
+    color: #fff;    
+  }
+}
+
+.hfeat.hfeat-box-outline {
+  .icon {
+    border: 2px solid getvar(colors bcolor-xl);
+    background: none;  
+  }
+}
+
+.hfeat-round .icon {
+  border-radius: 50%;
+}
+
+
+/* Sizes */
+.hfeat {
+  @each $size, $vars in $hfeat-sizes {
+    @if (map-get($vars, active)) {
+      &.hfeat-#{$size} {
+        padding:0 0 0 map-get($vars, icon-w) + map-get($vars, icon-mg);
+        min-height: map-get($vars, icon-w);
+        
+        .icon {
+          font-size: map-get($vars, icon-w);
+          width: map-get($vars, icon-w);
+          line-height: map-get($vars, icon-w);
+        }
+        
+        &.hfeat-box {
+          padding:0 0 0 map-get($vars, icon-boxed-w) + map-get($vars, icon-mg);
+          .icon {
+            width: map-get($vars, icon-boxed-w);
+            line-height: map-get($vars, icon-boxed-w);   
+            font-size: floor(0.5 * map-get($vars, icon-boxed-w));
+          }
+        }
+   
+        .title {
+          font-size: map-get($vars, title-size);
+          margin:0 0 map-get($vars, title-mg) 0;
+        }
+        
+        .text {
+          font-size: map-get($vars, text-size);
+          line-height: map-get($vars, text-lh);
+        }
+        
+      }
+    }
+  }
+}

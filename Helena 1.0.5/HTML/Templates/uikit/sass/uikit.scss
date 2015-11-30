@@ -1,0 +1,80 @@
+// NOTES:
+// ==============================================
+// - compiles all the stylesheets
+// - comment out modules you do not need
+// ==============================================
+
+// INIT
+// ==================================
+@import "libs/functions";
+@import "libs/mixins";
+@import "skins";
+@import "fonts";
+@import "variables";
+
+
+// BASE
+// ==================================
+@import "modules/base/utils";
+@import "modules/base/bs-theme";
+@import "modules/base/buttons";
+@import "modules/base/forms";
+@import "modules/base/typography";
+@import "modules/base/dropdowns";
+
+// NAVIGATION
+// ==================================
+@import "modules/navigation/hnav";
+
+
+// LAYOUT
+// ==================================
+@import "modules/layout/boxed";
+@import "modules/layout/setup";
+@import "modules/layout/header";
+@import "modules/layout/footer";
+@import "modules/layout/error-page";
+
+// COMMON
+// ==================================
+@import "modules/common/color-icons";
+@import "modules/common/hfeat";
+@import "modules/common/vfeat";
+@import "modules/common/vlinks";
+@import "modules/common/hlinks";
+@import "modules/common/revealers";
+
+// BUSINESS
+// ==================================
+@import "modules/business/team";
+@import "modules/business/hquote";
+@import "modules/business/vquote";
+@import "modules/business/vplan";
+
+// BLOG
+// ==================================
+@import "modules/blog/posts";
+@import "modules/blog/comments";
+
+// SLIDERS
+// ==================================
+@import "modules/sliders/bxslider";
+@import "modules/sliders/intro-slider";
+
+// SHOP
+// ==================================
+@import "modules/shop/product";
+@import "modules/shop/product-details";
+@import "modules/shop/cart";
+@import "modules/shop/checkout";
+
+// VENDOR
+// ==================================
+@import "animate.min.css";
+@import "modules/vendor/hl-default";
+@import "modules/vendor/pretty-photo";
+@import "modules/vendor/jqueryui";
+
+// MISC
+// ==================================
+@import "modules/misc/style-switcher";

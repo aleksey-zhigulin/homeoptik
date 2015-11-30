@@ -1,0 +1,213 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Vertical Links</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">Vlinks Class</h3>
+  <p>Use the <code>.vlinks</code> class to display multipurpose vertical links. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Default<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks">
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Customer Support</a></li>
+      <li><a href="#">Information</a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Ruled<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-ruled">
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Customer Support</a></li>
+      <li><a href="#">Information</a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Ruled with dots<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-ruled-dots">
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Customer Support</a></li>
+      <li><a href="#">Information</a></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-4 hidden">
+    <h5 class="dont-copy">Iconed<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-iconed vlinks-ruled-dots">
+      <li><i class="icon fa fa-home"></i>Rahisi Labs Corporation,<br/>11th street, Moi Avenue,<br/>Nairobi, Kenya</li>
+      <li><i class="icon fa fa-phone"></i>(254) 780 900 450<br/>(254) 780 900 450</li>
+      <li class="centered"><i class="icon fa fa-envelope"></i>support@mydomain.com</li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+    <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Tabled<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-tabled vlinks-ruled">
+      <li><span class="key">Product Code</span><span class="val">DC0089</span></li>
+      <li><span class="key">Product Code</span><span class="val">DC0089</span></li>
+      <li><span class="key">Product Code</span><span class="val">DC0089</span></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Icons with meta<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-iconed vlinks-ruled-dots">
+      <li><i class="icon fa fa-download"></i><a class="title">Project Brief</a><span class="meta">brief.pdf (120Kb)</span></li>
+      <li><i class="icon fa fa-download"></i><a class="title">Project Brief</a><span class="meta">brief.pdf (120Kb)</span></li>
+      <li><i class="icon fa fa-download"></i><a class="title">Project Brief</a><span class="meta">brief.pdf (120Kb)</span></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  <!-- Col -->
+  <div class="col-md-4">
+    <h5 class="dont-copy">Images with meta<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h5>
+    <!-- vlinks -->
+    <ul class="vlinks vlinks-iconed vlinks-ruled-dots">
+      <li><img src="images/demo/face1.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>5 comments</span></li>
+      <li><img src="images/demo/face1.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>10 comments</span></li>
+      <li><img src="images/demo/face1.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>22 comments</span></li>
+    </ul>
+    <!-- /vlinks -->
+  </div>
+  <!-- /Col -->
+  
+  <hr class="col-md-12"/>
+
+<h5>Large Size</h5>
+<p>Use the <code>.vlinks-lg</code> class to increase the default size. The size classes are automatically generated from a sass <b>map</b> containing the size variables.Read this section's <mark>Notes</mark> to learn how to add your own.</p>
+
+<div class="col-md-6 copy-block">
+<h6 class="dont-copy">Medium<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+<!-- vlinks -->
+<ul class="vlinks vlinks-md vlinks-iconed vlinks-ruled-dots">
+  <li><img src="images/demo/face1.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>5 comments</span></li>
+  <li><img src="images/demo/face2.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>10 comments</span></li>
+</ul>
+<!-- /vlinks -->
+</div>
+
+<div class="col-md-6 copy-block">
+<h6 class="dont-copy">Large<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+<!-- vlinks -->
+<ul class="vlinks vlinks-lg vlinks-iconed vlinks-ruled-dots">
+  <li><img src="images/demo/face1.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>5 comments</span></li>
+  <li><img src="images/demo/face2.jpg" alt="" class="img"/><a class="title">New blog post</a><span class="meta"><i class="icon-left fa fa-comments"></i>10 comments</span></li>
+</ul>
+<!-- /vlinks -->
+</div>
+
+  
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>The size classes are automatically generated from a sass <b>map</b> containing the size variables</p>
+        <ul>
+          <li>You may add your own custom sizes if you wish</li>
+          <li>Your new size class will be suffixed with the name you used e.g <code>.vlinks-md</code></li>
+          <li>To prevent a certain size from being generated, simply set <code>active:true</code> to <code>active:false</code></li>
+          <li>You may save a default size in the map. Just remember to use <code>active:false</code> to prevent it's class generation.</li>
+        </ul>
+<pre>
+<code class="javascript">
+$vlinks-sizes:(
+  default:(
+    active:false,
+    font-size: 13px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 35px,
+    icon-mg: 12px,
+    iconed-li-mg: 10px,
+  ),
+  
+  md:(
+    active:true,
+    font-size: 14px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 50px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+  
+  lg:(
+    active:true,
+    font-size: 15px,
+    line-h: 3em,
+    iconed-line-h: 1.5em,
+    icon-w: 60px,
+    icon-mg: 15px,
+    iconed-li-mg: 10px,
+  ),
+);     </code>
+        </pre>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  </div>
+<!-- /Block Demo -->
+

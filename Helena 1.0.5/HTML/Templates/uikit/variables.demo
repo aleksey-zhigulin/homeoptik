@@ -1,0 +1,88 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Kit Variables</h1>
+    <p class="no-margin-b">The kit relies on a few global variables like skin color to apply some shared properties.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Why it's best to save variables in maps.</h4>
+    <p>Using a map facilitates the creation of <b>custom variable sets</b> and <b>simplifies variable naming</b>. It also saves you from unencessary name conflicts</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">Main Variables Set</h3>
+  <p>Global variables are stored in a single Sass <b>map</b> named <code>$kit-vars</code>. Using a map facilitates the creation of <b>custom variable sets</b> and <b>simplifies variable naming</b>. It also saves you from unencessary name conflicts</p>
+  <h3 class="demo-title">Retrieving Variables</h3>
+  <p>A custom function named <code>getvar()</code> was created to retrieve the variables inside the map. This function allows the retrieval of variables <b>no matter how deeply nested</b> they are.</p>
+    <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Deep nesting supported!</h4>
+    <p>Sass does not have a native method for accessing deeply nested maps, so one was created for the kit!</p>
+  </div>
+  <!-- /Callout -->
+  <h3 class="demo-title">Example</h3>
+  <p>Let's say you have a set variables stored in <code>$kit-vars</code> as shown below</p>
+  
+<pre>
+  <code class="javascript">
+  $kit-vars:(
+    font-size: 14px,
+    
+    colors:(
+      text: black,
+      titles: orange,
+      links: blue,
+      
+      dark:(
+        text: white,
+        title: orange,
+        links: blue,
+      ),
+    ),
+  );
+  </code>
+</pre>
+
+  <p>To retrieve root variables like <code>font-size</code> you would use <code>get-var()</code> as follows</p>
+  
+<pre>
+  <code>
+  body {
+    font-size: getvar(font-size); // saved as > font-size in $kit-variables
+  }
+  </code>
+</pre>
+
+  <p>To retrieve nested variables like <code>text</code> you would use <code>get-var()</code> as follows. </p>
+  
+<pre>
+  <code>
+  body {
+    font-size: getvar(font-size);
+    color: getvar(colors text); // saved as colors > text in $kit-variables
+  }
+  </code>
+</pre>
+
+  <p>Thus <code>getvar(colors text)</code> will retrieve a variable named <code>text</code> nested in the order <code>colors > text</code></p>
+  <p>Likewise <code>getvar(colors dark text)</code> will retrieve a variable named <code>text</code> nested in the order <code>colors > dark > text</code></p>.
+
+<pre>
+  <code>
+  body {
+    font-size: getvar(font-size);
+    color: getvar(colors text);
+  }
+  
+  body.dark {
+    color: getvar(colors dark text); // saved as colors > dark > text in $kit-variables
+  }
+  </code>
+</pre>
+
+</div>
+<!-- /Block Demo -->

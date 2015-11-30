@@ -1,0 +1,255 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Products</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">product Class</h3>
+  <p>Use the <code>.product</code> class to display multipurpose vertical products. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <p class="dont-copy">Default<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></p>
+    <!-- product -->
+    <div class="product clearfix">
+    
+      <div class="image"> 
+        <a href="#" class="main"><img src="images/demo/products/product1.jpg" alt=""></a>
+      </div>
+      
+      <div class="details">
+        <a class="title" href="#">Some designer product</a>
+        <!-- rating -->
+        <ul class="hlinks hlinks-rating">
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+        </ul>
+        <!-- /rating -->
+
+        <span class="price">$1500</span>
+        <!-- buttons -->
+        <div class="btn-group">
+          <a class="btn btn-outline btn-base-hover" href="">add to cart</a>	
+          <a class="btn btn-outline btn-default-hover" href=""><i class="icon fa fa-heart"></i></a>
+        </div> 
+        <!-- /buttons -->
+      </div>
+      
+    </div>
+    <!-- /product -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <p class="dont-copy">With  description<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></p>
+    <!-- product -->
+    <div class="product product-show-desc clearfix">
+    
+      <div class="image"> 
+        <a href="#" class="main"><img src="images/demo/products/product1.jpg" alt=""></a>
+      </div>
+      
+      <div class="details">
+        <a class="title" href="#">Some designer product</a>
+        <!-- rating -->
+        <ul class="hlinks hlinks-rating">
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+        </ul>
+        <!-- /rating -->
+        <p class="desc">Temporibus autem quibusdam et aut officiis debitis aut rerum.</p>
+        <span class="price">$1500</span>
+        <!-- buttons -->
+        <div class="btn-group">
+          <a class="btn btn-outline btn-base-hover" href="">add to cart</a>	
+          <a class="btn btn-outline btn-default-hover" href=""><i class="icon fa fa-heart"></i></a>
+        </div> 
+        <!-- /buttons -->
+      </div>
+      
+    </div>
+    <!-- /product -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <p class="dont-copy">With hidden images<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></p>
+    <!-- product -->
+    <div class="product product-show-desc clearfix">
+    
+      <div class="image"> 
+        <a href="#" class="main"><img src="images/demo/products/product1.jpg" alt=""></a>
+        <ul class="additional">
+          <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+          <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+          <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+          <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+        </ul>
+      </div>
+      
+      <div class="details">
+        <a class="title" href="#">Some designer product</a>
+        <!-- rating -->
+        <ul class="hlinks hlinks-rating">
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+          <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+        </ul>
+        <!-- /rating -->
+        <p class="desc">Temporibus autem quibusdam et aut officiis debitis aut rerum.</p>
+        <span class="price">$1500</span>
+        <!-- buttons -->
+        <div class="btn-group">
+          <a class="btn btn-outline btn-base-hover" href="">add to cart</a>	
+          <a class="btn btn-outline btn-default-hover" href=""><i class="icon fa fa-heart"></i></a>
+        </div> 
+        <!-- /buttons -->
+      </div>
+      
+    </div>
+    <!-- /product -->
+  </div>
+  <!-- /Col -->
+ 
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p class="no-margin-b">No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">Listview version</h3>
+  <p>Use the <code>.product-listview</code> class to switch orientations. To achieve the same on multiple products, use the <code>.product-listview</code> class on the parent container. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-12">
+    <p class="dont-copy">listview<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></p>
+                  <!-- product -->
+                  <div class="product product-listview clearfix">
+                  
+                    <div class="image"> 
+                      <a href="#" class="main"><img src="images/demo/products/product1.jpg" alt=""></a>
+                      <ul class="additional">
+                        <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+                        <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+                        <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+                        <li><a href="images/demo/products/product1.jpg" data-gal="prettyPhoto[gallery 1]" title="Product Name"><img src="images/demo/products/product1.jpg" alt=""></a></li>
+                      </ul>
+                    </div>
+                    
+                    <div class="details">
+                      <a class="title" href="#">Some designer product</a>
+                      <!-- rating -->
+                      <ul class="hlinks hlinks-rating">
+                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                        <li class="active"><a href="#"><i class="icon fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="icon fa fa-star"></i></a></li>
+                      </ul>
+                      <!-- /rating -->
+                      <p class="desc">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
+                      <span class="price">$1500</span>
+                      <!-- buttons -->
+                      <div class="btn-group">
+                        <a class="btn btn-outline btn-base-hover" href="">add to cart</a>	
+                        <a class="btn btn-outline btn-default-hover" href=""><i class="icon fa fa-heart"></i></a>
+                      </div> 
+                      <!-- /buttons -->
+                    </div>
+                    
+                  </div>
+                  <!-- /product -->
+  </div>
+  <!-- /Col -->
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p class="no-margin-b">No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+ 
+  </div>
+<!-- /Block Demo -->
+

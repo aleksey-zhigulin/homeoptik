@@ -1,0 +1,69 @@
+/* BLOG COMMENTS
+-------------------------------------------------- */
+
+.comments-list {
+  @include no-list();
+  
+  > li {
+    display: block;
+    margin: 0 0 40px 0;
+    padding: 0 0 40px 0;
+    border-bottom: 1px solid #eee;
+    
+    &:last-child { border: none }
+  }
+  
+  .avatar {
+    float: left;
+    width: 9.6%;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  
+  .comment-box {
+    float: right;
+    width: 85.4%;
+    
+    .username {
+      font-weight: bold;
+      float: left;
+      color: getvar(colors bcolor);
+    }
+    
+    .hlinks-rating {
+      display:block;
+      margin:10px 0 0 0;
+      
+      > li.active > a, > li > a:hover {
+        color:#FFC60A;
+      }
+    }
+    .date {
+      float: right;
+      color: #ccc;
+    }
+
+    .comment {
+      width: 100%;
+      float: left;
+      margin: 20px 0 0 0;
+      
+      @media (max-width: 767px) {
+        font-size: 11px;
+      }
+    }
+    
+  }
+
+
+  
+
+  
+}
+
+
+
+

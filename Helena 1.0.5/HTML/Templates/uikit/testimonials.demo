@@ -1,0 +1,221 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Testimonials</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">vquote Class</h3>
+  <p>Use the <code>.vquote</code> class to display vertical testimonial quotes. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">Default<a class="copy-code" href="#">+ copy</a></p>
+    <!-- vquote -->
+    <div class="vquote">
+      <blockquote>
+        <p>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+        <footer><img class="avatar" src="images/demo/face3.jpg" alt=""/><small><a href="#">Mary K. Doe</a>Business Owner</small></footer>
+      </blockquote>
+    </div>
+    <!-- /vquote -->
+  </div>
+  <!-- /Col --> 
+  
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">.vquote-right<a class="copy-code" href="#">+ copy</a></p>
+     <!-- vquote -->
+    <div class="vquote vquote-right">
+      <blockquote>
+        <p>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+        <footer><small><a href="#">Mary K. Doe</a>Business Owner</small><img class="avatar" src="images/demo/face3.jpg" alt="" /></footer>
+      </blockquote>
+    </div>
+    <!-- /vquote -->
+  </div>
+  <!-- /Col --> 
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title">hquote Class</h3>
+  <p>Use the <code>.hquote</code> class to display horizontal testimonial quotes. View the <code>HTML</code> tab for class names and usage.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+<!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">.hquote<a class="copy-code" href="#">+ copy</a></p>
+    <!-- hquote -->
+    <div class="hquote">
+      <blockquote>
+        <p><img class="avatar" src="images/demo/face3.jpg" alt=""/>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+        <small class="author-bottom"><a href="#">Mary Doe</a>, Business Owner</small>
+      </blockquote>
+    </div>
+    <!-- /hquote -->
+  </div>
+  <!-- /Col --> 
+  
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">.hquote-right<a class="copy-code" href="#">+ copy</a></p>
+    <!-- hquote -->
+    <div class="hquote hquote-right">
+      <blockquote>
+        <p><img class="avatar" src="images/demo/face1.jpg" alt=""/>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+        <small class="author-bottom"><a href="#">Alice Wonder</a>, Actress</small>
+      </blockquote>
+    </div>
+    <!-- /hquote -->
+  </div>
+  <!-- /Col --> 
+  
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p>No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  
+  <p>Alternative arrangement using <code>.author-top</code>. View the <code>HTML</code> tab for class names and usage.</p>
+  
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+<!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">.hquote<a class="copy-code" href="#">+ copy</a></p>
+    <!-- hquote -->
+    <div class="hquote">
+      <blockquote>
+        <p><img class="avatar" src="images/demo/face3.jpg" alt=""/><small class="author-top"><a href="#">Mary Doe</a>, Business Owner</small>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+      </blockquote>
+    </div>
+    <!-- /hquote -->
+  </div>
+  <!-- /Col --> 
+  
+  <!-- Col -->
+  <div class="col-md-6">
+    <p class="dont-copy">.hquote-right<a class="copy-code" href="#">+ copy</a></p>
+    <!-- hquote -->
+    <div class="hquote hquote-right">
+      <blockquote>
+        <p><img class="avatar" src="images/demo/face1.jpg" alt=""/><small class="author-top"><a href="#">Alice Wonder</a>, Actress</small>The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.</p>
+      </blockquote>
+    </div>
+    <!-- /hquote -->
+  </div>
+  <!-- /Col --> 
+  
+
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code>
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <p class="no-margin-b">No notes in this section.</p>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+  </div>
+<!-- /Block Demo -->
+

@@ -1,0 +1,210 @@
+// SKINS
+// =====================================================================
+// - Hold your colors in a map for better organization
+// - To select a skin simply set $active-skin( found in variables.scss ) with your map
+// - Your skin colors will now be available via getvar(colors [key])
+// - You only need 3 colors i.e 
+//   + $bcolor -- base dark color for text, titles etc
+//   + $pcolor -- primary color for links, accents etc
+//   + $scolor -- optional secondary color for misc uses e.g buttons etc
+// - Feel free to add your own
+// =====================================================================
+
+$default-colors:(
+  "white": #fff,
+  "black": #000,
+  "red": #D93600,
+  "orange":#FF9326,
+  "yellow":#FEBB08,
+  "green":#468C00,
+  "blue":#0085B2,
+  "violet":#A333A3,
+  "azure":#00B2B2, 
+  "cyan": #00C0FF,  
+);
+
+// Skin 1
+// =========================================
+$s1-bcolor:#131416;
+$s1-pcolor:#E95144;
+$s1-scolor:#E54D28;
+
+$skin-1:(
+  bcolor: $s1-bcolor,
+  pcolor: $s1-pcolor,
+  scolor: $s1-scolor,
+  bcolor-m: lighten($s1-bcolor, 20%),
+  bcolor-l: lighten($s1-bcolor, 40%),
+  bcolor-xl: lighten($s1-bcolor, 80%),
+  bcolor-xxl: lighten($s1-bcolor, 85%),
+  text: lighten($s1-bcolor, 35%),
+  title: lighten($s1-bcolor, 20%),
+  nav: lighten($s1-bcolor, 35%),
+  link: $s1-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s1-bcolor,
+    pcolor: $s1-pcolor,
+    scolor: $s1-scolor,
+    bcolor-m: lighten($s1-bcolor, 20%),
+    bcolor-l: lighten($s1-bcolor, 40%),
+    bcolor-xl: lighten($s1-bcolor, 80%),
+    bcolor-xxl: lighten($s1-bcolor, 85%),
+  )
+);
+
+// Skin 2
+// =========================================
+$s2-bcolor:#131416;
+$s2-pcolor:#E7214C;
+$s2-scolor:#E54D28;
+
+$skin-2:(
+  bcolor: $s2-bcolor,
+  pcolor: $s2-pcolor,
+  scolor: $s2-scolor,
+  bcolor-m: lighten($s2-bcolor, 20%),
+  bcolor-l: lighten($s2-bcolor, 40%),
+  bcolor-xl: lighten($s2-bcolor, 80%),
+  bcolor-xxl: lighten($s2-bcolor, 85%),
+  text: lighten($s2-bcolor, 35%),
+  title: lighten($s2-bcolor, 20%),
+  nav: lighten($s2-bcolor, 35%),
+  link: $s2-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s2-bcolor,
+    pcolor: $s2-pcolor,
+    scolor: $s2-scolor,
+    bcolor-m: lighten($s2-bcolor, 20%),
+    bcolor-l: lighten($s2-bcolor, 40%),
+    bcolor-xl: lighten($s2-bcolor, 80%),
+    bcolor-xxl: lighten($s2-bcolor, 85%),
+  )
+);
+
+// Skin 3
+// =========================================
+$s3-bcolor:#131416;
+$s3-pcolor:#F16543;
+$s3-scolor:#E54D28;
+
+$skin-3:(
+  bcolor: $s3-bcolor,
+  pcolor: $s3-pcolor,
+  scolor: $s3-scolor,
+  bcolor-m: lighten($s3-bcolor, 20%),
+  bcolor-l: lighten($s3-bcolor, 40%),
+  bcolor-xl: lighten($s3-bcolor, 80%),
+  bcolor-xxl: lighten($s3-bcolor, 85%),
+  text: lighten($s3-bcolor, 35%),
+  title: lighten($s3-bcolor, 20%),
+  nav: lighten($s3-bcolor, 35%),
+  link: $s3-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s3-bcolor,
+    pcolor: $s3-pcolor,
+    scolor: $s3-scolor,
+    bcolor-m: lighten($s3-bcolor, 20%),
+    bcolor-l: lighten($s3-bcolor, 40%),
+    bcolor-xl: lighten($s3-bcolor, 80%),
+    bcolor-xxl: lighten($s3-bcolor, 85%),
+  )
+);
+
+// Skin 4
+// =========================================
+$s4-bcolor:#131416;
+$s4-pcolor: #08AFB5;
+$s4-scolor:#E54D28;
+
+$skin-4:(
+  bcolor: $s4-bcolor,
+  pcolor: $s4-pcolor,
+  scolor: $s4-scolor,
+  bcolor-m: lighten($s4-bcolor, 20%),
+  bcolor-l: lighten($s4-bcolor, 40%),
+  bcolor-xl: lighten($s4-bcolor, 80%),
+  bcolor-xxl: lighten($s4-bcolor, 85%),
+  text: lighten($s4-bcolor, 35%),
+  title: lighten($s4-bcolor, 20%),
+  nav: lighten($s4-bcolor, 35%),
+  link: $s4-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s4-bcolor,
+    pcolor: $s4-pcolor,
+    scolor: $s4-scolor,
+    bcolor-m: lighten($s4-bcolor, 20%),
+    bcolor-l: lighten($s4-bcolor, 40%),
+    bcolor-xl: lighten($s4-bcolor, 80%),
+    bcolor-xxl: lighten($s4-bcolor, 85%),
+  )
+);
+
+// Skin 5
+// =========================================
+$s5-bcolor:#131416;
+$s5-pcolor:#28B9D4;
+$s5-scolor:#E54D28;
+
+$skin-5:(
+  bcolor: $s5-bcolor,
+  pcolor: $s5-pcolor,
+  scolor: $s5-scolor,
+  bcolor-m: lighten($s5-bcolor, 20%),
+  bcolor-l: lighten($s5-bcolor, 40%),
+  bcolor-xl: lighten($s5-bcolor, 80%),
+  bcolor-xxl: lighten($s5-bcolor, 85%),
+  text: lighten($s5-bcolor, 35%),
+  title: lighten($s5-bcolor, 20%),
+  nav: lighten($s5-bcolor, 35%),
+  link: $s5-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s5-bcolor,
+    pcolor: $s5-pcolor,
+    scolor: $s5-scolor,
+    bcolor-m: lighten($s5-bcolor, 20%),
+    bcolor-l: lighten($s5-bcolor, 40%),
+    bcolor-xl: lighten($s5-bcolor, 80%),
+    bcolor-xxl: lighten($s5-bcolor, 85%),
+  )
+);
+
+// Skin 6
+// =========================================
+$s6-bcolor:#131416;
+$s6-pcolor:#82B440;
+$s6-scolor:#E54D28;
+
+$skin-6:(
+  bcolor: $s6-bcolor,
+  pcolor: $s6-pcolor,
+  scolor: $s6-scolor,
+  bcolor-m: lighten($s6-bcolor, 20%),
+  bcolor-l: lighten($s6-bcolor, 40%),
+  bcolor-xl: lighten($s6-bcolor, 80%),
+  bcolor-xxl: lighten($s6-bcolor, 85%),
+  text: lighten($s6-bcolor, 35%),
+  title: lighten($s6-bcolor, 20%),
+  nav: lighten($s6-bcolor, 35%),
+  link: $s6-pcolor,
+  
+  // These will be used to generate class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s6-bcolor,
+    pcolor: $s6-pcolor,
+    scolor: $s6-scolor,
+    bcolor-m: lighten($s6-bcolor, 20%),
+    bcolor-l: lighten($s6-bcolor, 40%),
+    bcolor-xl: lighten($s6-bcolor, 80%),
+    bcolor-xxl: lighten($s6-bcolor, 85%),
+  )
+);

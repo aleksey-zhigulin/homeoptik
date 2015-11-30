@@ -1,0 +1,115 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Flipper</h1>
+    <p class="no-margin-b">A usefull class for toggling hidden elements using a flipping effect</p>
+  </header>
+  <!-- /Header -->
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Don't need this module?</h4>
+    <p>To disable any module simply uncomment it's import statement in <code>uikit.scss</code>. This will generate a smaller stylesheet without the module.</p>
+  </div>
+  <!-- /Callout -->
+  <h3 class="demo-title">The flipper class</h3>
+  <p>Use the <code>.flipper</code> class to create a flipping reveal effect.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Tab -->
+      <div class="tab tab-output active">
+<!-- Row -->
+<div class="row">
+  <!-- Col -->
+  <div class="col-md-4">
+    <h6 class="dont-copy">Empty <code>.flipper</code><a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- flipper-->
+    <div class="flipper">
+      <!-- Sides -->
+      <div class="flipper-sides">
+        <!-- Front -->
+        <div class="front">
+          <img src="images/demo/team1.jpg" alt="" />
+        </div>
+        <!-- /Front -->
+        
+        <!-- Back -->
+        <div class="back pcolor-bg">
+          <!-- Content here -->
+        </div>
+        <!-- /Back -->
+      </div>
+      <!-- /Sides -->
+    </div>
+    <!-- /flipper -->
+  </div>
+  <!-- /Col -->
+  
+  <!-- Col -->
+  <div class="col-md-4">
+    <h6 class="dont-copy">With content<a class="copy-code" href="#"><i class="fa fa-copy"></i></a></h6>
+    <!-- flipper-->
+    <div class="flipper">
+      <!-- Sides -->
+      <div class="flipper-sides">
+        <!-- Front -->
+        <div class="front">
+          <img src="images/demo/team1.jpg" alt="" />
+        </div>
+        <!-- /Front -->
+        
+        <!-- Back -->
+        <div class="back pcolor-bg">
+          <!-- Content -->
+          <div class="vcenter align-center">
+            <i class="vcenter-this icon fa fa-expand fa-2x white"></i>
+          </div>
+          <!-- /Content -->
+        </div>
+        <!-- /Back -->
+      </div>
+      <!-- /Sides -->
+    </div>
+    <!-- /flipper -->
+  </div>
+  <!-- /Col -->
+</div>
+<!-- /Row -->
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Tab -->
+      <!-- Tab -->
+      <div class="tab tab-notes">
+        <h5>Additional helper classes have been used</h5>
+        <p>These classes are not necessary for the revealer to work and are only used to presentation.</p>
+        <ul>
+          <li>To color the back section we used the <code>.pcolor-bg</code> class</li>
+          <li>To color the icon white we used the <code>.white</code> class</li>
+          <li>To center the icon we used the <code>.vcenter</code> and <code>.align-center</code> classes.</li>
+        </ul>
+      </div>
+      <!-- /Tab -->
+    </div>
+
+  </div>
+  <!-- /Code Sample -->
+
+  </div>
+<!-- /Block Demo -->

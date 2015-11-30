@@ -1,0 +1,140 @@
+/* VFEAT
+----------------------------------------- */
+$vfeat-sizes:(
+  default:(
+    active: false,
+    icon-w: 40px,
+    icon-boxed-w: 50px,
+    icon-mg: 10px,
+    title-size: 14px,
+    title-mg: 6px,
+    text-size: 12px,
+    text-lh: 1.6em,
+  ),
+  lg:(
+    active: true,
+    icon-w: 60px,
+    icon-boxed-w: 50px,
+    icon-mg: 15px,
+    title-size: 16px,
+    title-mg: 6px,
+    text-size: 12px,
+    text-lh: 1.6em,
+  ),
+  sm:(
+    active: true,
+    icon-w: 20px,
+    icon-boxed-w: 40px,
+    icon-mg: 5px,
+    title-size: 14px,
+    title-mg: 6px,
+    text-size: 11px,
+    text-lh: 1.6em,
+  ),
+);
+
+/* Default setup */
+.vfeat{
+  $vars: map-get($vfeat-sizes, default); // default size
+  margin:15px 0;
+  text-align: center;
+  
+  .icon {
+    display:block;
+    font-size: map-get($vars, icon-w);
+    text-align:center;
+    margin:0 0 map-get($vars, icon-mg) 0;
+    @include vendorize(box-sizing, content-box);
+  }
+  
+  .title {
+    font-size: map-get($vars, title-size);
+    text-transform: capitalize;
+    line-height:1;
+    margin:0 0 map-get($vars, title-mg) 0;
+  }
+  
+  .text {
+    font-size: map-get($vars, text-size);
+    margin: 0;
+    line-height: map-get($vars, text-lh);
+  }
+}
+
+/* Styles */
+.vfeat.vfeat-box, .vfeat.vfeat-round {
+  $vars: map-get($vfeat-sizes, default);
+  
+  .icon {
+    width: map-get($vars, icon-boxed-w);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: map-get($vars, icon-boxed-w);
+    background: getvar(colors bcolor-xl);     
+    font-size: floor(0.5 * map-get($vars, icon-boxed-w));
+  }
+}
+
+.vfeat.vfeat-round .icon{
+  border-radius: 50%;
+}
+
+
+.vfeat.vfeat-box-bcolor {
+  .icon {
+    background: getvar(colors text);
+    color: #fff;    
+  }
+  .title {
+    color: getvar(colors pcolor);
+  }
+}
+
+.vfeat.vfeat-box-pcolor{
+  .icon {
+    background: getvar(colors pcolor);
+    color: #fff;    
+  }
+}
+
+.vfeat.vfeat-box-outline{
+  .icon {
+    border: 2px solid getvar(colors bcolor-xl);
+    background: none;  
+  }
+}
+
+/* Sizes */
+.vfeat{
+  @each $size, $vars in $vfeat-sizes {
+    @if (map-get($vars, active)) {
+      &.vfeat-#{$size} {
+
+        .icon {
+          font-size: map-get($vars, icon-w);
+          margin:0 0 map-get($vars, icon-mg) 0;
+        }
+        
+        &.vfeat-box , &.vfeat-round {
+          .icon {
+            width: map-get($vars, icon-boxed-w);
+            line-height: map-get($vars, icon-boxed-w);   
+            font-size: floor(0.5 * map-get($vars, icon-boxed-w));
+          }
+        }
+   
+        .title {
+          font-size: map-get($vars, title-size);
+          margin:0 0 map-get($vars, title-mg) 0;
+        }
+        
+        .text {
+          font-size: map-get($vars, text-size);
+          line-height: map-get($vars, text-lh);
+        }
+        
+      }
+    }
+  }
+}
+

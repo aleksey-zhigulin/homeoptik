@@ -1,0 +1,244 @@
+/* CART
+---------------------------------------------------------- */
+
+.cart { 
+	width:100%;
+	margin-bottom:40px;
+	border:1px solid #ddd;
+
+}
+
+.cart-buttons {  
+  .btn{ 
+    width:28%; 
+    padding:15px 0; 
+    float:right; 
+    margin-left:20px
+  }
+}
+
+/* CART CONTENTS
+---------------------------------------------------------- */
+
+table.cart-contents {
+  width: 100%;
+  margin: 0;
+  
+  thead {
+    background: #F9F9F9;
+    border-bottom: 1px solid #ddd;
+    
+    th {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+    
+    &:hover { background: #FCFCFC }
+  }
+
+  th, td {
+      padding: 20px;
+      border-left: 1px solid #ddd;
+      
+      &:first-child {border-left: none  }
+  }
+  
+  td { vertical-align: top }
+  
+ .image { 
+    width: 12%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .details {
+  
+    .rating { margin-bottom: 10px; }
+    
+    .title {
+      display: block;
+      color: #333;
+      font-size: 14px;
+      font-family: getvar(title-font name);
+      text-transform: capitalize;
+      margin: 0 0 10px 0;
+    }
+
+    span {
+      display: block;
+      margin: 0 0 5px 0;
+      line-height: 1;
+      font-size: 12px;
+    }
+
+  }  
+
+  .action { 
+    width: 110px; 
+    
+    button {
+      float: left;
+      border: none;
+      text-align: center;
+      color: #fff;
+      padding: 0;
+      width: 33%;
+      line-height: 30px;
+      
+      &.refresh { background-color: tint(getvar(colors bcolor), 50%); }
+      &.edit { background-color: tint(getvar(colors bcolor), 30%); }
+      &.delete { background-color: getvar(colors pcolor); }
+      
+      &:hover {
+        @include gradient(linear-gradient, "(top,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 100%)");
+      }
+    }
+
+    
+  }
+
+  .qty { 
+    width: 9%;
+    
+    input {
+      border: 1px solid #ddd;
+      height: 30px;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .unit-price, .total-price {
+    width: 14%;
+    font-size: 16px;
+    color: #666;
+    font-weight: normal;
+  }
+
+  .total-price { color: getvar(colors pcolor) }
+  
+  .currency { margin-right: 3px }
+
+}
+
+
+/* CART SUMMARY
+---------------------------------------------------------- */
+
+.cart-summary 
+
+  .terms {
+    padding: 0 40px;
+    color: #999;
+    font-size: 12px;
+    width:72%;
+    vertical-align:middle;
+    
+    h5 {
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      .fa {
+        margin-right: 10px;
+        color: #ccc;
+        font-size: 20px;
+        vertical-align: middle;
+      }
+      
+    }
+
+  }
+  
+  .totals {
+    width: 28%;
+    border-left: 1px solid #ddd;
+    vertical-align:top;
+  }
+
+  .cart-totals { 
+    width: 100%; 
+    height:100%;
+    
+    tr { 
+      border-bottom: 1px solid #ddd;
+      
+      &:last-child { border: none }
+    }
+
+    td {
+      border-left: 1px solid #ddd;
+      width: 50%;
+      padding: 7px 20px;
+      color: #888;
+      
+      &:first-child {border-left:none}
+      
+      &.cart-total {
+        font-size: 20px;
+        color: #333;
+        text-transform: uppercase;
+        padding: 20px;
+        
+        &.price { color: getvar(colors pcolor) }
+
+      }
+      
+
+    }
+    
+  }
+
+
+@media (max-width: 767px) {
+
+  table.cart-contents {
+  
+  	thead h5 {
+      margin:0; 
+      font-size: 14px;
+    }
+    
+    .total-price { 
+      width:25%; 
+      font-size:12px;
+    }
+    
+    .qty {
+      width:15%;
+      input { padding:5px 0}
+    }
+    
+    th, td{ 
+      padding:15px; 
+      border-right:1px solid #ddd;
+    }
+    
+    .currency {margin-right:0}
+    .action  {
+      margin-top:15px; 
+      float: none!important;
+    }
+    
+    
+  }
+
+	.cart-buttons .btn {
+    display:block; 
+    float:none; 
+    margin:0 0 20px 0; 
+    width:100%;
+  }
+	.cart-summary .terms { display:none}
+  
+	.cart-totals td {
+    width:auto;
+    &.price {width: 40%}
+  }
+
+}

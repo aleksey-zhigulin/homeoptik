@@ -1,0 +1,114 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Fonts Setup</h1>
+    <p class="no-margin-b">The kit comes with a few prebuilt fonts. Each of these fonts can be easily disabled if not needed.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Learn more about SASS !</h4>
+    <p>For an in depth explanation of SASS and information on usage please visit <a href="http://sass-lang.com/">http://sass-lang.com/</a></p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">The fonts sass file</h3>
+  <p>Font files are imported in a <b>Sass</b> file named <code>_fonts.scss</code> that is found at the root of the sass directory. The structure of the <code>$fonts</code> variable is shown below.</p>
+  
+<pre class="no-wrap">
+  <code class="javascript">
+$fonts:(
+  roboto:(
+    name: "Roboto",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/roboto/roboto.css",
+    src-web: "http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic:400,300,300italic,400italic,500,500italic,700,700italic,900,900italic",
+    normal: normal,
+    bold: 700,
+    m-bold: 500,
+    x-bold: 900,
+    light: 300,
+    x-light: 300,
+  ),
+
+  roboto-cond:(
+    name: "Roboto Condensed",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/roboto-cond/roboto-cond.css",
+    src-web: "http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic:400,300,300italic,400italic,700,700italic",
+    normal: 400,
+    bold: 700,
+    m-bold: 400,
+    x-bold: 700,
+    light: 300,
+    x-light: 300,
+  ),
+
+  themify:(
+    name: "themify",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/themify/themify-icons.css",
+    src-web: "",
+  ),
+  
+  font-awesome:(
+    name: "FontAwesome",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/font-awesome/font-awesome.min.css",
+    src-web: "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css",
+  ),
+
+);
+  </code>
+</pre>
+
+  <h3 class="demo-title">Hussle free font switching</h3>
+  <p>Usually font weight values vary between different fonts. <mark>Font A may have a light value of 100</mark>, while <mark>Font B may have a value of 300</mark>. The <code>$fonts</code> variable map solves this issue by using a fixed naming scheme for font weights. Thus when you switch fonts, you wont have to change your css code to reflect the new font weights.</p>
+  <h3 class="demo-title">Disabling a font</h3>
+  <p>To disable any font simply change <code>active:true</code> to <code>active:false</code>. This will <b>prevent the font's stylesheet from being included</b> in your main file.</p>
+
+  <h3 class="demo-title">Changing the source mode</h3>
+  <p>There are 2 ways of including a font on your project</p>
+  <ul>
+    <li>setting <code>src-mode: import</code> wil use the <code>src-import:</code> value to import the font locally.</li>
+    <li>setting <code>src-mode: web</code> wil use the <code>src-web:</code> value to import the font from the web.</li>
+  </ul>
+  <p>Use the value that best fits your project setup.</p>
+  <h3 class="demo-title">Saving fonts in $kit-variables</h3>
+  <p>Saving a font in <code>$kit-vars</code> is straight forward. Simpy create a new variable and set it to any font defined in <code>_fonts.scss</code>. You will now be able to access your font using the <code>getvar()</code> function. i.e</p>
+<pre>
+  <code>
+$kit-vars:(
+
+  main-font: map-get($fonts, roboto),
+  title-font: map-get($fonts, roboto-cond),
+  
+);
+  </code>
+</pre>
+
+  <h3 class="demo-title">Accesing your fonts</h3>
+  <p>With your fonts saved in <code>$kit-vars</code>, you can now access all of their properties in your classes via <code>getvar()</code></p>
+
+  <pre>
+  <code>
+  body {
+    font-family: getvar(main-font name);
+    font-weight: getvar(main-font light);
+  }
+  
+  h2 {
+    font-family: getvar(title-font name);
+    font-weight: getvar(title-font m-bold);  
+  }
+  </code>
+</pre>
+ 
+</div>
+<!-- /Block Demo -->

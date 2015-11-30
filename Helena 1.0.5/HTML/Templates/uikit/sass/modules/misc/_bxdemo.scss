@@ -1,0 +1,18 @@
+.bx-layers-demo {
+  .slide {
+    height: 300px;
+  }
+  
+  .bx-layer {
+    position: absolute;
+    background: rgba(#000, 0.9);
+    color: #fff;
+    display:inline-block;
+    padding:15px 30px;
+    
+    span {
+      color: yellow;
+      margin-left:15px;
+    }
+  }
+}

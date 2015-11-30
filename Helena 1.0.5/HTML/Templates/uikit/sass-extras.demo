@@ -1,0 +1,77 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Sass Extras</h1>
+    <p class="no-margin-b">A bunch of life saving sass mixins and functions are included.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Learn more about SASS !</h4>
+    <p>For an in depth explanation of SASS and information on usage please visit <a href="http://sass-lang.com/">http://sass-lang.com/</a></p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">map-seek()</h3>
+  <p>Use <code>map-seek()</code> to retrieve deeply nested maps. The <code>getvar()</code> function utilises this handy function.</p>
+<pre>
+  <code class="javascript">
+  // example map
+  
+  $skin:(
+    text-color: black,
+    bg-color: white,
+    
+    dark:(
+      text-color: white,
+      bg-color: dark,
+    )
+  );
+  
+  // using map-seek() to retrieve root keys
+  p {
+    color: map-seek($skin, text-color) 
+  }
+  
+  // using map-seek to retrieve nested keys. 
+  // * Notice how the keys are seperated by spaces not commas.
+  
+  p.dark {
+    color: map-seek($skin, dark text-color) 
+  }
+  </code>
+</pre>
+
+  <h3 class="demo-title">@arrow mixin</h3>
+  <p>Use <code>@arrow</code> mixin to render CSS arrows of any size and color</p>
+<pre>
+  <code class="javascript">
+  // @mixin arrow($direction, $width, $height, $color)
+  // -------------------------------------------------
+  // example values: { direction:up, width: 60px, height: 30px, color: red }
+  
+  .arrow-up {
+    @include arrow(up, 60px, 30px, red);
+  }
+  
+  // The above will generate the following
+  
+  .arrow-up {
+    display: block;
+    width: 0;
+    height: 0;
+    background: none;
+    border: none;
+    border-bottom: 30px solid red;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+  }
+  </code>
+</pre>
+  <h3 class="demo-title">Plus many many more !</h3>
+  <p>Many more time saving sass functions and mixins are included in the kit.</p>
+
+</div>
+<!-- /Block Demo -->

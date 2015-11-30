@@ -1,0 +1,70 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Colors and Skins</h1>
+    <p class="no-margin-b">The kit relies on a few global variables like skin color to apply some shared properties.</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Learn more about SASS !</h4>
+    <p>For an in depth explanation of SASS and information on usage please visit <a href="http://sass-lang.com/">http://sass-lang.com/</a></p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">The skins sass file</h3>
+  <p>All colors and color schemes are defined in a file named <code>_skins.scss</code> found in the root sass directory. Examples of defined skins are shown below.</p>
+ 
+<pre>
+  <code class="javascript">
+  $skin-1:(
+    bcolor: black,
+    pcolor: blue,
+    scolor: orange,
+  };
+  
+  // you can create your own skins
+  
+  $my-skin:(
+    bcolor: black,
+    pcolor: green,
+    scolor: yellow,
+  };
+  </code>
+</pre>
+  <p>The color scheme relies on only 3 colors</p>
+  <ul>
+    <li><code>bcolor</code> is the base color for use on text</li>
+    <li><code>pcolor</code> is the primary color that compliments the base color</li>
+    <li><code>scolor</code> is an optional secondary color that compliments the both the base & primary colors</li>
+  </ul>
+  <h3 class="demo-title">Setting the active skin</h3>
+  <p>To actually use a defined skin, you must set it to the <code>$active-skin</code> variable found in the <code>_variables.scss</code> file in the root sass directory.</p>
+<pre>
+  <code class="javascript">
+  // Set the active skin here
+  $active-skin: $my-skin;
+  
+  // The active skin is refered to as [colors] inside kit-vars
+  $kit-vars:(
+    colors: $active-skin,
+  }
+  </code>
+</pre>
+  <h3 class="demo-title">Accessing skin variables</h3>
+  <p>Skin variables are accessed like any other global variables via the <code>getvar()</code> function. See example below.</p>
+<pre>
+  <code class="css">
+  h1 {
+    color: getvar(colors bcolor);
+  }
+  
+  a {
+    color: getvar(colors pcolor);
+  }
+  </code>
+</pre>
+</div>
+<!-- /Block Demo -->

@@ -1,0 +1,319 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Form Controls</h1>
+    <p class="no-margin-b">Information on  Usage, styles and extra classes.</p>
+  </header>
+  <!-- /Header -->
+  
+  <h3 class="demo-title case-c">Text Controls</h3>
+  <p>Use bootstrap's <code>.form-group</code> and <code>.form-control</code> classes to apply default styles to text inputs and labels.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<form>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label>Text area</label>
+    <textarea rows="4" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Default select</label>
+    <select class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Multiple select</label>
+    <select multiple class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+</form>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title case-c">Text Controls with icons</h3>
+  <p>Use bootstrap's <code>.input-group</code> and <code>.input-group-addon</code> to add icons to your form controls.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<form>
+  <!-- Form Group -->
+  <div class="form-group">
+    <label>Email</label>
+    <!-- Input Group -->
+    <div class="input-group">
+      <div class="input-group-addon"><i class="icon fa fa-user"></i></div>
+      <input type="email" class="form-control" placeholder="Enter email">
+    </div>
+    <!-- /Input Group -->
+  </div>
+  <!-- /Form Group -->
+  <!-- Form Group -->
+  <div class="form-group">
+    <label>Text area</label>
+    <!-- Input Group -->
+    <div class="input-group">
+      <div class="input-group-addon"><i class="icon fa fa-file-text"></i></div>
+      <textarea rows="3" class="form-control"></textarea>
+    </div>
+    <!-- /Input Group -->
+  </div>
+  <!-- /Form Group -->
+  <!-- Form Group -->
+  <div class="form-group">
+    <label>Multiple select</label>
+    <!-- Input Group -->
+    <div class="input-group">
+      <div class="input-group-addon"><i class="icon fa fa-plane"></i></div>
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <!-- /Input Group -->
+  </div>
+  <!-- /Form Group -->
+  <!-- Form Group -->
+  <div class="form-group">
+    <label>Multiple select</label>
+    <!-- Input Group -->
+    <div class="input-group">
+      <div class="input-group-addon"><i class="icon fa fa-car"></i></div>
+      <select multiple class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <!-- /Input Group -->
+  </div>
+  <!-- /Form Group -->
+</form>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title case-c">Checkboxes & Radios</h3>
+  <p>Use bootstrap's <code>.input-group</code> and <code>.input-group-addon</code> to add icons to your form controls.</p>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<h6>Stacked Checkboxes & Radios</h6>
+<form>    
+  <div class="row">
+    <div class="col-md-4">
+      <div class="checkbox"><label><input type="checkbox" value="">Mercury</label></div>
+      <div class="checkbox"><label><input type="checkbox" value="">Venus</label></div>
+      <div class="checkbox"><label><input type="checkbox" value="">Earth</label></div>
+    </div>
+    <div class="col-md-4">
+      <div class="checkbox"><label><input type="checkbox" value="">Mars</label></div>
+      <div class="checkbox"><label><input type="checkbox" value="">Just</label></div>
+      <div class="checkbox"><label><input type="checkbox" value="">Saturn</label></div>
+    </div>
+    <div class="col-md-4">
+      <div class="radio"><label><input type="radio" name="demoRadio1" value="" >Uranus</label></div>
+      <div class="radio"><label><input type="radio" name="demoRadio1" value="">Neptune</label></div>
+      <div class="radio"><label><input type="radio" name="demoRadio1" value="">Pluto</label></div>
+    </div>
+  </div>
+</form>
+
+<h6>Inline Checkboxes & Radios</h6>
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <label class="checkbox-inline"><input type="checkbox" value="">Mercury</label>
+      <label class="checkbox-inline"><input type="checkbox" value="">Venus</label>
+      <label class="checkbox-inline"><input type="checkbox" value="">Earth</label>
+    </div>
+    <div class="col-md-6">
+      <label class="radio-inline"><input type="radio" name="demoRadio2" value="">Uranus</label>
+      <label class="radio-inline"><input type="radio" name="demoRadio2" value="">Neptune</label>
+      <label class="radio-inline"><input type="radio" name="demoRadio2" value="">Pluto</label>
+    </div>
+  </div>
+</form>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+  
+  <h3 class="demo-title case-c">Dynamic Controls</h3>
+  <p>These controls rely on the <a href="http://jqueryui.com">JqueryUI</a> library and can be setup using nothing but data attributes.Use the <code>.data-call=""</code> attribute to setup any of the following dynamic controls.</p>
+  <ul>
+    <li><code>data-call="jui-slider"</code> for the slider control</li>
+    <li><code>data-call="jui-date"</code> for the date picker control</li>
+  </ul>
+  <!-- Code Sample -->
+  <div class="code-sample">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs cs-nav" role="tablist">
+      <li class="active"><a href="#" data-tab=".tab-output"><i class="icon-left ti ti-desktop"></i>output</a></li>
+      <li><a href="#" data-tab=".tab-html"><i class="icon-left ti ti-printer"></i>html</a></li>
+      <li><a href="#" data-tab=".tab-notes"><i class="icon-left ti ti-comment"></i>notes</a></li>
+    </ul>
+    <!-- /Nav tabs -->
+
+    <!-- Tabs -->
+    <div class="tabs cs-tabs">
+      <!-- Output (remember to account for white space!)-->
+      <div class="tab tab-output active">
+<div class="row">
+  <div class="col-md-4">
+    <h6>Datepicker</h6>
+    <div class="form-group">
+      <input type="text" value="12/04/2014" class="form-control" data-call="jui-datepicker">
+    </div>
+  </div>
+  
+  <div class="col-md-4">  
+    <h6>Datepicker With options</h6>
+    <div class="form-group">
+      <input type="text" class="form-control" value="2014-12-09" data-call="jui-datepicker" data-options="{ dateFormat: 'yy-mm-dd'}">
+    </div>
+  </div>
+  
+  <div class="col-md-4">  
+    <h6>Slider Control</h6>
+    <div class="form-group slider-group">
+      <div class="slider-ctrl" data-call="jui-slider" data-target="#g1" data-options="{min:0, max:100}"></div>
+      <input type="text" id="g1" class="form-control" value="0">
+    </div>
+  </div>
+
+</div>
+      </div>
+      <!-- /Output -->
+      
+      <!-- Html -->
+      <div class="tab tab-html">
+<pre>
+  <code class="html">
+  </code>
+</pre>
+      </div>
+      <!-- /Html -->
+      
+      <!-- Notes -->
+      <div class="tab tab-notes">
+        <h5>Copy + Pasting made easy !</h5>
+        <p>See something you want to use? Just hit the <b>HTML</b> tab to view the source for copy pasting. No need to open this page in an HTML editor to view the source!</p>
+      </div>
+      <!-- /Notes -->
+    </div>
+  </div>
+  <!-- /Code Sample -->
+
+</div>
+<!-- /Block Demo -->

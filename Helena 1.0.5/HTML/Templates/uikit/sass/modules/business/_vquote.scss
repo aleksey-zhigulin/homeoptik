@@ -1,0 +1,137 @@
+/* VQUOTE
+------------------------------------ */
+$quote-bg: getvar(colors bcolor-xl);
+
+$vquote-sizes:(
+  default:(
+    pad: 20px,
+    symbol-h: 100px,
+    symbol-w: 50px,
+    symbol-font-size: 100px,
+    font-size: 14px,
+    arrow-h: 30px,
+    arrow-w: 20px,
+    arrow-mg: 20px,
+    avatar-size: 50px,
+  ),
+);
+
+$vquote-vars: map-get($vquote-sizes, default);
+
+.vquote {
+  @extend .clearfix;
+}
+.vquote {
+  blockquote {
+    border: none;
+    font-size: map-get($vquote-vars, font-size);
+    padding:0;
+    margin:0;
+    
+    p {
+      padding: map-get($vquote-vars, pad) map-get($vquote-vars, pad) map-get($vquote-vars, pad) map-get($vquote-vars, symbol-w) + 10px;
+      background: $quote-bg;
+      margin:0;
+      position:relative;
+      font-style: italic;
+      
+      &:after {
+        content: "";
+				@include arrow(top-left, map-get($vquote-vars, arrow-w), map-get($vquote-vars, arrow-h), $quote-bg);
+				position:absolute;
+        bottom: - map-get($vquote-vars, arrow-h);
+        left: 20px;
+      }
+      
+      &:before {
+        content: '\201C';
+        position: absolute;
+        color: rgba(#000, 0.1);
+        color: getvar(colors pcolor);
+        font-family: "Arial";
+        font-size: map-get($vquote-vars, symbol-font-size);
+        top: map-get($vquote-vars, pad) / 2;
+        left:0px;
+        line-height: map-get($vquote-vars, symbol-h);
+        width: map-get($vquote-vars, symbol-w);
+        text-align: center;
+      }
+      
+      &.quote-right {
+        padding: map-get($vquote-vars, pad) map-get($vquote-vars, symbol-w) + 10px map-get($vquote-vars, pad) map-get($vquote-vars, pad);
+        &:before {
+          content: '\201D';
+          top: map-get($vquote-vars, pad) / 2;
+          left: auto;
+          right: map-get($vquote-vars, pad);
+        }
+      }
+    }
+    
+    footer, small {
+      margin: 0;
+      &:before {
+        display: none;
+      }
+    }
+    
+    footer {
+      display: table;
+      margin:map-get($vquote-vars, arrow-w) 20px 0 map-get($vquote-vars, arrow-w) + map-get($vquote-vars, arrow-mg) + 20px;
+      position: relative;
+      z-index:10;
+      height: map-get($vquote-vars, avatar-size);
+      font-family: getvar(title-font name);
+      color: getvar(colors pcolor);
+      line-height: 1;
+      font-size: map-get($vquote-vars, font-size);
+
+      small, .avatar {
+        display: table-cell;
+        vertical-align: middle;
+        margin:0;
+      }
+      
+      small {
+        font-size: 0.8em;
+        a, .author {
+          display: block;
+          font-size: map-get($vquote-vars, font-size);
+          font-weight: getvar(title-font m-bold);
+          color: getvar(colors title);
+        }
+      }
+
+      
+      .avatar {
+        width: map-get($vquote-vars, avatar-size);
+        height: map-get($vquote-vars, avatar-size);
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.vquote.vquote-right {
+
+  p {
+    &:after {
+      @include arrow(top-right, map-get($vquote-vars, arrow-w), map-get($vquote-vars, arrow-h), $quote-bg);
+      right: map-get($vquote-vars, arrow-h);
+      left: auto;
+    }
+  }
+
+  footer {
+    text-align: right;
+    float:right;
+    margin:map-get($vquote-vars, arrow-w) (map-get($vquote-vars, arrow-w) + map-get($vquote-vars, arrow-mg) + 20px) 0 0;
+
+    .avatar {
+      left: auto;
+      right: 0;
+      margin:0 0 0 10px;
+    }
+  }
+}

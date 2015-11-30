@@ -1,0 +1,92 @@
+<!-- Block Demo -->
+<div class="block-demo">
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>Working with SASS</h1>
+    <p class="no-margin-b">Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly</p>
+  </header>
+  <!-- /Header -->
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Learn more about SASS !</h4>
+    <p>For an in depth explanation of SASS and information on usage please visit <a href="http://sass-lang.com/">http://sass-lang.com/</a></p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">Finding a SASS compiler</h3>
+  
+  <p>Before you start using SASS you will need a compiler first. There are many GUI SASS compilers that be downloaded online for free.</p>
+  <ul>
+    <li>
+      <a href="http://incident57.com/codekit/">CodeKit</a>
+      <span class="info">(Paid)</span>
+    </li>
+    <li>
+      <a href="http://compass.handlino.com/">Compass.app</a>
+      <span class="info">(Paid, Open Source)</span>
+    </li>
+    <li>
+      <a href="http://hammerformac.com/">Hammer</a>
+    </li>
+    <li>
+      <a href="http://koala-app.com/">Koala</a>
+      <span class="info">(Open Source)</span>
+    </li>
+    <li>
+      <a href="http://livereload.com/">LiveReload</a>
+
+    </li>
+    <li>
+      <a href="http://mixture.io/">Mixture</a>
+      <span class="info">(Paid)</span>
+    </li>
+    <li>
+      <a href="http://alphapixels.com/prepros/">Prepros</a>
+      <span class="info">(Open Source)</span>
+    </li>
+    <li>
+      <a href="http://alphapixels.com/prepros/pro">Prepros Pro</a>
+      <span class="info">(Paid)</span>
+    </li>
+    <li>
+      <a href="http://mhs.github.io/scout-app/">Scout</a>
+      <span class="info">(Open Source)</span>
+      <span class="mac-icon"></span>
+      <span class="windows-icon"></span>
+    </li>
+  </ul>
+  <p>The free application <a href="http://koala-app.com/">Koala</a> was used to compile the SASS files in this theme </p>
+  <h3 class="demo-title">Using Koala to compile SASS files</h3>
+  <p>The first time you run <a href="http://koala-app.com/">Koala</a> a screen similar to the one below should open.</p>
+  <img src="images/help/koala-1.jpg" alt="image" class="margin-b"/>
+  <p>The next thing you should do is load the included <strong>Sass</strong> files. You do this by locating the entire <i>sass</i> directory in windows explorer and dragging it to the app as indicated. Once you do this Koala will try to list all the <strong>Sass</strong> files it can find in the directory. </p>
+
+  <img src="images/help/koala-2.jpg" alt="image" class="margin-b"/>
+  <p>Only select <code>uikit.scss</code> since it references all the other SASS files. Make sure to de-select the <strong>compass mode</strong> option on the right then click <strong>compile.</strong> Thats it ! <code>uikit.scss</code> should be compiled to <code>uikit.css</code> and <strong>copied to the css folder</strong>.</p>
+
+  <h3 class="demo-title">compiling changes</h3>
+  <p>Whenever you edit any of the the stylesheets, always run <a href="http://koala-app.com/">Koala</a> and compile the changes.</p>
+  
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Sass rules are similar to CSS!</h4>
+    <p>Sass files should be treated just like regular css files. Use the same properties, values and syntax that you would use with a css stylesheet.</p>
+  </div>
+  <!-- /Callout -->
+  
+  <h3 class="demo-title">Auto compiling changes</h3>
+  <p>If you do not want to click compile everytime you make changes, simply select the auto-compile option on the right. Now <a href="http://koala-app.com/">Koala</a> will watch all the files in the <strong>sass</strong> directory and automatically compile any changes.</p>
+
+  <!-- Callout -->
+  <div class="bs-callout bs-callout-info">
+    <h4>Remember to compile any new changes!</h4>
+    <p>The main stylesheets <code>uikit.scss</code> needs to be compiled every time you make changes. You can <b>select the Auto Compile option</b> in Koala to <b>automate</b> this process.</p>
+  </div>
+  <!-- /Callout -->
+
+  <h3 class="demo-title">Compressing Stylesheets</h3>
+  <p>If you want compress the generated files, simply select the desired compression level found in the options. Koala will remember the setting even if you have selected a file to be auto compiled.</p>
+
+</div>
+<!-- /Block Demo -->

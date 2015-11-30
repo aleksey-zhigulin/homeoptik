@@ -1,0 +1,132 @@
+/* DROPDOWNS
+------------------------------------------- */
+.dropdown-menu, .hnav .navbar-nav .dropdown-menu {
+  $c: tint(#000, 80%);
+  padding: 0;
+  box-shadow: 0 10px 0 -5px rgba(#000, 0.1);
+  border: 1px solid $c;
+  color: getvar(colors text);
+  
+  > li > a {
+    padding:0 20px;
+    line-height: 40px;
+    color: getvar(colors bcolor-m);
+    font-size: 0.9em;
+    text-transform: capitalize;
+    border-bottom: 1px solid rgba(#000, 0.1);
+  }
+  
+  &.line-top {
+    border-top: 3px solid getvar(colors pcolor);
+  }
+  
+  &.arrow-top {
+
+    &:before {
+      content: "";
+      @include arrow(up, 18px, 10px, $c);
+      position:absolute;
+      top:-10px;
+      left:30px;
+    }
+    
+    &:after {
+      content: "";
+      @include arrow(up, 16px, 8px, #fff);
+      position:absolute;
+      top:-8px;
+      left:31px;
+    }
+    
+    @media (max-width:767px) {
+      &:before, &:after {
+        display:none;
+      }
+    }
+  }
+}
+
+
+.dropdown-menu.dropdown-right, 
+.hnav .dropdown-menu.dropdown-right, 
+.pull-right > .dropdown-menu,
+.hnav .navbar-right  .dropdown-menu {
+  right:0;
+  left:auto;
+  
+  &.arrow-top {
+
+    &:before {
+      right:30px;
+      left: auto;
+    }
+    
+    &:after {
+      right:31px;
+      left: auto;
+    }
+  }
+}
+
+.dropdown-menu.dropdown-left-xs {
+  @media (max-width: 767px) {
+    left:0 !important;
+    right:auto !important;
+    
+    &.arrow-top {
+      &:before {
+        left:30px;
+        right: auto;
+      }
+      
+      &:after {
+        left:31px;
+        right: auto;
+      }
+    }
+  }
+}
+
+.dropdown-menu.dropdown-panel {
+  min-width: 270px;
+  text-transform: none;
+  
+  @media (max-width: 767px) {
+    min-width: 220px;
+  }
+  
+  header {
+    background: getvar(colors bcolor-xl);
+    padding: 15px;
+    font-size: 15px;
+    line-height: 1;
+    color: getvar(colors bcolor-m);
+  }
+  
+  .checkbox-inline {
+    line-height: 34px;
+    input[type="checkbox"]	{
+      margin-top: cmg(34px, 11px);
+    }
+  }
+  
+  .btn {
+    margin-top:0;
+  }
+  
+  .form-control, .form-group {
+    font-size: 12px;
+  }
+  .form-control {
+    padding:6px 10px;
+  }
+  fieldset, section, .panel-footer {
+    padding: 20px;
+    margin:-1px 0 0 0;
+    border-top: 1px solid rgba(#000, 0.1);
+  }
+  
+  .panel-footer {
+  
+  }
+}

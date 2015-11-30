@@ -1,0 +1,151 @@
+/* PRODUCT DETAILS
+------------------------------------------------- */
+.product-details {
+
+  .product-tabs {
+    font-size: 0.85em;
+  }
+  .product-title {
+    $font: getvar(cond-font);
+    font: map-get($font, normal)  25px/1.5em  map-get($font, name);
+    color: getvar(colors bcolor-m);
+    margin:0 0 10px 0;
+  }
+  .main-slider {
+    margin:0 0 10px 0;
+  }
+  
+  .product-tabs {
+    margin:0 0 20px 0;
+  }
+
+  .product-rating {
+    margin:0 0 10px 0;
+    .hlinks, .text {
+      display: inline-block;
+    }
+    .text {
+      margin-left:30px;
+      color: getvar(colors bcolor-l);
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+  }
+  
+  .product-price {
+    $font: getvar(cond-font);
+    font: map-get($font, bold)  25px  map-get($font, name);
+    color: getvar(colors pcolor);
+    margin:0 0 10px 0;
+  }
+  
+  .attributes {
+    //border: 2px solid #eee;
+    //padding: 10px 15px;
+    .val {
+      opacity: 0.7;
+    }
+  }
+}
+
+.product-details {
+  
+  .thumb-slider {
+    $w: 25px;
+    padding: 0 $w;
+
+    .bx-controls-direction a {
+  
+      height: 100%;
+      margin:0;
+      width:$w;
+      
+      &:after {
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin: auto;
+        line-height: $w;
+        height: $w;
+        font-size: floor($w * 0.6);
+        
+      }
+      
+      
+      &.bx-next {
+        left: - $w;
+        background: getvar(colors pcolor);
+      }
+      &.bx-prev {
+        right: - $w;
+      }
+    }
+  }
+}
+
+.product-details0 {
+  .title, .details-box {
+    margin:0 0 20px 0;  
+  }
+
+  .title {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding:0 20px;
+    line-height: 45px;
+    background: getvar(colors title);
+  }
+  
+  .price-box {
+    border: 2px solid #eee;
+    padding: 15px 10px;
+    
+    .price {
+      color: getvar(colors pcolor);
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: 600;
+      margin: 0;
+      float: left;
+    }
+    
+    span {
+      float: right;
+      line-height: 20px;
+    }
+
+  }
+  
+.attributes {
+    border: 2px solid #eee;
+    padding: 10px 15px;
+    .val {
+      opacity: 0.7;
+    }
+}
+  
+  .review-box {
+      padding: 20px 0;
+      text-align: right;
+      
+      .hlinks-rating {
+        float: left;
+        margin-right: 10px;
+        
+        > li {
+          font-size:15px;
+        }
+      }
+      
+      span {
+        display: inline-block;
+        line-height: 15px;
+        float:right;
+      }
+      
+    } 
+}
+

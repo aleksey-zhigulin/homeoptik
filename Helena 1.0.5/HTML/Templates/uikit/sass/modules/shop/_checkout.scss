@@ -1,0 +1,58 @@
+/* CHECKOUT
+----------------------------------------- */
+.checkout {
+
+  h6 {
+    font:getvar(cond-font m-bold) 15px/1 getvar(cond-font name);
+    text-transform: uppercase;
+    margin:0 0 20px 0;
+    color: getvar(colors bcolor);
+  }
+  
+  .form-group {
+  
+    label {
+    color: getvar(colors bcolor);
+    }
+    
+    .form-control {
+      background:rgba(#000, 0.03);
+    }
+  }
+
+}
+
+.order-summary {
+  width:100%;
+  border: 1px solid rgba(#000, 0.1);
+  padding:20px; 
+  
+  table {
+    width:100%;
+  }
+  
+  tr {
+    border-bottom:1px solid rgba(#000, 0.1);
+  }
+  
+  td {
+    padding:15px;
+    
+    &.price {
+      text-align:right;
+      color: getvar(colors bcolor);
+    } 
+  }
+  
+  tr.total{
+    border:none;
+    
+    td {
+      font-weight:bold;
+      
+      &.price {
+        color: getvar(colors pcolor);
+      }
+    }
+  }
+}

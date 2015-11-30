@@ -1,0 +1,77 @@
+// FONT SETUP
+// ===========================================
+$fonts:(
+  roboto:(
+    name: "Roboto",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/roboto/roboto.css",
+    src-web: "http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic,900,900italic",
+    normal: normal,
+    bold: 700,
+    m-bold: 500,
+    x-bold: 900,
+    light: 300,
+    x-light: 300,
+  ),
+  
+  roboto-cond:(
+    name: "Roboto Condensed",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/roboto-cond/roboto-cond.css",
+    src-web: "http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic",
+    normal: 400,
+    bold: 700,
+    m-bold: 400,
+    x-bold: 700,
+    light: 300,
+    x-light: 300,
+  ),
+
+  themify:(
+    name: "themify",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/themify/themify-icons.css",
+    src-web: "",
+  ),
+  
+  font-awesome:(
+    name: "FontAwesome",
+    active: true,
+    src-mode: import,
+    src-import: "../fonts/font-awesome/font-awesome.min.css",
+    src-web: "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css",
+  ),
+
+);
+
+// SETUP FUNCTION
+// -----------------------------------------
+@each $font, $vals in $fonts {
+
+  @if (map-get($vals, active)) {
+    $mode: map-get($vals, src-mode);
+    $src-web: map-get($vals, src-web);
+    $src-import: map-get($vals, src-import);
+
+    @if $mode == 'web' {
+      @import url($src-web);
+    } 
+    @elseif $mode == 'import' {
+      @import url($src-import);
+    }
+  }
+}
+
+@each $font, $vals in $fonts {
+
+  @if (map-get($vals, active)) {
+    .font-#{$font} {
+      font-family: map-get($vals, name);
+    }
+  }
+}
+
+

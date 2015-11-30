@@ -26,15 +26,11 @@
         </div>
     {% endif %}
 
-
-    {% block shipping_address %}
-        <!-- Row -->
-        <div class="row">
-
+        {% block shipping_address %}
+    <!-- Row -->
+    <div class="row">
         <div class="col-md-8 mgb-30-xs">
-
-        <div class="row">
-
+            <div class="row">
         <!-- Main Col -->
         <div class="col-md-12 mgb-30-xs">
             <!-- Panel -->
@@ -125,149 +121,144 @@
             <!-- /Panel -->
         </div>
         <!-- /Main Col -->
-    {% endblock %}
+        {% endblock %}
 
-{% block payment_method %}
-    <!-- Main Col -->
-    <div class="col-sm-6 mgb-30-xs">
-        <!-- Panel -->
-        <div class="panel panel-default">
-            <!-- Heading -->
-            <div class="panel-heading">
-                <h4 class="inline-block panel-title case-c">
-                    Способ оплаты
-                </h4>
-                <a href="{% url 'checkout:payment-method' %}" class="pull-right">
-                    {% trans "Change" %}
-                </a>
-            </div>
-            <!-- /Heading -->
-
-            <!-- Panel Body -->
-            <div class="panel-body">
-                <div class="hfeat hfeat-lg">
-                    <img class="icon"
-                         style="height: 60px"
-                         src="{% static  "images/payments/"|add:payment_method.code|add:".png" %}"
-                         alt="{{ payment_method.name }}"/>
-                    <a class="title">{{ payment_method.name }}</a>
+        {% block payment_method %}
+        <!-- Main Col -->
+        <div class="col-sm-6 mgb-30-xs">
+            <!-- Panel -->
+            <div class="panel panel-default">
+                <!-- Heading -->
+                <div class="panel-heading">
+                    <h4 class="inline-block panel-title case-c">
+                        Способ оплаты
+                    </h4>
+                    <a href="{% url 'checkout:payment-method' %}" class="pull-right">
+                        {% trans "Change" %}
+                    </a>
                 </div>
+                <!-- /Heading -->
+
+                <!-- Panel Body -->
+                <div class="panel-body">
+                    <div class="hfeat hfeat-lg">
+                        <img class="icon"
+                             style="height: 60px"
+                             src="{% static  "images/payments/"|add:payment_method.code|add:".png" %}"
+                             alt="{{ payment_method.name }}"/>
+                        <a class="title">{{ payment_method.name }}</a>
+                    </div>
+                </div>
+                <!-- /Panel Body -->
+
             </div>
-            <!-- /Panel Body -->
-
+            <!-- /Panel -->
         </div>
-        <!-- /Panel -->
+        <!-- /Main Col -->
+        </div>
     </div>
-    <!-- /Main Col -->
+            {% endblock payment_method %}
 
-    </div>
+        {% block order_contents %}
+        <!-- Side Col -->
+        <div class="side-col col-md-4">
 
-    </div>
-{% endblock payment_method %}
-
-{% block order_contents %}
-
-    <!-- Side Col -->
-    <div class="side-col col-md-4">
-
-        <!-- Side Widget -->
-        <div class="order-summary">
-            <table>
-                <tbody>
-                <tr>
-                    <td>Корзина</td>
-                    <td class="price text-nowrap">
-                        {% if basket.is_tax_known and not show_tax_separately %}
-                            {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
-                        {% else %}
-                            {{ basket.total_excl_tax_excl_discounts|currency:basket.currency }}
+            <!-- Side Widget -->
+            <div class="order-summary">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Корзина</td>
+                        <td class="price text-nowrap">
+                            {% if basket.is_tax_known and not show_tax_separately %}
+                                {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
+                            {% else %}
+                                {{ basket.total_excl_tax_excl_discounts|currency:basket.currency }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+                        {% if voucher_discounts %}
+                            {% for discount in voucher_discounts %}
+                                <tr>
+                                    <td>
+                                        {{ discount.voucher.name }} ({{ discount.voucher.code }})
+                                        {% if editable %}
+                                            <form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm btn-danger" />
+                                            </form>
+                                        {% endif %}
+                                    </td>
+                                    <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
+                                </tr>
+                            {% endfor %}
                         {% endif %}
-                    </td>
-                </tr>
-                {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
-                    {% if voucher_discounts %}
-                        {% for discount in voucher_discounts %}
-                            <tr>
-                                <td>
-                                    {{ discount.voucher.name }} ({{ discount.voucher.code }})
-                                    {% if editable %}
-                                        <form action="{% url 'basket:vouchers-remove' pk=discount.voucher.id %}" method="POST">
-                                            {% csrf_token %}
-                                            <input type="submit" value="{% trans 'Remove' %}" class="btn btn-sm btn-danger" />
-                                        </form>
-                                    {% endif %}
-                                </td>
-                                <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
-                            </tr>
-                        {% endfor %}
+                        {% for discount in offer_discounts %}
+                        <tr>
+                            <td>
+                                <span class="label label-success">скидка</span>
+                                {{ discount.name }}
+                                {% if discount.description %}
+                                    <br/><small>{{ discount.description }}</small>
+                                {% endif %}
+                            </td>
+                            <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% endwith %}
+                    {% if not shipping_method.is_discounted %}
+                        <tr>
+                            <td>
+                                {{ shipping_method.name }}
+                            </td>
+                            <td class="price text-nowrap">
+                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                                    {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                {% else %}
+                                    {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        {% shipping_charge_discount shipping_method basket as shipping_discount %}
+                        {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
+                        <tr>
+                            <td>
+                                {{ shipping_method.name }} (со скидкой)
+                            </td>
+                            <td class="price text-nowrap">
+                                {% if not show_tax_separately and shipping_charge.is_tax_known %}
+                                    {{ shipping_charge.incl_tax|currency:basket.currency }}
+                                {% else %}
+                                    {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                {% endif %}
+                            </td>
+                        </tr>
                     {% endif %}
-                    {% for discount in offer_discounts %}
-                    <tr>
-                        <td>
-                            <span class="label label-success">скидка</span>
-                            {{ discount.name }}
-                            {% if discount.description %}
-                                <br/><small>{{ discount.description }}</small>
-                            {% endif %}
-                        </td>
-                        <td class="price text-nowrap">-{{ discount.discount|currency:basket.currency }}</td>
-                    </tr>
-                {% endfor %}
-                {% endwith %}
-                {% if not shipping_method.is_discounted %}
-                    <tr>
-                        <td>
-                            {{ shipping_method.name }}
-                        </td>
+                    <tr class="total">
+                        <td> Всего </td>
                         <td class="price text-nowrap">
-                            {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                {{ shipping_charge.incl_tax|currency:basket.currency }}
+                            {% if order_total.is_tax_known %}
+                                {{ order_total.incl_tax|currency:basket.currency }}
                             {% else %}
-                                {{ shipping_charge.excl_tax|currency:basket.currency }}
+                                {{ order_total.excl_tax|currency:basket.currency }}
                             {% endif %}
                         </td>
                     </tr>
-                {% else %}
-                    {% shipping_charge_discount shipping_method basket as shipping_discount %}
-                    {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
-                    <tr>
-                        <td>
-                            {{ shipping_method.name }} (со скидкой)
-                        </td>
-                        <td class="price text-nowrap">
-                            {% if not show_tax_separately and shipping_charge.is_tax_known %}
-                                {{ shipping_charge.incl_tax|currency:basket.currency }}
-                            {% else %}
-                                {{ shipping_charge.excl_tax|currency:basket.currency }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endif %}
-                <tr class="total">
-                    <td> Всего </td>
-                    <td class="price text-nowrap">
-                        {% if order_total.is_tax_known %}
-                            {{ order_total.incl_tax|currency:basket.currency }}
-                        {% else %}
-                            {{ order_total.excl_tax|currency:basket.currency }}
-                        {% endif %}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <a style="margin-bottom: 5px" class="btn btn-default btn-block btn-bigger" href="{% url 'basket:summary' %}">Редактировать корзину</a>
-            {% block place_order %}
-            {% endblock place_order %}
+                    </tbody>
+                </table>
+                <a style="margin-bottom: 5px" class="btn btn-default btn-block btn-bigger" href="{% url 'basket:summary' %}">Редактировать корзину</a>
+                {% block place_order %}
+                {% endblock place_order %}
+            </div>
+            <!-- /Side Widget -->
+
         </div>
-        <!-- /Side Widget -->
-
+        <!-- /Side Col -->
     </div>
-    <!-- /Side Col -->
-
-{% endblock order_contents %}
-
-</div>
     <!-- /Row -->
+        {% endblock order_contents %}
 
     {% block shipping_method %}
     {% endblock shipping_method %}

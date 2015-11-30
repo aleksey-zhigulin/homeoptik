@@ -29,7 +29,7 @@
                         control-label
                         {% if field.field.required %} required{% endif %}
                     ">
-                        {{ field.label|safe }}
+                        {{ field.label|safe|capfirst }}
                     </label>
                 {% endif %}
             {% endblock %}
@@ -42,8 +42,13 @@
                                 {{ field.label|safe }}
                                 {% render_field field  %}
                             </label>
+                        {% elif field.widget_type == 'RadioSelect' %}
+                            {% for radio in field %}
+                                <div class="radio">
+                                    {{ radio }}
+                                </div>
+                            {% endfor %}
                         {% else %}
-                            {{ field.widget.attr.rows }}
                             {% render_field field class+="form-control"%}
                         {% endif %}
                     {% endblock %}

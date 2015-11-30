@@ -29,10 +29,10 @@
         <div class="row">
             {% for field in payment_method_form %}
                 {% for code, name in field.field.widget.choices %}
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <div class="vfeat vfeat-lg">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="hfeat hfeat-lg">
+                            <img class="icon" src="{% static  "images/payments/"|add:code|add:".png" %}" alt="{{ name }}"/>
                             <a href="#" onclick="$('#id_paymentType').val('{{ code }}'); $('#ShopForm').submit();" class="title">
-                                <img src="{% static  "images/payments/"|add:code|add:".png" %}" alt="{{ name }}"/>
                                 {{ name }}
                             </a>
                         </div>

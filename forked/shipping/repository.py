@@ -9,4 +9,4 @@ from forked.shipping import methods as shipping_methods
 
 class Repository(repository.Repository):
 
-    methods = (shipping_methods.Free(), shipping_methods.Pickup())
+    methods = (shipping_methods.Pickup(), shipping_methods.Post(), shipping_methods.Courier())

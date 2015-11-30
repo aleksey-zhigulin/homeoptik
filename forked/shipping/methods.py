@@ -14,5 +14,20 @@ class Pickup(FixedPrice):
     charge_excl_tax = settings.OSCAR_SHIPPING_PICKUP_EXCL_TAX
     charge_incl_tax = settings.OSCAR_SHIPPING_PICKUP_INCL_TAX
 
+class Courier(FixedPrice):
+
+    code = 'courier-shipping'
+    name = _('Courier')
+    description = _('Shipping by courier in Moscow')
+    charge_excl_tax = settings.OSCAR_SHIPPING_COURIER_EXCL_TAX
+    charge_incl_tax = settings.OSCAR_SHIPPING_COURIER_INCL_TAX
+
+class Post(FixedPrice):
+
+    code = 'post-shipping'
+    name = _('Post')
+    description = _('Shipping by Russian Post')
+    charge_excl_tax = settings.OSCAR_SHIPPING_POST_EXCL_TAX
+    charge_incl_tax = settings.OSCAR_SHIPPING_POST_INCL_TAX
 
 
